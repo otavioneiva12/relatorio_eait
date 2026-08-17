@@ -11,5 +11,3 @@ links:
 output:
   postcards::jolla
 ---
-
-Engenheiro Civil (UFSJ) e Supervisor Técnico na GFA Engenharia. Atua na interface entre geotecnologias e engenharia de transportes, coordenando levantamentos topográficos e dados LiDAR. Pós-graduando com linha de pesquisa focada em pavimentação, dedicando-se ao estudo e otimização de parâmetros aplicados à infraestrutura rodoviária.
