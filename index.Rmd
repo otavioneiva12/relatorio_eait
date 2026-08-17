@@ -1,0 +1,15 @@
+---
+title: "Otávio Augusto dos Reis Neiva"
+image: "otavio.png"
+links:
+  - label: GitHub
+    url: "https://github.com/otavioneiva12"
+  - label: Email
+    url: "mailto:otavioneiva@outlook.com"
+  - label: Relatórios
+    url: "./relatorio/index.html"
+output:
+  postcards::jolla
+---
+
+Engenheiro Civil (UFSJ) e Supervisor Técnico na GFA Engenharia. Atua na interface entre geotecnologias e engenharia de transportes, coordenando levantamentos topográficos e dados LiDAR. Pós-graduando com linha de pesquisa focada em pavimentação, dedicando-se ao estudo e otimização de parâmetros aplicados à infraestrutura rodoviária.
