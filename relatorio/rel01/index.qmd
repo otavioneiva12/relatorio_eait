@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
-author: "Otávio Augusto dos Reis Neiva"
-title: "Relatório de Aula Prática 01 - XXXXXXX"
+author: "Otávio Augusto dos Reis Neiva e Gregório Grazziotti Carvalho"
+title: "Relatório de Aula Prática 01 - Introdução ao R e Estatistica Descritiva "
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
@@ -9,7 +9,7 @@ csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
 include-before-body: header.html
 date: now
-date-format: "DD/MM/YYYY, HH:mm"
+date-format: "24/08/2026, 18:00"
 lang: pt-BR
 format:
   html:
@@ -25,12 +25,31 @@ execute:
   message: false
 ---
 
+```{r setup, include=FALSE}
+library(leem)
+library(car)
+library(e1071)
 
-## 📌 Introdução
+df_spt     <- read.csv("sondagens_spt_5m.csv", header = TRUE, sep = ",", dec = ".", encoding = "UTF-8-BOM")
+dados_nspt <- df_spt$nspt
+obj_leem   <- leem::new_leem(dados_nspt, variable = "discrete")
+```
 
-Descreva o contexto da prática e sua importância.
+## 📌 Introdução ao Curso R Básico
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Esta introdução sintetiza a trajetória do curso R Básico, ministrado pelo Professor Ben Dêivide. A proposta pedagógica das video aulas orienta-se pelo ensino dos fundamentos da linguagem R, estabelecendo uma transição gradual da filosofia do programa à construção de rotinas analíticas aplicadas. A teoria exposta em aula é alinhada à literatura de referência para garantir fundamentação teórica e aplicação prática.
+
+### Estrutura do Curso e Progressão Temática
+
+O conteúdo das video aulas articula-se de forma sequencial ao longo de seis blocos principais:
+
+**● Ambiente e Configuração Inicial:** 
+
+> Apresentação da linguagem R, do ambiente RStudio/Posit e do ecossistema CRAN, abordando a gestão de pacotes, manipulação do espaço de trabalho e uso da documentação nativa.
+
+**●	Lógica de Objetos e Funções** 
+
+> Exploração do princípio fundamental de que tudo no R é um objeto e todas as ações decorrem de chamadas de funções. O bloco aborda o uso do operador de atribuição, o comportamento dos argumentos funcionais e as ferramentas de inspeção estrutural.
 
 
 
