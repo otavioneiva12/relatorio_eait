@@ -51,9 +51,280 @@ O conteúdo das video aulas articula-se de forma sequencial ao longo de seis blo
 
 > Exploração do princípio fundamental de que tudo no R é um objeto e todas as ações decorrem de chamadas de funções. O bloco aborda o uso do operador de atribuição, o comportamento dos argumentos funcionais e as ferramentas de inspeção estrutural.
 
+**●	Tipos de Dados e Coerção** 
+
+> Estudo dos tipos atômicos fundamentais (numérico, caractere, lógico e complexo) e das regras de coerção que definem a adaptação de dados heterogêneos.
+
+**●	Estruturas Primárias de Dados** 
+
+> Construção e manipulação de vetores atômicos, matrizes, arrays, fatores para variáveis categóricas, listas e quadros de dados (data frames).
+
+**●	Operadores, Indexação e Valores Especiais** 
+
+> Aplicação de operadores aritméticos, relacionais e lógicos, acompanhada das técnicas de vetorização, extração de subconjuntos e tratamento de condições especiais como dados ausentes e indefinições matemáticas.
+
+**●	Controle de Fluxo e Automação** 
+
+> Implementação de estruturas condicionais e laços de repetição para automatizar rotinas computacionais.
+
+A sequência desenvolvida pelo Prof. Ben Dêivide proporciona uma compreensão clara da arquitetura do R, capacitando o aluno a estruturar scripts eficientes e fundamentados na lógica orientada a objetos da linguagem.
+
+## Estatística Descritiva e Análise Exploratória de Dados
+
+A Análise Exploratória de Dados (AED) e a Estatística Descritiva constituem a etapa fundamental de qualquer investigação científica e projeto de engenharia. Seu objetivo central é sintetizar, organizar e descrever as características essenciais de um conjunto de dados sem perder a fidelidade da informação biológica, física ou geométrica subjacente.
+
+Em problemas de engenharia — como na caracterização geotécnica de solos via ensaios N_SPT —, os materiais naturais apresentam elevada variabilidade espacial e intrínseca. Portanto, a aplicação rigorosa de conceitos estatísticos permite transformar um conjunto de dados brutos em parâmetros confiáveis para tomada de decisão e projeto.
+
+### Definições Gerais e o Método Científico
+
+O método científico baseia-se em um ciclo iterativo de observação, formulação de hipóteses, experimentação e inferência. No contexto estatístico, a análise organiza-se em três pilares integrados:
+
+**●Estatística Descritiva** 
+
+> Conjunto de técnicas voltado para a coleta, organização, sumarização e apresentação visual dos dados obtidos na amostra.
+	
+**●Teoria das Probabilidades** 
+
+> Arcabouço matemático que modela o comportamento de fenômenos aleatórios, quantificando a incerteza intrínseca aos processos observados.
+	
+**●Estatística Inferencial**
+
+> Conjunto de métodos analíticos que permite induzir propriedades de toda uma População (N) a partir da observação de uma parcela representativa denominada Amostra (n).
+
+Na prática de engenharia, raramente é viável ou econômico ensaiar toda a população (por exemplo, testar todo o maciço de solo de um terreno). Por isso, trabalha-se com amostras (n), sendo essencial quantificar o erro amostral e a variabilidade dos dados.
+
+### Classificação e Natureza das Variáveis
+
+A escolha adequada das técnicas descritivas e dos testes estatísticos depende estritamente da escala de mensuração e da natureza das variáveis analisadas:
+
+**Variáveis Qualitativas (ou Categóricas:** Expressam atributos, qualidades ou categorias não numéricas.
+
+> Nominais: Não possuem ordenação implícita entre as categorias (ex.: tipo de solo: Argila, Silte, Areia; região geográfica).
+
+> Ordinais: Apresentam uma hierarquia ou ordenamento natural (ex.: grau de intemperismo: Fraco, Médio, Forte; nível de escolaridade).
+
+**Variáveis Quantitativas (ou Numéricas):** Expressam valores numéricos passíveis de operações matemáticas.
+
+> Discretas: Decorrem de processos de contagem sobre conjuntos enumeráveis, assumindo valores inteiros (ex.: número de golpes N_SPT; quantidade de trincas em uma viga).
+
+> Contínuas: Resultam de processos de mensuração direta em uma escala contínua, podendo assumir qualquer valor em um intervalo real (ex.: profundidade em metros, resistência à compressão em MPa, umidade do solo).
+
+### Organização Tabular e Agrupamento em Classes
+
+Dados brutos (não organizados) dificultam a identificação de padrões e tendências. Para variáveis contínuas ou discretas com alta amplitude de valores, realiza-se o **agrupamento em classes**, que reduz a dimensão do conjunto de dados em troca de uma perda controlada de detalhamento individual.
+
+#### Algoritmo para Definição dos Intervalos de Classe
+Para sistematizar a construção da tabela de frequências sem introduzir subjetividade, emprega-se o seguinte procedimento estruturado:
+
+**Número de Classes (k): ** Determinado pela Regra da Raiz ou pela Regra de Sturges:
+
+> $$
+k \approx \sqrt{m} \quad \text{para } m \le 100 \qquad \text{ou} \qquad k \approx 1 + 3{,}3 \cdot \log_{10}(m) \quad \text{para } m > 100
+$$
+
+**Amplitude Total (A_t): ** Diferença entre o maior e o menor valor observado no conjunto de dados brutos:
+
+> $$
+A_t = \max(X) - \min(X) = X_{(n)} - X_{(1)}
+$$
+
+**Amplitude de Classe (c): **Largura de cada intervalo, corrigida para evitar que dados pontuais coincidam exatamente com os limites das classes:
+
+> $$
+c = \frac{A_t}{k - 1} \quad \text{(Amostra)} \qquad \text{ou} \qquad c = \frac{A_t}{k} \quad \text{(População)}
+$$
+
+**Limite Inferior da Primeira Classe (L_i1): ** Ajustado para garantir que o menor valor fique centralizado na primeira classe:
+
+> $$
+L_{i1} = X_{(1)} - \frac{c}{2} \quad \text{(Amostra)} \qquad \text{ou} \qquad L_{i1} = X_{(1)} \quad \text{(População)}
+$$
+
+**Ponto Médio da Classe (X_i):** Valor representativo do intervalo da i-ésima classe, utilizado no cálculo de médias e variâncias de dados agrupados:
+
+> $$
+X_i = \frac{L_{ii} + L_{si}}{2}
+$$
+
+#### Tipos de Frequência e Representação Gráfica
+
+A distribuição de frequências é representada por:
+
+**Frequência Absoluta :** Contagem direta de observações na classe. 
+$$
+(f_i)
+$$
+**Frequência Relativa :** Proporção de observações em relação ao total.
+$$
+(f_{ri} = f_i / n)
+$$
+**Frequência Percentual :** Percentual do total pertencente à classe.
+$$
+(f_{\%i} = f_{ri} \times 100)
+$$
+**Frequências Acumuladas :** Soma sucessiva das frequências "abaixo de" ou "acima de" determinado limite.
+$$
+(f_{ac\downarrow} \quad \textbf{e} \quad f_{ac\uparrow})
+$$
+
+**Representação Gráfica:** Enquanto dados discretos são sintetizados por gráficos de barras ou hastes, dados agrupados em classes são visualizados por Histogramas (que indicam a forma da distribuição) e por Ogivas de Frequência Acumulada (cuja interseção entre as curvas descendente e ascendente permite identificar graficamente a Mediana).
+
+#### Medidas de Tendência Central (Posição)
+
+##### Média Aritmética (X ou μ)
+
+Representa o centro de gravidade matemático do conjunto de dados. É extremamente útil para modelos analíticos, mas possui a limitação de ser sensível a valores discrepantes (outliers).
+
+•	**Dados Não Agrupados:**
+
+$$
+\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(População)} \qquad \text{e} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(Amostra)}
+$$
+
+•	**Dados Agrupados em Classes:**
+
+$$
+\bar{X} = \frac{\sum_{i=1}^{k} X_i \cdot f_i}{n}
+$$
+
+##### Média Aparada 
+
+Para mitigar a influência de valores extremos sem descartá-los completamente, calcula-se a média após a remoção de uma porcentagem fixada das menores e maiores observações (ex.: remoção do menor e do maior valor):
+
+$$
+\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n - 2}
+$$
+
+##### Mediana 
+
+É a medida de posição correspondente ao quantil de 50%, ou seja, o valor que divide o conjunto de dados ordenados (rol) em duas partes de igual tamanho. A mediana é uma medida robusta, pois não é afetada por outliers.
+
+•	**Dados Não Agrupados:**
+
+$$
+M_d(X) = X_{\left(\frac{n+1}{2}\right)} \quad \text{(para } n \text{ ímpar)} \qquad \text{ou} \qquad M_d(X) = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2} \quad \text{(para } n \text{ par)}
+$$
+
+•	**Dados Agrupados em Classes:**
+
+$$
+M_d(X) = L_{iMd} + \left( \frac{\frac{n}{2} - f_{ant}}{f_{Md}} \right) \cdot c
+$$
+
+onde L_iMd é o limite inferior da classe mediana, f_ant é a frequência acumulada anterior e f_Md é a frequência absoluta da classe mediana.
+
+##### Moda 
+
+Representa o valor ou a região de maior densidade de ocorrência (valor mais frequente). Uma distribuição pode ser unimodal, bimodal ou multimodal.
+
+•	**Dados Agrupados em Classes (Moda de Czuber):**
+
+$$
+M_o(X) = L_{iMo} + \left( \frac{\Delta_1}{\Delta_1 + \Delta_2} \right) \cdot c
+$$
+onde $\Delta_1 = f_{Mo} - f_{ant}$ e $\Delta_2 = f_{Mo} - f_{post}$.
+
+•	**Relação Empírica de Pearson: Para distribuições moderadamente assimétricas e unimodais, vale a aproximação:**
+
+$$
+M_o(X) \approx 3 \cdot M_d(X) - 2 \cdot \bar{X}
+$$
+
+#### Medidas de Dispersão e Variabilidade
+
+Duas populações podem apresentar a mesma média e, ainda assim, comportarem-se de formas completamente distintas. Em engenharia, a variabilidade representa a incerteza e o risco; portanto, quantificar o grau de dispersão dos dados em torno do centro é fundamental.
+
+##### Amplitude Total 
+
+Mede a distância bruta entre os extremos. Embora simples, possui baixa estabilidade por depender unicamente dos dois valores mais vulneráveis a erros de medição.
+
+$$
+(A_t = X_{(n)} - X_{(1)})
+$$
+
+##### Variância (S^2 ou σ^2) e Correção de Bessel
+
+A variância mede o desvio quadrático médio de cada ponto em relação à média. Na estimativa amostral (S^2), divide-se por n-1 em vez de n (Correção de Bessel). Essa correção é matematicamente necessária porque o uso da média amostral X no lugar da verdadeira média populacional μ consome um grau de liberdade, tornando a divisão por n um estimador viciado (que subestima a variabilidade real).
+
+•	**Variância Amostral (Dados Não Agrupados):**
+
+$$
+S^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1} = \frac{\sum_{i=1}^{n} X_i^2 - \frac{(\sum_{i=1}^{n} X_i)^2}{n}}{n - 1}
+$$
+
+•	**Variância Amostral (Dados Agrupados em Classes):**
+
+$$
+S^2 = \frac{\sum_{i=1}^{k} f_i \cdot (X_i - \bar{X})^2}{n - 1}
+$$
+
+##### Desvio Padrão (S ou σ)
+
+Como a variância expressa unidades ao quadrado (ex.: 〖"golpes" 〗^2), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:
+
+$$
+S = \sqrt{S^2}
+$$
+
+##### Coeficiente de Variação (CV)
+
+É uma medida de dispersão relativa e adimensional, expressa em porcentagem. Permite comparar a variabilidade entre variáveis de naturezas distintas ou com escalas de grandezas diferentes (ex.: comparar a variabilidade de N_SPT a 5m com a variabilidade da umidade do solo):
+
+$$
+CV = \left( \frac{S}{\bar{X}} \right) \cdot 100\%
+$$
+
+##### Erro Padrão da Média
+
+Mede a precisão da estimativa da média amostral em relação ao verdadeiro valor populacional. Pelo Teorema do Limite Central, quanto maior o tamanho da amostra n, menor será a incerteza associada à média:
+
+$$
+S_{\bar{X}} = \frac{S}{\sqrt{n}}
+$$
+
+#### Medidas de Forma: Assimetria e Curtose
+
+Além da posição e da dispersão, a caracterização completa de uma variável exige a análise da geometria da distribuição, avaliando sua simetria e o comportamento de suas caudas em comparação com a Distribuição Normal (Gaussiana).
+
+##### Coeficiente de Assimetria (Skewness - A_s)
+
+Mede o grau de desvio do conjunto de dados em relação à simetria central. Baseia-se no terceiro momento central (m3):
+
+• Coeficiente Momento (g1):
+
+$$
+g_1 = \frac{m_3}{S^3} = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^3}{S^3}
+$$
+•	**Interpretação Geotécnica e Estatística:**
+
+- As=0 (g1=0): Simétrica. A média, mediana e moda coincidem (X=Md=Mo).
+	
+- As>0 (g1>0): Assimetria Positiva (à direita). A cauda da distribuição se estende para a direita, concentrando a maioria dos valores à esquerda (X>Md>Mo). Em sondagens, indica predominância de solos menos resistentes com a presença pontual de matacões ou lentes de alta resistência.
+	
+- As<0 (g1<0): Assimetria Negativa (à esquerda). A cauda se estende para a esquerda (X<Md<Mo).
+
+##### Coeficiente de Curtose (Kurtosis - K)
+
+Mede o grau de achatamento da distribuição e a concentração de massa de probabilidade no centro comparada às caudas. Baseia-se no quarto momento central (m4):
+
+•**Excesso de Curtose (g2):**
+
+$$
+g_2 = \frac{m_4}{S^4} - 3 = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^4}{S^4} - 3
+$$
+
+•**Classificação em Relação à Curva Normal (g2=0):**
+
+- g2=0: Mesocúrtica. O pico e as caudas possuem comportamento idêntico ao da distribuição Normal Gaussiana.
+	
+- g2>0: Leptocúrtica. Distribuição afunilada no centro, com pico pronunciado e "caudas pesadas" (maior probabilidade de ocorrência de valores extremos).
+	
+- g2<0: Platicúrtica. Distribuição mais achatada e dispersa no centro, com caudas leves.
 
 
-## 🎯 Objetivos
+## 🎯 Estatística Descreitiva Aplicada à Sondagem SPT
+
+
 
 ### Objetivo geral
 
