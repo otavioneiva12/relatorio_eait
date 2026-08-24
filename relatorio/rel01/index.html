@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Otávio Augusto dos Reis Neiva e Gregório Grazziotti Carvalho">
+<meta name="author" content="Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho">
 
 <title>Relatório de Aula Prática 01 - Introdução ao R e Estatistica Descritiva</title>
 <style>
@@ -146,37 +146,28 @@ window.Quarto = {
   </ul></li>
   <li><a href="#estatística-descreitiva-aplicada-à-sondagem-spt" id="toc-estatística-descreitiva-aplicada-à-sondagem-spt" class="nav-link" data-scroll-target="#estatística-descreitiva-aplicada-à-sondagem-spt"><span class="header-section-number">3</span> 🎯 Estatística Descreitiva Aplicada à Sondagem SPT</a>
   <ul class="collapse">
-  <li><a href="#objetivo-geral" id="toc-objetivo-geral" class="nav-link" data-scroll-target="#objetivo-geral"><span class="header-section-number">3.1</span> Objetivo geral</a></li>
-  <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">3.2</span> Objetivos específicos</a></li>
+  <li><a href="#organização-dos-dados-e-leitura-no-r" id="toc-organização-dos-dados-e-leitura-no-r" class="nav-link" data-scroll-target="#organização-dos-dados-e-leitura-no-r"><span class="header-section-number">3.1</span> Organização dos Dados e Leitura no R</a></li>
+  <li><a href="#tabulação-e-distribuição-de-frequências" id="toc-tabulação-e-distribuição-de-frequências" class="nav-link" data-scroll-target="#tabulação-e-distribuição-de-frequências"><span class="header-section-number">3.2</span> Tabulação e Distribuição de Frequências</a></li>
+  <li><a href="#representação-gráfica" id="toc-representação-gráfica" class="nav-link" data-scroll-target="#representação-gráfica"><span class="header-section-number">3.3</span> Representação Gráfica</a></li>
+  <li><a href="#medidas-de-posição-tendência-central" id="toc-medidas-de-posição-tendência-central" class="nav-link" data-scroll-target="#medidas-de-posição-tendência-central"><span class="header-section-number">3.4</span> Medidas de Posição (Tendência Central)</a></li>
+  <li><a href="#medidas-de-dispersão-e-variabilidade-1" id="toc-medidas-de-dispersão-e-variabilidade-1" class="nav-link" data-scroll-target="#medidas-de-dispersão-e-variabilidade-1"><span class="header-section-number">3.5</span> Medidas de Dispersão e Variabilidade</a></li>
+  <li><a href="#medidas-de-forma-assimetria-e-curtose-1" id="toc-medidas-de-forma-assimetria-e-curtose-1" class="nav-link" data-scroll-target="#medidas-de-forma-assimetria-e-curtose-1"><span class="header-section-number">3.6</span> Medidas de Forma: Assimetria e Curtose</a></li>
+  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">3.7</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
   </ul></li>
-  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">4</span> 📚 Fundamentação Teórica</a></li>
-  <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">5</span> ⚙️ Metodologia</a></li>
-  <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">6</span> 🔍 Resultados e Discussão</a>
-  <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">6.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">6.2</span> 📊 Análise de Dados</a></li>
-  </ul></li>
-  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">7</span> 🧠 Considerações finais</a></li>
-  <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">8</span> Aprenda Quarto</a></li>
-  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">9</span> 📖 Referências</a></li>
+  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">4</span> 🧠 Considerações Finais</a></li>
+  <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">5</span> Aprenda Quarto</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">6</span> 📖 Referências</a></li>
   </ul>
 </nav>
 </div>
 <main class="content" id="quarto-document-content">
 <div class="logos" style="display: flex; justify-content: center; align-items: center; height: 200px; gap: 20px;">
-
   <a href="https://ufsj.edu.br">
-
     <img src="imagens/ufsj.png" width="220px">
-
   </a>
-
   <a href="https://ufsj.edu.br/defim">
-
     <img src="imagens/defim.png" width="220px">
-
   </a>
-
 </div>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -192,7 +183,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor</div>
     <div class="quarto-title-meta-contents">
-             <p>Otávio Augusto dos Reis Neiva e Gregório Grazziotti Carvalho </p>
+             <p>Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho </p>
           </div>
   </div>
     
@@ -460,124 +451,572 @@ g_2 = \frac{m_4}{S^4} - 3 = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^4}{
 </section>
 <section id="estatística-descreitiva-aplicada-à-sondagem-spt" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="estatística-descreitiva-aplicada-à-sondagem-spt"><span class="header-section-number">3</span> 🎯 Estatística Descreitiva Aplicada à Sondagem SPT</h2>
-<section id="objetivo-geral" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="objetivo-geral"><span class="header-section-number">3.1</span> Objetivo geral</h3>
-<p>Descrever o objetivo principal da prática.</p>
-</section>
-<section id="objetivos-específicos" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">3.2</span> Objetivos específicos</h3>
-<ul>
-<li>Coletar dados experimentais<br>
-</li>
-<li>Aplicar estatística descritiva<br>
-</li>
-<li>Construir gráficos<br>
-</li>
-<li>Interpretar resultados</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="fundamentação-teórica" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">4</span> 📚 Fundamentação Teórica</h2>
-<p>Apresente os conceitos principais:</p>
-<ul>
-<li>Média</li>
-<li>Variância</li>
-<li>Desvio padrão</li>
-<li>Amostragem</li>
-</ul>
-<p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-\]</span></p>
-<hr>
-</section>
-<section id="metodologia" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">5</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>A investigação geotécnica por meio do ensaio de penetração padronizado ( – SPT), regulamentado pela NBR 6484, gera um volume significativo de dados numéricos referentes ao índice de resistência à penetração (<span class="math inline">\(N_{SPT}\)</span>). Devido à heterogeneidade natural dos depósitos de solo e às variações inerentes à execução do ensaio em campo, a interpretação puramente pontual dos boletins pode induzir a erros de avaliação do maciço. A aplicação da estatística descritiva surge, portanto, como uma ferramenta indispensável para sintetizar a amostragem e quantificar a incerteza associada ao perfil estratigráfico.</p>
+<p>Neste tópico, as ferramentas estatísticas tratadas nas seções anteriores são aplicadas ao conjunto de dados de <span class="math inline">\(N_{SPT}\)</span>, permitindo extrair parâmetros representativos da resistência do solo e avaliar o grau de homogeneidade das camadas investigadas.</p>
+<p>A estruturação estatística do <span class="math inline">\(N_{SPT}\)</span> busca subsidiar a tomada de decisão no projeto de fundações e contenções por meio das seguintes etapas:</p>
+<blockquote class="blockquote">
+<p>Caracterização da Tendência Central: Determinação da resistência média (<span class="math inline">\(\bar{X}\)</span>) e mediana (<span class="math inline">\(M_d\)</span>) do índice de penetração por camada estratigráfica ou intervalo de profundidade.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Mensauração da Dispersão Geotécnica: Avaliação do desvio-padrão (<span class="math inline">\(S\)</span>) e do coeficiente de variação (<span class="math inline">\(CV\)</span>), identificando o nível de variabilidade espacial e a confiabilidade da amostragem no terreno.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Distribuição em Classes de Compacidade e Consistência: Agrupamento dos valores em tabelas de frequência para correlacionar o <span class="math inline">\(N_{SPT}\)</span> com os estados de compacidade (solos granulares) ou consistência (solos finos).</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Detecção de Anomalias e Transições: Identificação de decorrentes de matacões, pedregulho pontual ou zonas de fraqueza localizadas ao longo das perfurações.</p>
+</blockquote>
+<p>Apresentação dos Dados Brutos</p>
+<p>Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela~<span class="math inline">\(\ref{tab:dados_brutos}\)</span> exibe os <span class="math inline">\(n = 40\)</span> valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Resultados dos ensaios SPT na profundidade de 5,0 m.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Identificador do Furo</th>
+<th style="text-align: center;">Profundidade (m)</th>
+<th style="text-align: center;">Camada de Solo</th>
+<th style="text-align: center;">N_SPT</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">SP-01</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-02</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-03</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-04</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-05</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-06</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-07</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-08</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-09</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-10</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-11</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-12</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-13</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-14</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-15</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-16</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-17</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-18</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-19</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-20</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-21</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-22</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-23</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-24</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-26</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-27</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-28</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-29</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-30</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-31</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-32</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-33</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">26</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-34</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-35</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-36</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-37</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-38</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-39</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-40</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-41</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-42</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-43</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-44</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-45</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-46</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-47</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-48</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">SP-49</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">SP-50</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">Argila Arenosa</td>
+<td style="text-align: center;">27</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="callout-title-container flex-fill">
-Nota
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Descreva como o experimento foi realizado.</p>
-</div>
-</div>
-<ul>
-<li>Materiais utilizados<br>
-</li>
-<li>Procedimento<br>
-</li>
-<li>Número de repetições</li>
-</ul>
-<hr>
+<p>Neste tópico, realiza-se a aplicação prática das rotinas de Estatística Descritiva e Análise Exploratória de Dados (AED) sobre um banco de dados geotécnico composto por n = 50 ensaios de campo de resistência à penetração (NSPT) medidos na cota de -5,0 m em uma camada homogênea de argila arenosa. Todo o processamento computacional foi executado no ambiente R com suporte do pacote leem (Prof.&nbsp;Ben Dêivide).</p>
+<section id="organização-dos-dados-e-leitura-no-r" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="organização-dos-dados-e-leitura-no-r"><span class="header-section-number">3.1</span> Organização dos Dados e Leitura no R</h3>
+<p>O que é feito e por que importa: A etapa inicial do método científico consiste na higienização, estruturação e importação dos dados brutos de campo. No ambiente R, a variável contínua é declarada como um objeto especializado da classe leem. Essa conversão garante que os algoritmos do pacote reconheçam a natureza métrica do dado, aplicando automaticamente as correções de continuidade e o correto agrupamento em classes.</p>
 </section>
-<section id="resultados-e-discussão" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">6</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
+<section id="tabulação-e-distribuição-de-frequências" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="tabulação-e-distribuição-de-frequências"><span class="header-section-number">3.2</span> Tabulação e Distribuição de Frequências</h3>
+<p><strong>Interpretação Geotécnica e Estatística:</strong> A tabulação reduz a massa individual de 50 valores numéricos em intervalos organizados de resistência, revelando onde se concentra o “comportamento padrão” do terreno. Pela Regra de Sturges (<span class="math inline">\(k \approx 1 + 3{,}3 \cdot \log_{10}(50) \approx 7\)</span> classes) com amplitude de <span class="math inline">\(c = 2{,}3\)</span> golpes, observa-se que a camada possui baixíssima presença de pontos extremos e forte concentração central.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Distribuição de Frequências Agrupadas por Intervalos de Classe.</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Intervalo de Classe (Golpes)</th>
+<th style="text-align: center;">Ponto Médio (X_i)</th>
+<th style="text-align: center;">Freq. Absoluta (f_i)</th>
+<th style="text-align: center;">Freq. Relativa (f_r)</th>
+<th style="text-align: center;">Freq. Acumulada (f_ac)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">[11,0 |- 13,3)</td>
+<td style="text-align: center;">12.15</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">0.1</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">[13,3 |- 15,6)</td>
+<td style="text-align: center;">14.45</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">0.16</td>
+<td style="text-align: center;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">[15,6 |- 17,9)</td>
+<td style="text-align: center;">16.75</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0.2</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">[17,9 |- 20,2)</td>
+<td style="text-align: center;">19.05</td>
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">0.26</td>
+<td style="text-align: center;">36</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">[20,2 |- 22,5)</td>
+<td style="text-align: center;">21.35</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">0.14</td>
+<td style="text-align: center;">43</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">[22,5 |- 24,8)</td>
+<td style="text-align: center;">23.65</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0.08</td>
+<td style="text-align: center;">47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">[24,8 |- 27,1]</td>
+<td style="text-align: center;">25.95</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">0.06</td>
+<td style="text-align: center;">50</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Total</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">1.00</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>O que o resultado mostra:</strong> As classes de maior frequência absoluta agregam 30 dos 50 furos (60% da amostra) na faixa de 15,6 a 22,5 golpes. Isso comprova que o depósito geotécnico possui boa uniformidade estrutural na cota investigada.</p>
+</section>
+<section id="representação-gráfica" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="representação-gráfica"><span class="header-section-number">3.3</span> Representação Gráfica</h3>
+<p><strong>Interpretação e Análise do Formato:</strong> O Histograma apresenta visualmente o perfil de densidade de resistência da camada, permitindo diagnosticar a simetria central. A Ogiva de Frequências Acumuladas exibe a curva ascendente do somatório de furos; o ponto em que a ogiva cruza o patamar horizontal de 50% (<span class="math inline">\(f_{ac} = 25\)</span> furos) marca exatamente a posição visual da mediana (18,0 golpes).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vetor numérico isolado garantido</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dados_nspt <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">17</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">26</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">27</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dados_nspt,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">11.0</span>, <span class="fl">27.1</span>, <span class="at">by =</span> <span class="fl">2.3</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histograma de N_SPT (-5,0m)"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"N_SPT (golpes)"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequência Absoluta"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"#4682B4"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">right =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/histograma-nativo-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="medidas-de-posição-tendência-central" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="medidas-de-posição-tendência-central"><span class="header-section-number">3.4</span> Medidas de Posição (Tendência Central)</h3>
+<p><strong>Média Aritmética:</strong> Representa o centro de gravidade matemático dos dados. Em termos práticos, se a camada de solo fosse perfeitamente homogênea e sem variabilidade, cada metro perfurado a -5,0 m ofereceria a resistência média amostral a 5,0 m de profundidade de 18,26 golpes.</p>
+<p>• <strong>Mediana (<span class="math inline">\(Md =\)</span> 18,00 golpes):</strong> É o divisor amostral exato. Significa que 50% dos furos executados no terreno apresentaram resistência de até 18 golpes, enquanto os outros 50% apresentaram valores iguais ou superiores a 18 golpes. Por não ser afetada por valores extremos, confirma que a média de 18,26 não está distorcida por discrepâncias de sondagem.</p>
+<p>• <strong>Moda de Czuber (<span class="math inline">\(Mo =\)</span> 17,37 golpes):</strong> Identifica o ponto de máxima densidade da distribuição contínua. Indica o valor pontual de resistência mais provável de ser encontrado ao perfurar um novo furo aleatório nessa cota.</p>
+<blockquote class="blockquote">
+<p><strong>Conclusão sobre a Tendência Geral</strong> - A proximidade quase perfeita entre os três valores (X̄ ≈ Md ≈ Mo ≈ 18 golpes) demonstra empiricamente que a distribuição de resistência do solo nesta camada aproxima-se de um comportamento simétrico.</p>
+</blockquote>
+</section>
+<section id="medidas-de-dispersão-e-variabilidade-1" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="medidas-de-dispersão-e-variabilidade-1"><span class="header-section-number">3.5</span> Medidas de Dispersão e Variabilidade</h3>
+<p>• <strong>Amplitude Total (<span class="math inline">\(A_t =\)</span> 16 golpes):</strong> * <strong>O que significa:</strong> É a distância bruta entre o menor (11) e o maior (27) valor de resistência registrado (<span class="math inline">\(A_t = 27 - 11 = 16\)</span>). * <strong>O que o resultado mostra:</strong> Revela o intervalo total de variação do terreno. No entanto, por depender isoladamente de apenas duas medições de borda, a amplitude não informa como os outros 48 furos estão distribuídos no meio.</p>
+<p>• <strong>Variância Amostral (<span class="math inline">\(S^2 =\)</span> 14,40 <span class="math inline">\(\text{golpes}^2\)</span>):</strong> * <strong>O que significa:</strong> É a média dos quadrados dos desvios de cada furo em relação à média geral (utilizando a correção de Bessel, <span class="math inline">\(n - 1 =\)</span> 49). * <strong>O que o resultado mostra:</strong> A variância quantifica o afastamento quadrático global dos dados. Por resultar em uma unidade ao quadrado (<span class="math inline">\(\text{golpes}^2\)</span>), ela não possui aplicação física direta no dimensionamento de fundações, mas serve como base matemática rigorosa para a extração do desvio padrão.</p>
+<p>• <strong>Desvio Padrão Amostral (<span class="math inline">\(S =\)</span> 3,79 golpes):</strong> * <strong>O que significa:</strong> É a raiz quadrada da variância, reconduzindo a medida de dispersão de volta para a mesma unidade física da variável original (<span class="math inline">\(\text{golpes}\)</span>). * <strong>O que o resultado mostra:</strong> Mostra o afastamento médio típico de um furo qualquer em relação à média da camada. Em média, os furos desta sondagem oscilam <span class="math inline">\(\pm\)</span> 3,79 golpes em torno dos 18,26 golpes centrais.</p>
+<p>• <strong>Coeficiente de Variação (<span class="math inline">\(CV =\)</span> 20,78%):</strong> * <strong>O que significa:</strong> É a razão percentual entre o desvio padrão e a média (<span class="math inline">\(CV = (S / \bar{X}) \cdot 100\)</span>), permitindo avaliar a variabilidade relativa padronizada. * <strong>O que o resultado mostra:</strong> Na prática geotécnica e normativa (NBR 6122 / Eurocode 7), solos naturais com <span class="math inline">\(CV &lt; 30\%\)</span> são classificados como de baixa a moderada variabilidade (homogêneos). O resultado de 20,78% confirma a segurança para a adoção de um perfil geotécnico único na cota de -5,0 m sem necessidade de subsegmentar o terreno em blocos distintos.</p>
+<p>• <strong>Erro Padrão da Média (<span class="math inline">\(S_{\bar{X}} =\)</span> 0,54 golpes):</strong> * <strong>O que significa:</strong> Mede a precisão da média amostral estimada em relação à verdadeira média populacional <em>in situ</em> (<span class="math inline">\(S_{\bar{X}} = S / \sqrt{n}\)</span>). * <strong>O que o resultado mostra:</strong> Um erro padrão reduzido de apenas 0,54 golpes confirma que o tamanho amostral de <span class="math inline">\(n =\)</span> 50 furos é estatisticamente robusto, conferindo elevada confiabilidade ao valor médio calculado.</p>
+</section>
+<section id="medidas-de-forma-assimetria-e-curtose-1" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="medidas-de-forma-assimetria-e-curtose-1"><span class="header-section-number">3.6</span> Medidas de Forma: Assimetria e Curtose</h3>
+<p>• <strong>Assimetria de Pearson (<span class="math inline">\(As_2 =\)</span> 0,21 | Momento <span class="math inline">\(g_1 =\)</span> 0,20):</strong> * <strong>O que significa:</strong> Avalia a inclinação gráfica ou deformação lateral da curva de frequências em relação ao centro. * <strong>O que o resultado mostra:</strong> O valor positivo e próximo de zero confirma uma assimetria positiva leve (à direita). Isso indica que a maioria dos furos concentra-se em valores médios de resistência, havendo uma pequena quantidade de furos isolados com resistências mais elevadas (até 27 golpes) estendendo a cauda direita do gráfico. É coerente com a relação <span class="math inline">\(\bar{X}\)</span> (18,26) <span class="math inline">\(&gt; M_d\)</span> (18,00).</p>
+<p>• <strong>Excesso de Curtose (<span class="math inline">\(g_2 =\)</span> -0,66):</strong> * <strong>O que significa:</strong> Mede o grau de achatamento do topo da curva e a espessura das caudas em comparação com a curva Normal teórica (<span class="math inline">\(g_2 = 0\)</span>). * <strong>O que o resultado mostra:</strong> Por ser ligeiramente negativo (<span class="math inline">\(g_2 &lt; 0\)</span>), a distribuição é classificada como <strong>Platicúrtica</strong>. Isso significa que a curva possui um topo suavemente achatado com caudas leves, demonstrando a ausência de discrepâncias extremas (<em>outliers</em>) e confirmando que os valores de resistência variam de forma contínua e previsível.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ajuste de densidade amostral</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">density</span>(dados_nspt)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Plotagem da densidade real</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d, </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Densidade Amostral vs. Curva Normal Teórica"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"N_SPT (golpes)"</span>, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Densidade de Probabilidade"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"darkblue"</span>, <span class="at">lwd =</span> <span class="fl">2.5</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Preenchimento suave</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(d, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>), <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Sobreposição da Curva Normal teórica (Linha tracejada vermelha)</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(dados_nspt) <span class="sc">-</span> <span class="dv">3</span>, <span class="fu">max</span>(dados_nspt) <span class="sc">+</span> <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">200</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>y_norm <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x_seq, <span class="at">mean =</span> <span class="fu">mean</span>(dados_nspt), <span class="at">sd =</span> <span class="fu">sd</span>(dados_nspt))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x_seq, y_norm, <span class="at">col =</span> <span class="st">"red3"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Legenda explicativa</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Densidade Amostral (SPT)"</span>, <span class="st">"Normal Teórica (N(μ, σ²))"</span>),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkblue"</span>, <span class="st">"red3"</span>), </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>), </span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">"n"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/densidade-normal-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Curva de Densidade dos Dados vs.&nbsp;Curva Normal Teórica</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Análise Visual de Assimetria e Curtose (Densidade vs.&nbsp;Normal)</strong></p>
+<p>A comparação entre a curva de densidade empírica dos dados de <span class="math inline">\(N_{SPT}\)</span> e a curva Normal teórica de referência <span class="math inline">\(\mathcal{N}(\mu = 18,26; \sigma^2 = 14,40)\)</span> ratifica visualmente os coeficientes de forma obtidos analiticamente:</p>
 <ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
+<li><p><strong>Confirmação da Assimetria Positiva (<span class="math inline">\(g_1 =\)</span> 0,20):</strong> A curva azul (dados reais) apresenta um pico ligeiramente deslocado para a esquerda, alinhado ao valor modal (17,37 golpes), enquanto a cauda direita se estende discretamente até a resistência máxima de 27 golpes. Essa geometria confirma o ordenamento típico das distribuições com assimetria à direita (<span class="math inline">\(\bar{X} =\)</span> 18,26 <span class="math inline">\(&gt; M_d =\)</span> 18,00 <span class="math inline">\(&gt; M_o =\)</span> 17,37).</p></li>
+<li><p><strong>Confirmação da Curtose Platicúrtica (<span class="math inline">\(g_2 =\)</span> -0,66):</strong> O topo da curva amostral é suavemente rebaixado em relação ao pico da curva Gaussiana teórica (linha vermelha tracejada), apresentando caudas mais leves. O comportamento achatado reforça que a variabilidade da resistência ocorre de forma contínua e previsível ao longo da cota investigada, sem a presença de <em>outliers</em> ou anomalias pontuais no maciço.</p></li>
 </ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="6.1">
-<h3 data-number="6.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">6.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
+</section>
+<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">3.7</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
 <p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
 <ul>
 <li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
 <li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
 </ul>
 </section>
-<section id="análise-de-dados" class="level3" data-number="6.2">
-<h3 data-number="6.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">6.2</span> 📊 Análise de Dados</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
-</div>
-</div>
 </section>
-</section>
-<section id="considerações-finais" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">7</span> 🧠 Considerações finais</h2>
-<p>Apresente uma síntese dos principais pontos observados no experimento.</p>
+<section id="considerações-finais" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">4</span> 🧠 Considerações Finais</h2>
+<p>A integração entre a lógica da linguagem R, os fundamentos da Estatística Descritiva e a aplicação prática sobre o banco de dados do ensaio <span class="math inline">\(N_{SPT}\)</span> permitiu estruturar um diagnóstico técnico completo e estatisticamente fundamentado:</p>
 <ul>
-<li>Retome o objetivo da prática e indique se ele foi alcançado.</li>
-<li>Destaque os principais aprendizados obtidos.</li>
-<li>Comente brevemente sobre a qualidade dos dados coletados.</li>
-<li>Sugira possíveis melhorias no procedimento experimental.</li>
+<li><strong>Capacitação em Linguagem R e Raciocínio Programável:</strong> A assimilação das estruturas primárias do R aliada às rotinas do pacote <code>leem</code> possibilitou a construção de um pipeline de processamento automatizado, reprodutível e livre de erros manuais. A declaração do objeto contínuo (<code>leem::new_leem</code>) simplificou o agrupamento por classes e viabilizou a extração das métricas analíticas e representações gráficas diretas no relatório em Quarto.</li>
+<li><strong>Rigor Conceitual da Estatística Descritiva:</strong> A análise conjunta das medidas de tendência central, dispersão e forma provou que a caracterização de um parâmetro de engenharia não deve se limitar à média isolada. A quantificação da variabilidade relativa (<span class="math inline">\(CV\)</span>), do erro amostral (<span class="math inline">\(S_{\bar{X}}\)</span>) e da geometria da curva (<span class="math inline">\(g_1\)</span> e <span class="math inline">\(g_2\)</span>) forneceu o embasamento teórico necessário para julgar a representatividade da amostragem.</li>
+<li><strong>Validação Geotécnica da Camada de <span class="math inline">\(N_{SPT}\)</span>:</strong> A síntese dos <span class="math inline">\(n = 50\)</span> furos na cota de -5,0 m confirmou a alta homogeneidade e previsibilidade do depósito de argila arenosa. Com um coeficiente de variação de <span class="math inline">\(CV =\)</span> 20,78% (classificado como baixo pelo Eurocode 7 e NBR 6122) e um erro padrão reduzido de <span class="math inline">\(S_{\bar{X}} =\)</span> 0,54 golpes, valida-se a adocação do valor médio de <span class="math inline">\(\bar{X} =\)</span> 18,26 golpes como parâmetro representativo do maciço, descartando a necessidade de subsegmentar o terreno em blocos distintos de fundação.</li>
 </ul>
-<p>Evite repetir apenas os resultados; foque nas <strong>conclusões e reflexões</strong> sobre a prática realizada.</p>
 </section>
-<section id="aprenda-quarto" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">8</span> Aprenda Quarto</h2>
+<section id="aprenda-quarto" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">5</span> Aprenda Quarto</h2>
 <p>Acesse <a href="https://quarto.org/">Quarto</a>.</p>
 </section>
-<section id="referências" class="level2" data-number="9">
-
+<section id="referências" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="referências"><span class="header-section-number">6</span> 📖 Referências</h2>
+<p><span class="citation" data-cites="batista2024epaec">(<a href="#ref-batista2024epaec" role="doc-biblioref">Batista, 2024</a>)</span></p>
+<p><span class="citation" data-cites="batista2024epaec">(<a href="#ref-batista2024epaec" role="doc-biblioref">Batista, 2024</a>)</span></p>
+<p><span class="citation" data-cites="batista2025leem">(<a href="#ref-batista2025leem" role="doc-biblioref">Batista, 2025</a>)</span></p>
+<p><span class="citation" data-cites="batista2025latex">(<a href="#ref-batista2025latex" role="doc-biblioref">Batista e Nascimento, 2025</a>)</span></p>
 <!-- -->
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">9 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-batista2024epaec" class="csl-entry" role="listitem">
+BATISTA, B. D. DE O. <strong><a href="https://bendeivide.github.io/book-epaec/">Estat<span>ı́</span>stica &amp; Probabilidade aplicada <span>à</span>s Engenharias e Ci<span>ê</span>ncias</a></strong>. Ouro Branco, MG: [s.n.].
+</div>
+<div id="ref-batista2025leem" class="csl-entry" role="listitem">
+___. <strong><a href="https://bendeivide.github.io/books/leem01/">Estat<span>ı́</span>stica e ProgramA<span>ç</span><span>ã</span>o com o leem</a></strong>. Ouro Branco, MG: [s.n.]. v. 1
+</div>
+<div id="ref-batista2025latex" class="csl-entry" role="listitem">
+BATISTA, B. D. DE O.; NASCIMENTO, H. DOS S. <strong><a href="https://bendeivide.github.io/book-latex/">LaTeX: Um Guia Pr<span>á</span>tico com Aplica<span>ç</span><span>õ</span>es na Pesquisa e Educa<span>ç</span><span>ã</span>o</a></strong>. Ouro Branco, MG: [s.n.].
+</div>
 <div id="ref-Rbasico2022" class="csl-entry" role="listitem">
 BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
 </div>
@@ -1036,7 +1475,7 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva e Gregório Grazziotti Carvalho"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 01 - Introdução ao R e Estatistica Descritiva "</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
@@ -1066,391 +1505,540 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
 <span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>df_spt     <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"sondagens_spt_5m.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">dec =</span> <span class="st">"."</span>, <span class="at">encoding =</span> <span class="st">"UTF-8-BOM"</span>)</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>dados_nspt <span class="ot">&lt;-</span> df_spt<span class="sc">$</span>nspt</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>obj_leem   <span class="ot">&lt;-</span> leem<span class="sc">::</span><span class="fu">new_leem</span>(dados_nspt, <span class="at">variable =</span> <span class="st">"discrete"</span>)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução ao Curso R Básico</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>Esta introdução sintetiza a trajetória do curso R Básico, ministrado pelo Professor Ben Dêivide. A proposta pedagógica das video aulas orienta-se pelo ensino dos fundamentos da linguagem R, estabelecendo uma transição gradual da filosofia do programa à construção de rotinas analíticas aplicadas. A teoria exposta em aula é alinhada à literatura de referência para garantir fundamentação teórica e aplicação prática.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Leitura dos dados</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>df_spt <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"sondagens_spt_5m.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">","</span>, <span class="at">dec =</span> <span class="st">"."</span>, <span class="at">encoding =</span> <span class="st">"UTF-8-BOM"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>dados_nspt <span class="ot">&lt;-</span> df_spt<span class="sc">$</span>nspt</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto leem configurado para variáveis contínuas (geração de classes/intervalos)</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>spt_leem <span class="ot">&lt;-</span> leem<span class="sc">::</span><span class="fu">new_leem</span>(dados_nspt, <span class="at">variable =</span> <span class="st">"continuous"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>obj_leem <span class="ot">&lt;-</span> spt_leem</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estrutura do Curso e Progressão Temática</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução ao Curso R Básico</span></span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>O conteúdo das video aulas articula-se de forma sequencial ao longo de seis blocos principais:</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>Esta introdução sintetiza a trajetória do curso R Básico, ministrado pelo Professor Ben Dêivide. A proposta pedagógica das video aulas orienta-se pelo ensino dos fundamentos da linguagem R, estabelecendo uma transição gradual da filosofia do programa à construção de rotinas analíticas aplicadas. A teoria exposta em aula é alinhada à literatura de referência para garantir fundamentação teórica e aplicação prática.</span>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>**● Ambiente e Configuração Inicial:** </span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estrutura do Curso e Progressão Temática</span></span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Apresentação da linguagem R, do ambiente RStudio/Posit e do ecossistema CRAN, abordando a gestão de pacotes, manipulação do espaço de trabalho e uso da documentação nativa.</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>O conteúdo das video aulas articula-se de forma sequencial ao longo de seis blocos principais:</span>
 <span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>**● Lógica de Objetos e Funções** </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>**● Ambiente e Configuração Inicial:** </span>
 <span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exploração do princípio fundamental de que tudo no R é um objeto e todas as ações decorrem de chamadas de funções. O bloco aborda o uso do operador de atribuição, o comportamento dos argumentos funcionais e as ferramentas de inspeção estrutural.</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Apresentação da linguagem R, do ambiente RStudio/Posit e do ecossistema CRAN, abordando a gestão de pacotes, manipulação do espaço de trabalho e uso da documentação nativa.</span></span>
 <span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>**● Tipos de Dados e Coerção** </span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>**● Lógica de Objetos e Funções** </span>
 <span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Estudo dos tipos atômicos fundamentais (numérico, caractere, lógico e complexo) e das regras de coerção que definem a adaptação de dados heterogêneos.</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exploração do princípio fundamental de que tudo no R é um objeto e todas as ações decorrem de chamadas de funções. O bloco aborda o uso do operador de atribuição, o comportamento dos argumentos funcionais e as ferramentas de inspeção estrutural.</span></span>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>**● Estruturas Primárias de Dados** </span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>**● Tipos de Dados e Coerção** </span>
 <span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Construção e manipulação de vetores atômicos, matrizes, arrays, fatores para variáveis categóricas, listas e quadros de dados (data frames).</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Estudo dos tipos atômicos fundamentais (numérico, caractere, lógico e complexo) e das regras de coerção que definem a adaptação de dados heterogêneos.</span></span>
 <span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>**● Operadores, Indexação e Valores Especiais** </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>**● Estruturas Primárias de Dados** </span>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Aplicação de operadores aritméticos, relacionais e lógicos, acompanhada das técnicas de vetorização, extração de subconjuntos e tratamento de condições especiais como dados ausentes e indefinições matemáticas.</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Construção e manipulação de vetores atômicos, matrizes, arrays, fatores para variáveis categóricas, listas e quadros de dados (data frames).</span></span>
 <span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>**● Controle de Fluxo e Automação** </span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>**● Operadores, Indexação e Valores Especiais** </span>
 <span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Implementação de estruturas condicionais e laços de repetição para automatizar rotinas computacionais.</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Aplicação de operadores aritméticos, relacionais e lógicos, acompanhada das técnicas de vetorização, extração de subconjuntos e tratamento de condições especiais como dados ausentes e indefinições matemáticas.</span></span>
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>A sequência desenvolvida pelo Prof. Ben Dêivide proporciona uma compreensão clara da arquitetura do R, capacitando o aluno a estruturar scripts eficientes e fundamentados na lógica orientada a objetos da linguagem.</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>**● Controle de Fluxo e Automação** </span>
 <span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estatística Descritiva e Análise Exploratória de Dados</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Implementação de estruturas condicionais e laços de repetição para automatizar rotinas computacionais.</span></span>
 <span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>A Análise Exploratória de Dados (AED) e a Estatística Descritiva constituem a etapa fundamental de qualquer investigação científica e projeto de engenharia. Seu objetivo central é sintetizar, organizar e descrever as características essenciais de um conjunto de dados sem perder a fidelidade da informação biológica, física ou geométrica subjacente.</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>A sequência desenvolvida pelo Prof. Ben Dêivide proporciona uma compreensão clara da arquitetura do R, capacitando o aluno a estruturar scripts eficientes e fundamentados na lógica orientada a objetos da linguagem.</span>
 <span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>Em problemas de engenharia — como na caracterização geotécnica de solos via ensaios N_SPT —, os materiais naturais apresentam elevada variabilidade espacial e intrínseca. Portanto, a aplicação rigorosa de conceitos estatísticos permite transformar um conjunto de dados brutos em parâmetros confiáveis para tomada de decisão e projeto.</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estatística Descritiva e Análise Exploratória de Dados</span></span>
 <span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definições Gerais e o Método Científico</span></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>A Análise Exploratória de Dados (AED) e a Estatística Descritiva constituem a etapa fundamental de qualquer investigação científica e projeto de engenharia. Seu objetivo central é sintetizar, organizar e descrever as características essenciais de um conjunto de dados sem perder a fidelidade da informação biológica, física ou geométrica subjacente.</span>
 <span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>O método científico baseia-se em um ciclo iterativo de observação, formulação de hipóteses, experimentação e inferência. No contexto estatístico, a análise organiza-se em três pilares integrados:</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>Em problemas de engenharia — como na caracterização geotécnica de solos via ensaios N_SPT —, os materiais naturais apresentam elevada variabilidade espacial e intrínseca. Portanto, a aplicação rigorosa de conceitos estatísticos permite transformar um conjunto de dados brutos em parâmetros confiáveis para tomada de decisão e projeto.</span>
 <span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>**●Estatística Descritiva** </span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="fu">### Definições Gerais e o Método Científico</span></span>
 <span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjunto de técnicas voltado para a coleta, organização, sumarização e apresentação visual dos dados obtidos na amostra.</span></span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>**●Teoria das Probabilidades** </span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>O método científico baseia-se em um ciclo iterativo de observação, formulação de hipóteses, experimentação e inferência. No contexto estatístico, a análise organiza-se em três pilares integrados:</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>**●Estatística Descritiva** </span>
 <span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Arcabouço matemático que modela o comportamento de fenômenos aleatórios, quantificando a incerteza intrínseca aos processos observados.</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjunto de técnicas voltado para a coleta, organização, sumarização e apresentação visual dos dados obtidos na amostra.</span></span>
 <span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>**●Estatística Inferencial**</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>**●Teoria das Probabilidades** </span>
 <span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjunto de métodos analíticos que permite induzir propriedades de toda uma População (N) a partir da observação de uma parcela representativa denominada Amostra (n).</span></span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Na prática de engenharia, raramente é viável ou econômico ensaiar toda a população (por exemplo, testar todo o maciço de solo de um terreno). Por isso, trabalha-se com amostras (n), sendo essencial quantificar o erro amostral e a variabilidade dos dados.</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Arcabouço matemático que modela o comportamento de fenômenos aleatórios, quantificando a incerteza intrínseca aos processos observados.</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>**●Estatística Inferencial**</span>
 <span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### Classificação e Natureza das Variáveis</span></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Conjunto de métodos analíticos que permite induzir propriedades de toda uma População (N) a partir da observação de uma parcela representativa denominada Amostra (n).</span></span>
 <span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>A escolha adequada das técnicas descritivas e dos testes estatísticos depende estritamente da escala de mensuração e da natureza das variáveis analisadas:</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>Na prática de engenharia, raramente é viável ou econômico ensaiar toda a população (por exemplo, testar todo o maciço de solo de um terreno). Por isso, trabalha-se com amostras (n), sendo essencial quantificar o erro amostral e a variabilidade dos dados.</span>
 <span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>**Variáveis Qualitativas (ou Categóricas:** Expressam atributos, qualidades ou categorias não numéricas.</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="fu">### Classificação e Natureza das Variáveis</span></span>
 <span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Nominais: Não possuem ordenação implícita entre as categorias (ex.: tipo de solo: Argila, Silte, Areia; região geográfica).</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>A escolha adequada das técnicas descritivas e dos testes estatísticos depende estritamente da escala de mensuração e da natureza das variáveis analisadas:</span>
 <span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Ordinais: Apresentam uma hierarquia ou ordenamento natural (ex.: grau de intemperismo: Fraco, Médio, Forte; nível de escolaridade).</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>**Variáveis Qualitativas (ou Categóricas:** Expressam atributos, qualidades ou categorias não numéricas.</span>
 <span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>**Variáveis Quantitativas (ou Numéricas):** Expressam valores numéricos passíveis de operações matemáticas.</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Nominais: Não possuem ordenação implícita entre as categorias (ex.: tipo de solo: Argila, Silte, Areia; região geográfica).</span></span>
 <span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Discretas: Decorrem de processos de contagem sobre conjuntos enumeráveis, assumindo valores inteiros (ex.: número de golpes N_SPT; quantidade de trincas em uma viga).</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Ordinais: Apresentam uma hierarquia ou ordenamento natural (ex.: grau de intemperismo: Fraco, Médio, Forte; nível de escolaridade).</span></span>
 <span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Contínuas: Resultam de processos de mensuração direta em uma escala contínua, podendo assumir qualquer valor em um intervalo real (ex.: profundidade em metros, resistência à compressão em MPa, umidade do solo).</span></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>**Variáveis Quantitativas (ou Numéricas):** Expressam valores numéricos passíveis de operações matemáticas.</span>
 <span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="fu">### Organização Tabular e Agrupamento em Classes</span></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Discretas: Decorrem de processos de contagem sobre conjuntos enumeráveis, assumindo valores inteiros (ex.: número de golpes N_SPT; quantidade de trincas em uma viga).</span></span>
 <span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>Dados brutos (não organizados) dificultam a identificação de padrões e tendências. Para variáveis contínuas ou discretas com alta amplitude de valores, realiza-se o **agrupamento em classes**, que reduz a dimensão do conjunto de dados em troca de uma perda controlada de detalhamento individual.</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Contínuas: Resultam de processos de mensuração direta em uma escala contínua, podendo assumir qualquer valor em um intervalo real (ex.: profundidade em metros, resistência à compressão em MPa, umidade do solo).</span></span>
 <span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Algoritmo para Definição dos Intervalos de Classe</span></span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>Para sistematizar a construção da tabela de frequências sem introduzir subjetividade, emprega-se o seguinte procedimento estruturado:</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>**Número de Classes (k): ** Determinado pela Regra da Raiz ou pela Regra de Sturges:</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="at">k \approx \sqrt{m} \quad \text{para } m \le 100 \qquad \text{ou} \qquad k \approx 1 + 3{,}3 \cdot \log_{10}(m) \quad \text{para } m &gt; 100</span></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Organização Tabular e Agrupamento em Classes</span></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>Dados brutos (não organizados) dificultam a identificação de padrões e tendências. Para variáveis contínuas ou discretas com alta amplitude de valores, realiza-se o **agrupamento em classes**, que reduz a dimensão do conjunto de dados em troca de uma perda controlada de detalhamento individual.</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Algoritmo para Definição dos Intervalos de Classe</span></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>Para sistematizar a construção da tabela de frequências sem introduzir subjetividade, emprega-se o seguinte procedimento estruturado:</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>**Número de Classes (k): ** Determinado pela Regra da Raiz ou pela Regra de Sturges:</span>
 <span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>**Amplitude Total (A_t): ** Diferença entre o maior e o menor valor observado no conjunto de dados brutos:</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
-<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="at">A_t = \max(X) - \min(X) = X_{(n)} - X_{(1)}</span></span>
-<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a><span class="at">k \approx \sqrt{m} \quad \text{para } m \le 100 \qquad \text{ou} \qquad k \approx 1 + 3{,}3 \cdot \log_{10}(m) \quad \text{para } m &gt; 100</span></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a>**Amplitude Total (A_t): ** Diferença entre o maior e o menor valor observado no conjunto de dados brutos:</span>
 <span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>**Amplitude de Classe (c): **Largura de cada intervalo, corrigida para evitar que dados pontuais coincidam exatamente com os limites das classes:</span>
-<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
-<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="at">c = \frac{A_t}{k - 1} \quad \text{(Amostra)} \qquad \text{ou} \qquad c = \frac{A_t}{k} \quad \text{(População)}</span></span>
-<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="at">A_t = \max(X) - \min(X) = X_{(n)} - X_{(1)}</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>**Amplitude de Classe (c): **Largura de cada intervalo, corrigida para evitar que dados pontuais coincidam exatamente com os limites das classes:</span>
 <span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>**Limite Inferior da Primeira Classe (L_i1): ** Ajustado para garantir que o menor valor fique centralizado na primeira classe:</span>
-<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
-<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="at">L_{i1} = X_{(1)} - \frac{c}{2} \quad \text{(Amostra)} \qquad \text{ou} \qquad L_{i1} = X_{(1)} \quad \text{(População)}</span></span>
-<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="at">c = \frac{A_t}{k - 1} \quad \text{(Amostra)} \qquad \text{ou} \qquad c = \frac{A_t}{k} \quad \text{(População)}</span></span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>**Limite Inferior da Primeira Classe (L_i1): ** Ajustado para garantir que o menor valor fique centralizado na primeira classe:</span>
 <span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>**Ponto Médio da Classe (X_i):** Valor representativo do intervalo da i-ésima classe, utilizado no cálculo de médias e variâncias de dados agrupados:</span>
-<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
-<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="at">X_i = \frac{L_{ii} + L_{si}}{2}</span></span>
-<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="at">L_{i1} = X_{(1)} - \frac{c}{2} \quad \text{(Amostra)} \qquad \text{ou} \qquad L_{i1} = X_{(1)} \quad \text{(População)}</span></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>**Ponto Médio da Classe (X_i):** Valor representativo do intervalo da i-ésima classe, utilizado no cálculo de médias e variâncias de dados agrupados:</span>
 <span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tipos de Frequência e Representação Gráfica</span></span>
-<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>A distribuição de frequências é representada por:</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; $$</span></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a><span class="at">X_i = \frac{L_{ii} + L_{si}}{2}</span></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="at">$$</span></span>
 <span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>**Frequência Absoluta :** Contagem direta de observações na classe. </span>
-<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>(f_i)</span>
-<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>**Frequência Relativa :** Proporção de observações em relação ao total.</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Tipos de Frequência e Representação Gráfica</span></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>A distribuição de frequências é representada por:</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a>**Frequência Absoluta :** Contagem direta de observações na classe. </span>
 <span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>(f_{ri} = f_i / n)</span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>(f_i)</span>
 <span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>**Frequência Percentual :** Percentual do total pertencente à classe.</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>**Frequência Relativa :** Proporção de observações em relação ao total.</span>
 <span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>(f_{\%i} = f_{ri} \times 100)</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>(f_{ri} = f_i / n)</span>
 <span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>**Frequências Acumuladas :** Soma sucessiva das frequências "abaixo de" ou "acima de" determinado limite.</span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>**Frequência Percentual :** Percentual do total pertencente à classe.</span>
 <span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>(f_{ac\downarrow} \quad \textbf{e} \quad f_{ac\uparrow})</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>(f_{\%i} = f_{ri} \times 100)</span>
 <span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>**Representação Gráfica:** Enquanto dados discretos são sintetizados por gráficos de barras ou hastes, dados agrupados em classes são visualizados por Histogramas (que indicam a forma da distribuição) e por Ogivas de Frequência Acumulada (cuja interseção entre as curvas descendente e ascendente permite identificar graficamente a Mediana).</span>
-<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Tendência Central (Posição)</span></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>**Frequências Acumuladas :** Soma sucessiva das frequências "abaixo de" ou "acima de" determinado limite.</span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>(f_{ac\downarrow} \quad \textbf{e} \quad f_{ac\uparrow})</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Média Aritmética (X ou μ)</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a>**Representação Gráfica:** Enquanto dados discretos são sintetizados por gráficos de barras ou hastes, dados agrupados em classes são visualizados por Histogramas (que indicam a forma da distribuição) e por Ogivas de Frequência Acumulada (cuja interseção entre as curvas descendente e ascendente permite identificar graficamente a Mediana).</span>
 <span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>Representa o centro de gravidade matemático do conjunto de dados. É extremamente útil para modelos analíticos, mas possui a limitação de ser sensível a valores discrepantes (outliers).</span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Tendência Central (Posição)</span></span>
 <span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>•   **Dados Não Agrupados:**</span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Média Aritmética (X ou μ)</span></span>
 <span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(População)} \qquad \text{e} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(Amostra)}</span>
-<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>Representa o centro de gravidade matemático do conjunto de dados. É extremamente útil para modelos analíticos, mas possui a limitação de ser sensível a valores discrepantes (outliers).</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a>•   **Dados Não Agrupados:**</span>
 <span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes:**</span>
-<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(População)} \qquad \text{e} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(Amostra)}</span>
 <span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>\bar{X} = \frac{\sum_{i=1}^{k} X_i \cdot f_i}{n}</span>
-<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes:**</span>
 <span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Média Aparada </span></span>
-<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>Para mitigar a influência de valores extremos sem descartá-los completamente, calcula-se a média após a remoção de uma porcentagem fixada das menores e maiores observações (ex.: remoção do menor e do maior valor):</span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a>\bar{X} = \frac{\sum_{i=1}^{k} X_i \cdot f_i}{n}</span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a>\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n - 2}</span>
-<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Média Aparada </span></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>Para mitigar a influência de valores extremos sem descartá-los completamente, calcula-se a média após a remoção de uma porcentagem fixada das menores e maiores observações (ex.: remoção do menor e do maior valor):</span>
 <span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Mediana </span></span>
-<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>É a medida de posição correspondente ao quantil de 50%, ou seja, o valor que divide o conjunto de dados ordenados (rol) em duas partes de igual tamanho. A mediana é uma medida robusta, pois não é afetada por outliers.</span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n - 2}</span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>•   **Dados Não Agrupados:**</span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Mediana </span></span>
 <span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>M_d(X) = X_{\left(\frac{n+1}{2}\right)} \quad \text{(para } n \text{ ímpar)} \qquad \text{ou} \qquad M_d(X) = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2} \quad \text{(para } n \text{ par)}</span>
-<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>É a medida de posição correspondente ao quantil de 50%, ou seja, o valor que divide o conjunto de dados ordenados (rol) em duas partes de igual tamanho. A mediana é uma medida robusta, pois não é afetada por outliers.</span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>•   **Dados Não Agrupados:**</span>
 <span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes:**</span>
-<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>M_d(X) = X_{\left(\frac{n+1}{2}\right)} \quad \text{(para } n \text{ ímpar)} \qquad \text{ou} \qquad M_d(X) = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2} \quad \text{(para } n \text{ par)}</span>
 <span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>M_d(X) = L_{iMd} + \left( \frac{\frac{n}{2} - f_{ant}}{f_{Md}} \right) \cdot c</span>
-<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes:**</span>
 <span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>onde L_iMd é o limite inferior da classe mediana, f_ant é a frequência acumulada anterior e f_Md é a frequência absoluta da classe mediana.</span>
-<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Moda </span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a>M_d(X) = L_{iMd} + \left( \frac{\frac{n}{2} - f_{ant}}{f_{Md}} \right) \cdot c</span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>Representa o valor ou a região de maior densidade de ocorrência (valor mais frequente). Uma distribuição pode ser unimodal, bimodal ou multimodal.</span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>onde L_iMd é o limite inferior da classe mediana, f_ant é a frequência acumulada anterior e f_Md é a frequência absoluta da classe mediana.</span>
 <span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes (Moda de Czuber):**</span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Moda </span></span>
 <span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a>M_o(X) = L_{iMo} + \left( \frac{\Delta_1}{\Delta_1 + \Delta_2} \right) \cdot c</span>
-<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a>onde $\Delta_1 = f_{Mo} - f_{ant}$ e $\Delta_2 = f_{Mo} - f_{post}$.</span>
-<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>•   **Relação Empírica de Pearson: Para distribuições moderadamente assimétricas e unimodais, vale a aproximação:**</span>
-<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a>M_o(X) \approx 3 \cdot M_d(X) - 2 \cdot \bar{X}</span>
-<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>Representa o valor ou a região de maior densidade de ocorrência (valor mais frequente). Uma distribuição pode ser unimodal, bimodal ou multimodal.</span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a>•   **Dados Agrupados em Classes (Moda de Czuber):**</span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>M_o(X) = L_{iMo} + \left( \frac{\Delta_1}{\Delta_1 + \Delta_2} \right) \cdot c</span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a>onde $\Delta_1 = f_{Mo} - f_{ant}$ e $\Delta_2 = f_{Mo} - f_{post}$.</span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a>•   **Relação Empírica de Pearson: Para distribuições moderadamente assimétricas e unimodais, vale a aproximação:**</span>
 <span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Dispersão e Variabilidade</span></span>
-<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>Duas populações podem apresentar a mesma média e, ainda assim, comportarem-se de formas completamente distintas. Em engenharia, a variabilidade representa a incerteza e o risco; portanto, quantificar o grau de dispersão dos dados em torno do centro é fundamental.</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>M_o(X) \approx 3 \cdot M_d(X) - 2 \cdot \bar{X}</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Amplitude Total </span></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Dispersão e Variabilidade</span></span>
 <span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>Mede a distância bruta entre os extremos. Embora simples, possui baixa estabilidade por depender unicamente dos dois valores mais vulneráveis a erros de medição.</span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a>Duas populações podem apresentar a mesma média e, ainda assim, comportarem-se de formas completamente distintas. Em engenharia, a variabilidade representa a incerteza e o risco; portanto, quantificar o grau de dispersão dos dados em torno do centro é fundamental.</span>
 <span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>(A_t = X_{(n)} - X_{(1)})</span>
-<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Amplitude Total </span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>Mede a distância bruta entre os extremos. Embora simples, possui baixa estabilidade por depender unicamente dos dois valores mais vulneráveis a erros de medição.</span>
 <span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Variância (S^2 ou σ^2) e Correção de Bessel</span></span>
-<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>A variância mede o desvio quadrático médio de cada ponto em relação à média. Na estimativa amostral (S^2), divide-se por n-1 em vez de n (Correção de Bessel). Essa correção é matematicamente necessária porque o uso da média amostral X no lugar da verdadeira média populacional μ consome um grau de liberdade, tornando a divisão por n um estimador viciado (que subestima a variabilidade real).</span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>(A_t = X_{(n)} - X_{(1)})</span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a>•   **Variância Amostral (Dados Não Agrupados):**</span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Variância (S^2 ou σ^2) e Correção de Bessel</span></span>
 <span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1} = \frac{\sum_{i=1}^{n} X_i^2 - \frac{(\sum_{i=1}^{n} X_i)^2}{n}}{n - 1}</span>
-<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a>A variância mede o desvio quadrático médio de cada ponto em relação à média. Na estimativa amostral (S^2), divide-se por n-1 em vez de n (Correção de Bessel). Essa correção é matematicamente necessária porque o uso da média amostral X no lugar da verdadeira média populacional μ consome um grau de liberdade, tornando a divisão por n um estimador viciado (que subestima a variabilidade real).</span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a>•   **Variância Amostral (Dados Não Agrupados):**</span>
 <span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>•   **Variância Amostral (Dados Agrupados em Classes):**</span>
-<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1} = \frac{\sum_{i=1}^{n} X_i^2 - \frac{(\sum_{i=1}^{n} X_i)^2}{n}}{n - 1}</span>
 <span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i=1}^{k} f_i \cdot (X_i - \bar{X})^2}{n - 1}</span>
-<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a>•   **Variância Amostral (Dados Agrupados em Classes):**</span>
 <span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Desvio Padrão (S ou σ)</span></span>
-<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>Como a variância expressa unidades ao quadrado (ex.: 〖"golpes" 〗^2), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:</span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a>S^2 = \frac{\sum_{i=1}^{k} f_i \cdot (X_i - \bar{X})^2}{n - 1}</span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>S = \sqrt{S^2}</span>
-<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Desvio Padrão (S ou σ)</span></span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>Como a variância expressa unidades ao quadrado (ex.: 〖"golpes" 〗^2), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:</span>
 <span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Variação (CV)</span></span>
-<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>É uma medida de dispersão relativa e adimensional, expressa em porcentagem. Permite comparar a variabilidade entre variáveis de naturezas distintas ou com escalas de grandezas diferentes (ex.: comparar a variabilidade de N_SPT a 5m com a variabilidade da umidade do solo):</span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a>S = \sqrt{S^2}</span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>CV = \left( \frac{S}{\bar{X}} \right) \cdot 100\%</span>
-<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Variação (CV)</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a>É uma medida de dispersão relativa e adimensional, expressa em porcentagem. Permite comparar a variabilidade entre variáveis de naturezas distintas ou com escalas de grandezas diferentes (ex.: comparar a variabilidade de N_SPT a 5m com a variabilidade da umidade do solo):</span>
 <span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Erro Padrão da Média</span></span>
-<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>Mede a precisão da estimativa da média amostral em relação ao verdadeiro valor populacional. Pelo Teorema do Limite Central, quanto maior o tamanho da amostra n, menor será a incerteza associada à média:</span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a>CV = \left( \frac{S}{\bar{X}} \right) \cdot 100\%</span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a>S_{\bar{X}} = \frac{S}{\sqrt{n}}</span>
-<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Erro Padrão da Média</span></span>
+<span id="cb3-282"><a href="#cb3-282" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-283"><a href="#cb3-283" aria-hidden="true" tabindex="-1"></a>Mede a precisão da estimativa da média amostral em relação ao verdadeiro valor populacional. Pelo Teorema do Limite Central, quanto maior o tamanho da amostra n, menor será a incerteza associada à média:</span>
 <span id="cb3-284"><a href="#cb3-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Forma: Assimetria e Curtose</span></span>
-<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>Além da posição e da dispersão, a caracterização completa de uma variável exige a análise da geometria da distribuição, avaliando sua simetria e o comportamento de suas caudas em comparação com a Distribuição Normal (Gaussiana).</span>
+<span id="cb3-285"><a href="#cb3-285" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-286"><a href="#cb3-286" aria-hidden="true" tabindex="-1"></a>S_{\bar{X}} = \frac{S}{\sqrt{n}}</span>
+<span id="cb3-287"><a href="#cb3-287" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb3-288"><a href="#cb3-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Assimetria (Skewness - A_s)</span></span>
+<span id="cb3-289"><a href="#cb3-289" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Medidas de Forma: Assimetria e Curtose</span></span>
 <span id="cb3-290"><a href="#cb3-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>Mede o grau de desvio do conjunto de dados em relação à simetria central. Baseia-se no terceiro momento central (m3):</span>
+<span id="cb3-291"><a href="#cb3-291" aria-hidden="true" tabindex="-1"></a>Além da posição e da dispersão, a caracterização completa de uma variável exige a análise da geometria da distribuição, avaliando sua simetria e o comportamento de suas caudas em comparação com a Distribuição Normal (Gaussiana).</span>
 <span id="cb3-292"><a href="#cb3-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a>• Coeficiente Momento (g1):</span>
+<span id="cb3-293"><a href="#cb3-293" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Assimetria (Skewness - A_s)</span></span>
 <span id="cb3-294"><a href="#cb3-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a>g_1 = \frac{m_3}{S^3} = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^3}{S^3}</span>
-<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a>•   **Interpretação Geotécnica e Estatística:**</span>
-<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As=0 (g1=0): Simétrica. A média, mediana e moda coincidem (X=Md=Mo).</span>
-<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As&gt;0 (g1&gt;0): Assimetria Positiva (à direita). A cauda da distribuição se estende para a direita, concentrando a maioria dos valores à esquerda (X&gt;Md&gt;Mo). Em sondagens, indica predominância de solos menos resistentes com a presença pontual de matacões ou lentes de alta resistência.</span>
-<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As&lt;0 (g1&lt;0): Assimetria Negativa (à esquerda). A cauda se estende para a esquerda (X&lt;Md&lt;Mo).</span>
-<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Curtose (Kurtosis - K)</span></span>
-<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a>Mede o grau de achatamento da distribuição e a concentração de massa de probabilidade no centro comparada às caudas. Baseia-se no quarto momento central (m4):</span>
+<span id="cb3-295"><a href="#cb3-295" aria-hidden="true" tabindex="-1"></a>Mede o grau de desvio do conjunto de dados em relação à simetria central. Baseia-se no terceiro momento central (m3):</span>
+<span id="cb3-296"><a href="#cb3-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-297"><a href="#cb3-297" aria-hidden="true" tabindex="-1"></a>• Coeficiente Momento (g1):</span>
+<span id="cb3-298"><a href="#cb3-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-299"><a href="#cb3-299" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-300"><a href="#cb3-300" aria-hidden="true" tabindex="-1"></a>g_1 = \frac{m_3}{S^3} = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^3}{S^3}</span>
+<span id="cb3-301"><a href="#cb3-301" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-302"><a href="#cb3-302" aria-hidden="true" tabindex="-1"></a>•   **Interpretação Geotécnica e Estatística:**</span>
+<span id="cb3-303"><a href="#cb3-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-304"><a href="#cb3-304" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As=0 (g1=0): Simétrica. A média, mediana e moda coincidem (X=Md=Mo).</span>
+<span id="cb3-305"><a href="#cb3-305" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-306"><a href="#cb3-306" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As&gt;0 (g1&gt;0): Assimetria Positiva (à direita). A cauda da distribuição se estende para a direita, concentrando a maioria dos valores à esquerda (X&gt;Md&gt;Mo). Em sondagens, indica predominância de solos menos resistentes com a presença pontual de matacões ou lentes de alta resistência.</span>
+<span id="cb3-307"><a href="#cb3-307" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-308"><a href="#cb3-308" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>As&lt;0 (g1&lt;0): Assimetria Negativa (à esquerda). A cauda se estende para a esquerda (X&lt;Md&lt;Mo).</span>
 <span id="cb3-309"><a href="#cb3-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a>•**Excesso de Curtose (g2):**</span>
+<span id="cb3-310"><a href="#cb3-310" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Coeficiente de Curtose (Kurtosis - K)</span></span>
 <span id="cb3-311"><a href="#cb3-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a>g_2 = \frac{m_4}{S^4} - 3 = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^4}{S^4} - 3</span>
-<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-312"><a href="#cb3-312" aria-hidden="true" tabindex="-1"></a>Mede o grau de achatamento da distribuição e a concentração de massa de probabilidade no centro comparada às caudas. Baseia-se no quarto momento central (m4):</span>
+<span id="cb3-313"><a href="#cb3-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-314"><a href="#cb3-314" aria-hidden="true" tabindex="-1"></a>•**Excesso de Curtose (g2):**</span>
 <span id="cb3-315"><a href="#cb3-315" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>•**Classificação em Relação à Curva Normal (g2=0):**</span>
-<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2=0: Mesocúrtica. O pico e as caudas possuem comportamento idêntico ao da distribuição Normal Gaussiana.</span>
-<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2&gt;0: Leptocúrtica. Distribuição afunilada no centro, com pico pronunciado e "caudas pesadas" (maior probabilidade de ocorrência de valores extremos).</span>
-<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2&lt;0: Platicúrtica. Distribuição mais achatada e dispersa no centro, com caudas leves.</span>
-<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Estatística Descreitiva Aplicada à Sondagem SPT</span></span>
-<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-316"><a href="#cb3-316" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-317"><a href="#cb3-317" aria-hidden="true" tabindex="-1"></a>g_2 = \frac{m_4}{S^4} - 3 = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^4}{S^4} - 3</span>
+<span id="cb3-318"><a href="#cb3-318" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-319"><a href="#cb3-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-320"><a href="#cb3-320" aria-hidden="true" tabindex="-1"></a>•**Classificação em Relação à Curva Normal (g2=0):**</span>
+<span id="cb3-321"><a href="#cb3-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-322"><a href="#cb3-322" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2=0: Mesocúrtica. O pico e as caudas possuem comportamento idêntico ao da distribuição Normal Gaussiana.</span>
+<span id="cb3-323"><a href="#cb3-323" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-324"><a href="#cb3-324" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2&gt;0: Leptocúrtica. Distribuição afunilada no centro, com pico pronunciado e "caudas pesadas" (maior probabilidade de ocorrência de valores extremos).</span>
+<span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>g2&lt;0: Platicúrtica. Distribuição mais achatada e dispersa no centro, com caudas leves.</span>
 <span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb3-329"><a href="#cb3-329" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Estatística Descreitiva Aplicada à Sondagem SPT</span></span>
 <span id="cb3-330"><a href="#cb3-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
+<span id="cb3-331"><a href="#cb3-331" aria-hidden="true" tabindex="-1"></a>A investigação geotécnica por meio do ensaio de penetração padronizado (\textit{Standard Penetration Test} -- SPT), regulamentado pela NBR 6484, gera um volume significativo de dados numéricos referentes ao índice de resistência à penetração ($N_{SPT}$). Devido à heterogeneidade natural dos depósitos de solo e às variações inerentes à execução do ensaio em campo, a interpretação puramente pontual dos boletins pode induzir a erros de avaliação do maciço. A aplicação da estatística descritiva surge, portanto, como uma ferramenta indispensável para sintetizar a amostragem e quantificar a incerteza associada ao perfil estratigráfico.</span>
 <span id="cb3-332"><a href="#cb3-332" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb3-333"><a href="#cb3-333" aria-hidden="true" tabindex="-1"></a>Neste tópico, as ferramentas estatísticas tratadas nas seções anteriores são aplicadas ao conjunto de dados de $N_{SPT}$, permitindo extrair parâmetros representativos da resistência do solo e avaliar o grau de homogeneidade das camadas investigadas.</span>
 <span id="cb3-334"><a href="#cb3-334" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
-<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
-<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
-<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
+<span id="cb3-335"><a href="#cb3-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-336"><a href="#cb3-336" aria-hidden="true" tabindex="-1"></a>A estruturação estatística do $N_{SPT}$ busca subsidiar a tomada de decisão no projeto de fundações e contenções por meio das seguintes etapas:</span>
+<span id="cb3-337"><a href="#cb3-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-338"><a href="#cb3-338" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Caracterização da Tendência Central: Determinação da resistência média ($\bar{X}$) e mediana ($M_d$) do índice de penetração por camada estratigráfica ou intervalo de profundidade.</span></span>
 <span id="cb3-339"><a href="#cb3-339" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb3-340"><a href="#cb3-340" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Mensauração da Dispersão Geotécnica: Avaliação do desvio-padrão ($S$) e do coeficiente de variação ($CV$), identificando o nível de variabilidade espacial e a confiabilidade da amostragem no terreno.</span></span>
 <span id="cb3-341"><a href="#cb3-341" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
+<span id="cb3-342"><a href="#cb3-342" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Distribuição em Classes de Compacidade e Consistência: Agrupamento dos valores em tabelas de frequência para correlacionar o $N_{SPT}$ com os estados de compacidade (solos granulares) ou consistência (solos finos).</span></span>
 <span id="cb3-343"><a href="#cb3-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
+<span id="cb3-344"><a href="#cb3-344" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Detecção de Anomalias e Transições: Identificação de \textit{outliers} decorrentes de matacões, pedregulho pontual ou zonas de fraqueza localizadas ao longo das perfurações.</span></span>
 <span id="cb3-345"><a href="#cb3-345" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
-<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-346"><a href="#cb3-346" aria-hidden="true" tabindex="-1"></a>Apresentação dos Dados Brutos</span>
+<span id="cb3-347"><a href="#cb3-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-348"><a href="#cb3-348" aria-hidden="true" tabindex="-1"></a>Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela~\ref{tab:dados_brutos} exibe os $n = 40$ valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).</span>
+<span id="cb3-349"><a href="#cb3-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-350"><a href="#cb3-350" aria-hidden="true" tabindex="-1"></a><span class="in">```{r tabela-spt, echo=FALSE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb3-351"><a href="#cb3-351" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabulação interna pura dos dados</span></span>
+<span id="cb3-352"><a href="#cb3-352" aria-hidden="true" tabindex="-1"></a>df_spt <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-353"><a href="#cb3-353" aria-hidden="true" tabindex="-1"></a>  <span class="at">Furo =</span> <span class="fu">paste0</span>(<span class="st">"SP-"</span>, <span class="fu">sprintf</span>(<span class="st">"%02d"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>)),</span>
+<span id="cb3-354"><a href="#cb3-354" aria-hidden="true" tabindex="-1"></a>  <span class="at">Profundidade_m =</span> <span class="fu">rep</span>(<span class="fl">5.0</span>, <span class="dv">50</span>),</span>
+<span id="cb3-355"><a href="#cb3-355" aria-hidden="true" tabindex="-1"></a>  <span class="at">Camada_Solo =</span> <span class="fu">rep</span>(<span class="st">"Argila Arenosa"</span>, <span class="dv">50</span>),</span>
+<span id="cb3-356"><a href="#cb3-356" aria-hidden="true" tabindex="-1"></a>  <span class="at">N_SPT =</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">17</span>, </span>
+<span id="cb3-357"><a href="#cb3-357" aria-hidden="true" tabindex="-1"></a>            <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, </span>
+<span id="cb3-358"><a href="#cb3-358" aria-hidden="true" tabindex="-1"></a>            <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-359"><a href="#cb3-359" aria-hidden="true" tabindex="-1"></a>            <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">26</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-360"><a href="#cb3-360" aria-hidden="true" tabindex="-1"></a>            <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">27</span>)</span>
+<span id="cb3-361"><a href="#cb3-361" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-362"><a href="#cb3-362" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb3-363"><a href="#cb3-363" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-364"><a href="#cb3-364" aria-hidden="true" tabindex="-1"></a>  df_spt,</span>
+<span id="cb3-365"><a href="#cb3-365" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb3-366"><a href="#cb3-366" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Identificador do Furo"</span>, <span class="st">"Profundidade (m)"</span>, <span class="st">"Camada de Solo"</span>, <span class="st">"N_SPT"</span>),</span>
+<span id="cb3-367"><a href="#cb3-367" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Resultados dos ensaios SPT na profundidade de 5,0 m."</span></span>
+<span id="cb3-368"><a href="#cb3-368" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-369"><a href="#cb3-369" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-370"><a href="#cb3-370" aria-hidden="true" tabindex="-1"></a>Neste tópico, realiza-se a aplicação prática das rotinas de Estatística Descritiva e Análise Exploratória de Dados</span>
+<span id="cb3-371"><a href="#cb3-371" aria-hidden="true" tabindex="-1"></a>(AED) sobre um banco de dados geotécnico composto por n = 50 ensaios de campo de resistência à penetração</span>
+<span id="cb3-372"><a href="#cb3-372" aria-hidden="true" tabindex="-1"></a>(NSPT) medidos na cota de -5,0 m em uma camada homogênea de argila arenosa. Todo o processamento</span>
+<span id="cb3-373"><a href="#cb3-373" aria-hidden="true" tabindex="-1"></a>computacional foi executado no ambiente R com suporte do pacote leem (Prof. Ben Dêivide).</span>
+<span id="cb3-374"><a href="#cb3-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-375"><a href="#cb3-375" aria-hidden="true" tabindex="-1"></a><span class="fu">### Organização dos Dados e Leitura no R</span></span>
+<span id="cb3-376"><a href="#cb3-376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-377"><a href="#cb3-377" aria-hidden="true" tabindex="-1"></a>O que é feito e por que importa: A etapa inicial do método científico consiste na higienização, estruturação e</span>
+<span id="cb3-378"><a href="#cb3-378" aria-hidden="true" tabindex="-1"></a>importação dos dados brutos de campo. No ambiente R, a variável contínua é declarada como um objeto</span>
+<span id="cb3-379"><a href="#cb3-379" aria-hidden="true" tabindex="-1"></a>especializado da classe leem. Essa conversão garante que os algoritmos do pacote reconheçam a natureza</span>
+<span id="cb3-380"><a href="#cb3-380" aria-hidden="true" tabindex="-1"></a>métrica do dado, aplicando automaticamente as correções de continuidade e o correto agrupamento em classes.</span>
+<span id="cb3-381"><a href="#cb3-381" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-382"><a href="#cb3-382" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tabulação e Distribuição de Frequências</span></span>
+<span id="cb3-383"><a href="#cb3-383" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-384"><a href="#cb3-384" aria-hidden="true" tabindex="-1"></a>**Interpretação Geotécnica e Estatística:** A tabulação reduz a massa individual de 50 valores numéricos em intervalos organizados de resistência, revelando onde se concentra o "comportamento padrão" do terreno. Pela Regra de Sturges ($k \approx 1 + 3{,}3 \cdot \log_{10}(50) \approx 7$ classes) com amplitude de $c = 2{,}3$ golpes, observa-se que a camada possui baixíssima presença de pontos extremos e forte concentração central.</span>
+<span id="cb3-385"><a href="#cb3-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-386"><a href="#cb3-386" aria-hidden="true" tabindex="-1"></a><span class="in">```{r tabulacao-frequencias, echo=FALSE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb3-387"><a href="#cb3-387" aria-hidden="true" tabindex="-1"></a><span class="co"># Vetor dos 50 valores de N_SPT</span></span>
+<span id="cb3-388"><a href="#cb3-388" aria-hidden="true" tabindex="-1"></a>dados_nspt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">17</span>, </span>
+<span id="cb3-389"><a href="#cb3-389" aria-hidden="true" tabindex="-1"></a>                <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, </span>
+<span id="cb3-390"><a href="#cb3-390" aria-hidden="true" tabindex="-1"></a>                <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-391"><a href="#cb3-391" aria-hidden="true" tabindex="-1"></a>                <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">26</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-392"><a href="#cb3-392" aria-hidden="true" tabindex="-1"></a>                <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">27</span>)</span>
 <span id="cb3-393"><a href="#cb3-393" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb3-400"><a href="#cb3-400" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb3-401"><a href="#cb3-401" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-402"><a href="#cb3-402" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-403"><a href="#cb3-403" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb3-404"><a href="#cb3-404" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-405"><a href="#cb3-405" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb3-406"><a href="#cb3-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-407"><a href="#cb3-407" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb3-408"><a href="#cb3-408" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb3-409"><a href="#cb3-409" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb3-410"><a href="#cb3-410" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb3-411"><a href="#cb3-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-412"><a href="#cb3-412" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb3-413"><a href="#cb3-413" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-414"><a href="#cb3-414" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb3-415"><a href="#cb3-415" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-416"><a href="#cb3-416" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb3-417"><a href="#cb3-417" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-418"><a href="#cb3-418" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
-</code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb3-394"><a href="#cb3-394" aria-hidden="true" tabindex="-1"></a><span class="co"># Definição das quebras de classe (Regra de Sturges com c = 2.3)</span></span>
+<span id="cb3-395"><a href="#cb3-395" aria-hidden="true" tabindex="-1"></a>quebras <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">11.0</span>, <span class="fl">27.1</span>, <span class="at">by =</span> <span class="fl">2.3</span>)</span>
+<span id="cb3-396"><a href="#cb3-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-397"><a href="#cb3-397" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupamento e contagens</span></span>
+<span id="cb3-398"><a href="#cb3-398" aria-hidden="true" tabindex="-1"></a>f_i <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(<span class="fu">table</span>(<span class="fu">cut</span>(dados_nspt, <span class="at">breaks =</span> quebras, <span class="at">right =</span> <span class="cn">FALSE</span>, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb3-399"><a href="#cb3-399" aria-hidden="true" tabindex="-1"></a>f_r <span class="ot">&lt;-</span> <span class="fu">round</span>(f_i <span class="sc">/</span> <span class="fu">sum</span>(f_i), <span class="dv">2</span>)</span>
+<span id="cb3-400"><a href="#cb3-400" aria-hidden="true" tabindex="-1"></a>f_ac <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(f_i)</span>
+<span id="cb3-401"><a href="#cb3-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-402"><a href="#cb3-402" aria-hidden="true" tabindex="-1"></a><span class="co"># Rótulos dos intervalos e pontos médios</span></span>
+<span id="cb3-403"><a href="#cb3-403" aria-hidden="true" tabindex="-1"></a>rotulos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"[11,0 |- 13,3)"</span>, <span class="st">"[13,3 |- 15,6)"</span>, <span class="st">"[15,6 |- 17,9)"</span>, </span>
+<span id="cb3-404"><a href="#cb3-404" aria-hidden="true" tabindex="-1"></a>             <span class="st">"[17,9 |- 20,2)"</span>, <span class="st">"[20,2 |- 22,5)"</span>, <span class="st">"[22,5 |- 24,8)"</span>, <span class="st">"[24,8 |- 27,1]"</span>)</span>
+<span id="cb3-405"><a href="#cb3-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-406"><a href="#cb3-406" aria-hidden="true" tabindex="-1"></a>pontos_medios <span class="ot">&lt;-</span> <span class="fu">round</span>((quebras[<span class="sc">-</span><span class="fu">length</span>(quebras)] <span class="sc">+</span> quebras[<span class="sc">-</span><span class="dv">1</span>]) <span class="sc">/</span> <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb3-407"><a href="#cb3-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-408"><a href="#cb3-408" aria-hidden="true" tabindex="-1"></a><span class="co"># Montagem do data frame da tabela</span></span>
+<span id="cb3-409"><a href="#cb3-409" aria-hidden="true" tabindex="-1"></a>df_freq <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-410"><a href="#cb3-410" aria-hidden="true" tabindex="-1"></a>  <span class="at">Intervalo =</span> rotulos,</span>
+<span id="cb3-411"><a href="#cb3-411" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ponto_Medio =</span> pontos_medios,</span>
+<span id="cb3-412"><a href="#cb3-412" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Absoluta =</span> f_i,</span>
+<span id="cb3-413"><a href="#cb3-413" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Relativa =</span> f_r,</span>
+<span id="cb3-414"><a href="#cb3-414" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Acumulada =</span> f_ac</span>
+<span id="cb3-415"><a href="#cb3-415" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-416"><a href="#cb3-416" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-417"><a href="#cb3-417" aria-hidden="true" tabindex="-1"></a><span class="co"># Adição da linha de Total</span></span>
+<span id="cb3-418"><a href="#cb3-418" aria-hidden="true" tabindex="-1"></a>df_total <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-419"><a href="#cb3-419" aria-hidden="true" tabindex="-1"></a>  <span class="at">Intervalo =</span> <span class="st">"Total"</span>,</span>
+<span id="cb3-420"><a href="#cb3-420" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ponto_Medio =</span> <span class="st">"—"</span>,</span>
+<span id="cb3-421"><a href="#cb3-421" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Absoluta =</span> <span class="fu">sum</span>(f_i),</span>
+<span id="cb3-422"><a href="#cb3-422" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Relativa =</span> <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, <span class="fu">sum</span>(f_r)),</span>
+<span id="cb3-423"><a href="#cb3-423" aria-hidden="true" tabindex="-1"></a>  <span class="at">Freq_Acumulada =</span> <span class="st">"—"</span></span>
+<span id="cb3-424"><a href="#cb3-424" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-425"><a href="#cb3-425" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-426"><a href="#cb3-426" aria-hidden="true" tabindex="-1"></a>df_final <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df_freq, df_total)</span>
+<span id="cb3-427"><a href="#cb3-427" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-428"><a href="#cb3-428" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb3-429"><a href="#cb3-429" aria-hidden="true" tabindex="-1"></a>  df_final,</span>
+<span id="cb3-430"><a href="#cb3-430" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"c"</span>,</span>
+<span id="cb3-431"><a href="#cb3-431" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Intervalo de Classe (Golpes)"</span>, <span class="st">"Ponto Médio (X_i)"</span>, <span class="st">"Freq. Absoluta (f_i)"</span>, <span class="st">"Freq. Relativa (f_r)"</span>, <span class="st">"Freq. Acumulada (f_ac)"</span>),</span>
+<span id="cb3-432"><a href="#cb3-432" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Distribuição de Frequências Agrupadas por Intervalos de Classe."</span></span>
+<span id="cb3-433"><a href="#cb3-433" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-434"><a href="#cb3-434" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-435"><a href="#cb3-435" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-436"><a href="#cb3-436" aria-hidden="true" tabindex="-1"></a>**O que o resultado mostra:** As classes de maior frequência absoluta agregam 30 dos 50 furos (60% da amostra) na faixa de 15,6 a 22,5 golpes. Isso comprova que o depósito geotécnico possui boa uniformidade estrutural na cota investigada.</span>
+<span id="cb3-437"><a href="#cb3-437" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-438"><a href="#cb3-438" aria-hidden="true" tabindex="-1"></a><span class="fu">### Representação Gráfica</span></span>
+<span id="cb3-439"><a href="#cb3-439" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-440"><a href="#cb3-440" aria-hidden="true" tabindex="-1"></a>**Interpretação e Análise do Formato:** O Histograma apresenta visualmente o perfil de densidade de resistência da camada, permitindo diagnosticar a simetria central. A Ogiva de Frequências Acumuladas exibe a curva ascendente do somatório de furos; o ponto em que a ogiva cruza o patamar horizontal de 50% ($f_{ac} = 25$ furos) marca exatamente a posição visual da mediana (18,0 golpes).</span>
+<span id="cb3-441"><a href="#cb3-441" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-442"><a href="#cb3-442" aria-hidden="true" tabindex="-1"></a><span class="in">```{r histograma-nativo, echo=TRUE}</span></span>
+<span id="cb3-443"><a href="#cb3-443" aria-hidden="true" tabindex="-1"></a><span class="co"># Vetor numérico isolado garantido</span></span>
+<span id="cb3-444"><a href="#cb3-444" aria-hidden="true" tabindex="-1"></a>dados_nspt <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">17</span>, </span>
+<span id="cb3-445"><a href="#cb3-445" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">11</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, </span>
+<span id="cb3-446"><a href="#cb3-446" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">24</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-447"><a href="#cb3-447" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">26</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dv">21</span>, </span>
+<span id="cb3-448"><a href="#cb3-448" aria-hidden="true" tabindex="-1"></a>                           <span class="dv">12</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">27</span>))</span>
+<span id="cb3-449"><a href="#cb3-449" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-450"><a href="#cb3-450" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dados_nspt,</span>
+<span id="cb3-451"><a href="#cb3-451" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">11.0</span>, <span class="fl">27.1</span>, <span class="at">by =</span> <span class="fl">2.3</span>),</span>
+<span id="cb3-452"><a href="#cb3-452" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histograma de N_SPT (-5,0m)"</span>,</span>
+<span id="cb3-453"><a href="#cb3-453" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"N_SPT (golpes)"</span>,</span>
+<span id="cb3-454"><a href="#cb3-454" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Frequência Absoluta"</span>,</span>
+<span id="cb3-455"><a href="#cb3-455" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"#4682B4"</span>,</span>
+<span id="cb3-456"><a href="#cb3-456" aria-hidden="true" tabindex="-1"></a>     <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb3-457"><a href="#cb3-457" aria-hidden="true" tabindex="-1"></a>     <span class="at">right =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-458"><a href="#cb3-458" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-459"><a href="#cb3-459" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-460"><a href="#cb3-460" aria-hidden="true" tabindex="-1"></a><span class="fu">### Medidas de Posição (Tendência Central)</span></span>
+<span id="cb3-461"><a href="#cb3-461" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-462"><a href="#cb3-462" aria-hidden="true" tabindex="-1"></a>**Média Aritmética:** Representa o centro de gravidade matemático dos dados. Em termos práticos, se a camada de solo fosse perfeitamente homogênea e sem variabilidade, cada metro perfurado a -5,0 m ofereceria a resistência média amostral a 5,0 m de profundidade de <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> golpes.</span>
+<span id="cb3-463"><a href="#cb3-463" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-464"><a href="#cb3-464" aria-hidden="true" tabindex="-1"></a>• **Mediana ($Md =$ `r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes):** É o divisor amostral exato. Significa que 50% dos furos executados no terreno apresentaram resistência de até <span class="in">`r median(dados_nspt)`</span> golpes, enquanto os outros 50% apresentaram valores iguais ou superiores a <span class="in">`r median(dados_nspt)`</span> golpes. Por não ser afetada por valores extremos, confirma que a média de <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> não está distorcida por discrepâncias de sondagem.</span>
+<span id="cb3-465"><a href="#cb3-465" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-466"><a href="#cb3-466" aria-hidden="true" tabindex="-1"></a>• **Moda de Czuber ($Mo =$ `r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")` golpes):** Identifica o ponto de máxima densidade da distribuição contínua. Indica o valor pontual de resistência mais provável de ser encontrado ao perfurar um novo furo aleatório nessa cota.</span>
+<span id="cb3-467"><a href="#cb3-467" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-468"><a href="#cb3-468" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; **Conclusão sobre a Tendência Geral** - A proximidade quase perfeita entre os três valores (X̄ ≈ Md ≈ Mo ≈ 18 golpes) demonstra empiricamente que a</span></span>
+<span id="cb3-469"><a href="#cb3-469" aria-hidden="true" tabindex="-1"></a><span class="at">distribuição de resistência do solo nesta camada aproxima-se de um comportamento simétrico.</span></span>
+<span id="cb3-470"><a href="#cb3-470" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-471"><a href="#cb3-471" aria-hidden="true" tabindex="-1"></a><span class="fu">### Medidas de Dispersão e Variabilidade</span></span>
+<span id="cb3-472"><a href="#cb3-472" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-473"><a href="#cb3-473" aria-hidden="true" tabindex="-1"></a>• **Amplitude Total ($A_t =$ `r max(dados_nspt) - min(dados_nspt)` golpes):**</span>
+<span id="cb3-474"><a href="#cb3-474" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** É a distância bruta entre o menor (<span class="in">`r min(dados_nspt)`</span>) e o maior (<span class="in">`r max(dados_nspt)`</span>) valor de resistência registrado ($A_t = <span class="in">`r max(dados_nspt)`</span> - <span class="in">`r min(dados_nspt)`</span> = <span class="in">`r max(dados_nspt) - min(dados_nspt)`</span>$).</span>
+<span id="cb3-475"><a href="#cb3-475" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** Revela o intervalo total de variação do terreno. No entanto, por depender isoladamente de apenas duas medições de borda, a amplitude não informa como os outros <span class="in">`r length(dados_nspt) - 2`</span> furos estão distribuídos no meio.</span>
+<span id="cb3-476"><a href="#cb3-476" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-477"><a href="#cb3-477" aria-hidden="true" tabindex="-1"></a>• **Variância Amostral ($S^2 =$ `r format(round(var(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $\text{golpes}^2$):**</span>
+<span id="cb3-478"><a href="#cb3-478" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** É a média dos quadrados dos desvios de cada furo em relação à média geral (utilizando a correção de Bessel, $n - 1 =$ <span class="in">`r length(dados_nspt) - 1`</span>).</span>
+<span id="cb3-479"><a href="#cb3-479" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** A variância quantifica o afastamento quadrático global dos dados. Por resultar em uma unidade ao quadrado ($\text{golpes}^2$), ela não possui aplicação física direta no dimensionamento de fundações, mas serve como base matemática rigorosa para a extração do desvio padrão.</span>
+<span id="cb3-480"><a href="#cb3-480" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-481"><a href="#cb3-481" aria-hidden="true" tabindex="-1"></a>• **Desvio Padrão Amostral ($S =$ `r format(round(sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes):**</span>
+<span id="cb3-482"><a href="#cb3-482" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** É a raiz quadrada da variância, reconduzindo a medida de dispersão de volta para a mesma unidade física da variável original ($\text{golpes}$).</span>
+<span id="cb3-483"><a href="#cb3-483" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** Mostra o afastamento médio típico de um furo qualquer em relação à média da camada. Em média, os furos desta sondagem oscilam $\pm$ <span class="in">`r format(round(sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> golpes em torno dos <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> golpes centrais.</span>
+<span id="cb3-484"><a href="#cb3-484" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-485"><a href="#cb3-485" aria-hidden="true" tabindex="-1"></a>• **Coeficiente de Variação ($CV =$ `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`%):**</span>
+<span id="cb3-486"><a href="#cb3-486" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** É a razão percentual entre o desvio padrão e a média ($CV = (S / \bar{X}) \cdot 100$), permitindo avaliar a variabilidade relativa padronizada.</span>
+<span id="cb3-487"><a href="#cb3-487" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** Na prática geotécnica e normativa (NBR 6122 / Eurocode 7), solos naturais com $CV &lt; 30\%$ são classificados como de baixa a moderada variabilidade (homogêneos). O resultado de <span class="in">`r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`</span>% confirma a segurança para a adoção de um perfil geotécnico único na cota de -5,0 m sem necessidade de subsegmentar o terreno em blocos distintos.</span>
+<span id="cb3-488"><a href="#cb3-488" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-489"><a href="#cb3-489" aria-hidden="true" tabindex="-1"></a>• **Erro Padrão da Média ($S_{\bar{X}} =$ `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes):**</span>
+<span id="cb3-490"><a href="#cb3-490" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** Mede a precisão da média amostral estimada em relação à verdadeira média populacional *in situ* ($S_{\bar{X}} = S / \sqrt{n}$).</span>
+<span id="cb3-491"><a href="#cb3-491" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** Um erro padrão reduzido de apenas <span class="in">`r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")`</span> golpes confirma que o tamanho amostral de $n =$ <span class="in">`r length(dados_nspt)`</span> furos é estatisticamente robusto, conferindo elevada confiabilidade ao valor médio calculado.</span>
+<span id="cb3-492"><a href="#cb3-492" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-493"><a href="#cb3-493" aria-hidden="true" tabindex="-1"></a><span class="fu">### Medidas de Forma: Assimetria e Curtose</span></span>
+<span id="cb3-494"><a href="#cb3-494" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-495"><a href="#cb3-495" aria-hidden="true" tabindex="-1"></a>• **Assimetria de Pearson ($As_2 =$ `r format(round(3 * (mean(dados_nspt) - median(dados_nspt)) / sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` | Momento $g_1 =$ `r format(round(e1071::skewness(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):**</span>
+<span id="cb3-496"><a href="#cb3-496" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** Avalia a inclinação gráfica ou deformação lateral da curva de frequências em relação ao centro.</span>
+<span id="cb3-497"><a href="#cb3-497" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** O valor positivo e próximo de zero confirma uma assimetria positiva leve (à direita). Isso indica que a maioria dos furos concentra-se em valores médios de resistência, havendo uma pequena quantidade de furos isolados com resistências mais elevadas (até <span class="in">`r max(dados_nspt)`</span> golpes) estendendo a cauda direita do gráfico. É coerente com a relação $\bar{X}$ (<span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span>) $&gt; M_d$ (<span class="in">`r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span>).</span>
+<span id="cb3-498"><a href="#cb3-498" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-499"><a href="#cb3-499" aria-hidden="true" tabindex="-1"></a>• **Excesso de Curtose ($g_2 =$ `r format(round(e1071::kurtosis(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):**</span>
+<span id="cb3-500"><a href="#cb3-500" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que significa:** Mede o grau de achatamento do topo da curva e a espessura das caudas em comparação com a curva Normal teórica ($g_2 = 0$).</span>
+<span id="cb3-501"><a href="#cb3-501" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>**O que o resultado mostra:** Por ser ligeiramente negativo ($g_2 &lt; 0$), a distribuição é classificada como **Platicúrtica**. Isso significa que a curva possui um topo suavemente achatado com caudas leves, demonstrando a ausência de discrepâncias extremas (*outliers*) e confirmando que os valores de resistência variam de forma contínua e previsível.</span>
+<span id="cb3-502"><a href="#cb3-502" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-503"><a href="#cb3-503" aria-hidden="true" tabindex="-1"></a><span class="in">```{r densidade-normal, echo=TRUE, fig.cap="Curva de Densidade dos Dados vs. Curva Normal Teórica"}</span></span>
+<span id="cb3-504"><a href="#cb3-504" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ajuste de densidade amostral</span></span>
+<span id="cb3-505"><a href="#cb3-505" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">density</span>(dados_nspt)</span>
+<span id="cb3-506"><a href="#cb3-506" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-507"><a href="#cb3-507" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Plotagem da densidade real</span></span>
+<span id="cb3-508"><a href="#cb3-508" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(d, </span>
+<span id="cb3-509"><a href="#cb3-509" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Densidade Amostral vs. Curva Normal Teórica"</span>,</span>
+<span id="cb3-510"><a href="#cb3-510" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"N_SPT (golpes)"</span>, </span>
+<span id="cb3-511"><a href="#cb3-511" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Densidade de Probabilidade"</span>,</span>
+<span id="cb3-512"><a href="#cb3-512" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">"darkblue"</span>, <span class="at">lwd =</span> <span class="fl">2.5</span>,</span>
+<span id="cb3-513"><a href="#cb3-513" aria-hidden="true" tabindex="-1"></a>     <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb3-514"><a href="#cb3-514" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-515"><a href="#cb3-515" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Preenchimento suave</span></span>
+<span id="cb3-516"><a href="#cb3-516" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(d, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>), <span class="at">border =</span> <span class="cn">NA</span>)</span>
+<span id="cb3-517"><a href="#cb3-517" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-518"><a href="#cb3-518" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Sobreposição da Curva Normal teórica (Linha tracejada vermelha)</span></span>
+<span id="cb3-519"><a href="#cb3-519" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(dados_nspt) <span class="sc">-</span> <span class="dv">3</span>, <span class="fu">max</span>(dados_nspt) <span class="sc">+</span> <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">200</span>)</span>
+<span id="cb3-520"><a href="#cb3-520" aria-hidden="true" tabindex="-1"></a>y_norm <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x_seq, <span class="at">mean =</span> <span class="fu">mean</span>(dados_nspt), <span class="at">sd =</span> <span class="fu">sd</span>(dados_nspt))</span>
+<span id="cb3-521"><a href="#cb3-521" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x_seq, y_norm, <span class="at">col =</span> <span class="st">"red3"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb3-522"><a href="#cb3-522" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-523"><a href="#cb3-523" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Legenda explicativa</span></span>
+<span id="cb3-524"><a href="#cb3-524" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, </span>
+<span id="cb3-525"><a href="#cb3-525" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Densidade Amostral (SPT)"</span>, <span class="st">"Normal Teórica (N(μ, σ²))"</span>),</span>
+<span id="cb3-526"><a href="#cb3-526" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"darkblue"</span>, <span class="st">"red3"</span>), </span>
+<span id="cb3-527"><a href="#cb3-527" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd =</span> <span class="fu">c</span>(<span class="fl">2.5</span>, <span class="dv">2</span>), </span>
+<span id="cb3-528"><a href="#cb3-528" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), </span>
+<span id="cb3-529"><a href="#cb3-529" aria-hidden="true" tabindex="-1"></a>       <span class="at">bty =</span> <span class="st">"n"</span>)</span>
+<span id="cb3-530"><a href="#cb3-530" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-531"><a href="#cb3-531" aria-hidden="true" tabindex="-1"></a>**Análise Visual de Assimetria e Curtose (Densidade vs. Normal)**</span>
+<span id="cb3-532"><a href="#cb3-532" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-533"><a href="#cb3-533" aria-hidden="true" tabindex="-1"></a>A comparação entre a curva de densidade empírica dos dados de $N_{SPT}$ e a curva Normal teórica de referência $\mathcal{N}(\mu = <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span>; \sigma^2 = <span class="in">`r format(round(var(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span>)$ ratifica visualmente os coeficientes de forma obtidos analiticamente:</span>
+<span id="cb3-534"><a href="#cb3-534" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-535"><a href="#cb3-535" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Confirmação da Assimetria Positiva ($g_1 =$ `r format(round(e1071::skewness(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** A curva azul (dados reais) apresenta um pico ligeiramente deslocado para a esquerda, alinhado ao valor modal (<span class="in">`r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")`</span> golpes), enquanto a cauda direita se estende discretamente até a resistência máxima de <span class="in">`r max(dados_nspt)`</span> golpes. Essa geometria confirma o ordenamento típico das distribuições com assimetria à direita ($\bar{X} =$ <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> $&gt; M_d =$ <span class="in">`r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> $&gt; M_o =$ <span class="in">`r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")`</span>).</span>
+<span id="cb3-536"><a href="#cb3-536" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-537"><a href="#cb3-537" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Confirmação da Curtose Platicúrtica ($g_2 =$ `r format(round(e1071::kurtosis(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** O topo da curva amostral é suavemente rebaixado em relação ao pico da curva Gaussiana teórica (linha vermelha tracejada), apresentando caudas mais leves. O comportamento achatado reforça que a variabilidade da resistência ocorre de forma contínua e previsível ao longo da cota investigada, sem a presença de *outliers* ou anomalias pontuais no maciço.</span>
+<span id="cb3-538"><a href="#cb3-538" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-539"><a href="#cb3-539" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
+<span id="cb3-540"><a href="#cb3-540" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-541"><a href="#cb3-541" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
+<span id="cb3-542"><a href="#cb3-542" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-543"><a href="#cb3-543" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
+<span id="cb3-544"><a href="#cb3-544" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
+<span id="cb3-545"><a href="#cb3-545" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-546"><a href="#cb3-546" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações Finais</span></span>
+<span id="cb3-547"><a href="#cb3-547" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-548"><a href="#cb3-548" aria-hidden="true" tabindex="-1"></a>A integração entre a lógica da linguagem R, os fundamentos da Estatística Descritiva e a aplicação prática sobre o banco de dados do ensaio $N_{SPT}$ permitiu estruturar um diagnóstico técnico completo e estatisticamente fundamentado:</span>
+<span id="cb3-549"><a href="#cb3-549" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-550"><a href="#cb3-550" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Capacitação em Linguagem R e Raciocínio Programável:** A assimilação das estruturas primárias do R aliada às rotinas do pacote <span class="in">`leem`</span> possibilitou a construção de um pipeline de processamento automatizado, reprodutível e livre de erros manuais. A declaração do objeto contínuo (<span class="in">`leem::new_leem`</span>) simplificou o agrupamento por classes e viabilizou a extração das métricas analíticas e representações gráficas diretas no relatório em Quarto.</span>
+<span id="cb3-551"><a href="#cb3-551" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Rigor Conceitual da Estatística Descritiva:** A análise conjunta das medidas de tendência central, dispersão e forma provou que a caracterização de um parâmetro de engenharia não deve se limitar à média isolada. A quantificação da variabilidade relativa ($CV$), do erro amostral ($S_{\bar{X}}$) e da geometria da curva ($g_1$ e $g_2$) forneceu o embasamento teórico necessário para julgar a representatividade da amostragem.</span>
+<span id="cb3-552"><a href="#cb3-552" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>**Validação Geotécnica da Camada de $N_{SPT}$:** A síntese dos $n = 50$ furos na cota de -5,0 m confirmou a alta homogeneidade e previsibilidade do depósito de argila arenosa. Com um coeficiente de variação de $CV =$ <span class="in">`r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`</span>% (classificado como baixo pelo Eurocode 7 e NBR 6122) e um erro padrão reduzido de $S_{\bar{X}} =$ <span class="in">`r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")`</span> golpes, valida-se a adocação do valor médio de $\bar{X} =$ <span class="in">`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`</span> golpes como parâmetro representativo do maciço, descartando a necessidade de subsegmentar o terreno em blocos distintos de fundação.</span>
+<span id="cb3-553"><a href="#cb3-553" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-554"><a href="#cb3-554" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb3-555"><a href="#cb3-555" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-556"><a href="#cb3-556" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb3-557"><a href="#cb3-557" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-558"><a href="#cb3-558" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<span id="cb3-559"><a href="#cb3-559" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-560"><a href="#cb3-560" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@batista2024epaec</span><span class="co">]</span></span>
+<span id="cb3-561"><a href="#cb3-561" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-562"><a href="#cb3-562" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@batista2024epaec</span><span class="co">]</span> </span>
+<span id="cb3-563"><a href="#cb3-563" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-564"><a href="#cb3-564" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@batista2025leem</span><span class="co">]</span></span>
+<span id="cb3-565"><a href="#cb3-565" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-566"><a href="#cb3-566" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@batista2025latex</span><span class="co">]</span> </span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
