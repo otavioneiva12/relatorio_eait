@@ -264,7 +264,7 @@ $$
 
 ##### Desvio Padrão (S ou σ)
 
-Como a variância expressa unidades ao quadrado (ex.: 〖"golpes" 〗^2), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:
+Como a variância expressa unidades ao quadrado (ex.: $\text{golpes}^2$), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:
 
 $$
 S = \sqrt{S^2}
@@ -345,7 +345,7 @@ A estruturação estatística do $N_{SPT}$ busca subsidiar a tomada de decisão 
 
 Apresentação dos Dados Brutos
 
-Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela~\ref{tab:dados_brutos} exibe os $n = 40$ valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).
+Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela abaixo exibe os $n = 40$ valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).
 
 ```{r tabela-spt, echo=FALSE, message=FALSE, warning=FALSE}
 # Tabulação interna pura dos dados
@@ -370,7 +370,7 @@ knitr::kable(
 Neste tópico, realiza-se a aplicação prática das rotinas de Estatística Descritiva e Análise Exploratória de Dados
 (AED) sobre um banco de dados geotécnico composto por n = 50 ensaios de campo de resistência à penetração
 (NSPT) medidos na cota de -5,0 m em uma camada homogênea de argila arenosa. Todo o processamento
-computacional foi executado no ambiente R com suporte do pacote leem (Prof. Ben Dêivide).
+computacional foi executado no ambiente R com suporte do pacote leem.
 
 ### Organização dos Dados e Leitura no R
 
@@ -471,34 +471,34 @@ distribuição de resistência do solo nesta camada aproxima-se de um comportame
 ### Medidas de Dispersão e Variabilidade
 
 • **Amplitude Total ($A_t =$ `r max(dados_nspt) - min(dados_nspt)` golpes):**
-  * **O que significa:** É a distância bruta entre o menor (`r min(dados_nspt)`) e o maior (`r max(dados_nspt)`) valor de resistência registrado ($A_t = `r max(dados_nspt)` - `r min(dados_nspt)` = `r max(dados_nspt) - min(dados_nspt)`$).
-  * **O que o resultado mostra:** Revela o intervalo total de variação do terreno. No entanto, por depender isoladamente de apenas duas medições de borda, a amplitude não informa como os outros `r length(dados_nspt) - 2` furos estão distribuídos no meio.
+  **O que significa:** É a distância bruta entre o menor (`r min(dados_nspt)`) e o maior (`r max(dados_nspt)`) valor de resistência registrado ($A_t = `r max(dados_nspt)` - `r min(dados_nspt)` = `r max(dados_nspt) - min(dados_nspt)`$).
+  **O que o resultado mostra:** Revela o intervalo total de variação do terreno. No entanto, por depender isoladamente de apenas duas medições de borda, a amplitude não informa como os outros `r length(dados_nspt) - 2` furos estão distribuídos no meio.
   
 • **Variância Amostral ($S^2 =$ `r format(round(var(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $\text{golpes}^2$):**
-  * **O que significa:** É a média dos quadrados dos desvios de cada furo em relação à média geral (utilizando a correção de Bessel, $n - 1 =$ `r length(dados_nspt) - 1`).
-  * **O que o resultado mostra:** A variância quantifica o afastamento quadrático global dos dados. Por resultar em uma unidade ao quadrado ($\text{golpes}^2$), ela não possui aplicação física direta no dimensionamento de fundações, mas serve como base matemática rigorosa para a extração do desvio padrão.
+  **O que significa:** É a média dos quadrados dos desvios de cada furo em relação à média geral (utilizando a correção de Bessel, $n - 1 =$ `r length(dados_nspt) - 1`).
+  **O que o resultado mostra:** A variância quantifica o afastamento quadrático global dos dados. Por resultar em uma unidade ao quadrado ($\text{golpes}^2$), ela não possui aplicação física direta no dimensionamento de fundações, mas serve como base matemática rigorosa para a extração do desvio padrão.
 
 • **Desvio Padrão Amostral ($S =$ `r format(round(sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes):**
   * **O que significa:** É a raiz quadrada da variância, reconduzindo a medida de dispersão de volta para a mesma unidade física da variável original ($\text{golpes}$).
-  * **O que o resultado mostra:** Mostra o afastamento médio típico de um furo qualquer em relação à média da camada. Em média, os furos desta sondagem oscilam $\pm$ `r format(round(sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes em torno dos `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes centrais.
+  **O que o resultado mostra:** Mostra o afastamento médio típico de um furo qualquer em relação à média da camada. Em média, os furos desta sondagem oscilam $\pm$ `r format(round(sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes em torno dos `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes centrais.
   
 • **Coeficiente de Variação ($CV =$ `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`%):**
-  * **O que significa:** É a razão percentual entre o desvio padrão e a média ($CV = (S / \bar{X}) \cdot 100$), permitindo avaliar a variabilidade relativa padronizada.
+  **O que significa:** É a razão percentual entre o desvio padrão e a média ($CV = (S / \bar{X}) \cdot 100$), permitindo avaliar a variabilidade relativa padronizada.
   * **O que o resultado mostra:** Na prática geotécnica e normativa (NBR 6122 / Eurocode 7), solos naturais com $CV < 30\%$ são classificados como de baixa a moderada variabilidade (homogêneos). O resultado de `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`% confirma a segurança para a adoção de um perfil geotécnico único na cota de -5,0 m sem necessidade de subsegmentar o terreno em blocos distintos.
   
 • **Erro Padrão da Média ($S_{\bar{X}} =$ `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes):**
   * **O que significa:** Mede a precisão da média amostral estimada em relação à verdadeira média populacional *in situ* ($S_{\bar{X}} = S / \sqrt{n}$).
-  * **O que o resultado mostra:** Um erro padrão reduzido de apenas `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes confirma que o tamanho amostral de $n =$ `r length(dados_nspt)` furos é estatisticamente robusto, conferindo elevada confiabilidade ao valor médio calculado.
+  **O que o resultado mostra:** Um erro padrão reduzido de apenas `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes confirma que o tamanho amostral de $n =$ `r length(dados_nspt)` furos é estatisticamente robusto, conferindo elevada confiabilidade ao valor médio calculado.
 
 ### Medidas de Forma: Assimetria e Curtose
 
 • **Assimetria de Pearson ($As_2 =$ `r format(round(3 * (mean(dados_nspt) - median(dados_nspt)) / sd(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` | Momento $g_1 =$ `r format(round(e1071::skewness(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):**
   * **O que significa:** Avalia a inclinação gráfica ou deformação lateral da curva de frequências em relação ao centro.
-  * **O que o resultado mostra:** O valor positivo e próximo de zero confirma uma assimetria positiva leve (à direita). Isso indica que a maioria dos furos concentra-se em valores médios de resistência, havendo uma pequena quantidade de furos isolados com resistências mais elevadas (até `r max(dados_nspt)` golpes) estendendo a cauda direita do gráfico. É coerente com a relação $\bar{X}$ (`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`) $> M_d$ (`r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`).
+  **O que o resultado mostra:** O valor positivo e próximo de zero confirma uma assimetria positiva leve (à direita). Isso indica que a maioria dos furos concentra-se em valores médios de resistência, havendo uma pequena quantidade de furos isolados com resistências mais elevadas (até `r max(dados_nspt)` golpes) estendendo a cauda direita do gráfico. É coerente com a relação $\bar{X}$ (`r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`) $> M_d$ (`r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`).
   
 • **Excesso de Curtose ($g_2 =$ `r format(round(e1071::kurtosis(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):**
-  * **O que significa:** Mede o grau de achatamento do topo da curva e a espessura das caudas em comparação com a curva Normal teórica ($g_2 = 0$).
-  * **O que o resultado mostra:** Por ser ligeiramente negativo ($g_2 < 0$), a distribuição é classificada como **Platicúrtica**. Isso significa que a curva possui um topo suavemente achatado com caudas leves, demonstrando a ausência de discrepâncias extremas (*outliers*) e confirmando que os valores de resistência variam de forma contínua e previsível.
+  **O que significa:** Mede o grau de achatamento do topo da curva e a espessura das caudas em comparação com a curva Normal teórica ($g_2 = 0$).
+  **O que o resultado mostra:** Por ser ligeiramente negativo ($g_2 < 0$), a distribuição é classificada como **Platicúrtica**. Isso significa que a curva possui um topo suavemente achatado com caudas leves, demonstrando a ausência de discrepâncias extremas (*outliers*) e confirmando que os valores de resistência variam de forma contínua e previsível.
   
 ```{r densidade-normal, echo=TRUE, fig.cap="Curva de Densidade dos Dados vs. Curva Normal Teórica"}
 # 1. Ajuste de densidade amostral
@@ -532,11 +532,11 @@ legend("topright",
 
 A comparação entre a curva de densidade empírica dos dados de $N_{SPT}$ e a curva Normal teórica de referência $\mathcal{N}(\mu = `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`; \sigma^2 = `r format(round(var(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`)$ ratifica visualmente os coeficientes de forma obtidos analiticamente:
 
-* **Confirmação da Assimetria Positiva ($g_1 =$ `r format(round(e1071::skewness(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** A curva azul (dados reais) apresenta um pico ligeiramente deslocado para a esquerda, alinhado ao valor modal (`r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")` golpes), enquanto a cauda direita se estende discretamente até a resistência máxima de `r max(dados_nspt)` golpes. Essa geometria confirma o ordenamento típico das distribuições com assimetria à direita ($\bar{X} =$ `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $> M_d =$ `r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $> M_o =$ `r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")`).
+**Confirmação da Assimetria Positiva ($g_1 =$ `r format(round(e1071::skewness(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** A curva azul (dados reais) apresenta um pico ligeiramente deslocado para a esquerda, alinhado ao valor modal (`r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")` golpes), enquanto a cauda direita se estende discretamente até a resistência máxima de `r max(dados_nspt)` golpes. Essa geometria confirma o ordenamento típico das distribuições com assimetria à direita ($\bar{X} =$ `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $> M_d =$ `r format(round(median(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` $> M_o =$ `r format(round(as.numeric(leem::mfreq(spt_leem)), 2), nsmall = 2, decimal.mark = ",")`).
 
-* **Confirmação da Curtose Platicúrtica ($g_2 =$ `r format(round(e1071::kurtosis(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** O topo da curva amostral é suavemente rebaixado em relação ao pico da curva Gaussiana teórica (linha vermelha tracejada), apresentando caudas mais leves. O comportamento achatado reforça que a variabilidade da resistência ocorre de forma contínua e previsível ao longo da cota investigada, sem a presença de *outliers* ou anomalias pontuais no maciço.
+**Confirmação da Curtose Platicúrtica ($g_2 =$ `r format(round(e1071::kurtosis(dados_nspt), 2), nsmall = 2, decimal.mark = ",")`):** O topo da curva amostral é suavemente rebaixado em relação ao pico da curva Gaussiana teórica (linha vermelha tracejada), apresentando caudas mais leves. O comportamento achatado reforça que a variabilidade da resistência ocorre de forma contínua e previsível ao longo da cota investigada, sem a presença de *outliers* ou anomalias pontuais no maciço.
 
-### 💬 Exemplo de como citar uma referência bibliográfica
+## 💬 Exemplo de como citar uma referência bibliográfica
 
 Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
 
@@ -547,9 +547,9 @@ Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
 
 A integração entre a lógica da linguagem R, os fundamentos da Estatística Descritiva e a aplicação prática sobre o banco de dados do ensaio $N_{SPT}$ permitiu estruturar um diagnóstico técnico completo e estatisticamente fundamentado:
 
-* **Capacitação em Linguagem R e Raciocínio Programável:** A assimilação das estruturas primárias do R aliada às rotinas do pacote `leem` possibilitou a construção de um pipeline de processamento automatizado, reprodutível e livre de erros manuais. A declaração do objeto contínuo (`leem::new_leem`) simplificou o agrupamento por classes e viabilizou a extração das métricas analíticas e representações gráficas diretas no relatório em Quarto.
-* **Rigor Conceitual da Estatística Descritiva:** A análise conjunta das medidas de tendência central, dispersão e forma provou que a caracterização de um parâmetro de engenharia não deve se limitar à média isolada. A quantificação da variabilidade relativa ($CV$), do erro amostral ($S_{\bar{X}}$) e da geometria da curva ($g_1$ e $g_2$) forneceu o embasamento teórico necessário para julgar a representatividade da amostragem.
-* **Validação Geotécnica da Camada de $N_{SPT}$:** A síntese dos $n = 50$ furos na cota de -5,0 m confirmou a alta homogeneidade e previsibilidade do depósito de argila arenosa. Com um coeficiente de variação de $CV =$ `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`% (classificado como baixo pelo Eurocode 7 e NBR 6122) e um erro padrão reduzido de $S_{\bar{X}} =$ `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes, valida-se a adocação do valor médio de $\bar{X} =$ `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes como parâmetro representativo do maciço, descartando a necessidade de subsegmentar o terreno em blocos distintos de fundação.
+**Capacitação em Linguagem R e Raciocínio Programável:** A assimilação das estruturas primárias do R aliada às rotinas do pacote `leem` possibilitou a construção de um pipeline de processamento automatizado, reprodutível e livre de erros manuais. A declaração do objeto contínuo (`leem::new_leem`) simplificou o agrupamento por classes e viabilizou a extração das métricas analíticas e representações gráficas diretas no relatório em Quarto.
+**Rigor Conceitual da Estatística Descritiva:** A análise conjunta das medidas de tendência central, dispersão e forma provou que a caracterização de um parâmetro de engenharia não deve se limitar à média isolada. A quantificação da variabilidade relativa ($CV$), do erro amostral ($S_{\bar{X}}$) e da geometria da curva ($g_1$ e $g_2$) forneceu o embasamento teórico necessário para julgar a representatividade da amostragem.
+**Validação Geotécnica da Camada de $N_{SPT}$:** A síntese dos $n = 50$ furos na cota de -5,0 m confirmou a alta homogeneidade e previsibilidade do depósito de argila arenosa. Com um coeficiente de variação de $CV =$ `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`% (classificado como baixo pelo Eurocode 7 e NBR 6122) e um erro padrão reduzido de $S_{\bar{X}} =$ `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes, valida-se a adocação do valor médio de $\bar{X} =$ `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes como parâmetro representativo do maciço, descartando a necessidade de subsegmentar o terreno em blocos distintos de fundação.
 
 ## Aprenda Quarto
 
