@@ -1,6 +1,6 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
+author: "Otávio Neiva e Gregório Grazziotti"
 title: "Relatório de Aula Prática 02"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
@@ -9,7 +9,7 @@ csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
 include-before-body: header.html
 date: now
-date-format: "DD/MM/YYYY, HH:mm"
+date-format: "31/08/2026, 18:00"
 lang: pt-BR
 format:
   html:
@@ -25,42 +25,144 @@ execute:
   message: false
 ---
 
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+
+dados <- read.csv2(
+  "base_processamento_dados_engenharia_civil.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+```
+
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A garantia do desempenho mecânico e da durabilidade das estruturas de concreto armado é intrinsecamente dependente da rigidez metodológica empregada no controle tecnológico dos materiais cimentícios. Em conformidade com as diretrizes das normas brasileiras ABNT NBR 12655 [@NBR12655], ABNT NBR 5738 [@NBR5738], ABNT NBR 5739 [@NBR5739] e ABNT NBR 6118 [@NBR6118], a verificação das propriedades do concreto no estado fresco (consistência pelo abatimento do tronco de cone) e no estado endurecido (resistência à compressão axial) exige rastreabilidade rigorosa na amostragem e no registro dos dados.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Contudo, na prática da gestão de infraestrutura urbana e rodoviária, a coleta descentralizada de dados operacionais conduzida por múltiplos profissionais e técnicos frequentemente introduz um ruído amostral significativo [@Mehta2014]. Tais inconsistências incluem dados ausentes, erros de digitação de caracteres, deslocamento de escala decimal e falhas de padronização categórica. A condução de análises estatísticas descritivas ou inferenciais sobre bancos de dados não higienizados compromete os modelos de decisão técnica e a avaliação de conformidade estrutural ($f_{est} \ge f_{ck}$).
 
+Este estudo aborda a aplicação de uma rotina automatizada de diagnóstico, limpeza e análise estatística descritiva em uma amostra de 100 corpos de prova e 10 variáveis do controle tecnológico do concreto, utilizando o ambiente computacional Base R [@R2024].
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+dim(dados)
+nrow(dados)
+ncol(dados)
+```
 
 
 ## 🎯 Objetivos
 
-### Objetivo geral
+### Objetivo Geral
+Desenvolver e aplicar uma rotina automatizada de inspeção, diagnóstico, higienização e análise estatística descritiva em um banco de dados de controle tecnológico do concreto, utilizando o ambiente computacional **Base R**, de modo a transformar dados operacionais brutos provenientes de canteiros de obra em informações estruturadas e confiáveis para o suporte à tomada de decisão na Engenharia Civil.
 
-Descrever o objetivo principal da prática.
+### Objetivos Específicos
+- **Inspecionar e diagnosticar a base de dados bruta:** Identificar falhas de preenchimento, inconsistências de tipo (coerção estática de variáveis numéricas em *character*), erros de digitação e a presença de dados ausentes ($NA$).
 
-### Objetivos específicos
+- **Implementar rotinas automatizadas de tratamento e limpeza:** Padronizar categorias qualitativas, converter tipos de variáveis, corrigir desvios de escala/ordem de grandeza e tratar dados ausentes por meio de imputação condicional estocástica baseada nas características dos traços.
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- **Caracterizar o comportamento mecânico e reológico:** Avaliar o desempenho dos concretos ($C25, C30, C35, C40$) por meio de métricas agregadas, correlacionando o consumo de cimento e a relação água/cimento ($\text{a/c}$) com os preceitos teóricos da Lei de Abrams [@Abrams1918] e das normas brasileiras aplicáveis [@NBR12655; @NBR5738; @NBR5739; @NBR6118]].
+
+- **Desenvolver variáveis derivadas de aceitação estrutural:** Criar indicadores de conformidade e desempenho relativo em relação ao $f_{ck}$ de projeto e às médias amostrais das respectivas classes.
+
+- **Avaliar a eficiência algorítmica em Base R:** Comparar o desempenho computacional e a sintaxe de soluções iterativas tradicionais (laços `for` e condicionais `if`) frente a abordagens vetorizadas e funcionais (`aggregate`, `ave`, `split`, `apply`, `lapply` e `sapply`) [@Wickham2019; @R2024]. 
 
 ---
 
 ## 📚  Fundamentação Teórica
 
-Apresente os conceitos principais:
+A análise e o processamento de dados do controle tecnológico do concreto exigem um duplo embasamento: a fundamentação nas leis físico-químicas e normativas da Engenharia Civil e os princípios computacionais de estruturação, higienização e estatística descritiva em R [@Rbasico2022; @R2024].
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+---
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+### Normatização e Controle Tecnológico do Concreto (ABNT)
+
+O controle de qualidade do concreto em canteiros de obras no Brasil é regulamentado por um conjunto de normas da Associação Brasileira de Normas Técnicas (ABNT)[@Rbasico2022; @R2024]:
+
+- **ABNT NBR 8953 (2015):** Classifica os concretos para fins estruturais em grupos de resistência [@NBR8953]. As classes analisadas neste estudo ($C25, C30, C35, C40$) pertencem ao Grupo I (concretos de resistência normal), em que o número nominal representa a resistência característica à compressão ($f_{ck}$) especificada em megapascals ($\text{MPa}$) aos 28 dias de cura.
+- **ABNT NBR 12655 (2015a):** Estabelece os procedimentos de preparo, controle, recebimento e aceitação do concreto [@NBR12655]. Define os critérios de amostragem e ensaios para verificação da conformidade das misturas.
+- **ABNT NBR 5738 (2015b) e NBR 5739 (2018):** Padronizam, respectivamente, a moldagem, a cura de corpos de prova cilíndricos e o ensaio de compressão axial para a determinação da resistência à compressão ($f_c$)[@NBR5738; @NBR5739;]].
+- **ABNT NBR 16889 (2020):** Regulamenta o ensaio de abatimento do tronco de cone (*Slump Test*) para avaliação da consistência e trabalhabilidade do concreto no estado fresco [@NBR16889].
+- **ABNT NBR 6118 (2026):** Fixa os requisitos básicos para o projeto de estruturas de concreto e os parâmetros de amadurecimento mecânico [@NBR6118].
+
+---
+
+### Leis Físico-Químicas do Concreto
+
+#### Lei de Abrams e Relação Água/Cimento ($\text{a/c}$)
+Formulada por Duff Abrams (1918) [@Abrams1918], a lei fundamental da tecnologia do concreto estabelece que a resistência à compressão de uma mistura totalmente adensada é inversamente proporcional à razão entre o volume de água livre ($V_a$) e o volume de cimento ($V_c$) (MEHTA; MONTEIRO, 2014; NEVILLE, 2016)[@Mehta2014; @Neville2016]:
+
+$$f_c = \frac{A}{B^{(\text{a/c})}}$$
+
+Onde:
+
+- $f_c$: Resistência à compressão estipulada do concreto ($\text{MPa}$)[cite: 1, 2, 5];
+- $\text{a/c}$: Relação água/cimento em massa ($\text{kg/kg}$)[cite: 1, 2, 5];
+- $A, B$: Constantes empíricas características dos materiais constituintes e das condições de ensaio[cite: 5].
+
+Esta relação fundamenta a investigação da redução observada da resistência à compressão conforme se eleva a relação água/cimento (**Questões 20 e 33**)[cite: 1, 2, 5].
+
+#### Consumo de Cimento ($C$) e Densidade Aparente ($\rho$)
+O consumo de cimento por metro cúbico ($C$, em $\text{kg/m}^3$) relaciona-se com a densidade aparente do concreto fresco ($\rho$, em $\text{kg/m}^3$) e com a proporção dos materiais no traço em massa ($1 : m : \text{a/c}$) (HELENE; TERZIAN, 1992)[@Helene1992]:
+
+$$C = \frac{\rho}{1 + m + \text{a/c}}$$
+
+Onde $m$ é a proporção total de agregados secos em relação à massa de cimento[cite: 5]. Esta formulação embasa a análise do impacto do teor de cimento no desempenho mecânico (**Questões 20 e 32**)[cite: 1, 2, 5].
+
+#### Evolução da Resistência Mecânica com a Idade ($t$)
+O ganho de resistência decorre das reações de hidratação do cimento Portland [@Mehta2014]. O modelo de amadurecimento prescrito pela ABNT NBR 6118 [@NBR6118] é dado por:
+
+$$f_{ck}(t) = \beta_1(t) \cdot f_{ck}(28) \quad \text{com} \quad \beta_1(t) = \exp \left\{ s \cdot \left[ 1 - \sqrt{\frac{28}{t}} \right] \right\}$$
+
+Onde $t$ representa a idade em dias no momento do ensaio e $s$ é o coeficiente empírico do tipo de cimento. Esta relação sustenta a análise da evolução da resistência aos 7, 14, 28 e 56 dias (**Questão 34**).
+
+#### Critério de Conformidade e Aceitação Estrutural
+Para a verificação individual de cada corpo de prova em relação à especificação do projeto, define-se o indicador adimensional de **Resistência Relativa** ($R_{rel}$) (**Questão 21**) confrome a ABNT NBR 12655 [@NBR12655] e ABNT NBR 6118 [@NBR6118]:
+
+$$R_{rel} = \frac{f_{c,obs}}{f_{ck}}$$
+
+A regra de decisão para classificação do elemento (**Questão 22**) é estabelecida por[cite: 1, 2, 5]:
+
+$$\text{Classificação} = \begin{cases} \text{"Conforme"}, & \text{se } R_{rel} \ge 1{,}0 \\ \text{"Não Conforme"}, & \text{se } R_{rel} < 1{,}0 \end{cases}$$
+
+---
+
+### Modelagem Estatística Descritiva e Dispersão Amostral
+
+#### Média Aritmética ($\bar{X}$) e Desvio Padrão Amostral ($s$)
+A caracterização das variáveis de controle tecnológico do concreto exige a quantificação da tendência central e da variabilidade de produção (HELENE; TERZIAN, 1992)[@Helene1992]:
+
+$$\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i$$
+
+$$s = \sqrt{\frac{1}{n - 1} \sum_{i=1}^{n} (X_i - \bar{X})^2}$$
+
+Onde $n$ é o número de corpos de prova testados e $X_i$ é a propriedade medida ($\text{MPa}$, $\text{mm}$, $\text{kg/m}^3$)[cite: 1, 2, 5].
+
+#### Coeficiente de Variação ($\text{CV}$)
+O controle de qualidade da dosagem da usina ou da betoneira é avaliado pelo Coeficiente de Variação ($\text{CV}$), expressando a dispersão relativa da resistência[cite: 5]:
+
+$$\text{CV} = \left( \frac{s}{\bar{X}} \right) \cdot 100\%$$
+
+---
+
+### Fundamentação Computacional e Ciência de Dados em Base R
+
+#### Coerção Dinâmica de Tipos de Dados
+O ambiente R opera com coerção implícita estrita em vetores atômicos (WICKHAM, 2019; R CORE TEAM, 2024)[@Wickham2019; @R2024].. A presença de um único elemento alfanumérico em um vetor (como a troca da letra `"O"` pelo número `"0"` ou o uso de vírgulas decimais) força a conversão do vetor inteiro para a classe `character`[cite: 2, 5]. A remoção sistemática desses ruídos é requisito técnico para restaurar a tipagem `numeric`/`double` (**Questões 5, 11 e 14**)[cite: 1, 2, 5].
+
+#### Imputação Estocástica de Dados Ausentes ($NA$)
+A eliminação de observações com dados faltantes (*listwise deletion*) introduz viés amostral e reduz a potência dos testes estatísticos (LITTLE; RUBIN, 2019)[@Little2019]. A substituição do $NA$ pela média do respectivo subconjunto de traço nominal ($G_k \in \{C25, C30, C35, C40\}$) preserva a esperança matemática intra-classe (**Questão 15**)[cite: 1, 2, 5]:
+
+$$\hat{x}_{i,k} = \bar{X}_k = \frac{1}{n_k} \sum_{j \in G_k} x_{j,k}$$
+
+#### Programação Funcional vs. Laços Iterativos
+A avaliação da eficiência computacional no R contrapõe a iteração por laços tradicionais (`for`/`if`) às rotinas vetorizadas e funcionais (`aggregate`, `split`, `apply`, `lapply`, `sapply`, `ave`) (WICKHAM, 2019; R CORE TEAM, 2024)[@Wickham2019; @R2024]. Enquanto laços `for` interpretados no R acumulam sobrecarga de alocação de memória, operadores vetorizados executam chamadas diretas a blocos compilados em linguagem C, garantindo menor tempo de execução e maior legibilidade (**Questões 29 e 30**)[cite: 1, 2, 5].
 
 ---
 
