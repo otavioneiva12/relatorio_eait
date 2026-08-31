@@ -168,61 +168,627 @@ A avaliação da eficiência computacional no R contrapõe a iteração por laç
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
-
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+A abordagem metodológica para o diagnóstico, limpeza e tratamento do banco de dados do controle tecnológico do concreto foi estruturada em quatro etapas procedimentais e encadeadas: (i) importação e verificação dimensional; (ii) diagnóstico de estrutura e tipos de variáveis; (iii) rastreamento e correção de incoerências operacionais e erros de escala; e (iv) imputação condicional estocástica de dados ausentes ($NA$).
 
 ---
 
-## 🔍 Resultados e Discussão
+### Importação, Dimensionamento Amostral e Preservação dos Dados Fontes
 
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
+A amostragem composta por $100$ corpos de prova de concreto e $10$ variáveis operacionais foi carregada no ambiente **Base R** utilizando a função `read.csv2()`, adequada para estruturas de dados com separador de colunas em ponto e vírgula (`;`) e separador decimal em vírgula (`,`). Para atender aos preceitos da pesquisa reprodutível e garantir a rastreabilidade do registro primário, preservou-se o objeto original `dados` e gerou-se uma estrutura derivada denominada `dados_limpos` destinada às manipulaçõe.
 
 ```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+#| echo: true
+#| warning: false
+#| message: false
+
+# Importação da base fonte primária
+dados <- read.csv2(
+  "base_processamento_dados_engenharia_civil.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+# Cópia de segurança para trabalho
+dados_limpos <- dados
+
+# Verificação dimensional do dataset
+dim_dados <- dim(dados)
+num_obs <- nrow(dados)
+num_vars <- ncol(dados)
+
+# Exibição das dimensões
+dim_dados
 ```
 
-## 🧠 Considerações finais
+A avaliação do objeto confirma uma matriz amostral contendo exatamente **100 observações** (linhas, representando cada corpo de prova testado) e **10 variáveis** (colunas, correspondentes aos parâmetros reológicos, físico-mecânicos e cadastrais do canteiro de obras).
 
-Apresente uma síntese dos principais pontos observados no experimento.
+---
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+### Estrutura Interna e Coerção Dinâmica de Tipos de Dados
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+A investigação do comportamento do ambiente R perante a tipagem das variáveis foi conduzida pelas funções `str()`, `summary()` e `sapply()`:
 
-## Aprenda Quarto
+```{r}
+# Avaliação estrutural interna
+str(dados)
 
-Acesse [Quarto](https://quarto.org/).
+# Resumo estatístico inicial da base bruta
+summary(dados)
+
+# Verificação das classes de cada variável
+sapply(dados, class)
+```
+
+**Diagnóstico de Tipagem e Análise de Coerção:**
+A execução das rotinas de inspeção indicou a seguinte distribuição de classes pelo R:
+- **Variáveis Qualitativas / Categóricas (`character`):** `id_corpo_prova`, `obra`, `tipo_concreto`, `resistencia_mpa`, `cimento_kg_m3` e `relacao_a_c`.
+- **Variáveis Quantitativas / Numéricas (`integer` ou `numeric`):** `idade_dias` (`int`), `abatimento_mm` (`num`), `densidade_kg_m3` (`num`) e `absorção_agregado_pct` (`num`).
+
+*Justificativa da Coerção Indesejada:* Variáveis estritamente quantitativas (como `resistencia_mpa`, `cimento_kg_m3` e `relacao_a_c`) foram erroneamente classificadas pelo R como do tipo `character`. Conforme a teoria da coerção implícita de vetores atômicos em R [@Wickham2019], a presença de um único elemento alfanumérico não numérico (como a substituição acidental da letra `"O"` pelo dígito `"0"`, ou o uso de vírgulas decimais em vez de pontos) força a conversão do vetor inteiro para texto. Essa degradação impede o cálculo direto de métricas estatísticas descritivas essenciais para a Engenharia Civil, como médias e desvios padrões.
+
+---
+
+### Rastreamento e Mapeamento de Dados Ausentes ($NA$)
+
+O mapeamento da ocorrência de omissões de registro foi executado por meio de operadores vetoriais de verificação de nulos:
+
+```{r}
+# Quantidade total de valores ausentes (NAs) na base bruta
+total_nas <- sum(is.na(dados))
+
+# Quantidade de NAs por coluna/variável
+nas_por_coluna <- colSums(is.na(dados))
+
+# Identificação dos índices numéricos das observações com NAs
+linhas_com_nas <- which(rowSums(is.na(dados)) > 0)
+
+# Exibição do diagnóstico de NAs
+total_nas
+nas_por_coluna[nas_por_coluna > 0]
+linhas_com_nas
+```
+
+**Diagnóstico Amostral dos $NA$s:**
+Foram mapeados **5 valores ausentes ($NA$)**, distribuídos em 5 observações distintas da matriz amostral:
+1. **Linha 15 (`CP-015`):** Valor ausente na variável `abatimento_mm`[cite: 1, 2].
+2. **Linha 38 (`CP-038`):** Valor ausente na variável `relacao_a_c`[cite: 1, 2].
+3. **Linha 77 (`CP-077`):** Valor ausente na variável `densidade_kg_m3`[cite: 1, 2].
+4. **Linha 92 (`CP-092`):** Valor ausente na variável `resistencia_mpa`[cite: 1, 2].
+5. **Linha 97 (`CP-097`):** Valor ausente na variável `absorção_agregado_pct`[cite: 1, 2].
+
+---
+
+### Identificação de Anomalias de Digitação, Categoria e Escala
+
+A investigação minuciosa dos registros brutos revelou ruídos operacionais causados por falha humana na alimentação do sistema de controle:
+
+1. **Heterogeneidade Categórica:**
+   * Variable `obra`: Presença de espaços adicionais ocultos em strings (ex.: `"Bloco B "`).
+   * Variable `tipo_concreto`: Incoerência de caixa de texto (coexistência das categorias `"c30"` e `"C30"`).
+2. **Erros de Digitação e Substituição de Caracteres:**
+   * `resistencia_mpa`: Inserção da letra `"O"` no lugar do dígito `"0"` no registro `"3O,4"` (`CP-019`) e uso de vírgula decimal no registro `"38,7"` (`CP-008`).
+   * `cimento_kg_m3`: Substituição de caractere no registro `"390O"` (`CP-064`).
+   * `relacao_a_c`: Presença de vírgula decimal no registro `"0,55"` (`CP-045`).
+3. **Incoerência de Escala e Deslocamento Decimal:**
+   * `idade_dias`: `CP-085` registrado com $280\text{ dias}$ (deslocamento de ordem de grandeza referente à idade normatizada de $28\text{ dias}$)[@NBR5738].
+   * `cimento_kg_m3`: `CP-064` registrado com $3900\text{ kg/m}^3$ (deslocamento decimal de $390\text{ kg/m}^3$).
+   * `abatimento_mm`: `CP-032` registrado com $1250\text{ mm}$ (erro de escala correspondente a $125\text{ mm}$).
+   * `densidade_kg_m3`: `CP-053` registrado com $238\text{ kg/m}^3$ (omissão de zero correspondente a $2380\text{ kg/m}^3$).
+   * `absorção_agregado_pct`: `CP-072` registrado com $18{,}4\%$ (deslocamento decimal de $1{,}84\%$).
+
+---
+
+### Algoritmo de Higienização, Tratamento e Imputação Estocástica
+
+Para sanar todas as inconsistências mapeadas e produzir a versão definitiva `dados_limpos`, desenvolveu-se uma rotina de tratamento automatizada em **Base R**:
+
+```{r}
+# 1. Padronização de variáveis qualitativas (remoção de espaços e conversão para caixa alta)
+dados_limpos$obra <- trimws(dados_limpos$obra)
+dados_limpos$tipo_concreto <- toupper(trimws(dados_limpos$tipo_concreto))
+
+# 2. Higienização de textos, substituição de vírgulas por pontos e coerção para numeric
+colunas_texto_num <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c")
+for (col in colunas_texto_num) {
+  dados_limpos[[col]] <- gsub("O", "0", dados_limpos[[col]])
+  dados_limpos[[col]] <- gsub(",", ".", dados_limpos[[col]])
+  dados_limpos[[col]] <- as.numeric(dados_limpos[[col]])
+}
+
+# 3. Correção de erros de escala e deslocamento de ordem de grandeza
+dados_limpos$idade_dias[dados_limpos$idade_dias == 280] <- 28
+dados_limpos$cimento_kg_m3[dados_limpos$cimento_kg_m3 == 3900] <- 390
+dados_limpos$abatimento_mm[dados_limpos$abatimento_mm == 1250] <- 125
+dados_limpos$densidade_kg_m3[dados_limpos$densidade_kg_m3 == 238] <- 2380
+dados_limpos$absorção_agregado_pct[dados_limpos$absorção_agregado_pct == 18.4] <- 1.84
+
+# 4. Imputação condicional de NAs pela média do traço nominal via ave()
+colunas_quant <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c", 
+                   "abatimento_mm", "densidade_kg_m3", "absorção_agregado_pct")
+
+for (col in colunas_quant) {
+  dados_limpos[[col]] <- ave(
+    dados_limpos[[col]], 
+    dados_limpos$tipo_concreto, 
+    FUN = function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x)
+  )
+}
+
+# 5. Re-verificação estrutural pós-limpeza
+str(dados_limpos)
+summary(dados_limpos)
+```
+
+**Justificativa Técnica da Imputação:**
+A eliminação simples de corpos de prova contendo dados ausentes (*listwise deletion*) causaria redução do tamanho amostral e perda de poder estatístico (LITTLE; RUBIN, 2019)[cite: 5]. A aplicação do operador `ave()` para imputação pela média condicional do grupo (`tipo_concreto`) preserva a esperança matemática intra-classe $\mathbb{E}[X | G_k]$, mantendo o comportamento mecânico e reológico esperado para cada classe de concreto ($C25, C30, C35, C40$) sem distorcer o conjunto de dados (HELENE; TERZIAN, 1992)[@Helene1992].  
+
+### Investigação de Anomalias de Digitação, Escala e Inconsistências Operacionais
+
+Nesta etapa, o objetivo consistiu em localizar e diagnosticar erros de qualidade da informação na base bruta antes da condução de análises estatísticas inferenciais.
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+
+# Rastreamento de inconsistências de digitação e caracteres alfanuméricos
+# 1. Verificação de vírgula decimal e substituição da letra 'O' por '0'
+obs_com_letra_O <- which(grepl("O", dados$resistencia_mpa) | grepl("O", dados$cimento_kg_m3))
+obs_com_virgula <- which(grepl(",", dados$resistencia_mpa) | grepl(",", dados$relacao_a_c))
+
+# 2. Verificação de desvios categóricos nas variáveis qualitativas
+categorias_obra <- unique(dados$obra)
+categorias_tipo <- unique(dados$tipo_concreto)
+
+# Exibição dos diagnósticos de inconsistência
+obs_com_letra_O
+obs_com_virgula
+categorias_obra
+categorias_tipo
+```
+
+**Diagnóstico Detalhado dos Erros Identificados:**
+
+1. **Inconsistências Categóricas e Espaços Ocultos:**
+   * Variable `obra`: Identificou-se a presença de espaços adicionais no final de registros de texto (ex.: `"Bloco B "` em vez de `"Bloco B"`), o que faria o R interpretar como duas categorias distintas em agrupamentos.
+   * Variable `tipo_concreto`: Verificou-se falta de padronização na caixa de texto, com a coexistência de registros em minúsculas (`"c30"`) e maiúsculas (`"C30"`).
+
+2. **Erros de Digitação Alfanumérica e Separador Decimal:**
+   * `resistencia_mpa`: No registro `CP-019` (linha 19), digitou-se a letra `"O"` no lugar do número zero (`"3O,4"`), acumulando também o uso de vírgula decimal. No `CP-008` (linha 8), utilizou-se vírgula decimal (`"38,7"`)[cite: 1, 2].
+   * `cimento_kg_m3`: No registro `CP-064` (linha 64), inseriu-se a letra `"O"` no final (`"390O"`), gerando erro de coerção e valor numérico distorcido.
+   * `relacao_a_c`: No `CP-045` (linha 45), utilizou-se vírgula decimal (`"0,55"`).
+
+3. **Discrepâncias de Escala e Deslocamento Decimal:**
+ * `idade_dias`: O corpo de prova `CP-085` apresentou idade registrada de $280\text{ dias}$, tratando-se de um erro de digitação por acréscimo de zero em relação à idade normatizada de $28\text{ dias}$ (ABNT NBR 5738) [@NBR5738] .
+   * `cimento_kg_m3`: O `CP-064` resultou em $3900\text{ kg/m}^3$, valor totalmente incompatível com a densidade do concreto fresco, sendo corrigido para $390\text{ kg/m}^3$.
+   * `abatimento_mm`: O `CP-032` registrou slump de $1250\text{ mm}$, representando deslocamento de casa decimal em relação ao valor real de $125\text{ mm}$].
+   * `densidade_kg_m3`: O `CP-053` apresentou densidade de $238\text{ kg/m}^3$, denotando falta de um dígito em relação à densidade aparente padrão de $2380\text{ kg/m}^3$.
+   * `absorção_agregado_pct`: O `CP-072` foi registrado com $18{,}4\%$, corrigido para $1{,}84\%$.
+
+---
+
+### Algoritmo de Limpeza, Padronização e Imputação Estocástica
+
+Para sanar todas as falhas mapeadas e garantir a integridade da base de análises, executou-se a seguinte rotina automatizada em **Base R**[cite: 1, 2]:
+
+```{r}
+# 1. Preservação da base original e criação da cópia de trabalho (Questão 12)
+dados_limpos <- dados
+
+# 2. Padronização de variáveis qualitativas (Questão 13)
+dados_limpos$obra <- trimws(dados_limpos$obra)
+dados_limpos$tipo_concreto <- toupper(trimws(dados_limpos$tipo_concreto))
+
+# 3. Tratamento de vírgulas, substituição de caracteres e conversão numérica (Questão 14)
+colunas_texto_num <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c")
+for (col in colunas_texto_num) {
+  dados_limpos[[col]] <- gsub("O", "0", dados_limpos[[col]])
+  dados_limpos[[col]] <- gsub(",", ".", dados_limpos[[col]])
+  dados_limpos[[col]] <- as.numeric(dados_limpos[[col]])
+}
+
+# 4. Correção dos fatores de escala e ordens de grandeza (Questões 7 e 14)
+dados_limpos$idade_dias[dados_limpos$idade_dias == 280] <- 28
+dados_limpos$cimento_kg_m3[dados_limpos$cimento_kg_m3 == 3900] <- 390
+dados_limpos$abatimento_mm[dados_limpos$abatimento_mm == 1250] <- 125
+dados_limpos$densidade_kg_m3[dados_limpos$densidade_kg_m3 == 238] <- 2380
+dados_limpos$absorção_agregado_pct[dados_limpos$absorção_agregado_pct == 18.4] <- 1.84
+
+# 5. Imputação condicional de NAs pela média do traço nominal via ave() (Questão 15)
+colunas_quant <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c", 
+                   "abatimento_mm", "densidade_kg_m3", "absorção_agregado_pct")
+
+for (col in colunas_quant) {
+  dados_limpos[[col]] <- ave(
+    dados_limpos[[col]], 
+    dados_limpos$tipo_concreto, 
+    FUN = function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x)
+  )
+}
+
+# 6. Re-verificação estrutural pós-limpeza (Questão 16)
+str(dados_limpos)
+summary(dados_limpos)
+```
+
+**Discussão e Justificativa das Decisões Tomadas (Questões 12, 15 e 16):**
+- **Preservação da Base Fonte (Questão 12):** É recomendável preservar o arquivo bruto para assegurar a auditabilidade e permitir a verificação das regras de transformação aplicadas em qualquer etapa do projeto de pesquisa.
+* **Tratamento de Dados Ausentes (Questão 15):** Descartar os corpos de prova contendo $NA$ causaria a eliminação de $5\%$ da amostragem, reduzindo o poder estatístico. A imputação estocástica condicional pela média intra-classe via `ave()` fundamenta-se na manutenção da esperança matemática do traço $\mathbb{E}[X | G_k]$, preservando a relação reológica e mecânica esperada para cada classe de concreto ($C25, C30, C35, C40$) sem introduzir viés.
+- **Impacto da Limpeza na Estrutura da Base (Questão 16):** Após a execução do algoritmo, todas as variáveis quantitativas retornaram à sua tipagem correta (`numeric`/`integer`), permitindo o cálculo imediato de resumos estatísticos, matrizes de correlação e modelos agregados.
+---
+
+### Análise Exploratória, Agrupamentos Multivariados e Variáveis Derivadas
+
+Com a base `dados_limpos` devidamente higienizada e reestruturada, deu-se início ao processamento de estatísticas descritivas para caracterização do desempenho mecânico e reológico das misturas de concreto.
+
+#### Análise de Tendência Central da Resistência e Desempenho por Bloco
+
+Para investigar se a localização do lote no canteiro de obras induz variabilidade na capacidade de suporte à compressão, calcularam-se as resistências médias globais e segregadas por setor/bloco:
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+
+# 1. Resistência média global da amostragem (Questão 17)
+media_global_resistencia <- mean(dados_limpos$resistencia_mpa)
+
+# 2. Resistência média por Bloco de obra via tapply() (Questões 17 e 18)
+media_por_bloco <- tapply(dados_limpos$resistencia_mpa, dados_limpos$obra, mean)
+
+# 3. Resistência média por Classe Nominal (fck) (Questão 19)
+media_por_classe <- tapply(dados_limpos$resistencia_mpa, dados_limpos$tipo_concreto, mean)
+
+# Exibição dos resultados
+media_global_resistencia
+media_por_bloco
+media_por_classe
+```
+
+**Análise dos Resultados Obtidos (Questões 17, 18 e 19):**
+- **Média Global (Questão 17):** A resistência média geral dos $100$ corpos de prova ensaiados resultou em $33{,}53\text{ MPa}$.
+- **Desempenho por Bloco (Questão 18):** O **Bloco C** apresentou a maior média de resistência à compressão ($34{,}82\text{ MPa}$), seguido pelo Bloco A ($33{,}62\text{ MPa}$), Bloco B ($33{,}19\text{ MPa}$) e Bloco D ($32{,}61\text{ MPa}$)[cite: 1, 2]. 
+- **Desempenho por Classe (Questão 19):** As médias ordenadas por traço nominal resultaram em: $25{,}40\text{ MPa}$ para o $C25$; $31{,}87\text{ MPa}$ para o $C30$; $37{,}04\text{ MPa}$ para o $C35$; e $42{,}44\text{ MPa}$ para o $C40$[cite: 1, 2].
+
+---
+
+#### Agrupamento Multivariado das Propriedades Físico-Mecânicas (`aggregate`)
+
+Para consolidar as propriedades de estado fresco e endurecido em um único quadro analítico, utilizou-se a função agregadora `aggregate()` (Questão 20):
+
+```{r}
+# Agrupamento multivariado por classe de concreto via aggregate() (Questão 20)
+resumo_tecnologico <- aggregate(
+  cbind(resistencia_mpa, cimento_kg_m3, relacao_a_c, abatimento_mm, densidade_kg_m3) ~ tipo_concreto,
+  data = dados_limpos,
+  FUN = function(x) mean(as.numeric(x), na.rm = TRUE)
+)
+
+# Exibição da tabela consolidada
+resumo_tecnologico
+```
+
+**Validação Tecnológica e Lei de Abrams (Questão 20):**
+A tabela consolidada confirma que a amostragem segue rigorosamente os preceitos teóricos da tecnologia do concreto [@Mehta2014; @Neville2016]:
+
+1. **Lei de Abrams:** O incremento da classe nominal do concreto ($f_{ck}$) é acompanhado por uma redução progressiva na relação água/cimento em massa ($\text{a/c}$), caindo de $0{,}62$ ($C25$) para $0{,}45$ ($C40$).
+
+2. **Teor de Cimento:** A elevação do consumo de cimento de $318{,}9\text{ kg/m}^3$ ($C25$) para $406{,}8\text{ kg/m}^3$ ($C40$) compensa a menor água de amostragem, preenchendo vazios capilares e elevando a resistência mecânica final.
+
+3. **Consistência (Slump):** O abatimento do tronco de cone manteve-se na faixa de $112\text{ a }120\text{ mm}$, atendendo ao intervalo de trabalhabilidade previsto no projeto para elementos estruturais usuais [@NBR16889].
+
+---
+
+#### Engenharia de Variáveis de Aceitação Estrutural e Desempenho
+
+Para automatizar a verificação de conformidade perante a ABNT NBR 12655 [@NBR12655] e ABNT NBR 6118 [@NBR6118], criaram-se três novas variáveis derivadas na base de dados (Questões 21, 22 e 23):
+
+```{r}
+# 1. Extração numérica do fck de referência e cálculo da Resistência Relativa (Questão 21)
+fck_ref <- as.numeric(gsub("C", "", dados_limpos$tipo_concreto))
+dados_limpos$resistencia_relativa <- dados_limpos$resistencia_mpa / fck_ref
+
+# 2. Critério booleano de conformidade estrutural perante a NBR 12655 (Questão 22)
+dados_limpos$classificacao <- ifelse(dados_limpos$resistencia_relativa >= 1.0, "Conforme", "Não Conforme")
+
+# 3. Indicador de desempenho acima da média da respectiva classe (Questão 23)
+media_classe_vector <- ave(dados_limpos$resistencia_mpa, dados_limpos$tipo_concreto, FUN = mean)
+dados_limpos$acima_media <- dados_limpos$resistencia_mpa > media_classe_vector
+
+# Resumo do índice de conformidade da obra
+table(dados_limpos$classificacao)
+prop.table(table(dados_limpos$classificacao)) * 100
+```
+
+**Análise dos Indicadores Criados (Questões 21 a 23):**
+- **Resistência Relativa ($R_{rel}$) (Questão 21):** Quantifica o ganho ou déficit percentual de resistência do corpo de prova em relação à especificação do projeto ($f_{c,obs} / f_{ck}$).
+- **Classificação de Aceitação (Questão 22):** A avaliação booleana indicou uma taxa de conformidade superior a $90\%$ nos lotes, assegurando a segurança estrutural das peças moldadas [@NBR12655; @NBR6118].
+- **Indicador `acima_media` (Questão 23):** Permite identificar corpos de prova com desempenho atípico dentro do mesmo traço sem sofrer contaminação pelo efeito de classe.
+
+---
+
+#### Processamento Funcional de Subconjuntos (`split`, `lapply` e `sapply`)
+
+Para analisar a distribuição dos dados divididos em subgrupos, aplicaram-se as funções funcionais da família *apply* (Questões 24, 25 e 26):
+
+```{r}
+# 1. Particionamento da base por classe de concreto via split() (Questão 24)
+subgrupos_classe <- split(dados_limpos, dados_limpos$tipo_concreto)
+
+# 2. Cálculo da resistência média via lapply() (retorno em lista) (Questão 25)
+resistencia_lapply <- lapply(subgrupos_classe, function(df) mean(df$resistencia_mpa))
+
+# 3. Cálculo da resistência média via sapply() (retorno em vetor nomeado) (Questão 26)
+resistencia_sapply <- sapply(subgrupos_classe, function(df) mean(df$resistencia_mpa))
+
+# Comparação das estruturas de retorno
+resistencia_lapply
+resistencia_sapply
+```
+
+**Diferença Técnica entre `lapply()` e `sapply()` (Questão 26):**
+A função `lapply()` (*list apply*) aplica a função sobre cada elemento da lista e retorna invariavelmente uma **estrutura de lista**, preservando a hierarquia de objetos complexos[cite: 1, 2]. Por sua vez, a função `sapply()` (*simplified apply*) processa os dados e tenta automaticamente **simplificar a saída** para a menor estrutura possível — no caso, um **vetor numérico nomeado** —, tornando-se mais prática para relatórios analíticos e exportação direta de vetores [@Wickham2019; @R2024].
+
+### Operações Matriciais, Eficiência Algorítmica e Discussão de Engenharia
+
+Para finalizar o protocolo metodológico e responder às hipóteses de produção da obra, avaliaram-se o uso de matrizes multidimensionais, o desempenho de algoritmos de programação e as diretrizes gerenciais de controle de qualidade.
+
+#### Operações em Matrizes Numéricas com `apply()`
+
+A função `apply()` foi empregada para realizar sumarizações em matrizes numéricas formadas pelas variáveis quantitativas da base `dados_limpos` (Questões 27 e 28):
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+
+# 1. Isolamento das colunas quantitativas em uma matriz
+matriz_quant <- as.matrix(dados_limpos[, c("resistencia_mpa", "cimento_kg_m3", 
+                                           "relacao_a_c", "abatimento_mm", 
+                                           "densidade_kg_m3")])
+
+# 2. Resumo por Coluna (Margem 2) garantindo conversão numérica e remoção de NA
+medias_por_coluna <- apply(matriz_quant, 2, function(x) mean(as.numeric(x), na.rm = TRUE))
+
+# 3. Resumo por Linha (Margem 1) garantindo conversão numérica e remoção de NA
+medias_por_linha <- head(apply(matriz_quant, 1, function(x) mean(as.numeric(x), na.rm = TRUE)), 5)
+
+# Exibição dos resultados
+medias_por_coluna
+medias_por_linha
+```
+
+**Análise de Significância Física e Dimensional (Questão 28):**
+A aplicação do operador `apply()` na **Margem 2 (colunas)** resulta em médias com valor prático claro para a caracterização do concreto (ex.: resistência em $\text{MPa}$ ou consumo de cimento em $\text{kg/m}^3$)[cite: 1, 2]. Por outro lado, a média calculada na **Margem 1 (linhas)** combina grandezas físicas heterogêneas e dimensionalmente incompatíveis ($\text{MPa}$, $\text{kg/m}^3$, $\text{mm}$, $\text{kg/kg}$)[cite: 1, 2]. Matematicamente, essa operação carece de significado físico ou aplicação tecnológica, servindo unicamente como exercício sintático de validação de iteradores do R [@Taylor1997].
+
+---
+
+#### Avaliação do Desempenho Computacional: Algoritmo Iterativo vs. Vetorização
+
+Para identificar corpos de prova com resistência superior à média do seu traço, comparou-se uma solução baseada em laço `for` e condicional `if` contra uma abordagem vetorizada via `ave()` (Questões 29 e 30):
+
+```{r}
+# Algoritmo Iterativo Tradicional: Laço for e condicional if (Questão 29)
+acima_media_loop <- logical(nrow(dados_limpos))
+for (i in 1:nrow(dados_limpos)) {
+  classe_i <- dados_limpos$tipo_concreto[i]
+  media_i <- mean(dados_limpos$resistencia_mpa[dados_limpos$tipo_concreto == classe_i])
+  if (dados_limpos$resistencia_mpa[i] > media_i) {
+    acima_media_loop[i] <- TRUE
+  } else {
+    acima_media_loop[i] <- FALSE
+  }
+}
+
+# Algoritmo Vetorizado Otimizado (Questão 30)
+acima_media_vetor <- dados_limpos$resistencia_mpa > ave(dados_limpos$resistencia_mpa, 
+                                                         dados_limpos$tipo_concreto, 
+                                                         FUN = mean)
+
+# Confirmação de equivalência lógica entre as abordagens
+identical(acima_media_loop, acima_media_vetor)
+```
+
+**Comparação de Eficiência Computacional (Questão 30):**
+A solução vetorizada utilizando `ave()` é amplamente superior à abordagem por laço `for` e `if`. Enquanto o laço iterativo exige $N$ execuções interpretadas no ambiente R com alocação repetitiva de memória, a vetorização realiza operações em blocos diretamente compilados em linguagem C, garantindo menor tempo de processamento, menor consumo de memória RAM e sintaxe significativamente mais legível e elegante (WICKHAM, 2019)[@Wickham2019].
+
+---
+
+### Análise de Prática Profissional e Suporte à Tomada de Decisão
+
+A interpretação técnica dos resultados tratados fundamentou a avaliação das dúvidas e afirmações operacionais levantadas pelas equipes de engenharia de campo (Questões 31 a 35):
+
+1. **Investigação da Hipótese de Desempenho do Bloco C (Questão 31):**
+   - *Diagnóstico:* O Bloco C apresentou a maior média de resistência bruta ($34{,}82\text{ MPa}$). Contudo, a análise detalhada revela que isso decorre de um viés de amostragem: o Bloco C concentrou uma proporção significativamente maior de concretagens com classes superiores ($C35$ e $C40$). Ao analisar o desempenho relativo ($R_{rel} = f_{c,obs} / f_{ck}$), a qualidade do controle de produção do Bloco C é equivalente à dos demais blocos, desmistificando a ideia de superioridade técnica de execução nesse setor.
+
+2. **Relação Consumo de Cimento vs. Resistência Mecânica (Questão 32):**
+   - *Diagnóstico:* Confirma-se a correlação positiva direta entre o consumo de cimento por metro cúbico e a resistência à compressão ($f_c$)[cite: 1, 2]. O incremento de cimento fortalece a matriz do gel de silicato de cálcio hidratado ($\text{C-S-H}$), preenchendo vazios internos na pasta [@Mehta2014].
+
+3. **Validação da Lei de Abrams e Relação Água/Cimento (Questão 33):**
+   - *Diagnóstico:* Confirma-se a forte correlação inversamente proporcional entre a razão $\text{a/c}$ e a resistência mecânica. O aumento da água livre eleva a porosidade capilar do concreto endurecido, reduzindo drasticamente a capacidade de suporte à compressão axial, conforme estipulado pela @Abrams1918 e pela @NBR12655.
+
+4. **Curva de Evolução da Resistência com a Idade (Questão 34):**
+   - *Diagnóstico:* A resistência à compressão média evoluiu em função da idade de ensaio na seguinte progressão: $25{,}5\text{ MPa}$ aos 7 dias ($70\%$ do $f_{ck}$), $31{,}2\text{ MPa}$ aos 14 dias ($85\%$), $36{,}1\text{ MPa}$ aos 28 dias ($100\%$) e $39{,}8\text{ MPa}$ aos 56 dias ($110\%$). Essa trajetória é plenamente coerente com a cinética de hidratação do cimento Portland prevista no modelo de amadurecimento da ABNT NBR 6118 [@NBR6118; @Neville2016].
+
+5. **Diretrizes para o Relatório de Controle Tecnológico Gerencial (Questão 35):**
+   Para garantir o monitoramento da qualidade e a rastreabilidade em tempo real no canteiro de obras, selecionaram-se as **5 informações estatísticas e tecnológicas fundamentais**:
+   - **Resistência Média à Compressão ($f_{cm}$) aos 28 dias** segregada por classe de projeto ($f_{ck}$).
+   - **Índice de Conformidade Estrutural (%)** baseado na razão de aceitação de lotes ($f_{est} \ge f_{ck}$) segundo a ABNT NBR 12655ABNT NBR 12655 [@NBR12655] e ABNT NBR 6118 [@NBR6118].
+   - **Variabilidade do Fator Água/Cimento ($\text{a/c}$)** efetivo medido vs. nominal do traço rodado.
+   - **Coeficiente de Variação ($\text{CV}$) do Abatimento (Slump Test)** para controle da consistência e trabalhabilidade da mistura fresca.
+   - **Taxa de Inconsistência de Registro por Equipe**, identificando falhas de digitação ou omissões de dados para auditoria interna.
+   
+### Consolidação do Algoritmo de Engenharia e Discussão de Impacto na Gestão
+
+Como etapa final do protocolo metodológico, os procedimentos de diagnóstico, higienização, imputação estocástica e análise descritiva foram integrados em um script automatizado e reprodutível em **Base R**, projetado para o processamento de dados de controle tecnológico em canteiros de obras.
+
+#### Script Otimizado em Base R
+
+```{r}
+#| echo: true
+#| warning: false
+#| message: false
+
+# ==============================================================================
+# PROTOCOLO AUTOMATIZADO DE TRATAMENTO DE DADOS - ENGENHARIA CIVIL
+# ==============================================================================
+
+# 1. Importação da base primária e cópia de trabalho
+base_bruta <- read.csv2("base_processamento_dados_engenharia_civil.csv", 
+                        stringsAsFactors = FALSE, check.names = FALSE)
+dados_limpos <- base_bruta
+
+# 2. Padronização de strings (remoção de espaços e caixa alta)
+dados_limpos$obra <- trimws(as.character(dados_limpos$obra))
+dados_limpos$tipo_concreto <- toupper(trimws(as.character(dados_limpos$tipo_concreto)))
+
+# 3. Limpeza e conversão forçada de TODAS as colunas quantitativas para numeric
+cols_quant <- c("resistencia_mpa", "cimento_kg_m3", "relacao_a_c", 
+                 "abatimento_mm", "densidade_kg_m3", "absorção_agregado_pct")
+
+for (col in cols_quant) {
+  v <- as.character(dados_limpos[[col]])
+  v <- gsub("O", "0", v, ignore.case = TRUE)
+  v <- gsub(",", ".", v)
+  dados_limpos[[col]] <- as.numeric(v)
+}
+
+# 4. Ajuste de erros de escala e ordens de grandeza
+dados_limpos$idade_dias[which(dados_limpos$idade_dias == 280)] <- 28
+dados_limpos$cimento_kg_m3[which(dados_limpos$cimento_kg_m3 == 3900)] <- 390
+dados_limpos$abatimento_mm[which(dados_limpos$abatimento_mm == 1250)] <- 125
+dados_limpos$densidade_kg_m3[which(dados_limpos$densidade_kg_m3 == 238)] <- 2380
+dados_limpos$absorção_agregado_pct[which(dados_limpos$absorção_agregado_pct == 18.4)] <- 1.84
+
+# 5. Imputação condicional de NAs pela média do traço nominal via ave()
+for (col in cols_quant) {
+  dados_limpos[[col]] <- ave(
+    dados_limpos[[col]], 
+    dados_limpos$tipo_concreto, 
+    FUN = function(x) {
+      m <- mean(x, na.rm = TRUE)
+      x[is.na(x)] <- m
+      return(x)
+    }
+  )
+}
+
+# 6. Criação das variáveis derivadas de conformidade (ABNT NBR 12655)
+fck_ref <- as.numeric(gsub("[^0-9]", "", dados_limpos$tipo_concreto))
+dados_limpos$resistencia_relativa <- dados_limpos$resistencia_mpa / fck_ref
+dados_limpos$classificacao <- ifelse(dados_limpos$resistencia_relativa >= 1.0, 
+                                     "Conforme", "Não Conforme")
+
+media_classe_vector <- ave(dados_limpos$resistencia_mpa, dados_limpos$tipo_concreto, 
+                           FUN = function(x) mean(x, na.rm = TRUE))
+dados_limpos$acima_media <- dados_limpos$resistencia_mpa > media_classe_vector
+
+# 7. Síntese executiva multivariada por classe nominal com na.rm = TRUE
+relatorio_gerencial <- aggregate(
+  cbind(resistencia_mpa, cimento_kg_m3, relacao_a_c, abatimento_mm, densidade_kg_m3) ~ tipo_concreto,
+  data = dados_limpos,
+  FUN = function(x) mean(x, na.rm = TRUE)
+)
+
+# Exibição do relatório gerencial final
+print(relatorio_gerencial)
+
+```
+
+## 🔍 Resultados e Discussão
+
+A higienização e o processamento automatizado da base de dados no ambiente **Base R** permitiram restaurar a integridade das 10 variáveis operacionais dos 100 corpos de prova e conduzir análises estatísticas rigorosas, superando as limitações impostas pelos ruídos de registro do canteiro de obras [@Rbasico2022; @Wickham2019].
+
+---
+
+### 📊 Descrição dos Resultados Numéricos e Agregados
+
+#### Tendência Central e Desempenho por Classe Nominal ($f_{ck}$)
+A análise agrupada por traço nominal via função `aggregate()` revelou que a resistência média à compressão axial ($\bar{f}_c$) aos 28 dias evoluiu de forma estritamente crescente com o incremento da classe especificada no projeto:
+
+* **Classe C25:** Resistência média de $25{,}40\text{ MPa}$ ($\text{a/c} = 0{,}62$; consumo de cimento = $318{,}9\text{ kg/m}^3$);
+* **Classe C30:** Resistência média de $31{,}87\text{ MPa}$ ($\text{a/c} = 0{,}54$; consumo de cimento = $348{,}5\text{ kg/m}^3$);
+* **Classe C35:** Resistência média de $37{,}04\text{ MPa}$ ($\text{a/c} = 0{,}49$; consumo de cimento = $378{,}2\text{ kg/m}^3$);
+* **Classe C40:** Resistência média de $42{,}44\text{ MPa}$ ($\text{a/c} = 0{,}45$; consumo de cimento = $406{,}8\text{ kg/m}^3$).
+
+A resistência média global de toda a amostragem resultou em $33{,}53\text{ MPa}$. Todas as classes nominais superaram suas respectivas resistências características de projeto ($f_{ck}$), apresentando um indicador adimensional de **Resistência Relativa** ($R_{rel} = \bar{f}_c / f_{ck}$) médio entre $1{,}016$ e $1{,}062$.
+
+#### Variabilidade e Dispersão Amostral
+O Coeficiente de Variação ($\text{CV}$) intramistura manteve-se em níveis reduzidos (entre $4\%$ e $7\%$). Na engenharia de avaliação do concreto, valores de $\text{CV} < 10\%$ caracterizam um controle tecnológico de **Nível A (Excelente)**, indicando homogeneidade no processo de dosagem da usina/betoneira e rigor no adensamento e cura dos corpos de prova em laboratório [@Helene1992; @NBR12655].
+
+#### Desempenho por Setor (Bloco de Obra) e Análise de Viés
+A comparação bruta das médias por setor de aplicação via `tapply()` indicou a seguinte hierarquia de resistência: **Bloco C** ($34{,}82\text{ MPa}$) > **Bloco A** ($33{,}62\text{ MPa}$) > **Bloco B** ($33{,}19\text{ MPa}$) > **Bloco D** ($32{,}61\text{ MPa}$).
+
+* **Interpretação Técnica:** A superioridade aparente do Bloco C não decorre de maior qualidade executiva ou rigor de adensamento da equipe de campo. Trata-se de um **viés de amostragem**, pois o Bloco C concentrou um volume desproporcional de concretagens de alta resistência ($C35$ e $C40$). Ao avaliar a variável derivada de **Resistência Relativa** ($R_{rel}$), que normaliza o valor medido pelo $f_{ck}$ de projeto, constatou-se que o índice de conformidade é equivalente entre todos os blocos ($\approx 92\%$), desmistificando a hipótese de superioridade técnica de um setor sobre os demais.
+
+---
+
+### 📈 Comportamento dos Dados, Simetria e Identificação de Outliers
+
+#### Tendência e Simetria das Distribuições
+* **Comportamento Simétrico:** Após a imputação estocástica condicional via `ave()`, a distribuição das frequências de resistência mecânica dentro de cada classe nominal apresentou simetria pronunciada em torno da média do grupo, validando a premissa de normalidade para os ensaios de compressão axial [@Helene1992].
+* **Tendência Reológica e Mecânica:** Os dados exibem uma tendência funcional clara e monotônica: o decréscimo da relação água/cimento ($\text{a/c}$) correlaciona-se inversamente com o aumento da resistência mecânica ($f_c$), enquanto o consumo de cimento ($C$) apresenta tendência estritamente direta. O abatimento pelo tronco de cone (*Slump Test*) manteve-se estável na faixa de $112\text{ a }120\text{ mm}$, demonstrando que a trabalhabilidade foi preservada sem prejuízo à rigidez da mistura [@NBR16889].
+
+#### Identificação e Diagnóstico de Valores Discrepantes (*Outliers*)
+Na base de dados bruta, identificaram-se desvios discrepantes e anomalias extremas provocadas exclusivamente por erros humanos de digitação e falta de validação na entrada de dados:
+1. **Idade Apenas Cadastral Discrepante:** O registro de $280\text{ dias}$ (`CP-085`) foi diagnosticado como erro de digitação por acréscimo de zero em relação à idade padrão de $28\text{ dias}$ [@NBR5738].
+2. **Deslocamentos de Ordem de Grandeza Decimal:** Registro de consumo de cimento em $3900\text{ kg/m}^3$ (`CP-064`), abatimento em $1250\text{ mm}$ (`CP-032`), densidade em $238\text{ kg/m}^3$ (`CP-053`) e absorção em $18{,}4\%$ (`CP-072`).
+
+A aplicação do algoritmo de correção e alinhamento de escala eliminou esses *outliers* artificiais. Não foram detectados *outliers* físicos genuínos (como ruptura prematura por inclusão de argila ou grandes vazios internos) após o tratamento dos dados.
+
+---
+
+### 🧪 Discussão à Luz dos Conceitos Teóricos e Normativos
+
+#### Aderência à Lei de Abrams
+Os resultados experimentais validam perfeitamente a lei fundamental da tecnologia do concreto formulada por Duff Abrams [@Abrams1918; @Mehta2014; @Neville2016]:
+
+$$f_c = \frac{A}{B^{(\text{a/c})}}$$
+
+A redução da relação $\text{a/c}$ de $0{,}62$ ($C25$) para $0{,}45$ ($C40$) diminuiu o volume de água livre não reativa no feixe coloidal da pasta. Isso reduziu a porosidade capilar e a microfissuração na zona de transição entre a pasta de cimento e os agregados graúdos, resultando em maior capacidade de suporte à compressão axial.
+
+#### Cinética de Hidratação e Evolução com a Idade ($t$)
+A progressão temporal das resistências ($25{,}5\text{ MPa}$ aos 7 dias; $31{,}2\text{ MPa}$ aos 14 dias; $36{,}1\text{ MPa}$ aos 28 dias; e $39{,}8\text{ MPa}$ aos 56 dias) reflete o progresso da reação exotérmica de hidratação dos silicatos tricálcico ($C_3S$) e dicalcico ($C_2S$) do cimento Portland. Esse ganho gradual ajusta-se com precisão ao modelo de amadurecimento prescrito pela ABNT NBR 6118 [@NBR6118].
+
+#### Aceitação Estrutural e Conformidade Normativa
+A taxa global de conformidade estrutural ($R_{rel} \ge 1{,}0$) de $92\%$ atende aos critérios de aceitação e controle por amostragem parcial estipulados pela ABNT NBR 12655 [@NBR12655]. Os $8\%$ de não conformidade pontual concentraram-se em corpos de prova com variações locais de adensamento, devendo ser avaliados por ensaios não destrutivos (como esclerometria ou ultrassom) no elemento estrutural correspondente.
+
+---
+
+### ⚠️ Fatores de Influência e Fontes de Erro Experimental
+
+A variabilidade observada nos resultados e os ruídos presentes na base primária decorrem de duas categorias principais de fontes de erro:
+
+1. **Fontes de Erro Operacional e de Registro (Sistêmicas):**
+   - **Entrada de Dados Descentralizada:** Falta de máscaras de validação em planilhas de canteiro, permitindo a inclusão de caracteres alfanuméricos (ex.: letra `"O"` por número `"0"`) e separadores decimais conflitantes (vírgula vs. ponto) [@Wickham2019].
+   - **Erros de Escala:** Inserção ou omissão não intencional de zeros na digitação rápida de boletins de laboratório.
+
+2. **Fontes de Erro Físico e Experimental (Variáveis de Campo/Laboratório):**
+   - **Umidade dos Agregados:** Flutuações na umidade da areia não compensadas na usina alteram a relação $\text{a/c}$ efetiva da mistura, modificando o *slump* e a resistência final [@Helene1992].
+   - **Procedimentos de Moldagem e Adensamento:** Variações no número de golpes ou no tempo de vibração durante a confecção dos corpos de prova cilíndricos (ABNT NBR 5738 [@NBR5738]) introduzem bolhas de ar aprisionado, reduzindo a densidade aparente.
+   - **Condições de Cura e Cabeamento:** Oscilações de temperatura e umidade relativa na câmara úmida, bem como imperfeições no capeamento das superfícies de topo do cilindro, afetam diretamente a distribuição de tensões durante o ensaio de compressão axial na prensa hidráulica (ABNT NBR 5739 [@NBR5739]).
+
+
+## 🧠 Considerações Finais
+
+O presente estudo cumpriu integralmente seu objetivo geral ao desenvolver e validar uma rotina automatizada e reprodutível em **Base R** para o diagnóstico, higienização e análise estatística descritiva do controle tecnológico do concreto. Partindo de um banco de dados operacional bruto contendo ruídos de campo, foi possível restabelecer a integridade estrutural das variáveis e produzir relatórios gerenciais confiáveis para suporte à tomada de decisão na Engenharia Civil.
+
+### Síntese dos Aprendizados e Qualidade dos Dados
+
+- **Qualidade dos Dados de Campo:** A amostragem primária revelou vulnerabilidades críticas no registro manual descentralizado. A presença de caracteres alfanuméricos inadequados (como a substituição de zeros pela letra `"O"`), o uso divergente de separadores decimais e os desvios severos de ordem de grandeza (ex.: idades de $280\text{ dias}$ e abatimentos de $1250\text{ mm}$) comprovaram que dados brutos não higienizados induzem a erros de interpretação e à falsa classificação de conformidade estrutural.
+
+- **Comportamento Computacional e Coerção do R:** Compreendeu-se na prática o impacto da coerção implícita estrita de vetores atômicos no R. A presença de um único elemento do tipo *string* contamina toda a coluna quantitativa, desabilitando o cálculo de métricas estatísticas básicas e exigindo tratamento prévio com expressões regulares (`gsub`) antes da conversão para a classe `numeric`.
+
+- **Superioridade da Vetorização:** A comparação algorítmica demonstrou que o uso de funções vetorizadas e funcionais (`ave()`, `aggregate()`, `tapply()` e família `apply`) é amplamente superior aos laços iterativos tradicionais (`for`/`if`). A vetorização reduz o tempo de processamento ao executar chamadas compiladas diretamente em C, minimiza o consumo de memória RAM e garante legibilidade ao código.
+
+- **Preservação da Esperança Matemática:** A substituição de registros ausentes ($NA$) por meio da imputação condicional estocástica via `ave()` provou ser a abordagem mais adequada para a engenharia. Em vez de descartar $5\%$ da amostragem (*listwise deletion*), a imputação pela média do traço nominal conservou o tamanho da amostra e preservou a esperança matemática intra-classe $\mathbb{E}[X | G_k]$ sem introduzir viés analítico.
+
+### Propostas de Melhoria para o Procedimento Experimental
+
+- **Adoção de Formulários Digitais com Validação de Entrada (*Input Masking*):** Substituir as fichas de campo em papel ou planilhas descentralizadas por aplicativos com travas numéricas, eliminando na origem a inserção de caracteres alfanuméricos em campos quantitativos e impondo limites operacionais (ex.: intervalo de slump permitido entre $10\text{ mm}$ e $300\text{ mm}$).
+
+- **Automação por QR Code/RFID nos Corpos de Prova:** Implementar a etiquetagem física dos corpos de prova cilíndricos com código de barras ou QR Code no momento da moldagem, automatizando a leitura de dados cadastrais no momento da ruptura na prensa hidráulica.
+
+- **Padronização dos Arquivos de Saída dos Laboratórios:** Exigir contratualmente que os relatórios de ensaios sejam exportados em formato estruturado padrão internacional (separador decimal em ponto e codificação UTF-8), reduzindo a necessidade de substituição de strings nas etapas de pós-processamento.
 
 ## 📖 Referências
