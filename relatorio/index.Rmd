@@ -180,4 +180,5 @@ Relatórios desenvolvidos:
 - [Relatório 03 (xx/xx/xxxx)](rel03/index.html){target="_blank"}
 - [Relatório 04 (xx/xx/xxxx)](rel04/index.html){target="_blank"}
 - [Relatório 05 (xx/xx/xxxx)](rel05/index.html){target="_blank"}
+- [Relatório 06 (xx/xx/xxxx)](rel05/index.html){target="_blank"}
 - ...
