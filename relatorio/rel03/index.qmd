@@ -1,14 +1,15 @@
 ---
 # Só mude aqui!!!!
 author: "Otávio Neiva e Gregório Grazziotti"
-title: "Relatório de Aula Prática 03ggggggggggggg"
+title: "Relatório de Aula Prática 03"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
 include-before-body: header.html
-date: today
+date: now
+date-format: "07/09/2026, 18:00"
 lang: pt-BR
 format:
   html:
@@ -24,42 +25,100 @@ execute:
   message: false
 ---
 
-
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A garantia da segurança estrutural, do desempenho mecânico e da durabilidade do concreto armado em obras de infraestrutura e edificações depende da rigidez metodológica aplicada ao controle tecnológico dos materiais cimentícios [@NBR12655; @NBR6118]. A verificação sistemática da consistência no estado fresco pelo ensaio de abatimento do tronco de cone (*Slump Test*) [@NBR16889] e da resistência à compressão axial ($f_c$) no estado endurecido aos 7, 14, 28 e 56 dias [@NBR5738; @NBR5739] constitui a base normativa para a comprovação da conformidade das misturas em relação à resistência característica de projeto ($f_{ck}$) [@NBR8953].
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Entretanto, nos canteiros de obra, a coleta descentralizada de dados operacionais conduzida por múltiplos profissionais frequentemente introduz um ruído amostral significativo [@Mehta2014]. Inconsistências como valores ausentes ($NA$), desvios categóricos em strings, incorreções de escala decimal e a inserção involuntária de caracteres alfanuméricos em campos quantitativos corrompem as variáveis do banco de dados. Em um ambiente computacional estritamente tipado como a linguagem R [@R2024], a presença de um único caractere indevido em uma coluna quantitativa desencadeia a coerção implícita para o tipo *character*, impossibilitando o cálculo direto de métricas estatísticas essenciais para a tomada de decisão técnica [@Wickham2017; @Wickham2019].
 
+Para superar esses gargalos, este relatório aborda a aplicação de uma rotina moderna e integrada de Ciência de Dados orientada à Engenharia Civil. Utilizam-se prioritariamente as ferramentas da família **tidyverse** — integrando os pacotes `readr` (leitura e parsing), `dplyr` (manipulação funcional), `tidyr` (organização de dados), `stringr` (tratamento de texto), `purrr` (programação funcional) e `ggplot2` (visualização gráfica) [@Wickham2019] — combinadas ao operador *pipe* nativo (`|>`). 
 
+A análise abrange uma amostragem de 100 corpos de prova e 10 variáveis de controle tecnológico, articulando o diagnóstico e a higienização dos dados às leis físico-químicas da tecnologia do concreto, como a Lei de Abrams [@Abrams1918; @Neville2016].
 
 ## 🎯 Objetivos
 
-### Objetivo geral
+### Objetivo Geral
+Desenvolver e aplicar uma rotina automatizada e reprodutível de inspeção, diagnóstico, higienização, transformação e exploração de dados do controle tecnológico do concreto, utilizando prioritariamente os pacotes da família **tidyverse** (`readr`, `dplyr`, `tidyr`, `stringr`, `purrr` e `ggplot2`) [@Wickham2019] e o operador *pipe* nativo (`|>`), visando transformar registros operacionais brutos provenientes de canteiros de obra em informações estruturadas e confiáveis para o suporte à tomada de decisão na Engenharia Civil.
 
-Descrever o objetivo principal da prática.
+### Objetivos Específicos
+- **Inspecionar a estrutura e a qualidade da base bruta:** Carregar o registro primário com `read_csv2()`, avaliar a tipagem e dimensão da matriz amostral via `glimpse()` e mapear sistematicamente a ocorrência de valores ausentes ($NA$) utilizando `across()`.
 
-### Objetivos específicos
+- **Implementar rotinas automatizadas de limpeza e padronização:** Corrigir erros de digitação, substituir caracteres indevidos, remover espaços adicionais e padronizar categorias com funções do pacote `stringr` (`str_trim()`, `str_to_upper()`, `str_replace_all()`), convertendo colunas quantitativas coagidas com `parse_double()`.
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- **Corrigir anomalias e desvios de escala:** Identificar e realinhar erros de ordem de grandeza e deslocamento decimal em variáveis reológicas e físico-mecânicas (idade, consumo de cimento, abatimento, densidade e absorção) com `if_else()`.
+
+- **Executar imputação condicional estocástica de dados faltantes:** Preencher registros ausentes ($NA$) com base nas médias amostrais de cada traço nominal (`tipo_concreto`) via `group_by()` + `mutate()`, preservando a esperança matemática intra-classe $\mathbb{E}[X | G_k]$ e a potência estatística da amostragem sem descartar observações [@Little2019].
+
+- **Desenvolver variáveis derivadas de conformidade estrutural:** Criar indicadores adimensionais de Resistência Relativa ($R_{rel} = f_{c,obs} / f_{ck}$) e classificação booleana de aceitação normatizada perante a ABNT NBR 12655 [@NBR12655] e ABNT NBR 6118 [@NBR6118] empregando `mutate()` e `case_when()`.
+
+- **Analisar o comportamento físico-mecânico e reológico:** Agrupar e sumarizar variáveis quantitativas com `group_by()`, `summarise()` e `across()`, correlacionando o consumo de cimento e o fator água/cimento ($\text{a/c}$) com os preceitos teóricos da Lei de Abrams [@Abrams1918; @Neville2016] e produzindo visualizações gráficas de alto desempenho com `ggplot2`. 
 
 ---
 
-## 📚  Fundamentação Teórica
+## 📚 Fundamentação Teórica
 
-Apresente os conceitos principais:
+A análise e o processamento de dados do controle tecnológico do concreto exigem um duplo embasamento: o rigor das diretrizes normativas e leis físico-químicas da Engenharia Civil, combinado aos princípios modernos de Ciência de Dados e programação funcional do ecossistema **tidyverse** [@Wickham2017; @Wickham2019; @R2024].
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+---
 
-$$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
-$$
+### Normatização e Controle Tecnológico do Concreto (ABNT)
+
+O controle de qualidade e recebimento do concreto no Brasil é regulamentado por um conjunto de normas técnicas da Associação Brasileira de Normas Técnicas (ABNT):
+
+- **ABNT NBR 8953:** Classifica os concretos para fins estruturais em grupos de resistência [@NBR8953]. As classes analisadas neste estudo ($C25, C30, C35, C40$) pertencem ao Grupo I (concretos de resistência normal), em que o número nominal representa a resistência característica à compressão ($f_{ck}$) especificada em megapascals ($\text{MPa}$) aos 28 dias de cura.
+- **ABNT NBR 12655:** Estabelece os procedimentos de preparo, controle, recebimento e aceitação do concreto [@NBR12655]. Define os critérios de amostragem e ensaios para verificação da conformidade dos lotes de concretagem.
+- **ABNT NBR 5738 e NBR 5739:** Padronizam, respectivamente, a moldagem e cura de corpos de prova cilíndricos e o ensaio de compressão axial para determinação da resistência mecânica ($f_c$) [@NBR5738; @NBR5739].
+- **ABNT NBR 16889:** Regulamenta o ensaio de abatimento do tronco de cone (*Slump Test*) para avaliação da consistência e trabalhabilidade do concreto no estado fresco [@NBR16889].
+- **ABNT NBR 6118:** Fixa os requisitos básicos para o projeto de estruturas de concreto e prescreve os parâmetros de amadurecimento mecânico e durabilidade da estrutura [@NBR6118].
+
+---
+
+### Leis Físico-Químicas da Tecnologia do Concreto
+
+#### Lei de Abrams e Relação Água/Cimento ($\text{a/c}$)
+Formulada por Duff Abrams [@Abrams1918], a lei fundamental da tecnologia do concreto estabelece que a resistência à compressão de uma mistura totalmente adensada é inversamente proporcional à razão entre o volume de água livre e o volume de cimento [@Mehta2014; @Neville2016]:
+
+$$f_c = \frac{A}{B^{(\text{a/c})}}$$
+
+Onde $f_c$ representa a resistência à compressão axial ($\text{MPa}$), $\text{a/c}$ é a relação água/cimento em massa ($\text{kg/kg}$) e $A, B$ são constantes empíricas características dos materiais constituintes e das condições de ensaio. A redução do fator $\text{a/c}$ diminui a porosidade capilar da pasta endurecida e eleva a resistência mecânica final.
+
+#### Consumo de Cimento ($C$) e Densidade Aparente ($\rho$)
+O consumo de cimento por metro cúbico ($C$, em $\text{kg/m}^3$) relaciona-se com a densidade aparente do concreto fresco ($\rho$, em $\text{kg/m}^3$) e com a proporção dos materiais no traço em massa ($1 : m : \text{a/c}$) [@Helene1992]:
+
+$$C = \frac{\rho}{1 + m + \text{a/c}}$$
+
+Onde $m$ representa a proporção total de agregados secos (miúdo + graúdo) em relação à massa de cimento.
+
+#### Critério de Conformidade e Aceitação Estrutural
+Para a verificação individual e loteada de cada corpo de prova perante a especificação de projeto ($f_{ck}$), define-se o indicador adimensional de **Resistência Relativa** ($R_{rel}$) [@NBR12655; @NBR6118]:
+
+$$R_{rel} = \frac{f_{c,obs}}{f_{ck}}$$
+
+$$\text{Classificação} = \begin{cases} \text{"Conforme"}, & \text{se } R_{rel} \ge 1{,}0 \\ \text{"Não Conforme"}, & \text{se } R_{rel} < 1{,}0 \end{cases}$$
+
+---
+
+### Ciência de Dados e o Ecossistema Tidyverse
+
+#### A Filosofia *Tidy Data* e o Operador *Pipe* (`|>`)
+A família **tidyverse** fundamenta-se no conceito de *Tidy Data* (dados organizados), em que cada variável corresponde a uma coluna, cada observação corresponde a uma linha e cada tipo de unidade observacional forma uma tabela [@Wickham2017]. O uso do operador *pipe* nativo da linguagem R (`|>`) permite a construção de fluxos de transformação encadeados e legíveis:
+
+$$\text{dados} \mid> \text{função}_1() \mid> \text{função}_2() \mid> \text{função}_3()$$
+
+#### As Ferramentas do Tidyverse Aplicadas ao Tratamento de Dados
+- **`readr` (`read_csv2`, `parse_double`):** Leitura eficiente de arquivos delimitados e conversão estrita de tipos numéricos com tratamento do separador decimal [@Wickham2019].
+- **`stringr` (`str_trim`, `str_to_upper`, `str_replace_all`, `str_detect`):** Manipulação padronizada de strings e expressões regulares para correção de ruídos, espaços ocultos e erros de digitação.
+- **`dplyr` (`filter`, `select`, `mutate`, `summarise`, `group_by`, `across`, `case_when`, `if_else`):** Gramática de manipulação de dados para filtragem, criação de variáveis e agregação estatística em grupo.
+- **`tidyr` (`pivot_longer`, `pivot_wider`, `drop_na`, `replace_na`):** Reestruturação geométrica da base e tratamento de dados ausentes.
+- **`purrr` (`map`, `map_dbl`):** Programação funcional avançada e aplicação de funções sem a necessidade de laços iterativos interpretados [@Wickham2019].
+- **`ggplot2` (`geom_boxplot`, `geom_point`, `geom_smooth`):** Construção de gráficos estatísticos com base na Gramática dos Gráficos [@Wickham2017].
+
+#### Imputação Estocástica de Dados Ausentes ($NA$)
+A eliminação simples de observações com dados faltantes (*listwise deletion*) reduz a potência dos testes estatísticos e introduz viés amostral [@Little2019]. A substituição do $NA$ pela média do respectivo subconjunto do traço nominal ($G_k \in \{C25, C30, C35, C40\}$) preserva a esperança matemática intra-classe:
+
+$$\hat{x}_{i,k} = \bar{X}_k = \frac{1}{n_k} \sum_{j \in G_k} x_{j,k}$$
+
+Esta estratégia preserva a coerência físico-química dos traços de concreto e evita o descarte indevido de informações operacionais de campo [@Helene1992; @Little2019].
 
 ---
 
