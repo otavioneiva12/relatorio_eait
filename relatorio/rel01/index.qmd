@@ -73,6 +73,8 @@ O conteúdo das video aulas articula-se de forma sequencial ao longo de seis blo
 
 A sequência desenvolvida pelo Prof. Ben Dêivide proporciona uma compreensão clara da arquitetura do R, capacitando o aluno a estruturar scripts eficientes e fundamentados na lógica orientada a objetos da linguagem.
 
+---
+
 ## Estatística Descritiva e Análise Exploratória de Dados
 
 A Análise Exploratória de Dados (AED) e a Estatística Descritiva constituem a etapa fundamental de qualquer investigação científica e projeto de engenharia. Seu objetivo central é sintetizar, organizar e descrever as características essenciais de um conjunto de dados sem perder a fidelidade da informação biológica, física ou geométrica subjacente.
@@ -101,7 +103,7 @@ Na prática de engenharia, raramente é viável ou econômico ensaiar toda a pop
 
 A escolha adequada das técnicas descritivas e dos testes estatísticos depende estritamente da escala de mensuração e da natureza das variáveis analisadas:
 
-**Variáveis Qualitativas (ou Categóricas:** Expressam atributos, qualidades ou categorias não numéricas.
+**Variáveis Qualitativas (ou Categóricas):** Expressam atributos, qualidades ou categorias não numéricas.
 
 > Nominais: Não possuem ordenação implícita entre as categorias (ex.: tipo de solo: Argila, Silte, Areia; região geográfica).
 
@@ -345,9 +347,16 @@ A estruturação estatística do $N_{SPT}$ busca subsidiar a tomada de decisão 
 
 Apresentação dos Dados Brutos
 
-Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela abaixo exibe os $n = 40$ valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).
+Antes da estruturação e do agrupamento das observações em classes de frequência, apresenta-se o conjunto de dados brutos obtidos sinteticamente via IA. A Tabela abaixo exibe os $n = 50$ valores amostrais coletados diretamente e dispostos em ordem crescente (Rol).
 
-```{r tabela-spt, echo=FALSE, message=FALSE, warning=FALSE}
+```{r}
+#| label: tabela-spt
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R"
+#| warning: false
+#| message: false
+
 # Tabulação interna pura dos dados
 df_spt <- data.frame(
   Furo = paste0("SP-", sprintf("%02d", 1:50)),
@@ -381,31 +390,58 @@ métrica do dado, aplicando automaticamente as correções de continuidade e o c
  
 ### Tabulação e Distribuição de Frequências
 
-**Interpretação Geotécnica e Estatística:** A tabulação reduz a massa individual de 50 valores numéricos em intervalos organizados de resistência, revelando onde se concentra o "comportamento padrão" do terreno. Pela Regra de Sturges ($k \approx 1 + 3{,}3 \cdot \log_{10}(50) \approx 7$ classes) com amplitude de $c = 2{,}3$ golpes, observa-se que a camada possui baixíssima presença de pontos extremos e forte concentração central.
+```{r}
+# Cálculos dinâmicos da Regra de Sturges e Amplitudes
+n_obs <- length(dados_nspt)
+k_sturges <- round(1 + 3.3 * log10(n_obs))
+at_total <- max(dados_nspt) - min(dados_nspt)
 
-```{r tabulacao-frequencias, echo=FALSE, message=FALSE, warning=FALSE}
-# Vetor dos 50 valores de N_SPT
+# Amplitude de classe (Amostral: At / (k - 1))
+c_amplitude <- round(at_total / (k_sturges - 1), 1)
+```
+
+**Interpretação Geotécnica e Estatística:** A tabulação reduz a massa individual de `r n_obs` valores numéricos em intervalos organizados de resistência, revelando onde se concentra o "comportamento padrão" do terreno. Pela Regra de Sturges ($k \approx 1 + 3{,}3 \cdot \log_{10}(`r n_obs`) \approx `r k_sturges`$ classes) com amplitude de $c = `r format(c_amplitude, decimal.mark = ",")`$ golpes, observa-se que a camada possui baixíssima presença de pontos extremos e forte concentração central.
+
+```{r}
+#| label: tabulacao-frequencias
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R"
+#| warning: false
+#| message: false
+
+# 1. Vetor dos 50 valores de N_SPT
 dados_nspt <- c(12, 15, 18, 21, 14, 16, 19, 22, 13, 17, 
                 20, 23, 11, 15, 18, 21, 25, 14, 17, 20, 
                 16, 19, 22, 13, 16, 19, 24, 15, 18, 21, 
                 17, 20, 26, 14, 17, 20, 23, 16, 18, 21, 
                 12, 15, 17, 20, 22, 14, 17, 20, 23, 27)
 
-# Definição das quebras de classe (Regra de Sturges com c = 2.3)
-quebras <- seq(11.0, 27.1, by = 2.3)
+# 2. Cálculos dinâmicos da Regra de Sturges e Amplitudes
+n_obs <- length(dados_nspt)
+k_sturges <- round(1 + 3.3 * log10(n_obs))
+at_total <- max(dados_nspt) - min(dados_nspt)
 
-# Agrupamento e contagens
-f_i <- as.vector(table(cut(dados_nspt, breaks = quebras, right = FALSE, include.lowest = TRUE)))
+# Amplitude de classe (Amostral: At / (k - 1))
+c_amplitude <- round(at_total / (k_sturges - 1), 1)
+
+# 3. Definição dinâmica das quebras de classe
+lim_inf <- min(dados_nspt)
+quebras <- seq(from = lim_inf, to = lim_inf + (k_sturges * c_amplitude), by = c_amplitude)
+
+# 4. Agrupamento e contagens
+classes <- cut(dados_nspt, breaks = quebras, right = FALSE, include.lowest = TRUE)
+f_i <- as.vector(table(classes))
 f_r <- round(f_i / sum(f_i), 2)
 f_ac <- cumsum(f_i)
 
-# Rótulos dos intervalos e pontos médios
-rotulos <- c("[11,0 |- 13,3)", "[13,3 |- 15,6)", "[15,6 |- 17,9)", 
-             "[17,9 |- 20,2)", "[20,2 |- 22,5)", "[22,5 |- 24,8)", "[24,8 |- 27,1]")
+# 5. Rótulos dos intervalos e pontos médios dinâmicos
+lim_inf_seq <- quebras[-length(quebras)]
+lim_sup_seq <- quebras[-1]
+pontos_medios <- round((lim_inf_seq + lim_sup_seq) / 2, 2)
+rotulos <- sprintf("[%0.1f |- %0.1f)", lim_inf_seq, lim_sup_seq)
 
-pontos_medios <- round((quebras[-length(quebras)] + quebras[-1]) / 2, 2)
-
-# Montagem do data frame da tabela
+# 6. Montagem do data frame da tabela
 df_freq <- data.frame(
   Intervalo = rotulos,
   Ponto_Medio = pontos_medios,
@@ -414,7 +450,7 @@ df_freq <- data.frame(
   Freq_Acumulada = f_ac
 )
 
-# Adição da linha de Total
+# 7. Adição da linha de Total
 df_total <- data.frame(
   Intervalo = "Total",
   Ponto_Medio = "—",
@@ -425,6 +461,7 @@ df_total <- data.frame(
 
 df_final <- rbind(df_freq, df_total)
 
+# 8. Renderização da tabela via knitr
 knitr::kable(
   df_final,
   align = "c",
@@ -439,22 +476,41 @@ knitr::kable(
 
 **Interpretação e Análise do Formato:** O Histograma apresenta visualmente o perfil de densidade de resistência da camada, permitindo diagnosticar a simetria central. A Ogiva de Frequências Acumuladas exibe a curva ascendente do somatório de furos; o ponto em que a ogiva cruza o patamar horizontal de 50% ($f_{ac} = 25$ furos) marca exatamente a posição visual da mediana (18,0 golpes).
 
-```{r histograma-nativo, echo=TRUE}
-# Vetor numérico isolado garantido
+```{r}
+#| label: histograma-nativo
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R"
+#| warning: false
+#| message: false
+
+# 1. Vetor numérico isolado de N_SPT (-5,0m)
 dados_nspt <- as.numeric(c(12, 15, 18, 21, 14, 16, 19, 22, 13, 17, 
                            20, 23, 11, 15, 18, 21, 25, 14, 17, 20, 
                            16, 19, 22, 13, 16, 19, 24, 15, 18, 21, 
                            17, 20, 26, 14, 17, 20, 23, 16, 18, 21, 
                            12, 15, 17, 20, 22, 14, 17, 20, 23, 27))
 
-hist(dados_nspt,
-     breaks = seq(11.0, 27.1, by = 2.3),
-     main = "Histograma de N_SPT (-5,0m)",
-     xlab = "N_SPT (golpes)",
-     ylab = "Frequência Absoluta",
-     col = "#4682B4",
-     border = "white",
-     right = FALSE)
+# 2. Determinação dinâmica dos parâmetros de Sturges e quebras de classe
+n_obs <- length(dados_nspt)
+k_sturges <- round(1 + 3.3 * log10(n_obs))
+at_total <- max(dados_nspt) - min(dados_nspt)
+c_amplitude <- round(at_total / (k_sturges - 1), 1)
+
+lim_inf <- min(dados_nspt)
+quebras <- seq(from = lim_inf, to = lim_inf + (k_sturges * c_amplitude), by = c_amplitude)
+
+# 3. Plotagem do Histograma com gráfico base nativo do R
+hist(
+  dados_nspt,
+  breaks = quebras,
+  main = "Histograma de N_SPT (-5,0m)",
+  xlab = "N_SPT (golpes)",
+  ylab = "Frequência Absoluta",
+  col = "blue",
+  border = "white",
+  right = FALSE
+)
 ```
 
 ### Medidas de Posição (Tendência Central)
@@ -500,7 +556,15 @@ distribuição de resistência do solo nesta camada aproxima-se de um comportame
   **O que significa:** Mede o grau de achatamento do topo da curva e a espessura das caudas em comparação com a curva Normal teórica ($g_2 = 0$).
   **O que o resultado mostra:** Por ser ligeiramente negativo ($g_2 < 0$), a distribuição é classificada como **Platicúrtica**. Isso significa que a curva possui um topo suavemente achatado com caudas leves, demonstrando a ausência de discrepâncias extremas (*outliers*) e confirmando que os valores de resistência variam de forma contínua e previsível.
   
-```{r densidade-normal, echo=TRUE, fig.cap="Curva de Densidade dos Dados vs. Curva Normal Teórica"}
+```{r}
+#| label: densidade-normal
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R"
+#| warning: false
+#| message: false
+#| fig-cap: "Curva de Densidade dos Dados vs. Curva Normal Teórica"
+
 # 1. Ajuste de densidade amostral
 d <- density(dados_nspt)
 
@@ -512,7 +576,7 @@ plot(d,
      col = "darkblue", lwd = 2.5,
      las = 1)
 
-# 3. Preenchimento suave
+# 3. Preenchimento suave da curva amostral
 polygon(d, col = rgb(0.1, 0.4, 0.8, 0.2), border = NA)
 
 # 4. Sobreposição da Curva Normal teórica (Linha tracejada vermelha)
