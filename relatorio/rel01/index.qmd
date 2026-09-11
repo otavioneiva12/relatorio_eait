@@ -617,7 +617,7 @@ A integração entre a lógica da linguagem R, os fundamentos da Estatística De
 
 ## Aprenda Quarto
 
-Acese [Quarto](https://quarto.org/).
+Acesse [Quarto](https://quarto.org/).
 
 ## 📖 Referências
 
