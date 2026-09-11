@@ -615,7 +615,7 @@ A integração entre a lógica da linguagem R, os fundamentos da Estatística De
 **Rigor Conceitual da Estatística Descritiva:** A análise conjunta das medidas de tendência central, dispersão e forma provou que a caracterização de um parâmetro de engenharia não deve se limitar à média isolada. A quantificação da variabilidade relativa ($CV$), do erro amostral ($S_{\bar{X}}$) e da geometria da curva ($g_1$ e $g_2$) forneceu o embasamento teórico necessário para julgar a representatividade da amostragem.
 **Validação Geotécnica da Camada de $N_{SPT}$:** A síntese dos $n = 50$ furos na cota de -5,0 m confirmou a alta homogeneidade e previsibilidade do depósito de argila arenosa. Com um coeficiente de variação de $CV =$ `r format(round((sd(dados_nspt) / mean(dados_nspt)) * 100, 2), nsmall = 2, decimal.mark = ",")`% (classificado como baixo pelo Eurocode 7 e NBR 6122) e um erro padrão reduzido de $S_{\bar{X}} =$ `r format(round(sd(dados_nspt) / sqrt(length(dados_nspt)), 2), nsmall = 2, decimal.mark = ",")` golpes, valida-se a adocação do valor médio de $\bar{X} =$ `r format(round(mean(dados_nspt), 2), nsmall = 2, decimal.mark = ",")` golpes como parâmetro representativo do maciço, descartando a necessidade de subsegmentar o terreno em blocos distintos de fundação.
 
-## Aprenda Quarto
+## Aprenda Quarto 
 
 Acesse [Quarto](https://quarto.org/).
 
