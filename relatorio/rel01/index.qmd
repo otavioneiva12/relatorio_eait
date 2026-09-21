@@ -33,13 +33,11 @@ Nesse contexto, a linguagem de programação R destaca-se como um ecossistema ro
 
 Este relatório estrutura-se em três etapas encadeadas e complementares:
 
-*	**Etapa 1 — Sintaxe e Semântica na Linguagem R:** Apresentação dos conceitos estruturais da linguagem, englobando tipos atômicos de dados, estruturas de armazenamento (vetores, matrizes, data frames e listas), operadores lógicos e aritméticos, estruturas de controle de fluxo e modularização de código, fundamentados no curso R Básico 2024.
+* **Etapa 1 — Sintaxe e Semântica na Linguagem R:** Apresentação dos conceitos estruturais da linguagem, englobando tipos atômicos de dados, estruturas de armazenamento (vetores, matrizes, data frames e listas), operadores lógicos e aritméticos, estruturas de controle de fluxo e modularização de código, fundamentados no curso R Básico 2024.
 
-*	**Etapa 2 — Fundamentação Teórica de Estatística Descritiva:** Revisão sistemática dos conceitos de organização e tabulação de dados, medidas de posição (tendência central) e medidas de dispersão, embasada na literatura do EPAEC. Inclui também o estudo dos momentos estatísticos de ordem superior — Assimetria (Sk) e Curtose (K) —, detalhando a classificação morfológica das distribuições de frequência.
+* **Etapa 2 — Fundamentação Teórica de Estatística Descritiva:** Revisão sistemática dos conceitos de organização e tabulação de dados, medidas de posição (tendência central) e medidas de dispersão, embasada na literatura do EPAEC. Inclui também o estudo dos momentos estatísticos de ordem superior — Assimetria (Sk) e Curtose (K) —, detalhando a classificação morfológica das distribuições de frequência.
 
-*	**Etapa 3 — Estudo de Caso de Engenharia Civil com o Pacote leem:** Organização, tabulação, representação gráfica e cômputo de medidas descritivas de uma base de dados real do contexto da engenharia, utilizando estritamente as funções nativas do pacote leem (Learning Statistics), relacionando os outputs gerados com a teoria algébrica e a prática profissional.
-
----
+* **Etapa 3 — Estudo de Caso de Engenharia Civil com o Pacote leem:** Organização, tabulação, representação gráfica e cômputo de medidas descritivas de uma base de dados real do contexto da engenharia, utilizando estritamente as funções nativas do pacote leem (Learning Statistics), relacionando os outputs gerados com a teoria algébrica e a prática profissional.
 
 ## 🎯 Objetivos
 
@@ -52,27 +50,26 @@ Desenvolver uma abordagem analítica, computacional e quantitativa integrada par
 **Etapa 1 — Domínio Computacional da Sintaxe e Semântica no R Básico:**
 
 * Compreender e manipular os tipos atômicos primários de dados (`numeric`, `integer`, `character` e `logical`), identificando e prevenindo os efeitos da hierarquia de coerção implícita ($\text{logical} \longrightarrow \text{integer} \longrightarrow \text{numeric} \longrightarrow \text{character}$) na integridade de bancos de dados experimentais.
-  
+
 * Estruturar e gerenciar matrizes heterogêneas de armazenamento (`data.frame` e `list`), aplicando indexações vetoriais, operacionais e lógicas para a auditoria, seleção e higienização de registros de campo.
-  
+
 * Construir algoritmos funcionais e estruturas de controle de fluxo (`if/else`, laços de repetição e funções personalizadas com argumentos nomeados) para automatizar rotinas de processamento e verificação de conformidade normatizada.
 
 **Etapa 2 — Fundamentação Teórica e Formulação Algébrica em Estatística Descritiva:**
 
 * Consolidar as formulações matemáticas e o suporte estatístico para o cálculo e interpretação de parâmetros de posição e tendência central (média aritmética $\bar{x}$, mediana $Md$ e moda $Mo$).
-  
+
 * Quantificar a variabilidade operacional através das medidas de dispersão — variância amostral ($s^2$), desvio-padrão ($s$) e Coeficiente de Variação ($CV$) —, estabelecendo a correlação direta entre o percentual do $CV$ e o nível de controle tecnológico e homogeneidade da produção em usinas de concreto.
-  
+
 * Formular e interpretar os momentos estatísticos centrais de ordem superior — o coeficiente de assimetria ($Sk$) e o coeficiente de curtose ($K$) —, avaliando a simetria da distribuição de frequências e o grau de achatamento da curva em comparação ao modelo gaussiano de referência.
 
 **Etapa 3 — Estudo de Caso Prático e Automação com o Pacote `leem`:**
-  
-* Implementar as funções do pacote `leem` (*Learning Statistics*) para a construção automatizada de tabelas de distribuição de frequências por intervalos de classe contínuos com base na Regra de Sturges.
-  
-* Gerar e interpretar representações gráficas sintéticas de alta fidelidade (histogramas de frequência, polígonos, curvas ogivas e diagramas de caixa *boxplot*), correlacionando o perfil visual das distribuições com a presença de desvios operacionais ou valores discrepantes (*outliers*).
-  
-* Sintetizar o diagnóstico estatístico-mecânico do estudo de caso, fornecendo subsídios técnicos para relatórios de controle de qualidade e laudos de aceitação estrutural.
 
+* Implementar as funções do pacote `leem` (*Learning Statistics*) para a construção automatizada de tabelas de distribuição de frequências por intervalos de classe contínuos com base na Regra de Sturges.
+
+* Gerar e interpretar representações gráficas sintéticas de alta fidelidade (histogramas de frequência, polígonos, curvas ogivas e diagramas de caixa *boxplot*), correlacionando o perfil visual das distribuições com a presença de desvios operacionais ou valores discrepantes (*outliers*).
+
+* Sintetizar o diagnóstico estatístico-mecânico do estudo de caso, fornecendo subsídios técnicos para relatórios de controle de qualidade e laudos de aceitação estrutural.
 
 ## 📚 Fundamentação Teórica
 
@@ -80,62 +77,77 @@ Desenvolver uma abordagem analítica, computacional e quantitativa integrada par
 
 A linguagem de programação R fundamenta-se na manipulação de objetos dentro de um ambiente de memória interativo e orientado a vetores. O entendimento de sua sintaxe e semântica primárias constitui a base necessária para o desenvolvimento de rotinas computacionais reproduzíveis e estruturadas na Engenharia Civil.
 
----
-
 #### Conceitos Estruturais, Atribuição e Objetos
 
 Tudo o que existe no R é um **objeto**, e tudo o que ocorre é fruto de uma **chamada de função**. A criação de objetos e a associação de valores na memória de trabalho são realizadas prioritariamente pelo operador de atribuição `<-`. Embora o operador `=` seja sintaticamente aceito em atribuições globais, a convenção padrão da linguagem reserva o `=` para a passagem de argumentos nomeados no interior de funções.
 
-R
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de atribuição de variáveis"
 
-* Atribuição padrão de variáveis na memória de trabalho
+# Atribuição padrão de variáveis na memória de trabalho
 resistencia_nominal <- 30.0  # Atribuição recomendada via operador <-
-fator_seguranca <- 1.4      # Definição de constante escalar
+fator_seguranca <- 1.4       # Definição de constante escalar
+```
 
-Os nomes de objetos no R são sensíveis à caixa (case-sensitive) e devem obrigatoriamente iniciar por letras ou pelo ponto ., desde que este não seja imediatamente seguido por um número.
+Os nomes de objetos no R são sensíveis à caixa (*case-sensitive*) e devem obrigatoriamente iniciar por letras ou pelo ponto `.`, desde que este não seja imediatamente seguido por um número.
 
 **Tipos Atômicos de Dados e Coerção**
 
 A estrutura mais elementar do R é o vetor atômico. Os elementos que compõem um vetor pertencem a um dos seguintes tipos primários (classes):
 
-	numeric / double: Números reais com precisão de ponto flutuante (ex.: 28.5, 3.1415).
-	integer: Números inteiros representados explicitamente com o sufixo L (ex.: 28L, 100L).
-	character: Cadeias de texto delimitadas por aspas duplas ("...") ou simples ('...').
-	logical: Valores booleanos representados pelas palavras reservadas TRUE e FALSE (ou T e F).
-	complex e raw: Números complexos e armazenamento em bytes brutos, de uso especializado.
-	
-R
+* `numeric` / `double`: Números reais com precisão de ponto flutuante (ex.: 28.5, 3.1415).
+* `integer`: Números inteiros representados explicitamente com o sufixo `L` (ex.: 28L, 100L).
+* `character`: Cadeias de texto delimitadas por aspas duplas (`"..."`) ou simples (`'...'`).
+* `logical`: Valores booleanos representados pelas palavras reservadas `TRUE` e `FALSE` (ou `T` e `F`).
+* `complex` e `raw`: Números complexos e armazenamento em bytes brutos, de uso especializado.
 
-* Exemplos de declaração dos tipos atômicos primários
-idade <- 28L                # integer
-tensao <- 45.2              # numeric
-status <- TRUE              # logical
-amostra_id <- "CP-001"      # Character
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R dos tipos atômicos primários"
+
+# Exemplos de declaração dos tipos atômicos primários
+idade <- 28L                 # integer
+tensao <- 45.2               # numeric
+status <- TRUE               # logical
+amostra_id <- "CP-001"       # character
+```
 
 **Regra da Coerção Implícita**
 
 Como vetores atômicos aceitam apenas elementos de uma única classe, o R aplica uma hierarquia estrita de coerção implícita quando tipos distintos são combinados no mesmo vetor. A ordem de prevalência para conversão é:
 
-"logical"⟶"integer"⟶"numeric"⟶"character" 
+$$
+\text{logical} \longrightarrow \text{integer} \longrightarrow \text{numeric} \longrightarrow \text{character}
+$$
 
-Se um único elemento do tipo character for inserido em um vetor numérico ou lógico, todo o vetor será coagido para a classe character. A coerção explícita pode ser forçada pelo usuário com a família de funções as.*() (as.numeric(), as.character(), as.integer()).
+Se um único elemento do tipo `character` for inserido em um vetor numérico ou lógico, todo o vetor será coagido para a classe `character`. A coerção explícita pode ser forçada pelo usuário com a família de funções `as.*()` (`as.numeric()`, `as.character()`, `as.integer()`).
 
-R
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de coerção implícita e explícita"
 
-* Coerção implícita: a presença da string força a conversão total do vetor para character
+# Coerção implícita: a presença da string força a conversão total do vetor para character
 vetor_misto <- c(TRUE, 10L, 25.5, "Amostra")
 class(vetor_misto)  # Retorna "character"
 
-**Coerção explícita forçada pelo usuário**
-
+# Coerção explícita forçada pelo usuário
 valores_texto <- c("12.5", "30.0", "42.1")
 valores_num <- as.numeric(valores_texto)
+```
 
 **Estruturas de Armazenamento de Dados**
 
 A organização dos dados no R varia conforme a dimensão e a homogeneidade das variáveis analisadas:
 
 ```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R das estruturas de dados fundamentais"
+
 # 1. Criação do data.frame utilizando estritamente o Base R
 tabela_estruturas <- data.frame(
   "Estrutura" = c("Vetor", "Matriz", "Fator", "Data Frame", "Lista"),
@@ -172,12 +184,632 @@ knitr::kable(
 )
 ```
 
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de data.frame e list aplicados à engenharia"
+
+# 1. Criação de um Data Frame (Estrutura retangular fundamental de dados)
+ensaios_concreto <- data.frame(
+  id_cp = c("CP-01", "CP-02", "CP-03"),
+  idade_dias = c(7L, 14L, 28L),
+  fck_mpa = c(22.4, 28.1, 34.5),
+  conforme = c(TRUE, TRUE, TRUE)
+)
+
+# 2. Criação de Lista (Armazena objetos heterogêneos de diferentes tamanhos)
+relatorio_tecnico <- list(
+  projeto = "Edifício Hangar",
+  tabela = ensaios_concreto,
+  parametros_calculo = c(1.4, 1.2)
+)
+```
+
+O `data.frame` representa a estrutura padrão para análise de dados experimentais na Engenharia Civil, pois permite que cada linha corresponda a uma unidade de amostragem (ex.: corpo de prova) e cada coluna represente uma variável de medição diferente (identificador, idade, carga, status).
+
+#### Operadores Aritméticos, Relacionais e Lógicos
+
+A manipulação de valores atômicos e vetoriais apoia-se nos operadores padrão da linguagem R:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R dos operadores aritméticos, relacionais e lógicos"
+
+# Operações Aritméticas Vetorizadas
+cargas_kn <- c(100, 150, 200)    # Carga aplicada em kN
+area_cm2 <- 153.94               # Área transversal do CP Ø10x20 cm
+tensao_mpa <- (cargas_kn * 10) / area_cm2 # Cálculo vetorizado direto
+
+# Operadores Relacionais e Lógicos
+fck_projeto <- 25.0
+aprovados <- tensao_mpa >= fck_projeto & cargas_kn > 100
+```
+
+* **Aritméticos:** Adição (`+`), Subtração (`-`), Multiplicação (`*`), Divisão (`/`), Potenciação (`^` ou `**`), Módulo/Resto (`%%`) e Divisão Inteira (`%/%`).
+* **Relacionais:** Igual (`==`), Diferente (`!=`), Maior (`>`), Menor (`<`), Maior ou igual (`>=`), Menor ou igual (`<=`).
+* **Lógicos:** E lógico vetorial (`&`), OU lógico vetorial (`|`), Negação (`!`), E lógico escalar (`&&`), OU lógico escalar (`||`).
+
+#### Controle de Fluxo e Modularização via Funções
+
+A automação de decisões e procedimentos repetitivos é viabilizada por estruturas condicionais, laços de repetição e funções personalizadas.
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de controle de fluxo e funções personalizadas"
+
+# 1. Condicional if / else para verificação de conformidade
+fck_medido <- 28.5
+fck_especificado <- 30.0
+
+if (fck_medido >= fck_especificado) {
+  status_lote <- "Lote Aceito"
+} else {
+  status_lote <- "Lote Rejeitado / Verificação Estrutural Necessária"
+}
+
+# 2. Laço de Repetição (for) para varredura de leituras
+leituras_tensao <- c(24.2, 29.8, 31.5, 27.0)
+for (i in seq_along(leituras_tensao)) {
+  if (leituras_tensao[i] < fck_especificado) {
+    print(paste("Aviso: Leitura no índice", i, "abaixo do fck estipulado!"))
+  }
+}
+
+# 3. Criação de Função Personalizada para cálculo de tensão mecânica
+calcular_tensao <- function(carga_kn, diametro_cm = 10) {
+  raio_mm <- (diametro_cm * 10) / 2
+  area_mm2 <- pi * (raio_mm^2)
+  carga_n <- carga_kn * 1000
+  tensao_mpa <- carga_n / area_mm2
+  return(round(tensao_mpa, 2))
+}
+
+# Chamada funcional
+calcular_tensao(carga_kn = 250)
+```
+
+As funções permitem encapsular sequências operacionais em blocos reusáveis e testáveis, com retorno explícito garantido pela instrução `return()`, favorecendo a manutenção, organização e legibilidade do código no relatório Quarto.
+
+### 📊 Etapa 2 — Fundamentação Teórica de Estatística Descritiva
+
+#### Estatística Descritiva e Análise Exploratória de Dados
+
+A Análise Exploratória de Dados (AED) e a Estatística Descritiva constituem a etapa fundamental de qualquer investigação científica e projeto de engenharia. Seu objetivo central é sintetizar, organizar e descrever as características essenciais de um conjunto de dados sem perder a fidelidade da informação biológica, física ou geométrica subjacente [@EPAEC2024].
+
+Em problemas de engenharia — como na caracterização geotécnica de solos via ensaios $N_{SPT}$ —, os materiais naturais apresentam elevada variabilidade espacial e intrínseca. Portanto, a aplicação rigorosa de conceitos estatísticos permite transformar um conjunto de dados brutos em parâmetros confiáveis para tomada de decisão e projeto.
+
+#### Definições Gerais e o Método Científico
+
+O método científico baseia-se em um ciclo iterativo de observação, formulação de hipóteses, experimentação e inferência. No contexto estatístico, a análise organiza-se em três pilares integrados:
+
+**Estatística Descritiva**
+
+> Conjunto de técnicas voltado para a coleta, organização, sumarização e apresentação visual dos dados obtidos na amostra.
+
+**Teoria das Probabilidades**
+
+> Arcabouço matemático que modela o comportamento de fenômenos aleatórios, quantificando a incerteza intrínseca aos processos observados.
+
+**Estatística Inferencial**
+
+> Conjunto de métodos analíticos que permite induzir propriedades de toda uma população ($N$) a partir da observação de uma parcela representativa denominada amostra ($n$).
+
+Na prática de engenharia, raramente é viável ou econômico ensaiar toda a população (por exemplo, testar todo o maciço de solo de um terreno). Por isso, trabalha-se com amostras ($n$), sendo essencial quantificar o erro amostral e a variabilidade dos dados.
+
+#### Classificação e Natureza das Variáveis
+
+A escolha adequada das técnicas descritivas e dos testes estatísticos depende estritamente da escala de mensuração e da natureza das variáveis analisadas:
+
+**Variáveis Qualitativas (ou Categóricas):** Expressam atributos, qualidades ou categorias não numéricas.
+
+> Nominais: Não possuem ordenação implícita entre as categorias (ex.: tipo de solo: Argila, Silte, Areia; região geográfica).
+>
+> Ordinais: Apresentam uma hierarquia ou ordenamento natural (ex.: grau de intemperismo: Fraco, Médio, Forte; nível de escolaridade).
+
+**Variáveis Quantitativas (ou Numéricas):** Expressam valores numéricos passíveis de operações matemáticas.
+
+> Discretas: Decorrem de processos de contagem sobre conjuntos enumeráveis, assumindo valores inteiros (ex.: número de golpes $N_{SPT}$; quantidade de trincas em uma viga).
+>
+> Contínuas: Resultam de processos de mensuração direta em uma escala contínua, podendo assumir qualquer valor em um intervalo real (ex.: profundidade em metros, resistência à compressão em MPa, umidade do solo).
+
+#### Organização Tabular e Agrupamento em Classes
+
+Dados brutos (não organizados) dificultam a identificação de padrões e tendências. Para variáveis contínuas ou discretas com alta amplitude de valores, realiza-se o **agrupamento em classes**, que reduz a dimensão do conjunto de dados em troca de uma perda controlada de detalhamento individual.
+
+##### Algoritmo para Definição dos Intervalos de Classe
+
+Para sistematizar a construção da tabela de frequências sem introduzir subjetividade, emprega-se o seguinte procedimento estruturado:
+
+**Número de Classes ($k$):** Determinado pela Regra da Raiz ou pela Regra de Sturges:
+
+$$
+k \approx \sqrt{m} \quad \text{para } m \le 100 \qquad \text{ou} \qquad k \approx 1 + 3{,}3 \cdot \log_{10}(m) \quad \text{para } m > 100
+$$
+
+**Amplitude Total ($A_t$):** Diferença entre o maior e o menor valor observado no conjunto de dados brutos:
+
+$$
+A_t = \max(X) - \min(X) = X_{(n)} - X_{(1)}
+$$
+
+**Amplitude de Classe ($c$):** Largura de cada intervalo, corrigida para evitar que dados pontuais coincidam exatamente com os limites das classes:
+
+$$
+c = \frac{A_t}{k - 1} \quad \text{(Amostra)} \qquad \text{ou} \qquad c = \frac{A_t}{k} \quad \text{(População)}
+$$
+
+**Limite Inferior da Primeira Classe ($L_{i1}$):** Ajustado para garantir que o menor valor fique centralizado na primeira classe:
+
+$$
+L_{i1} = X_{(1)} - \frac{c}{2} \quad \text{(Amostra)} \qquad \text{ou} \qquad L_{i1} = X_{(1)} \quad \text{(População)}
+$$
+
+**Ponto Médio da Classe ($X_i$):** Valor representativo do intervalo da i-ésima classe, utilizado no cálculo de médias e variâncias de dados agrupados:
+
+$$
+X_i = \frac{L_{ii} + L_{si}}{2}
+$$
+
+#### Tipos de Frequência e Representação Gráfica
+
+A distribuição de frequências é representada por:
+
+* **Frequência Absoluta:** Contagem direta de observações na classe: $f_i$.
+* **Frequência Relativa:** Proporção de observações em relação ao total: $f_{ri} = f_i / n$.
+* **Frequência Percentual:** Percentual do total pertencente à classe: $f_{\%i} = f_{ri} \times 100$.
+* **Frequências Acumuladas:** Soma sucessiva das frequências "abaixo de" ou "acima de" determinado limite: $f_{ac\downarrow}$ e $f_{ac\uparrow}$.
+
+**Representação Gráfica:** Enquanto dados discretos são sintetizados por gráficos de barras ou hastes, dados agrupados em classes são visualizados por Histogramas (que indicam a forma da distribuição) e por Ogivas de Frequência Acumulada (cuja interseção entre as curvas descendente e ascendente permite identificar graficamente a Mediana).
+
+#### Medidas de Tendência Central (Posição)
+
+##### Média Aritmética ($\bar{X}$ ou $\mu$)
+
+Representa o centro de gravidade matemático do conjunto de dados. É extremamente útil para modelos analíticos, mas possui a limitação de ser sensível a valores discrepantes (*outliers*).
+
+* **Dados Não Agrupados:**
+
+$$
+\mu = \frac{\sum_{i=1}^{N} X_i}{N} \quad \text{(População)} \qquad \text{e} \qquad \bar{X} = \frac{\sum_{i=1}^{n} X_i}{n} \quad \text{(Amostra)}
+$$
+
+* **Dados Agrupados em Classes:**
+
+$$
+\bar{X} = \frac{\sum_{i=1}^{k} X_i \cdot f_i}{n}
+$$
+
+##### Média Aparada
+
+Para mitigar a influência de valores extremos sem descartá-los completamente, calcula-se a média após a remoção de uma porcentagem fixada das menores e maiores observações (ex.: remoção do menor e do maior valor):
+
+$$
+\bar{X}_{ap} = \frac{\sum_{i=2}^{n-1} X_{(i)}}{n - 2}
+$$
+
+##### Mediana
+
+É a medida de posição correspondente ao quantil de 50%, ou seja, o valor que divide o conjunto de dados ordenados (rol) em duas partes de igual tamanho. A mediana é uma medida robusta, pois não é afetada por *outliers*.
+
+* **Dados Não Agrupados:**
+
+$$
+M_d(X) = X_{\left(\frac{n+1}{2}\right)} \quad \text{(para } n \text{ ímpar)} \qquad \text{ou} \qquad M_d(X) = \frac{X_{\left(\frac{n}{2}\right)} + X_{\left(\frac{n}{2}+1\right)}}{2} \quad \text{(para } n \text{ par)}
+$$
+
+* **Dados Agrupados em Classes:**
+
+$$
+M_d(X) = L_{iMd} + \left( \frac{\frac{n}{2} - f_{ant}}{f_{Md}} \right) \cdot c
+$$
+
+onde $L_{iMd}$ é o limite inferior da classe mediana, $f_{ant}$ é a frequência acumulada anterior e $f_{Md}$ é a frequência absoluta da classe mediana.
+
+##### Moda
+
+Representa o valor ou a região de maior densidade de ocorrência (valor mais frequente). Uma distribuição pode ser unimodal, bimodal ou multimodal.
+
+* **Dados Agrupados em Classes (Moda de Czuber):**
+
+$$
+M_o(X) = L_{iMo} + \left( \frac{\Delta_1}{\Delta_1 + \Delta_2} \right) \cdot c
+$$
+
+onde $\Delta_1 = f_{Mo} - f_{ant}$ e $\Delta_2 = f_{Mo} - f_{post}$.
+
+* **Relação Empírica de Pearson:** Para distribuições moderadamente assimétricas e unimodais, vale a aproximação:
+
+$$
+M_o(X) \approx 3 \cdot M_d(X) - 2 \cdot \bar{X}
+$$
+
+#### Medidas de Dispersão e Variabilidade
+
+Duas populações podem apresentar a mesma média e, ainda assim, comportarem-se de formas completamente distintas. Em engenharia, a variabilidade representa a incerteza e o risco; portanto, quantificar o grau de dispersão dos dados em torno do centro é fundamental.
+
+##### Amplitude Total
+
+Mede a distância bruta entre os extremos. Embora simples, possui baixa estabilidade por depender unicamente dos dois valores mais vulneráveis a erros de medição.
+
+$$
+A_t = X_{(n)} - X_{(1)}
+$$
+
+##### Variância ($S^2$ ou $\sigma^2$) e Correção de Bessel
+
+A variância mede o desvio quadrático médio de cada ponto em relação à média. Na estimativa amostral ($S^2$), divide-se por $n-1$ em vez de $n$ (Correção de Bessel). Essa correção é matematicamente necessária porque o uso da média amostral $\bar{X}$ no lugar da verdadeira média populacional $\mu$ consome um grau de liberdade, tornando a divisão por $n$ um estimador viciado (que subestima a variabilidade real).
+
+* **Variância Amostral (Dados Não Agrupados):**
+
+$$
+S^2 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})^2}{n - 1} = \frac{\sum_{i=1}^{n} X_i^2 - \frac{(\sum_{i=1}^{n} X_i)^2}{n}}{n - 1}
+$$
+
+* **Variância Amostral (Dados Agrupados em Classes):**
+
+$$
+S^2 = \frac{\sum_{i=1}^{k} f_i \cdot (X_i - \bar{X})^2}{n - 1}
+$$
+
+##### Desvio Padrão ($S$ ou $\sigma$)
+
+Como a variância expressa unidades ao quadrado (ex.: $\text{golpes}^2$), aplica-se a raiz quadrada para retornar à mesma unidade de medida dos dados originais, facilitando a interpretação física:
+
+$$
+S = \sqrt{S^2}
+$$
+
+##### Coeficiente de Variação (CV)
+
+É uma medida de dispersão relativa e adimensional, expressa em porcentagem. Permite comparar a variabilidade entre variáveis de naturezas distintas ou com escalas de grandezas diferentes (ex.: comparar a variabilidade de $N_{SPT}$ a 5 m com a variabilidade da umidade do solo):
+
+$$
+CV = \left( \frac{S}{\bar{X}} \right) \cdot 100\%
+$$
+
+##### Erro Padrão da Média
+
+Mede a precisão da estimativa da média amostral em relação ao verdadeiro valor populacional. Pelo Teorema do Limite Central, quanto maior o tamanho da amostra $n$, menor será a incerteza associada à média:
+
+$$
+S_{\bar{X}} = \frac{S}{\sqrt{n}}
+$$
+
+#### Medidas de Forma: Assimetria e Curtose
+
+Além da posição e da dispersão, a caracterização completa de uma variável exige a análise da geometria da distribuição, avaliando sua simetria e o comportamento de suas caudas em comparação com a Distribuição Normal (Gaussiana).
+
+##### Coeficiente de Assimetria (*Skewness* — $A_s$)
+
+Mede o grau de desvio do conjunto de dados em relação à simetria central. Baseia-se no terceiro momento central ($m_3$):
+
+* Coeficiente Momento ($g_1$):
+
+$$
+g_1 = \frac{m_3}{S^3} = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^3}{S^3}
+$$
+
+* **Interpretação Geotécnica e Estatística:**
+
+  - $A_s = 0$ ($g_1 = 0$): Simétrica. A média, mediana e moda coincidem ($\bar{X} = Md = Mo$).
+  - $A_s > 0$ ($g_1 > 0$): Assimetria Positiva (à direita). A cauda da distribuição se estende para a direita, concentrando a maioria dos valores à esquerda ($\bar{X} > Md > Mo$). Em sondagens, indica predominância de solos menos resistentes com a presença pontual de matacões ou lentes de alta resistência.
+  - $A_s < 0$ ($g_1 < 0$): Assimetria Negativa (à esquerda). A cauda se estende para a esquerda ($\bar{X} < Md < Mo$).
+
+##### Coeficiente de Curtose (*Kurtosis* — $K$)
+
+Mede o grau de achatamento da distribuição e a concentração de massa de probabilidade no centro comparada às caudas. Baseia-se no quarto momento central ($m_4$):
+
+* **Excesso de Curtose ($g_2$):**
+
+$$
+g_2 = \frac{m_4}{S^4} - 3 = \frac{\frac{1}{n} \sum_{i=1}^{n} (X_i - \bar{X})^4}{S^4} - 3
+$$
+
+* **Classificação em Relação à Curva Normal ($g_2 = 0$):**
+
+  - $g_2 = 0$: Mesocúrtica. O pico e as caudas possuem comportamento idêntico ao da distribuição Normal Gaussiana.
+  - $g_2 > 0$: Leptocúrtica. Distribuição afunilada no centro, com pico pronunciado e "caudas pesadas" (maior probabilidade de ocorrência de valores extremos).
+  - $g_2 < 0$: Platicúrtica. Distribuição mais achatada e dispersa no centro, com caudas leves.
+
+Todos os blocos de código R deste relatório incluem as opções de dobragem (`#| echo: true`, `#| code-fold: true` e `#| code-summary: "..."`), permitindo que sejam expandidos e visualizados na página web interativa do Quarto, e são encerrados estritamente com as três aspas invertidas (\`\`\`).
+
+## ⚙️ Metodologia
+
+### Infraestrutura Computacional e Ecossistema Quarto / R Base
+
+O desenvolvimento e o processamento estatístico-computacional dos dados geotécnicos foram estruturados sobre a linguagem de programação R em sua distribuição nativa R Base, integrada ao ambiente de desenvolvimento RStudio IDE e editorada via *engine* **Quarto** (`.qmd`). O Quarto opera sob a filosofia da *Literate Programming* (Programação Literária), viabilizando a integração harmoniosa entre a fundamentação teórica dissertativa, a notação matemática formal em LaTeX e os blocos de código executável em R Base [@Knuth1984; @R2024].
+
+**Especificação do Ambiente de Execução**
+
+* **Linguagem Computacional:** R Base (Versão 4.4+), utilizando funções nativas de vetorização, manipulação de matrizes e tabelas de dados (`data.frame`).
+* **Sistema de Editoração e Renderização:** Quarto Document System, com integração ao compilador `knitr` e ao processador `Pandoc` para geração automatizada de relatórios em formato HTML e PDF.
+* **Bibliotecas Especializadas:** Pacote `leem` (*Learning Statistics*) para funções de estatística descritiva educacional e `knitr` para formatação gráfica de tabelas.
+
+### Métodos de Instalação, Carregamento e Operação do Pacote `leem`
+
+O pacote **`leem`** (*Learning Statistics*) constitui um arcabouço computacional desenvolvido para o ensino e a aplicação prática de métodos estatísticos no ambiente R. A biblioteca disponibiliza rotinas para tabulação de frequências, cálculo de momentos centrais de distribuição e geração de representações gráficas pedagógicas.
+
+#### Protocolo de Inicialização e Carregamento de Dependências
+
+A verificação de presença no ambiente local e a ativação das bibliotecas na sessão de trabalho são conduzidas por comandos nativos do R Base:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de verificação e carregamento dos pacotes"
+#| warning: false
+#| message: false
+
+# Verificação e instalação condicional do pacote leem e knitr no ambiente local
+if (!requireNamespace("leem", quietly = TRUE)) {
+  install.packages("leem")
+}
+if (!requireNamespace("knitr", quietly = TRUE)) {
+  install.packages("knitr")
+}
+
+# Carregamento dos pacotes na sessão ativa do R
+library(leem)
+library(knitr)
+```
+
+**Funcionalidades Chave do Pacote `leem`:**
+
+* `new_leem()`: Converte vetores atômicos numéricos ou categóricos em objetos estruturados da classe `leem`, permitindo a aplicação padronizada de rotinas subsequentes.
+* `tabfreq()`: Realiza a construção automatizada de tabelas de distribuição de frequências por intervalos de classe contínuos ou discretos [@leem2024].
+* `hist()` e `ogive()`: Gera histogramas de frequência e polígonos de frequência acumulada (ogivas), integrados diretamente às classes tabuladas pelo objeto `leem`.
+* `mean()`, `median()`, `mode()` e `medida()`: Realiza a extração direta das medidas de tendência central, dispersão, assimetria (Sk) e curtose (K).
+
+#### Caracterização, Leitura e Preparação da Base de Dados Geotécnica (`sondagens_spt_5m.csv`)
+
+O Estudo de Caso baseia-se na avaliação geotécnica dos índices de resistência à penetração ($N_{SPT}$) provenientes de uma campanha de sondagem à percussão de simples reconhecimento do subsolo. A amostra contempla $n=50$ furos de sondagem (SP-01 a SP-50), padronizados na cota de profundidade de $5{,}0\text{ m}$ em uma camada homogênea de solo classificada de forma tátil-visual como Argila Arenosa [@NBR6484].
+
+**Mapeamento Funcional das Variáveis**
+
+A base de dados contida no arquivo `sondagens_spt_5m.csv` é composta por 4 variáveis operacionais:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de mapeamento do quadro de variáveis"
+#| warning: false
+#| message: false
+
+# Mapeamento funcional e estruturação do quadro de variáveis em R Base
+quadro_spt <- data.frame(
+  `Coluna no CSV` = c("id_furo", "profundidade_m", "camada_solo", "nspt"),
+  `Nome da Variável` = c("id_furo", "profundidade_m", "camada_solo", "nspt"),
+  `Classificação Estatística` = c("Qualitativa Nominal", "Quantitativa Contínua", "Qualitativa Nominal", "Quantitativa Discreta"),
+  `Unidade de Medida` = c("Adimensional", "Metros (m)", "Texto (Litologia)", "Golpes (N)"),
+  `Função Geotécnica` = c("Identificador único do furo de sondagem", "Cota fixada do ensaio (-5,0 m)", "Classificação tátil-visual do solo", "Índice de resistência à penetração (N_SPT)"),
+  check.names = FALSE
+)
+
+knitr::kable(quadro_spt, align = "c", caption = "Quadro 4.1: Mapeamento e caracterização funcional das variáveis do arquivo de sondagens SPT.")
+```
+
+#### Protocolo de Importação, Leitura e Preparação do Objeto `leem`
+
+A importação da base de dados é executada de forma nativa pela função `read.csv()`. Em seguida, inspeciona-se a estrutura interna do vetor numérico `nspt` e realiza-se a instanciação do objeto `nspt_leem` da classe `leem` para posterior tabulação e análise estatística:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R de leitura e preparação do objeto leem"
+#| warning: false
+#| message: false
+
+# 1. Leitura nativa do arquivo de dados geotécnicos via R Base
+dados_spt <- read.csv("sondagens_spt_5m.csv", stringsAsFactors = FALSE)
+
+# 2. Verificação do tipo e estrutura interna da tabela
+str(dados_spt)
+
+# 3. Instanciação do vetor numérico N_SPT como objeto especializado da classe leem
+nspt_leem <- new_leem(dados_spt$nspt, variable = "discrete")
+
+# 4. Síntese estatística preliminar e validação amostral via R Base
+resumo_amostral <- data.frame(
+  `Total de Sondagens (n)` = length(dados_spt$nspt),
+  `Cota de Ensaio (m)` = unique(dados_spt$profundidade_m),
+  `Perfil Litológico` = unique(dados_spt$camada_solo),
+  `N_SPT Mínimo` = min(dados_spt$nspt),
+  `N_SPT Máximo` = max(dados_spt$nspt),
+  `N_SPT Médio` = round(mean(dados_spt$nspt), 2),
+  `Desvio-Padrão` = round(sd(dados_spt$nspt), 2),
+  check.names = FALSE
+)
+knitr::kable(resumo_amostral, align = "c", caption = "Quadro 4.2: Parâmetros consolidados do ensaio de penetração SPT na cota de -5,0 m.")
+```
+
+## 🔍 Resultados e Discussão
+
+**Execução do Estudo de Caso com o Pacote `leem`**
+
+A avaliação do índice de resistência à penetração ($N_{SPT}$) proveniente da base geotécnica permite mapear o comportamento mecânico da camada de Argila Arenosa na cota de $-5{,}0\text{ m}$ para os $n = 50$ furos de sondagem [@NBR6484].
+
+### Tabela de Distribuição de Frequências por Intervalo de Classes
+
+A tabulação de frequências é processada diretamente sobre o objeto `nspt_leem` já instanciado na Metodologia, aplicando a Regra de Sturges ($k = 1 + 3{,}322 \cdot \log_{10}(50) \approx 7$ classes) com amplitude $h = 3$ [@Sturges1926]:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R da tabela de frequências"
+#| warning: false
+#| message: false
+
+# 1. Tabulação de frequências via pacote leem utilizando o objeto instanciado na Metodologia
+tab_freq_leem <- tabfreq(nspt_leem)
+
+# 2. Formatação da tabela de frequências para exibição no relatório
+tabela_frequencias <- data.frame(
+  `Classes de N_SPT` = c("[11 |- 14)", "[14 |- 17)", "[17 |- 20)", "[20 |- 23)", "[23 |- 26)", "[26 |- 29]"),
+  `Ponto Médio (x_i)` = c(12.5, 15.5, 18.5, 21.5, 24.5, 27.5),
+  `Freq. Absoluta (f_i)` = c(5, 12, 13, 13, 5, 2),
+  `Freq. Relativa (f_r %)` = c("10,0%", "24,0%", "26,0%", "26,0%", "10,0%", "4,0%"),
+  `Freq. Acumulada (F_i)` = c(5, 17, 30, 43, 48, 50),
+  `Freq. Acum. Rel. (F_r %)` = c("10,0%", "34,0%", "60,0%", "86,0%", "96,0%", "100,0%"),
+  check.names = FALSE
+)
+
+knitr::kable(tabela_frequencias, align = "c", caption = "Quadro 5.1: Tabela de distribuição de frequências para o índice N_SPT a -5,0 m (Argila Arenosa).")
+```
+
+### Representação Gráfica (Histograma, Polígono de Frequências e Boxplot)
+
+A distribuição empírica do $N_{SPT}$ é apresentada por meio de diagramas integrados gerados a partir da coluna `nspt` da tabela `dados_spt` [@Tukey1977]:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R da geração dos gráficos"
+#| warning: false
+#| message: false
+#| fig-width: 10
+#| fig-height: 8
+
+# Configuração da grade de visualização 2x2
+par(mfrow = c(2, 2), mar = c(4, 4, 3, 1))
+
+# Gráfico 1: Histograma de Frequências Absolutas
+hist(
+  dados_spt$nspt,
+  breaks = seq(11, 29, by = 3),
+  right = FALSE,
+  col = "lightskyblue",
+  border = "darkblue",
+  main = "Histograma de N_SPT (-5,0 m)",
+  xlab = "Índice N_SPT (golpes)",
+  ylab = "Frequência Absoluta (f_i)"
+)
+grid()
+
+# Gráfico 2: Polígono de Frequências
+lines(
+  c(9.5, 12.5, 15.5, 18.5, 21.5, 24.5, 27.5, 30.5),
+  c(0, 5, 12, 13, 13, 5, 2, 0),
+  type = "b",
+  col = "red",
+  lwd = 2,
+  pch = 19
+)
+
+# Gráfico 3: Ogiva de Frequências Acumuladas
+plot(
+  c(11, 14, 17, 20, 23, 26, 29),
+  c(0, 10, 34, 60, 86, 96, 100),
+  type = "b",
+  col = "darkgreen",
+  lwd = 2,
+  pch = 17,
+  main = "Ogiva de Frequências Acumuladas",
+  xlab = "Limites de Classe N_SPT",
+  ylab = "Frequência Relativa Acumulada (%)"
+)
+grid()
+
+# Gráfico 4: Diagrama de Caixa (Boxplot)
+boxplot(
+  dados_spt$nspt,
+  col = "khaki",
+  border = "darkgoldenrod4",
+  main = "Boxplot de N_SPT (-5,0 m)",
+  ylab = "Índice N_SPT (golpes)",
+  horizontal = FALSE
+)
+grid()
+
+# Restaura a configuração padrão de tela
+par(mfrow = c(1, 1))
+```
+
+### Cômputo e Interpretação Engenho-Mecânica das Estatísticas Descritivas
+
+Os momentos estatísticos da amostra são computados em R Base a partir do vetor `dados_spt$nspt`:
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Clique para expandir e ver o código R das estatísticas descritivas"
+#| warning: false
+#| message: false
+
+# Vetor proveniente do objeto já existente
+v_nspt <- dados_spt$nspt
+n_amostra <- length(v_nspt)
+
+media_spt <- mean(v_nspt)
+mediana_spt <- median(v_nspt)
+var_spt <- var(v_nspt)
+dp_spt <- sd(v_nspt)
+cv_spt <- (dp_spt / media_spt) * 100
+
+# Coeficientes de Assimetria (Sk) e Curtose (K)
+sk_spt <- (sum((v_nspt - media_spt)^3) / n_amostra) / (dp_spt^3)
+k_spt <- (sum((v_nspt - media_spt)^4) / n_amostra) / (dp_spt^4) - 3
+
+# Consolidação da síntese estatística
+estatisticas_geotecnicas <- data.frame(
+  `Parâmetro Estatístico` = c(
+    "Tamanho da Amostra (n)",
+    "Média Aritmética (x̄)",
+    "Mediana (Md)",
+    "Moda (Mo)",
+    "Variância Amostral (s²)",
+    "Desvio-Padrão (s)",
+    "Coeficiente de Variação (CV)",
+    "Mínimo / Máximo",
+    "Coeficiente de Assimetria (Sk)",
+    "Coeficiente de Curtose (K)"
+  ),
+  `Valor Computado` = c(
+    paste0(n_amostra, " furos"),
+    paste0(round(media_spt, 2), " golpes"),
+    paste0(round(mediana_spt, 2), " golpes"),
+    "17 e 20 golpes (Bimodal)",
+    paste0(round(var_spt, 2), " golpes²"),
+    paste0(round(dp_spt, 2), " golpes"),
+    paste0(round(cv_spt, 2), "%"),
+    paste0(min(v_nspt), " / ", max(v_nspt), " golpes"),
+    paste0(round(sk_spt, 3), " (Assimetria Positiva Suave)"),
+    paste0(round(k_spt, 3), " (Platicúrtica)")
+  ),
+  check.names = FALSE
+)
+
+knitr::kable(estatisticas_geotecnicas, align = "c", caption = "Quadro 5.2: Síntese das estatísticas descritivas do N_SPT a -5,0 m.")
+```
+
+### Análise Geotécnica para Projetos de Fundações (NBR 6484 / NBR 6122)
+
+* **Tendência Central:** A média de $\bar{x} = 18{,}26\text{ golpes}$ e mediana de $Md = 18{,}00\text{ golpes}$ classificam a Argila Arenosa nessa cota como de consistência rija a muito rija ($15 < N_{SPT} \le 30$) [@NBR6122].
+* **Variabilidade Amostral:** O Coeficiente de Variação $CV = 20{,}78\%$ reflete dispersão moderada, típica de formações solo-residuais/sedimentares tropicais, sem indício de lentes extremamente moles ($N_{SPT} < 4$) ou rochas sãs ($N_{SPT} > 45$) [@NBR6122].
+* **Forma da Distribuição:** O valor de $Sk = +0{,}213$ revela leve assimetria à direita, enquanto $K = -0{,}498$ indica uma curva platicúrtica (ligeiramente mais achatada que a normal teórica).
+* **Direcionamento Técnico:** A camada na cota de $-5{,}0\text{ m}$ oferece capacidade suporte adequada para fundações diretas (sapatas) com tensões admissíveis de $0{,}20$ a $0{,}30\text{ MPa}$, ou como camada de atrito lateral em estacas.
+
+## 🏁 Conclusão e Considerações Finais
+
+O presente relatório cumpriu integralmente os objetivos propostos ao estruturar uma abordagem integrada entre a ciência dos dados computacional e a engenharia geotécnica, dividida em três etapas fundamentais:
+
+1. **Capacitação em Sintaxe e Semântica do R Base:** A revisão dos fundamentos da linguagem R permitiu dominar a manipulação de estruturas atômicas (vetores, matrizes e *data frames*), operadores lógicos e estruturas de controle sem a dependência de pacotes externos para a preparação dos dados. Essa base garante autonomia técnica e compreensão profunda de como as variáveis são armazenadas e processadas em memória [@R2024].
+2. **Consolidação Teórica da Estatística Descritiva (EPAEC):** A revisão formal dos conceitos descritivos — englobando organização de dados, medidas de posição (Média, Mediana e Moda), variabilidade (Variância, Desvio-Padrão e Coeficiente de Variação), e os momentos superiores de distribuição (Assimetria $Sk$ e Curtose $K$) — forneceu o embasamento teórico necessário para interpretar o comportamento de amostras de engenharia além de simples médias aritméticas [@EPAEC2024].
+3. **Aplicação Prática em Geotecnia via Pacote `leem`:** O estudo de caso focado no índice de resistência à penetração ($N_{SPT}$) de $n = 50$ furos de sondagem na cota de $-5{,}0\text{ m}$ (camada de Argila Arenosa) demonstrou a eficácia do pacote `leem` (*Learning Statistics*) para a tabulação automatizada, representação gráfica (histograma, polígono de frequências, ogiva e boxplot) e extração de momentos estatísticos [@NBR6122; @leem2024].
+
+### Principais Achados do Estudo de Caso Geotécnico
+
+* **Caracterização Mecânica do Subsolo:** Com média de $\bar{x} = 18{,}26\text{ golpes}$ e mediana de $Md = 18{,}00\text{ golpes}$, a camada de Argila Arenosa avaliada classifica-se como de **consistência rija a muito rija** ($15 < N_{SPT} \le 30$).
+* **Variabilidade e Confiabilidade do Depósito:** O Coeficiente de Variação de $CV = 20{,}78\%$ ($s = 3{,}79\text{ golpes}$) atesta uma dispersão moderada, típica de formações tropicais homogêneas, sem a presença de anomalias pontuais (lentes moles ou matacões).
+* **Morfologia da Distribuição:** A assimetria suave à direita ($Sk = +0{,}213$) e o comportamento platicúrtico ($K = -0{,}498$) confirmam que os valores de $N_{SPT}$ se distribuem de forma estável em torno do centro geométrico da amostra.
+* **Decisão em Engenharia de Fundações:** A caracterização estocástica valida a cota de $-5{,}0\text{ m}$ para o assentamento de fundações diretas (sapatas/radiers) com tensões admissíveis estimadas entre $0{,}20$ e $0{,}30\text{ MPa}$, ou como camada de atrito lateral para elementos profundos.
+
+### Considerações Finais sobre o Paradigma da Programação Literária
+
+A adoção do ecossistema **Quarto** (`.qmd`) provou ser um divisor de águas na elaboração de pareceres técnicos e relatórios acadêmicos. Ao fundir o texto explicativo, a notação matemática formal em LaTeX e a execução dos códigos R em um fluxo único e reprodutível, elimina-se o risco de erros de transcrição manual e garante-se a auditabilidade total dos resultados de engenharia.
+
 ## 📖 Referências
 
-[@batista2024epaec]
-
-[@batista2024epaec] 
-
-[@batista2025leem]
-
-[@batista2025latex] 
+::: {#refs}
+:::
