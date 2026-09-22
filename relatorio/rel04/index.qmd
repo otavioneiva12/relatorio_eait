@@ -1,14 +1,15 @@
 ---
 # Só mude aqui!!!!
-author: "Nome do Aluno"
-title: "Relatório de Aula Prática XX"
+author: "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"
+title: "Relatório de Aula Prática 04 - Visualização Gráfica de Dados em Engenharia Civil"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
 csl: associacao-brasileira-de-normas-tecnicas-ipea.csl
 subtitle: "<a href='https://bendeivide.github.io/courses/epaec/' target='_blank'>Estatística e Probabilidade</a> </br> <a href='https://bendeivide.github.io' target='_blank'>Prof. Ben Dêivide (DEFIM/CAP/UFSJ)</a>"
 include-before-body: header.html
-date: today
+date: now
+date-format: "28/09/2026, 18:00"
 lang: pt-BR
 format:
   html:
@@ -24,102 +25,121 @@ execute:
   message: false
 ---
 
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(plotly)
+library(highcharter)
+library(leaflet)
+library(scales)
+
+# Leitura da base de dados de obras de Engenharia Civil
+dados <- read.csv("dados_engenharia_civil.csv", header = TRUE, sep = ",",
+                   dec = ".", encoding = "UTF-8-BOM")
+```
 
 ## 📌 Introdução
 
-Descreva o contexto da prática e sua importância.
+A comunicação visual de resultados é uma competência tão importante quanto o cálculo em si na prática da Engenharia Civil. Um relatório técnico bem fundamentado, mas apresentado apenas em tabelas numéricas, dificilmente sensibiliza clientes, gestores e equipes multidisciplinares da mesma forma que um gráfico bem construído, que sintetiza um grande volume de dados em uma leitura imediata.
 
-> Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.
+Neste relatório, assume-se o papel de um engenheiro responsável pela análise gráfica do controle tecnológico de uma empresa que executa obras em diferentes regiões do Brasil. A partir de uma base de dados com 300 obras — contemplando tipo, região, área construída, custo total, prazo, resistência do concreto, consumo de cimento, índice de falhas, satisfação do cliente e adoção de práticas sustentáveis —, exploram-se os principais sistemas gráficos da linguagem R:
 
+- **Base R**: funções gráficas nativas (`plot()`, `hist()`, `boxplot()`, `barplot()`), simples e sem dependência de pacotes externos;
+- **ggplot2**: implementação da *Grammar of Graphics*, que permite construir gráficos por camadas (dados + `aes()` + `geom_*()` + facetas + temas);
+- **plotly**: camada de interatividade sobre gráficos estáticos (tooltips, zoom, hover);
+- **highcharter**: gráficos interativos avançados, com temas, animações e múltiplas séries;
+- **leaflet**: mapas interativos para representação geográfica dos dados.
 
+O objetivo não é apenas produzir gráficos, mas escolher — e justificar — o sistema gráfico e a geometria mais adequados a cada pergunta, interpretando os resultados à luz do contexto profissional da Engenharia Civil.
 
 ## 🎯 Objetivos
 
 ### Objetivo geral
 
-Descrever o objetivo principal da prática.
+Desenvolver a capacidade de explorar, visualizar e comunicar dados de uma situação prática da Engenharia Civil, utilizando os principais sistemas gráficos da linguagem R (Base R, ggplot2, plotly, highcharter e leaflet) para subsidiar decisões técnicas e gerenciais.
 
 ### Objetivos específicos
 
-- Coletar dados experimentais  
-- Aplicar estatística descritiva  
-- Construir gráficos  
-- Interpretar resultados  
+- Conhecer a estrutura da base de dados de 300 obras, verificando dimensões, tipos de variáveis e qualidade dos dados (valores ausentes e discrepantes);
+- Construir gráficos de dispersão, histograma, boxplot e barras utilizando o Base R, com personalização de título, eixos, cores e símbolos;
+- Reconstruir e ampliar essas análises com a gramática de gráficos do ggplot2, empregando mapeamentos estéticos, camadas, facetas, escalas e temas;
+- Converter gráficos estáticos em interativos com plotly e construir gráficos interativos diretamente com `plot_ly()`;
+- Explorar recursos avançados de interatividade com highcharter (temas, tooltips, zoom, múltiplas séries);
+- Construir mapas interativos com leaflet, incluindo marcadores, popups e círculos de destaque;
+- Responder a questões próximas da prática profissional, comparando grupos de obras e investigando relações entre variáveis técnicas;
+- Consolidar, no desafio final, um painel gráfico integrado que comunique o perfil das obras a um público técnico e gerencial.
 
----
+## 📚 Fundamentação Teórica
 
-## 📚  Fundamentação Teórica
+### Sistemas Gráficos na Linguagem R
 
-Apresente os conceitos principais:
+A linguagem R oferece diferentes paradigmas para a construção de gráficos, cada um mais adequado a um propósito específico [@Rbasico2022]:
 
-- Média
-- Variância
-- Desvio padrão
-- Amostragem
+| Sistema | Uso principal | Vantagem |
+|---|---|---|
+| **Base R** | Gráficos rápidos e didáticos | Simplicidade, sem dependência de pacotes |
+| **ggplot2** | Gráficos estáticos com gramática de gráficos | Flexibilidade, camadas, facetas, temas |
+| **plotly** | Interatividade a partir de gráficos ggplot | Tooltips, zoom, hover |
+| **highcharter** | Gráficos interativos avançados | Temas, animações, exportação, múltiplas séries |
+| **leaflet** | Mapas interativos | Marcadores, popups, camadas geográficas |
+
+### A Gramática de Gráficos do ggplot2
+
+O pacote `ggplot2` [@wickham2016ggplot2] implementa a *Grammar of Graphics*, segundo a qual todo gráfico pode ser decomposto em componentes combináveis:
 
 $$
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+\text{GRÁFICO} = \text{DADOS} + \text{MAPEAMENTOS} + \text{GEOMETRIAS} + \text{CAMADAS} + \text{ESCALAS} + \text{FACETAS} + \text{COORDENADAS} + \text{TEMA}
 $$
 
----
+Diferentemente do Base R — em que cada tipo de gráfico corresponde a uma função isolada (`plot()`, `hist()`, `boxplot()`) —, o ggplot2 permite construir o gráfico progressivamente, adicionando camadas com o operador `+`. A função `aes()` (*aesthetic mappings*) estabelece a relação entre variáveis dos dados e características visuais (posição, cor, tamanho, forma), distinguindo-se do **mapeamento** (a estética depende de uma variável) da simples **configuração** (a estética é fixa, ex.: `color = "blue"`).
+
+### Interatividade: plotly e highcharter
+
+O pacote `plotly` [@sievert2020plotly] permite converter qualquer gráfico ggplot2 em um objeto interativo por meio de `ggplotly()`, ou construir gráficos interativos diretamente com `plot_ly()`. Já o `highcharter` [@kunst2022highcharter] é uma interface R para a biblioteca JavaScript Highcharts, oferecendo recursos avançados de customização (temas, tooltips personalizados, zoom, múltiplas séries) especialmente úteis em painéis executivos.
+
+### Mapas Interativos: leaflet
+
+O pacote `leaflet` [@cheng2023leaflet] fornece uma interface para a biblioteca JavaScript Leaflet, permitindo a construção de mapas em camadas: mapa base (ruas ou satélite), marcadores (pontos), polígonos (regiões), linhas (trajetos) e popups (informações). É a ferramenta natural para representar a distribuição geográfica de obras, sondagens ou empreendimentos de Engenharia Civil.
+
+### Boxplot, Histograma e Correlação
+
+O **boxplot** representa a distribuição de uma variável por meio dos quartis ($Q_1$, mediana, $Q_3$), da amplitude interquartil ($IQR = Q_3 - Q_1$) e dos limites de detecção de *outliers* ($Q_1 - 1{,}5 \cdot IQR$ e $Q_3 + 1{,}5 \cdot IQR$). O **histograma** representa a distribuição de frequências de uma variável contínua agrupada em classes, permitindo avaliar simetria e presença de valores discrepantes [@batista2024epaec]. O **coeficiente de correlação de Pearson** ($r$), por sua vez, quantifica o grau de associação linear entre duas variáveis quantitativas, variando de $-1$ (associação negativa perfeita) a $+1$ (associação positiva perfeita), sendo $r \approx 0$ indicativo de ausência de associação linear.
 
 ## ⚙️ Metodologia
 
-::: {.callout-note}
-Descreva como o experimento foi realizado.
-:::
+### Infraestrutura Computacional
 
-- Materiais utilizados  
-- Procedimento  
-- Número de repetições  
+O desenvolvimento deste relatório foi realizado em ambiente R (versão 4.4+), com o auxílio do RStudio IDE e editoração via Quarto (`.qmd`), utilizando os pacotes `ggplot2`, `dplyr`, `plotly`, `highcharter`, `leaflet` e `scales`. Sempre que possível, utilizou-se o operador `|>` (*pipe* nativo do R) para encadear as etapas de transformação dos dados com `dplyr` antes da etapa de visualização, seguindo o fluxo:
 
----
-
-## 🔍 Resultados e Discussão
-
-Apresente e interprete os resultados obtidos a partir dos dados coletados.
-
-- Descreva os principais resultados numéricos (média, variabilidade, etc.).
-- Comente o comportamento dos dados observados nos gráficos.
-- Indique se há presença de valores discrepantes (outliers).
-- Avalie se os dados apresentam simetria ou tendência.
-
-Em seguida, discuta os resultados à luz dos conceitos teóricos:
-
-- Os resultados estão de acordo com o esperado?
-- Há grande variabilidade? O que isso significa no contexto do experimento?
-- Quais fatores podem ter influenciado os resultados?
-- Existem possíveis fontes de erro experimental?
-
-Procure não apenas descrever, mas **interpretar os dados**.
-
-### 💬 Exemplo de como citar uma referência bibliográfica
-
-Depois de inserido as informaçõe no arquivo **referencias.bib**, use:
-
-- Segundo @Rbasico2022
-- Tudo é um objeto em R [@Rbasico2022]
-
-### 📊  Análise de Dados
-
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+```r
+dados |>
+  group_by(variavel_categorica) |>
+  summarise(media = mean(variavel_numerica)) |>
+  ggplot(aes(x = variavel_categorica, y = media)) +
+  geom_col()
 ```
 
-## 🧠 Considerações finais
+### Caracterização da Base de Dados (`dados_engenharia_civil.csv`)
 
-Apresente uma síntese dos principais pontos observados no experimento.
+A base contempla informações de 300 obras de Engenharia Civil executadas em diferentes regiões do Brasil, contendo 11 variáveis operacionais:
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+```{r quadro-variaveis, echo=FALSE}
+quadro_dados <- data.frame(
+  Variavel = c("id_obra", "tipo_obra", "regiao", "area_construida", "custo_total",
+               "prazo_meses", "resistencia_mpa", "consumo_cimento", "indice_falhas",
+               "satisfacao", "sustentavel"),
+  Descricao = c("Identificador da obra", "Residencial, Comercial, Industrial ou Infraestrutura",
+                "Região do Brasil", "Área construída, em m²", "Custo total da obra, em R$",
+                "Duração da obra, em meses", "Resistência à compressão do concreto, em MPa",
+                "Consumo de cimento, em kg/m³", "Número de falhas registradas",
+                "Satisfação do cliente (0 a 10)", "Uso de práticas sustentáveis (Sim/Não)"),
+  Classificacao = c("Identificador", "Qualitativa Nominal", "Qualitativa Nominal",
+                     "Quantitativa Contínua", "Quantitativa Contínua", "Quantitativa Discreta",
+                     "Quantitativa Contínua", "Quantitativa Contínua", "Quantitativa Discreta",
+                     "Quantitativa Discreta/Contínua", "Qualitativa Nominal")
+)
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+knitr::kable(quadro_dados, align = "c",
+             caption = "Quadro 4.1: Mapeamento e caracterização funcional das variáveis da base de obras.")
+```
 
-## Aprenda Quarto
-
-Acesse [Quarto](https://quarto.org/).
-
-## 📖 Referências
