@@ -222,18 +222,19 @@ A base **não apresenta valores ausentes** em nenhuma das 11 variáveis: `sum(is
 ### Dispersão entre Área Construída e Custo Total (Base R)
 
 ```{r dispersao-baser}
+# Escala em Milhões de Reais, pontos estilizados e eixos na horizontal
 plot(
-  dados$area_construida, dados$custo_total,
+  dados$area_construida, dados$custo_total / 1e6,
   main = "Relação entre Área Construída e Custo Total das Obras",
   xlab = "Área Construída (m²)",
-  ylab = "Custo Total (R$)",
+  ylab = "Custo Total (em milhões de R$)",
   pch = 21,
-  bg = "#4682B4",       # Preenchimento em Azul Aço (Steel Blue)
-  col = "#1C39BB",      # Borda em Azul Escuro
-  cex = 1.0,            # Tamanho dos pontos
-  las = 1               # Rótulos do eixo Y na horizontal (padrão de engenharia)
+  bg = "#4682B4",
+  col = "#1C39BB",
+  cex = 1.0,
+  las = 1
 )
-grid(col = "gray85", lty = "dotted") # Grade sutil pontilhada ao fundo
+grid(col = "gray85", lty = "dotted")
 ```
 
 O gráfico de dispersão sugere uma relação positiva clara entre área construída e custo total — quanto maior a obra, maior o custo, como esperado. Ainda assim, existem obras que se afastam da tendência geral: algumas apresentam custo bem acima do esperado para o seu tamanho (provavelmente obras de infraestrutura, com maior custo por m² devido à complexidade técnica), e outras, custo abaixo do esperado (possivelmente obras industriais, mais padronizadas). Essa hipótese é aprofundada mais adiante, ao segmentar a mesma relação por tipo de obra e por região.
@@ -259,13 +260,15 @@ A distribuição da resistência à compressão do concreto se aproxima de uma f
 ### Custo Total por Tipo de Obra (Base R)
 
 ```{r boxplot-baser}
+# Escala em Milhões de Reais e eixos na horizontal
 boxplot(
-  custo_total ~ tipo_obra,
+  (custo_total / 1e6) ~ tipo_obra,
   data = dados,
   col = c("lightsalmon", "lightgreen", "lightskyblue", "khaki"),
   main = "Custo Total por Tipo de Obra",
   xlab = "Tipo de Obra",
-  ylab = "Custo Total (R$)"
+  ylab = "Custo Total (em milhões de R$)",
+  las = 1
 )
 ```
 
@@ -290,14 +293,16 @@ A região **Sudeste** concentra o maior número de obras, seguida por **Nordeste
 ### Dispersão Segmentada por Tipo de Obra (ggplot2)
 
 ```{r dispersao-ggplot}
+# Adição de escala formatada em R$ no eixo Y e cores corporativas
 ggplot(dados, aes(x = area_construida, y = custo_total, color = tipo_obra)) +
   geom_point(alpha = 0.75, size = 2.5) +
   scale_color_manual(values = c(
-    "Comercial"      = "#2E86AB", # Azul Petróleo
-    "Industrial"     = "#A23B5B", # Vinho
-    "Infraestrutura" = "#F18F01", # Laranja
-    "Residencial"    = "#C73E1D"  # Terracota
+    "Comercial"      = "#2E86AB",
+    "Industrial"     = "#A23B5B",
+    "Infraestrutura" = "#F18F01",
+    "Residencial"    = "#C73E1D"
   )) +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Relação entre Área Construída e Custo Total",
     subtitle = "Segmentação por tipologia construtiva",
@@ -317,8 +322,10 @@ Ao separar por tipo de obra, o padrão de relação positiva entre área e custo
 ### Custo por Tipo de Obra com a Gramática de Gráficos (ggplot2)
 
 ```{r boxplot-ggplot}
+# Adição de escala formatada em R$ no eixo Y
 ggplot(dados, aes(x = tipo_obra, y = custo_total, fill = tipo_obra)) +
   geom_boxplot() +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Custo Total por Tipo de Obra",
     x = "Tipo de Obra",
@@ -367,10 +374,12 @@ A adoção de práticas sustentáveis é proporcionalmente **mais frequente em o
 ### Relação Área-Custo por Região (ggplot2)
 
 ```{r facetas-ggplot}
+# Adição de escala formatada em R$ no eixo Y
 ggplot(dados, aes(x = area_construida, y = custo_total)) +
   geom_point(alpha = 0.6, color = "steelblue") +
   geom_smooth(method = "lm", se = FALSE, color = "darkred") +
   facet_wrap(~ regiao) +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Relação entre Área Construída e Custo Total por Região",
     x = "Área Construída (m²)",
@@ -404,10 +413,17 @@ Escolheu-se `consumo_cimento` e `resistencia_mpa` porque, tecnicamente, seria es
 ### Exploração Interativa da Relação Área-Custo (plotly)
 
 ```{r ggplotly-interativo}
-g_dispersao <- ggplot(dados, aes(x = area_construida, y = custo_total,
-                                  color = tipo_obra,
-                                  text = paste("Obra:", id_obra))) +
+# Formatação da escala em R$ e tooltip interativo personalizado
+g_dispersao <- ggplot(dados, aes(
+  x = area_construida, 
+  y = custo_total,
+  color = tipo_obra,
+  text = paste0("<b>Obra:</b> ", id_obra, 
+                "<br><b>Área:</b> ", area_construida, " m²",
+                "<br><b>Custo:</b> R$ ", format(custo_total, big.mark = ".", decimal.mark = ","))
+)) +
   geom_point(alpha = 0.7, size = 2) +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Área Construída x Custo Total (interativo)",
     x = "Área Construída (m²)",
@@ -416,7 +432,7 @@ g_dispersao <- ggplot(dados, aes(x = area_construida, y = custo_total,
   ) +
   theme_classic()
 
-ggplotly(g_dispersao, tooltip = c("text", "x", "y", "colour"))
+ggplotly(g_dispersao, tooltip = "text")
 ```
 
 Ao converter o gráfico ggplot2 em interativo com `ggplotly()`, incluindo o `id_obra` no tooltip, é possível identificar rapidamente, ao passar o mouse sobre os pontos, quais obras específicas apresentam custo muito acima ou abaixo do esperado para o seu tamanho — algo que os gráficos estáticos anteriores só permitiam estimar visualmente. Essas obras atípicas concentram-se predominantemente no tipo **Infraestrutura** (custo acima do esperado) e **Industrial** (custo abaixo do esperado), confirmando a leitura já feita na segmentação por tipo de obra.
@@ -424,6 +440,7 @@ Ao converter o gráfico ggplot2 em interativo com `ggplotly()`, incluindo o `id_
 ### Custo Médio por Região em Gráfico Interativo Direto (plotly)
 
 ```{r plotly-direto}
+# Formatação de moeda no eixo Y e tooltip interativo (hovertemplate)
 custo_medio_regiao <- dados |>
   group_by(regiao) |>
   summarise(custo_medio = mean(custo_total), .groups = "drop") |>
@@ -434,12 +451,13 @@ plot_ly(
   x = ~regiao,
   y = ~custo_medio,
   type = "scatter",
-  mode = "lines+markers"
+  mode = "lines+markers",
+  hovertemplate = "<b>Região:</b> %{x}<br><b>Custo Médio:</b> R$ %{y:,.2f}<extra></extra>"
 ) |>
   layout(
     title = "Custo Médio das Obras por Região",
     xaxis = list(title = "Região"),
-    yaxis = list(title = "Custo Médio (R$)")
+    yaxis = list(title = "Custo Médio (R$)", tickprefix = "R$ ", tickformat = ",.0f")
   )
 ```
 
@@ -448,6 +466,7 @@ O uso direto de `plot_ly()`, sem passar por um objeto ggplot2, é mais vantajoso
 ### Custo Médio por Tipo de Obra (highcharter)
 
 ```{r highcharter-colunas}
+# Formatação de moeda no eixo Y e tooltip interativo em Reais (R$)
 custo_medio_tipo <- dados |>
   group_by(tipo_obra) |>
   summarise(custo_medio = mean(custo_total), .groups = "drop") |>
@@ -456,7 +475,11 @@ custo_medio_tipo <- dados |>
 hchart(custo_medio_tipo, "column", hcaes(x = tipo_obra, y = custo_medio)) |>
   hc_title(text = "Custo Médio por Tipo de Obra") |>
   hc_xAxis(title = list(text = "Tipo de Obra")) |>
-  hc_yAxis(title = list(text = "Custo Médio (R$)"))
+  hc_yAxis(
+    title = list(text = "Custo Médio (R$)"),
+    labels = list(format = "R$ {value:,.0f}")
+  ) |>
+  hc_tooltip(pointFormat = "<b>Custo Médio:</b> R$ {point.y:,.2f}")
 ```
 
 O ranking de custo médio por tipo de obra (Infraestrutura > Comercial > Residencial > Industrial) **coincide integralmente** com o observado nos boxplots anteriores, que já indicavam Infraestrutura com a maior mediana e Industrial com a menor. A convergência entre a medida de tendência central (média, aqui) e a medida de posição robusta (mediana, nos boxplots) reforça a consistência do achado: não se trata de um artefato causado por *outliers* isolados, mas de uma diferença estrutural real de custo entre os tipos de obra.
@@ -574,6 +597,7 @@ O círculo destaca a região **Sudeste**, com o maior número de obras (101 de 3
 ### Custo das Obras de Infraestrutura frente aos Demais Tipos
 
 ```{r comparacao-tipos}
+# Tabela com custo formatado em R$ e escala monetária no boxplot
 resumo_custo_tipo <- dados |>
   group_by(tipo_obra) |>
   summarise(
@@ -582,12 +606,20 @@ resumo_custo_tipo <- dados |>
     n = n(),
     .groups = "drop"
   ) |>
-  arrange(desc(custo_medio))
+  arrange(desc(custo_medio)) |>
+  mutate(
+    `Custo Médio (R$)` = scales::dollar(custo_medio, prefix = "R$ ", big.mark = ".", decimal.mark = ","),
+    `Custo Mediano (R$)` = scales::dollar(custo_mediano, prefix = "R$ ", big.mark = ".", decimal.mark = ",")
+  )
 
-resumo_custo_tipo
+# Exibe a tabela organizada com colunas formatadas
+resumo_custo_tipo |> 
+  select(tipo_obra, `Custo Médio (R$)`, `Custo Mediano (R$)`, n)
 
+# Boxplot ordenado com escala monetária formatada
 ggplot(dados, aes(x = reorder(tipo_obra, custo_total, FUN = mean), y = custo_total)) +
   geom_boxplot(fill = "steelblue", alpha = 0.6) +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Custo Total por Tipo de Obra (ordenado pela média)",
     x = "Tipo de Obra",
@@ -602,22 +634,26 @@ Um dos engenheiros responsáveis pela empresa afirmou que "as obras de infraestr
 ### Sustentabilidade e Custo Total
 
 ```{r sustentavel-custo-baser}
+# Escala em Milhões de Reais e eixos na horizontal (las = 1)
 boxplot(
-  custo_total ~ sustentavel,
+  (custo_total / 1e6) ~ sustentavel,
   data = dados,
   col = c("lightsalmon", "lightgreen"),
   main = "Custo Total: Obras Sustentáveis vs. Não Sustentáveis",
   xlab = "Prática Sustentável",
-  ylab = "Custo Total (R$)"
+  ylab = "Custo Total (em milhões de R$)",
+  las = 1
 )
 ```
 
 ```{r sustentavel-custo-ggplot}
+# Adição de escala formatada em R$ no eixo Y
 dados |>
   group_by(sustentavel) |>
   summarise(custo_medio = mean(custo_total), .groups = "drop") |>
   ggplot(aes(x = sustentavel, y = custo_medio, fill = sustentavel)) +
   geom_col() +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Custo Médio: Obras Sustentáveis vs. Não Sustentáveis",
     x = "Prática Sustentável",
@@ -665,10 +701,11 @@ dados |>
 ```
 
 ```{r painel-2-custo-prazo}
-# Grafico 2: distribuicao de custo e prazo
+# Adição de escala formatada em R$ no eixo Y
 ggplot(dados, aes(x = prazo_meses, y = custo_total)) +
   geom_point(alpha = 0.5, color = "steelblue") +
   geom_smooth(method = "lm", se = FALSE, color = "darkred") +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Distribuição de Custo Total em Função do Prazo de Execução",
     x = "Prazo (meses)", y = "Custo Total (R$)"
@@ -699,17 +736,18 @@ str(dados)
 summary(dados$custo_total)
 
 # ==========================================================================
-# ETAPA 2: Grafico em Base R - visao geral da dispersao custo x area
+# ETAPA 2: Grafico em Base R - escala em Milhões de Reais e eixos formatados
 # ==========================================================================
 plot(
-  dados$area_construida, dados$custo_total,
+  dados$area_construida, dados$custo_total / 1e6,
   main = "Base R: Área Construída x Custo Total",
-  xlab = "Área Construída (m²)", ylab = "Custo Total (R$)",
-  pch = 16, col = "steelblue", cex = 0.7
+  xlab = "Área Construída (m²)", ylab = "Custo Total (em milhões de R$)",
+  pch = 21, bg = "#4682B4", col = "#1C39BB", cex = 0.8, las = 1
 )
+grid(col = "gray85", lty = "dotted")
 
 # ==========================================================================
-# ETAPA 3: Grafico autoral em ggplot2 - multiplas camadas + facetas
+# ETAPA 3: Grafico autoral em ggplot2 - multiplas camadas + facetas com escala em R$
 # ==========================================================================
 grafico_autoral <- dados |>
   ggplot(aes(x = area_construida, y = custo_total, color = sustentavel)) +
@@ -717,6 +755,7 @@ grafico_autoral <- dados |>
   geom_smooth(method = "lm", se = FALSE, linewidth = 0.8) +
   facet_wrap(~ tipo_obra, scales = "free") +
   scale_color_manual(values = c("Sim" = "seagreen", "Não" = "firebrick")) +
+  scale_y_continuous(labels = scales::label_number(prefix = "R$ ", big.mark = ".", decimal.mark = ",")) +
   labs(
     title = "Painel Autoral: Custo x Área por Tipo de Obra e Sustentabilidade",
     x = "Área Construída (m²)", y = "Custo Total (R$)", color = "Sustentável"
@@ -728,10 +767,17 @@ grafico_autoral
 # ==========================================================================
 # ETAPA 4: Grafico interativo com plotly (conversao do grafico autoral)
 # ==========================================================================
-ggplotly(grafico_autoral)
+#| fig-height: 8
+#| fig-width: 10
+
+ggplotly(grafico_autoral) |>
+  layout(
+    margin = list(t = 80, b = 60, l = 60, r = 20),
+    title = list(y = 0.98) # Posiciona o título acima do gráfico sem encostar nos botões
+  )
 
 # ==========================================================================
-# ETAPA 5: Grafico interativo com highcharter
+# ETAPA 5: Grafico interativo com highcharter e escala formatada em R$
 # ==========================================================================
 resumo_regiao <- dados |>
   group_by(regiao) |>
@@ -740,10 +786,11 @@ resumo_regiao <- dados |>
 
 hchart(resumo_regiao, "column", hcaes(x = regiao, y = custo_medio)) |>
   hc_title(text = "Custo Médio por Região") |>
-  hc_tooltip(pointFormat = "Custo médio: R$ {point.y:,.0f}")
+  hc_yAxis(labels = list(format = "R$ {value:,.0f}")) |>
+  hc_tooltip(pointFormat = "<b>Custo médio:</b> R$ {point.y:,.2f}")
 
 # ==========================================================================
-# ETAPA 6: Mapa interativo com leaflet - marcadores e popups
+# ETAPA 6: Mapa interativo com leaflet - marcadores e padronização topográfica
 # ==========================================================================
 leaflet(mapa_regioes) |>
   addProviderTiles(providers$Esri.WorldTopoMap) |>
