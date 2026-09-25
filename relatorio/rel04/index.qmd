@@ -173,7 +173,13 @@ knitr::kable(quadro_dados, align = "c",
 A importação da base foi realizada com `read.csv()`, e a integridade da leitura foi verificada por meio de `head()`, `tail()` e `dim()`:
 
 ```{r importacao-base}
+# Importação da base de dados
 dados <- read.csv("dados_engenharia_civil.csv")
+
+dados <- dados |>
+  mutate(custo_m2 = round(custo_total / area_construida, 2))
+
+# Visualização das primeiras e últimas linhas e dimensões
 head(dados)
 tail(dados)
 dim(dados)
@@ -221,11 +227,13 @@ plot(
   main = "Relação entre Área Construída e Custo Total das Obras",
   xlab = "Área Construída (m²)",
   ylab = "Custo Total (R$)",
-  pch = 16,
-  col = "steelblue",
-  cex = 0.8
+  pch = 21,
+  bg = "#4682B4",       # Preenchimento em Azul Aço (Steel Blue)
+  col = "#1C39BB",      # Borda em Azul Escuro
+  cex = 1.0,            # Tamanho dos pontos
+  las = 1               # Rótulos do eixo Y na horizontal (padrão de engenharia)
 )
-grid()
+grid(col = "gray85", lty = "dotted") # Grade sutil pontilhada ao fundo
 ```
 
 O gráfico de dispersão sugere uma relação positiva clara entre área construída e custo total — quanto maior a obra, maior o custo, como esperado. Ainda assim, existem obras que se afastam da tendência geral: algumas apresentam custo bem acima do esperado para o seu tamanho (provavelmente obras de infraestrutura, com maior custo por m² devido à complexidade técnica), e outras, custo abaixo do esperado (possivelmente obras industriais, mais padronizadas). Essa hipótese é aprofundada mais adiante, ao segmentar a mesma relação por tipo de obra e por região.
@@ -283,15 +291,25 @@ A região **Sudeste** concentra o maior número de obras, seguida por **Nordeste
 
 ```{r dispersao-ggplot}
 ggplot(dados, aes(x = area_construida, y = custo_total, color = tipo_obra)) +
-  geom_point(alpha = 0.7, size = 2) +
+  geom_point(alpha = 0.75, size = 2.5) +
+  scale_color_manual(values = c(
+    "Comercial"      = "#2E86AB", # Azul Petróleo
+    "Industrial"     = "#A23B5B", # Vinho
+    "Infraestrutura" = "#F18F01", # Laranja
+    "Residencial"    = "#C73E1D"  # Terracota
+  )) +
   labs(
     title = "Relação entre Área Construída e Custo Total",
-    subtitle = "Segmentado por tipo de obra",
+    subtitle = "Segmentação por tipologia construtiva",
     x = "Área Construída (m²)",
     y = "Custo Total (R$)",
     color = "Tipo de Obra"
   ) +
-  theme_classic()
+  theme_bw() +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "bottom"
+  )
 ```
 
 Ao separar por tipo de obra, o padrão de relação positiva entre área e custo observado anteriormente se mantém dentro de cada grupo, mas fica evidente que as retas de tendência de cada categoria têm inclinações e níveis diferentes: as obras de **Infraestrutura** se destacam por apresentar custo consistentemente mais alto para uma mesma área construída, enquanto **Industrial** tende a ocupar a faixa de menor custo por m². Isso confirma que grande parte da dispersão observada no gráfico de dispersão do Base R decorre da heterogeneidade entre tipos de obra, e não de comportamento aleatório.
@@ -472,10 +490,14 @@ O gráfico de pizza comunica adequadamente a participação de cada tipo de obra
 ### Personalização de Gráficos para Apresentações Executivas (highcharter)
 
 ```{r highcharter-personalizado}
+
 hchart(custo_medio_tipo, "column", hcaes(x = tipo_obra, y = custo_medio)) |>
   hc_title(text = "Custo Médio por Tipo de Obra") |>
-  hc_tooltip(pointFormat = "Custo médio: R$ {point.y:,.0f}") |>
-  hc_add_theme(hc_theme_darkunica()) |>
+  hc_subtitle(text = "Indicadores consolidados do controle tecnológico das obras") |>
+  hc_tooltip(pointFormat = "<b>Custo Médio:</b> R$ {point.y:,.2f}") |>
+  hc_colors(c("#2C3E50")) |>             # Cor executiva (Azul Grafite)
+  hc_add_theme(hc_theme_flat()) |>       # Tema claro moderno
+  hc_exporting(enabled = TRUE) |>        # Permite descarregar o gráfico em imagem/PDF
   hc_chart(zoomType = "x")
 ```
 
@@ -485,11 +507,11 @@ Entre os recursos de personalização aplicados, o **tema escuro** (`hc_theme_da
 
 ```{r leaflet-base}
 leaflet() |>
-  addProviderTiles(providers$Esri.WorldGrayCanvas) |>
+  addProviderTiles(providers$Esri.WorldTopoMap) |>
   setView(lng = -47.8828, lat = -15.7939, zoom = 4)
 ```
 
-Optou-se pelo provedor `providers$Esri.WorldGrayCanvas` — um mapa base claro, minimalista e de baixo contraste — em vez do padrão OpenStreetMap (`addTiles()`). Essa escolha é adequada para relatórios técnicos e apresentações, pois evita que o mapa base compita visualmente com os marcadores e popups sobrepostos, mantendo o foco nos dados de engenharia representados. (Optou-se por este provedor Esri, e não pelo `CartoDB.Positron` — visualmente equivalente —, pois a Carto passou a exigir chave de API própria para o uso de seus mapas base, inclusive em documentos renderizados estaticamente, o que inviabiliza sua utilização sem cadastro.) O mapa foi centralizado em Brasília, por ser um ponto geográfico central do território nacional, com zoom reduzido para enquadrar as cinco regiões brasileiras.
+Optou-se pelo provedor `providers$Esri.WorldTopoMap` — um mapa base claro, minimalista e de baixo contraste — em vez do padrão OpenStreetMap (`addTiles()`). Essa escolha é adequada para relatórios técnicos e apresentações, pois evita que o mapa base compita visualmente com os marcadores e popups sobrepostos, mantendo o foco nos dados de engenharia representados. (Optou-se por este provedor Esri, e não pelo `CartoDB.Positron` — visualmente equivalente —, pois a Carto passou a exigir chave de API própria para o uso de seus mapas base, inclusive em documentos renderizados estaticamente, o que inviabiliza sua utilização sem cadastro.) O mapa foi centralizado em Brasília, por ser um ponto geográfico central do território nacional, com zoom reduzido para enquadrar as cinco regiões brasileiras.
 
 ### Distribuição de Obras por Região no Mapa (leaflet)
 
@@ -508,14 +530,19 @@ capitais_regiao <- data.frame(
 
 mapa_regioes <- merge(capitais_regiao, obras_regiao, by = "regiao")
 
+# Provedor topográfico e popups estilizados com HTML/CSS
 leaflet(mapa_regioes) |>
-  addProviderTiles(providers$Esri.WorldGrayCanvas) |>
+  addProviderTiles(providers$Esri.WorldTopoMap) |>
   setView(lng = -52, lat = -14, zoom = 4) |>
   addMarkers(
     lng = ~lon, lat = ~lat,
-    popup = ~paste0("<b>Região ", regiao, "</b><br>",
-                     "Cidade de referência: ", cidade, "<br>",
-                     "Número de obras: ", n_obras)
+    popup = ~paste0(
+      "<div style='font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5;'>",
+      "<h4 style='margin: 0 0 5px 0; color: #2C3E50; border-bottom: 2px solid #2E86AB;'>Região ", regiao, "</h4>",
+      "<b>Cidade Ref.:</b> ", cidade, "<br>",
+      "<b>Volume de Obras:</b> <span style='color: #C73E1D; font-weight: bold;'>", n_obras, " obras</span>",
+      "</div>"
+    )
   )
 ```
 
@@ -527,7 +554,7 @@ A distribuição geográfica das obras no mapa é **coerente com o barplot regio
 regiao_destaque <- mapa_regioes[which.max(mapa_regioes$n_obras), ]
 
 leaflet(mapa_regioes) |>
-  addProviderTiles(providers$Esri.WorldGrayCanvas) |>
+  addProviderTiles(providers$Esri.WorldTopoMap) |>
   setView(lng = -52, lat = -14, zoom = 4) |>
   addMarkers(
     lng = ~lon, lat = ~lat,
@@ -719,7 +746,7 @@ hchart(resumo_regiao, "column", hcaes(x = regiao, y = custo_medio)) |>
 # ETAPA 6: Mapa interativo com leaflet - marcadores e popups
 # ==========================================================================
 leaflet(mapa_regioes) |>
-  addProviderTiles(providers$Esri.WorldGrayCanvas) |>
+  addProviderTiles(providers$Esri.WorldTopoMap) |>
   setView(lng = -52, lat = -14, zoom = 4) |>
   addMarkers(
     lng = ~lon, lat = ~lat,
