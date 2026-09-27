@@ -534,7 +534,7 @@ leaflet() |>
   setView(lng = -47.8828, lat = -15.7939, zoom = 4)
 ```
 
-Optou-se pelo provedor `providers$Esri.WorldTopoMap` — um mapa base claro, minimalista e de baixo contraste — em vez do padrão OpenStreetMap (`addTiles()`). Essa escolha é adequada para relatórios técnicos e apresentações, pois evita que o mapa base compita visualmente com os marcadores e popups sobrepostos, mantendo o foco nos dados de engenharia representados. (Optou-se por este provedor Esri, e não pelo `CartoDB.Positron` — visualmente equivalente —, pois a Carto passou a exigir chave de API própria para o uso de seus mapas base, inclusive em documentos renderizados estaticamente, o que inviabiliza sua utilização sem cadastro.) O mapa foi centralizado em Brasília, por ser um ponto geográfico central do território nacional, com zoom reduzido para enquadrar as cinco regiões brasileiras.
+Optou-se pelo provedor `providers$Esri.WorldTopoMap` — um mapa base topográfico detalhado e colorido, com representação de relevo, hidrografia e limites territoriais — em vez do padrão OpenStreetMap (`addTiles()`). Essa escolha enriquece a contextualização física do relatório, permitindo visualizar a inserção regional das obras no relevo do território nacional. (Optou-se por este provedor Esri, e não pelo `CartoDB.Positron`, pois a Carto passou a exigir chave de API própria para o uso de seus mapas base, o que inviabiliza sua utilização sem cadastro.) O mapa foi centralizado no centro geográfico do Brasil (latitude -14° e longitude -52°), com nível de zoom ajustado (4) para enquadrar simultaneamente todas as regiões brasileiras.
 
 ### Distribuição de Obras por Região no Mapa (leaflet)
 
