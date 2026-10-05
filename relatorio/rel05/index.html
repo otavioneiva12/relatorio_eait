@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Otávio Augusto dos Reis Neiva">
+<meta name="author" content="Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho">
 
-<title>Relatório de Aula Prática 05 - XXXXXX</title>
+<title>Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -140,11 +140,18 @@ window.Quarto = {
   <li><a href="#objetivo-geral" id="toc-objetivo-geral" class="nav-link" data-scroll-target="#objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</a></li>
   <li><a href="#objetivos-específicos" id="toc-objetivos-específicos" class="nav-link" data-scroll-target="#objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</a></li>
   </ul></li>
-  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a></li>
+  <li><a href="#fundamentação-teórica" id="toc-fundamentação-teórica" class="nav-link" data-scroll-target="#fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</a>
+  <ul class="collapse">
+  <li><a href="#variáveis-aleatórias-contínuas-a-distribuição-normal" id="toc-variáveis-aleatórias-contínuas-a-distribuição-normal" class="nav-link" data-scroll-target="#variáveis-aleatórias-contínuas-a-distribuição-normal"><span class="header-section-number">3.1</span> Variáveis Aleatórias Contínuas: a Distribuição Normal</a></li>
+  <li><a href="#variáveis-aleatórias-discretas-binomial-e-poisson" id="toc-variáveis-aleatórias-discretas-binomial-e-poisson" class="nav-link" data-scroll-target="#variáveis-aleatórias-discretas-binomial-e-poisson"><span class="header-section-number">3.2</span> Variáveis Aleatórias Discretas: Binomial e Poisson</a></li>
+  <li><a href="#confiabilidade-exponencial-e-weibull" id="toc-confiabilidade-exponencial-e-weibull" class="nav-link" data-scroll-target="#confiabilidade-exponencial-e-weibull"><span class="header-section-number">3.3</span> Confiabilidade: Exponencial e Weibull</a></li>
+  <li><a href="#fenômenos-ambientais-a-distribuição-gama" id="toc-fenômenos-ambientais-a-distribuição-gama" class="nav-link" data-scroll-target="#fenômenos-ambientais-a-distribuição-gama"><span class="header-section-number">3.4</span> Fenômenos Ambientais: a Distribuição Gama</a></li>
+  <li><a href="#simulação-de-monte-carlo" id="toc-simulação-de-monte-carlo" class="nav-link" data-scroll-target="#simulação-de-monte-carlo"><span class="header-section-number">3.5</span> Simulação de Monte Carlo</a></li>
+  </ul></li>
   <li><a href="#metodologia" id="toc-metodologia" class="nav-link" data-scroll-target="#metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</a></li>
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
-  <li><a href="#exemplo-de-como-citar-uma-referência-bibliográfica" id="toc-exemplo-de-como-citar-uma-referência-bibliográfica" class="nav-link" data-scroll-target="#exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</a></li>
+  <li><a href="#controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão" id="toc-controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão" class="nav-link" data-scroll-target="#controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão"><span class="header-section-number">5.1</span> Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</a></li>
   <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
   </ul></li>
   <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
@@ -165,7 +172,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Relatório de Aula Prática 05 - XXXXXX</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Código</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Mostrar o código</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Esconder o código</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Ver o código fonte</a></li></ul></div></div>
 <p class="subtitle lead"><a href="https://bendeivide.github.io/courses/epaec/" target="_blank">Estatística e Probabilidade</a> <br> <a href="https://bendeivide.github.io" target="_blank">Prof.&nbsp;Ben Dêivide (DEFIM/CAP/UFSJ)</a></p>
 </div>
 
@@ -176,14 +183,14 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Autor</div>
     <div class="quarto-title-meta-contents">
-             <p>Otávio Augusto dos Reis Neiva </p>
+             <p>Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">17 de agosto de 2026</p>
+      <p class="date">5 de outubro de 2026</p>
     </div>
   </div>
   
@@ -195,103 +202,156 @@ window.Quarto = {
 </header>
 
 
+<style>
+/* O Quarto aplica automaticamente a classe .quarto-appendix-heading ao título
+   da seção de Referências geradas via citeproc, forçando font-size: 1em
+   (tamanho de texto normal) — o que faz esse título ficar visivelmente menor
+   que os demais títulos de seção (##). Este bloco restaura o mesmo estilo
+   dos demais títulos h2 do relatório. */
+.quarto-appendix-heading {
+  font-size: 1.65rem !important;
+  font-weight: 600 !important;
+  opacity: 1 !important;
+  border-bottom: 1px solid rgb(221.7, 222.3, 222.9) !important;
+  padding-bottom: .5rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.2 !important;
+}
+</style>
 <section id="introdução" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1</span> 📌 Introdução</h2>
-<p>Descreva o contexto da prática e sua importância.</p>
-<blockquote class="blockquote">
-<p>Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</p>
-</blockquote>
+<p>A construção de uma Pequena Central Hidrelétrica (PCH) reúne, desde a fase de projeto até a operação, uma série de fenômenos que só podem ser descritos de forma adequada por meio de variáveis aleatórias: a resistência do concreto varia de peça para peça, estacas pré-moldadas apresentam defeitos de fabricação em proporção incerta, fissuras surgem ao longo da extensão de um túnel de forma aparentemente imprevisível, equipamentos falham após um tempo de operação que não é possível prever com exatidão, o solo de fundação não tem capacidade de suporte uniforme, e a precipitação pluviométrica varia dia após dia. Em todos esses casos, a engenharia não dispõe de um valor único e determinístico para tomar decisões — dispõe, sim, de uma distribuição de probabilidades que descreve o comportamento esperado do fenômeno e permite quantificar riscos.</p>
+<p>Neste relatório, assume-se o papel da equipe de engenharia e estatística responsável por apoiar tecnicamente o projeto de uma PCH, modelando seis fenômenos distintos por meio de distribuições especiais de probabilidade — Normal, Binomial, Poisson, Exponencial, Weibull e Gama — e validando os resultados teóricos por meio de simulação de Monte Carlo na linguagem R. O objetivo não é apenas calcular probabilidades, médias e quantis, mas interpretar cada resultado à luz das decisões técnicas, de qualidade, de segurança e de planejamento que uma obra desse porte exige.</p>
 </section>
 <section id="objetivos" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">2</span> 🎯 Objetivos</h2>
 <section id="objetivo-geral" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="objetivo-geral"><span class="header-section-number">2.1</span> Objetivo geral</h3>
-<p>Descrever o objetivo principal da prática.</p>
+<p>Aplicar os conceitos teóricos das distribuições de variáveis aleatórias discretas e contínuas à resolução de problemas reais de engenharia civil, utilizando a linguagem R como ferramenta de cálculo, simulação e visualização.</p>
 </section>
 <section id="objetivos-específicos" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="objetivos-específicos"><span class="header-section-number">2.2</span> Objetivos específicos</h3>
 <ul>
-<li>Coletar dados experimentais<br>
-</li>
-<li>Aplicar estatística descritiva<br>
-</li>
-<li>Construir gráficos<br>
-</li>
-<li>Interpretar resultados</li>
+<li>Identificar a distribuição de probabilidade adequada para cada fenômeno estudado no contexto da construção de uma PCH;</li>
+<li>Calcular probabilidades, valores esperados, variâncias e quantis teóricos a partir dos parâmetros de cada distribuição;</li>
+<li>Utilizar as funções do R associadas a cada família de distribuições (<code>dnorm</code>, <code>pnorm</code>, <code>qnorm</code>, <code>rnorm</code>, <code>dbinom</code>, <code>pbinom</code>, <code>rbinom</code>, <code>dpois</code>, <code>ppois</code>, <code>rpois</code>, <code>dexp</code>, <code>pexp</code>, <code>qexp</code>, <code>rexp</code>, <code>dweibull</code>, <code>pweibull</code>, <code>qweibull</code>, <code>dgamma</code>, <code>pgamma</code>, <code>qgamma</code>, <code>rgamma</code>);</li>
+<li>Realizar simulações de Monte Carlo para validar, por meio de frequências empíricas, os resultados obtidos analiticamente;</li>
+<li>Interpretar os resultados estatísticos no contexto de decisões técnicas de controle de qualidade, confiabilidade, segurança geotécnica e planejamento hidrológico.</li>
 </ul>
-<hr>
 </section>
 </section>
 <section id="fundamentação-teórica" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="fundamentação-teórica"><span class="header-section-number">3</span> 📚 Fundamentação Teórica</h2>
-<p>Apresente os conceitos principais:</p>
-<ul>
-<li>Média</li>
-<li>Variância</li>
-<li>Desvio padrão</li>
-<li>Amostragem</li>
-</ul>
+<section id="variáveis-aleatórias-contínuas-a-distribuição-normal" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas-a-distribuição-normal"><span class="header-section-number">3.1</span> Variáveis Aleatórias Contínuas: a Distribuição Normal</h3>
+<p>A distribuição Normal, com parâmetros média <span class="math inline">\(\mu\)</span> e desvio padrão <span class="math inline">\(\sigma\)</span>, é o modelo probabilístico mais utilizado para descrever grandezas contínuas sujeitas a múltiplas fontes de variação independentes — como é o caso da resistência à compressão do concreto, resultado da interação entre traço, cura, compactação e condições de ensaio <span class="citation" data-cites="bussab2017estatistica">(<a href="#ref-bussab2017estatistica" role="doc-biblioref">Bussab e Morettin, 2017</a>)</span>. Sua função de densidade é</p>
 <p><span class="math display">\[
-\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{(x-\mu)^2}{2\sigma^2}}.
 \]</span></p>
-<hr>
+<p>Quando se trabalha com a média de <span class="math inline">\(n\)</span> amostras dessa população, o Teorema Central do Limite garante que <span class="math inline">\(\bar{X} \sim N\!\left(\mu, \ \sigma/\sqrt{n}\right)\)</span>, propriedade que permite avaliar o risco de um lote inteiro — e não apenas de uma amostra isolada — apresentar desempenho abaixo do especificado.</p>
+</section>
+<section id="variáveis-aleatórias-discretas-binomial-e-poisson" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="variáveis-aleatórias-discretas-binomial-e-poisson"><span class="header-section-number">3.2</span> Variáveis Aleatórias Discretas: Binomial e Poisson</h3>
+<p>A distribuição Binomial modela o número de “sucessos” (neste relatório, itens defeituosos) em um número fixo <span class="math inline">\(n\)</span> de ensaios independentes, cada um com probabilidade <span class="math inline">\(p\)</span> de sucesso:</p>
+<p><span class="math display">\[
+P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad E[X]=np, \quad \text{Var}(X)=np(1-p).
+\]</span></p>
+<p>Já a distribuição de Poisson descreve a contagem de ocorrências raras e independentes ao longo de um intervalo contínuo (tempo, comprimento, área) com taxa média <span class="math inline">\(\lambda\)</span> constante — como o número de fissuras por quilômetro de um túnel <span class="citation" data-cites="montgomery2021estatistica">(<a href="#ref-montgomery2021estatistica" role="doc-biblioref">Montgomery e Runger, 2021</a>)</span>:</p>
+<p><span class="math display">\[
+P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad E[X]=\text{Var}(X)=\lambda.
+\]</span></p>
+</section>
+<section id="confiabilidade-exponencial-e-weibull" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="confiabilidade-exponencial-e-weibull"><span class="header-section-number">3.3</span> Confiabilidade: Exponencial e Weibull</h3>
+<p>A distribuição Exponencial, com taxa <span class="math inline">\(\beta = 1/\text{média}\)</span>, é o modelo clássico de tempo até a falha de componentes que não acumulam desgaste — sua propriedade mais notável é a <strong>falta de memória</strong>: <span class="math inline">\(P(X&gt;s+t \mid X&gt;s)=P(X&gt;t)\)</span>, ou seja, um equipamento que já funcionou por um tempo <span class="math inline">\(s\)</span> tem, a partir daquele instante, a mesma probabilidade de sobreviver mais <span class="math inline">\(t\)</span> horas que um equipamento novo. A distribuição Weibull generaliza esse modelo por meio de um parâmetro de forma <span class="math inline">\(k\)</span> e um parâmetro de escala <span class="math inline">\(\lambda\)</span>, permitindo representar tanto taxas de falha crescentes (<span class="math inline">\(k&gt;1\)</span>, desgaste) quanto decrescentes (<span class="math inline">\(k&lt;1\)</span>), o que a torna adequada também para descrever grandezas geotécnicas como a capacidade de suporte do solo:</p>
+<p><span class="math display">\[
+f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}, \quad x \geq 0.
+\]</span></p>
+</section>
+<section id="fenômenos-ambientais-a-distribuição-gama" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="fenômenos-ambientais-a-distribuição-gama"><span class="header-section-number">3.4</span> Fenômenos Ambientais: a Distribuição Gama</h3>
+<p>A distribuição Gama, com parâmetros de forma <span class="math inline">\(\alpha\)</span> e taxa <span class="math inline">\(\beta\)</span>, é amplamente utilizada para modelar grandezas contínuas positivas e assimétricas à direita, como volumes de precipitação diária — fenômeno em que a maioria dos dias apresenta chuva fraca ou moderada, mas eventos extremos de alta magnitude, embora raros, precisam ser corretamente dimensionados em projetos hidráulicos.</p>
+</section>
+<section id="simulação-de-monte-carlo" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="simulação-de-monte-carlo"><span class="header-section-number">3.5</span> Simulação de Monte Carlo</h3>
+<p>A simulação de Monte Carlo consiste em gerar um grande número de observações pseudoaleatórias a partir do modelo probabilístico assumido e comparar as frequências empíricas resultantes com as probabilidades teóricas. Quando as duas convergem, reforça-se a confiança tanto no modelo adotado quanto na correção dos cálculos analíticos <span class="citation" data-cites="rcoreteam2024">(<a href="#ref-rcoreteam2024" role="doc-biblioref">R Core Team, 2024</a>)</span>.</p>
+</section>
 </section>
 <section id="metodologia" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="metodologia"><span class="header-section-number">4</span> ⚙️ Metodologia</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Descreva como o experimento foi realizado.</p>
-</div>
-</div>
-<ul>
-<li>Materiais utilizados<br>
-</li>
-<li>Procedimento<br>
-</li>
-<li>Número de repetições</li>
-</ul>
-<hr>
+<p>Todas as análises deste relatório foram realizadas em ambiente R (versão 4.4+), via RStudio e Quarto (<code>.qmd</code>). Para cada um dos seis fenômenos estudados, o fluxo de trabalho seguiu três etapas: (i) identificação da distribuição de probabilidade adequada e de seus parâmetros, a partir da descrição do fenômeno; (ii) cálculo analítico de probabilidades, valores esperados, variâncias e quantis, utilizando as famílias de funções <code>d-</code>, <code>p-</code> e <code>q-</code> do R (densidade/massa, função de distribuição acumulada e quantil, respectivamente); e (iii) simulação de Monte Carlo, utilizando as funções <code>r-</code> de geração pseudoaleatória, sempre fixando a semente com <code>set.seed(123)</code> para garantir a reprodutibilidade dos resultados. As frequências relativas simuladas foram comparadas aos valores teóricos para validar os modelos adotados, e todos os resultados numéricos apresentados no texto foram obtidos diretamente dos objetos calculados nos blocos de código R, e não digitados manualmente, de modo a garantir consistência entre texto e cálculo.</p>
 </section>
 <section id="resultados-e-discussão" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</h2>
-<p>Apresente e interprete os resultados obtidos a partir dos dados coletados.</p>
-<ul>
-<li>Descreva os principais resultados numéricos (média, variabilidade, etc.).</li>
-<li>Comente o comportamento dos dados observados nos gráficos.</li>
-<li>Indique se há presença de valores discrepantes (outliers).</li>
-<li>Avalie se os dados apresentam simetria ou tendência.</li>
-</ul>
-<p>Em seguida, discuta os resultados à luz dos conceitos teóricos:</p>
-<ul>
-<li>Os resultados estão de acordo com o esperado?</li>
-<li>Há grande variabilidade? O que isso significa no contexto do experimento?</li>
-<li>Quais fatores podem ter influenciado os resultados?</li>
-<li>Existem possíveis fontes de erro experimental?</li>
-</ul>
-<p>Procure não apenas descrever, mas <strong>interpretar os dados</strong>.</p>
-<section id="exemplo-de-como-citar-uma-referência-bibliográfica" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="exemplo-de-como-citar-uma-referência-bibliográfica"><span class="header-section-number">5.1</span> 💬 Exemplo de como citar uma referência bibliográfica</h3>
-<p>Depois de inserido as informaçõe no arquivo <strong>referencias.bib</strong>, use:</p>
-<ul>
-<li>Segundo <span class="citation" data-cites="Rbasico2022">Batista e Oliveira (<a href="#ref-Rbasico2022" role="doc-biblioref">2022</a>)</span></li>
-<li>Tudo é um objeto em R <span class="citation" data-cites="Rbasico2022">(<a href="#ref-Rbasico2022" role="doc-biblioref">Batista e Oliveira, 2022</a>)</span></li>
-</ul>
+<section id="controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão"><span class="header-section-number">5.1</span> Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</h3>
+<p>A resistência à compressão do concreto (<span class="math inline">\(X\)</span>) é modelada como <span class="math inline">\(X \sim N(35, 4)\)</span> MPa — média de 35 MPa, compatível com um concreto estrutural usual, e desvio padrão de 4 MPa, refletindo a variabilidade natural de traço, cura e execução em obra.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mu_concreto <span class="ot">&lt;-</span> <span class="dv">35</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sd_concreto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 30)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>p1a <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(32 &lt; X &lt; 38)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p1b <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">38</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto) <span class="sc">-</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="dv">32</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 5 (valor abaixo do qual ficam apenas 5% das amostras)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>p1c <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Distribuição da média de 10 amostras: X_barra ~ N(mu, sd/sqrt(n))</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>n_amostras <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>erro_padrao <span class="ot">&lt;-</span> sd_concreto <span class="sc">/</span> <span class="fu">sqrt</span>(n_amostras)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>p1d <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">33</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> erro_padrao)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 30 MPa)"</span>, <span class="st">"P(32 &lt; X &lt; 38 MPa)"</span>, <span class="st">"Percentil 5%"</span>, <span class="st">"P(média de 10 &lt; 33 MPa)"</span>),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p1a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p1b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p1c, <span class="dv">2</span>), <span class="st">" MPa"</span>), <span class="fu">percent</span>(p1d, <span class="fl">0.01</span>))</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Grandeza     Valor
+1           P(X &lt; 30 MPa)    10.56%
+2      P(32 &lt; X &lt; 38 MPa)    54.67%
+3            Percentil 5% 28.42 MPa
+4 P(média de 10 &lt; 33 MPa)     5.69%</code></pre>
+</div>
+</div>
+<p>A probabilidade de uma amostra isolada apresentar resistência inferior a 30 MPa é de 10.56%, um valor que, embora não seja desprezível, está longe de indicar um problema sistemático — é exatamente o tipo de ocorrência esperada em uma distribuição com desvio padrão de 4 MPa. Já a probabilidade de a resistência estar na faixa intermediária de 32 a 38 MPa, de 54.67%, mostra que a maior parte da produção se concentra próxima da média especificada, como seria desejável em um processo de controle de qualidade sob controle estatístico. O percentil de 5% (28.42 MPa) fornece um limite inferior de referência prático: valores de resistência abaixo dele devem ser tratados como exceção e investigados, não como variação normal do processo.</p>
+<p>O resultado mais relevante do ponto de vista gerencial, no entanto, é o item (d): ao considerar a <strong>média de um lote de 10 amostras</strong>, em vez de uma amostra isolada, a probabilidade de essa média ficar abaixo de 33 MPa cai para apenas 5.69% — bem inferior à probabilidade de uma única amostra ficar abaixo do mesmo valor. Essa diferença ilustra, na prática, por que critérios de aceitação de concreto costumam se basear na média de várias amostras e não em um único corpo de prova: a variabilidade da média de um lote é sempre menor do que a variabilidade de uma observação individual, reduzindo o risco de rejeitar (ou aceitar) um lote com base em um resultado atípico isolado.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x_concreto <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_concreto, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightsteelblue"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Resistência à Compressão do Concreto: Simulado x Teórico"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Resistência (MPa)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/normal-simulacao-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Histograma de 1.000 valores simulados de resistência à compressão e curva de densidade teórica N(35, 4).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.</p>
 </section>
 <section id="análise-de-dados" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
@@ -322,8 +382,14 @@ Nota
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
-<div id="ref-Rbasico2022" class="csl-entry" role="listitem">
-BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro Branco, MG: [s.n.], 2022. p. 321
+<div id="ref-bussab2017estatistica" class="csl-entry" role="listitem">
+BUSSAB, W. DE O.; MORETTIN, P. A. <strong>Estat<span>ı́</span>stica B<span>á</span>sica</strong>. 9. ed. S<span>ã</span>o Paulo: Saraiva, 2017.
+</div>
+<div id="ref-montgomery2021estatistica" class="csl-entry" role="listitem">
+MONTGOMERY, D. C.; RUNGER, G. C. <strong>Estat<span>ı́</span>stica Aplicada e Probabilidade para Engenheiros</strong>. 7. ed. Rio de Janeiro: LTC, 2021.
+</div>
+<div id="ref-rcoreteam2024" class="csl-entry" role="listitem">
+R CORE TEAM. <strong><a href="https://www.R-project.org/">R: A Language and Environment for Statistical Computing</a></strong>. Vienna, Austria: R Foundation for Statistical Computing, 2024.
 </div>
 </div></section></div></main>
 <!-- /main column -->
@@ -778,131 +844,193 @@ BATISTA, B. D. O.; OLIVEIRA, D. A. B. J. <strong>R básico</strong>. 1. ed. Ouro
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 05 - XXXXXX"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> today</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>Descreva o contexto da prática e sua importância.</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Exemplo: análise da variabilidade em experimentos físicos utilizando uma catapulta.</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>Descrever o objetivo principal da prática.</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Coletar dados experimentais  </span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Aplicar estatística descritiva  </span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Construir gráficos  </span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar resultados  </span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚  Fundamentação Teórica</span></span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>Apresente os conceitos principais:</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Média</span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Variância</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Desvio padrão</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Amostragem</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i</span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>Descreva como o experimento foi realizado.</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Materiais utilizados  </span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Procedimento  </span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Número de repetições  </span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>---</span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>Apresente e interprete os resultados obtidos a partir dos dados coletados.</span>
-<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Descreva os principais resultados numéricos (média, variabilidade, etc.).</span>
-<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente o comportamento dos dados observados nos gráficos.</span>
-<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Indique se há presença de valores discrepantes (outliers).</span>
-<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Avalie se os dados apresentam simetria ou tendência.</span>
-<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>Em seguida, discuta os resultados à luz dos conceitos teóricos:</span>
-<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Os resultados estão de acordo com o esperado?</span>
-<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Há grande variabilidade? O que isso significa no contexto do experimento?</span>
-<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Quais fatores podem ter influenciado os resultados?</span>
-<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Existem possíveis fontes de erro experimental?</span>
-<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Procure não apenas descrever, mas **interpretar os dados**.</span>
-<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a><span class="fu">### 💬 Exemplo de como citar uma referência bibliográfica</span></span>
-<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>Depois de inserido as informaçõe no arquivo **referencias.bib**, use:</span>
-<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Segundo @Rbasico2022</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tudo é um objeto em R <span class="co">[</span><span class="ot">@Rbasico2022</span><span class="co">]</span></span>
-<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="in">/* O Quarto aplica automaticamente a classe .quarto-appendix-heading ao título</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="in">   da seção de Referências geradas via citeproc, forçando font-size: 1em</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">   (tamanho de texto normal) — o que faz esse título ficar visivelmente menor</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="in">   que os demais títulos de seção (##). Este bloco restaura o mesmo estilo</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="in">   dos demais títulos h2 do relatório. */</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="in">.quarto-appendix-heading {</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">  font-size: 1.65rem !important;</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">  font-weight: 600 !important;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="in">  opacity: 1 !important;</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="in">  border-bottom: 1px solid rgb(221.7, 222.3, 222.9) !important;</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="in">  padding-bottom: .5rem !important;</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-top: 2rem !important;</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-bottom: 1rem !important;</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="in">  line-height: 1.2 !important;</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>A construção de uma Pequena Central Hidrelétrica (PCH) reúne, desde a fase de projeto até a operação, uma série de fenômenos que só podem ser descritos de forma adequada por meio de variáveis aleatórias: a resistência do concreto varia de peça para peça, estacas pré-moldadas apresentam defeitos de fabricação em proporção incerta, fissuras surgem ao longo da extensão de um túnel de forma aparentemente imprevisível, equipamentos falham após um tempo de operação que não é possível prever com exatidão, o solo de fundação não tem capacidade de suporte uniforme, e a precipitação pluviométrica varia dia após dia. Em todos esses casos, a engenharia não dispõe de um valor único e determinístico para tomar decisões — dispõe, sim, de uma distribuição de probabilidades que descreve o comportamento esperado do fenômeno e permite quantificar riscos.</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>Neste relatório, assume-se o papel da equipe de engenharia e estatística responsável por apoiar tecnicamente o projeto de uma PCH, modelando seis fenômenos distintos por meio de distribuições especiais de probabilidade — Normal, Binomial, Poisson, Exponencial, Weibull e Gama — e validando os resultados teóricos por meio de simulação de Monte Carlo na linguagem R. O objetivo não é apenas calcular probabilidades, médias e quantis, mas interpretar cada resultado à luz das decisões técnicas, de qualidade, de segurança e de planejamento que uma obra desse porte exige.</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>Aplicar os conceitos teóricos das distribuições de variáveis aleatórias discretas e contínuas à resolução de problemas reais de engenharia civil, utilizando a linguagem R como ferramenta de cálculo, simulação e visualização.</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar a distribuição de probabilidade adequada para cada fenômeno estudado no contexto da construção de uma PCH;</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular probabilidades, valores esperados, variâncias e quantis teóricos a partir dos parâmetros de cada distribuição;</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar as funções do R associadas a cada família de distribuições (<span class="in">`dnorm`</span>, <span class="in">`pnorm`</span>, <span class="in">`qnorm`</span>, <span class="in">`rnorm`</span>, <span class="in">`dbinom`</span>, <span class="in">`pbinom`</span>, <span class="in">`rbinom`</span>, <span class="in">`dpois`</span>, <span class="in">`ppois`</span>, <span class="in">`rpois`</span>, <span class="in">`dexp`</span>, <span class="in">`pexp`</span>, <span class="in">`qexp`</span>, <span class="in">`rexp`</span>, <span class="in">`dweibull`</span>, <span class="in">`pweibull`</span>, <span class="in">`qweibull`</span>, <span class="in">`dgamma`</span>, <span class="in">`pgamma`</span>, <span class="in">`qgamma`</span>, <span class="in">`rgamma`</span>);</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realizar simulações de Monte Carlo para validar, por meio de frequências empíricas, os resultados obtidos analiticamente;</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar os resultados estatísticos no contexto de decisões técnicas de controle de qualidade, confiabilidade, segurança geotécnica e planejamento hidrológico.</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Fundamentação Teórica</span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Contínuas: a Distribuição Normal</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>A distribuição Normal, com parâmetros média $\mu$ e desvio padrão $\sigma$, é o modelo probabilístico mais utilizado para descrever grandezas contínuas sujeitas a múltiplas fontes de variação independentes — como é o caso da resistência à compressão do concreto, resultado da interação entre traço, cura, compactação e condições de ensaio <span class="co">[</span><span class="ot">@bussab2017estatistica</span><span class="co">]</span>. Sua função de densidade é</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{(x-\mu)^2}{2\sigma^2}}.</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>Quando se trabalha com a média de $n$ amostras dessa população, o Teorema Central do Limite garante que $\bar{X} \sim N<span class="sc">\!</span>\left(\mu, \ \sigma/\sqrt{n}\right)$, propriedade que permite avaliar o risco de um lote inteiro — e não apenas de uma amostra isolada — apresentar desempenho abaixo do especificado.</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Discretas: Binomial e Poisson</span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>A distribuição Binomial modela o número de "sucessos" (neste relatório, itens defeituosos) em um número fixo $n$ de ensaios independentes, cada um com probabilidade $p$ de sucesso:</span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np, \quad \text{Var}(X)=np(1-p).</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>Já a distribuição de Poisson descreve a contagem de ocorrências raras e independentes ao longo de um intervalo contínuo (tempo, comprimento, área) com taxa média $\lambda$ constante — como o número de fissuras por quilômetro de um túnel <span class="co">[</span><span class="ot">@montgomery2021estatistica</span><span class="co">]</span>:</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=\text{Var}(X)=\lambda.</span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confiabilidade: Exponencial e Weibull</span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>A distribuição Exponencial, com taxa $\beta = 1/\text{média}$, é o modelo clássico de tempo até a falha de componentes que não acumulam desgaste — sua propriedade mais notável é a **falta de memória**: $P(X&gt;s+t \mid X&gt;s)=P(X&gt;t)$, ou seja, um equipamento que já funcionou por um tempo $s$ tem, a partir daquele instante, a mesma probabilidade de sobreviver mais $t$ horas que um equipamento novo. A distribuição Weibull generaliza esse modelo por meio de um parâmetro de forma $k$ e um parâmetro de escala $\lambda$, permitindo representar tanto taxas de falha crescentes ($k&gt;1$, desgaste) quanto decrescentes ($k&lt;1$), o que a torna adequada também para descrever grandezas geotécnicas como a capacidade de suporte do solo:</span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}, \quad x \geq 0.</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fenômenos Ambientais: a Distribuição Gama</span></span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>A distribuição Gama, com parâmetros de forma $\alpha$ e taxa $\beta$, é amplamente utilizada para modelar grandezas contínuas positivas e assimétricas à direita, como volumes de precipitação diária — fenômeno em que a maioria dos dias apresenta chuva fraca ou moderada, mas eventos extremos de alta magnitude, embora raros, precisam ser corretamente dimensionados em projetos hidráulicos.</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Simulação de Monte Carlo</span></span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>A simulação de Monte Carlo consiste em gerar um grande número de observações pseudoaleatórias a partir do modelo probabilístico assumido e comparar as frequências empíricas resultantes com as probabilidades teóricas. Quando as duas convergem, reforça-se a confiança tanto no modelo adotado quanto na correção dos cálculos analíticos <span class="co">[</span><span class="ot">@rcoreteam2024</span><span class="co">]</span>.</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>Todas as análises deste relatório foram realizadas em ambiente R (versão 4.4+), via RStudio e Quarto (<span class="in">`.qmd`</span>). Para cada um dos seis fenômenos estudados, o fluxo de trabalho seguiu três etapas: (i) identificação da distribuição de probabilidade adequada e de seus parâmetros, a partir da descrição do fenômeno; (ii) cálculo analítico de probabilidades, valores esperados, variâncias e quantis, utilizando as famílias de funções <span class="in">`d-`</span>, <span class="in">`p-`</span> e <span class="in">`q-`</span> do R (densidade/massa, função de distribuição acumulada e quantil, respectivamente); e (iii) simulação de Monte Carlo, utilizando as funções <span class="in">`r-`</span> de geração pseudoaleatória, sempre fixando a semente com <span class="in">`set.seed(123)`</span> para garantir a reprodutibilidade dos resultados. As frequências relativas simuladas foram comparadas aos valores teóricos para validar os modelos adotados, e todos os resultados numéricos apresentados no texto foram obtidos diretamente dos objetos calculados nos blocos de código R, e não digitados manualmente, de modo a garantir consistência entre texto e cálculo.</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</span></span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto ($X$) é modelada como $X \sim N(35, 4)$ MPa — média de 35 MPa, compatível com um concreto estrutural usual, e desvio padrão de 4 MPa, refletindo a variabilidade natural de traço, cura e execução em obra.</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-concreto}</span></span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>mu_concreto <span class="ot">&lt;-</span> <span class="dv">35</span></span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>sd_concreto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 30)</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>p1a <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(32 &lt; X &lt; 38)</span></span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>p1b <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">38</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto) <span class="sc">-</span></span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="dv">32</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 5 (valor abaixo do qual ficam apenas 5% das amostras)</span></span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>p1c <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Distribuição da média de 10 amostras: X_barra ~ N(mu, sd/sqrt(n))</span></span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>n_amostras <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>erro_padrao <span class="ot">&lt;-</span> sd_concreto <span class="sc">/</span> <span class="fu">sqrt</span>(n_amostras)</span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>p1d <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">33</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> erro_padrao)</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 30 MPa)"</span>, <span class="st">"P(32 &lt; X &lt; 38 MPa)"</span>, <span class="st">"Percentil 5%"</span>, <span class="st">"P(média de 10 &lt; 33 MPa)"</span>),</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p1a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p1b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p1c, <span class="dv">2</span>), <span class="st">" MPa"</span>), <span class="fu">percent</span>(p1d, <span class="fl">0.01</span>))</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>A probabilidade de uma amostra isolada apresentar resistência inferior a 30 MPa é de <span class="in">`r percent(p1a, 0.01)`</span>, um valor que, embora não seja desprezível, está longe de indicar um problema sistemático — é exatamente o tipo de ocorrência esperada em uma distribuição com desvio padrão de 4 MPa. Já a probabilidade de a resistência estar na faixa intermediária de 32 a 38 MPa, de <span class="in">`r percent(p1b, 0.01)`</span>, mostra que a maior parte da produção se concentra próxima da média especificada, como seria desejável em um processo de controle de qualidade sob controle estatístico. O percentil de 5% (<span class="in">`r round(p1c,2)`</span> MPa) fornece um limite inferior de referência prático: valores de resistência abaixo dele devem ser tratados como exceção e investigados, não como variação normal do processo.</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>O resultado mais relevante do ponto de vista gerencial, no entanto, é o item (d): ao considerar a **média de um lote de 10 amostras**, em vez de uma amostra isolada, a probabilidade de essa média ficar abaixo de 33 MPa cai para apenas <span class="in">`r percent(p1d, 0.01)`</span> — bem inferior à probabilidade de uma única amostra ficar abaixo do mesmo valor. Essa diferença ilustra, na prática, por que critérios de aceitação de concreto costumam se basear na média de várias amostras e não em um único corpo de prova: a variabilidade da média de um lote é sempre menor do que a variabilidade de uma observação individual, reduzindo o risco de rejeitar (ou aceitar) um lote com base em um resultado atípico isolado.</span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-simulacao}</span></span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograma de 1.000 valores simulados de resistência à compressão e curva de densidade teórica N(35, 4)."</span></span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>x_concreto <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_concreto, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightsteelblue"</span>,</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Resistência à Compressão do Concreto: Simulado x Teórico"</span>,</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Resistência (MPa)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>distancia</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
 </code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
