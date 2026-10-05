@@ -1,7 +1,7 @@
 ---
 # Só mude aqui!!!!
 author: "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"
-title: "Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil"
+title: "Relatório Teste de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil"
 bibliography: referencias.bib
 # A partir daqui nao faca alteracoes!!!!!
 link-citations: true
