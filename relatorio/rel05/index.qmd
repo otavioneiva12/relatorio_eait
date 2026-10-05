@@ -162,26 +162,236 @@ curve(dnorm(x, mean = mu_concreto, sd = sd_concreto), add = TRUE, col = "firebri
 
 O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.
 
-### 📊  Análise de Dados
+### Qualidade de Estacas Pré-Moldadas: Controle de Defeitos de Fabricação
 
-```{r}
-distancia <- c(10.2, 9.8, 10.5, 10.1, 9.9, 10.3)
-distancia
+Em um lote de 15 estacas pré-moldadas, com histórico de 8% de peças defeituosas, o número de estacas defeituosas por lote ($X$) é modelado por uma Binomial($n=15$, $p=0{,}08$).
+
+```{r binomial-estacas}
+n_estacas <- 15
+p_defeito <- 0.08
+
+# a) P(X = 0)
+p2a <- dbinom(0, size = n_estacas, prob = p_defeito)
+
+# b) P(X <= 2)
+p2b <- pbinom(2, size = n_estacas, prob = p_defeito)
+
+# c) P(X >= 4)
+p2c <- 1 - pbinom(3, size = n_estacas, prob = p_defeito)
+
+# d) Esperança e variância
+E2 <- n_estacas * p_defeito
+Var2 <- n_estacas * p_defeito * (1 - p_defeito)
+
+data.frame(
+  Grandeza = c("P(X = 0)", "P(X ≤ 2)", "P(X ≥ 4)", "E[X]", "Var(X)"),
+  Valor = c(percent(p2a, 0.01), percent(p2b, 0.01), percent(p2c, 0.01), round(E2, 2), round(Var2, 3))
+)
 ```
 
-## 🧠 Considerações finais
+A probabilidade de um lote de 15 estacas não apresentar nenhuma peça defeituosa é de `r percent(p2a, 0.01)`, e a de o lote ter no máximo 2 estacas defeituosas — critério plausível de aceitação em obra — sobe para `r percent(p2b, 0.01)`. Em contrapartida, a probabilidade de um lote "problemático", com 4 ou mais estacas defeituosas, é de apenas `r percent(p2c, 0.01)`: eventos desse tipo são raros, mas não impossíveis, e justificam a existência de um plano de inspeção por amostragem em vez da inspeção de 100% das peças, que seria economicamente inviável. O número esperado de estacas defeituosas por lote, `r round(E2,2)`, confirma que, em média, pouco mais de uma estaca em cada lote apresentará defeito — informação que subsidia diretamente o dimensionamento do estoque de reposição.
 
-Apresente uma síntese dos principais pontos observados no experimento.
+```{r binomial-simulacao}
+set.seed(123)
+sim_estacas <- rbinom(500, size = n_estacas, prob = p_defeito)
+freq_sim <- table(sim_estacas) / 500
+freq_teorica <- dbinom(as.numeric(names(freq_sim)), size = n_estacas, prob = p_defeito)
 
-- Retome o objetivo da prática e indique se ele foi alcançado.
-- Destaque os principais aprendizados obtidos.
-- Comente brevemente sobre a qualidade dos dados coletados.
-- Sugira possíveis melhorias no procedimento experimental.
+data.frame(
+  Defeituosas = names(freq_sim),
+  `Freq. simulada` = percent(as.numeric(freq_sim), 0.1),
+  `Prob. teórica` = percent(freq_teorica, 0.1),
+  check.names = FALSE
+)
+```
 
-Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.
+A simulação de 500 lotes reproduz de forma muito próxima as probabilidades teóricas calculadas analiticamente, especialmente nas classes de maior frequência (0, 1 e 2 estacas defeituosas) — o que era esperado, já que são justamente as classes com maior número de observações simuladas e, portanto, menor erro de estimação da frequência relativa.
 
-## Aprenda Quarto
+### Fissuras em Túnel: Contagem de Ocorrências ao Longo da Extensão
 
-Acesse [Quarto](https://quarto.org/).
+O número de fissuras por quilômetro de túnel segue uma distribuição de Poisson com taxa $\lambda = 2{,}5$ fissuras/km.
+
+```{r poisson-fissuras}
+lambda_fissuras <- 2.5
+
+# a) P(X = 0) em 1 km
+p3a <- dpois(0, lambda = lambda_fissuras)
+
+# b) P(X >= 3) em 1 km
+p3b <- 1 - ppois(2, lambda = lambda_fissuras)
+
+# c) P(1 <= X <= 4) em 1 km
+p3c <- ppois(4, lambda = lambda_fissuras) - ppois(0, lambda = lambda_fissuras)
+
+# d) Em 2 km, lambda dobra (propriedade aditiva da Poisson)
+lambda_2km <- 2 * lambda_fissuras
+p3d <- dpois(5, lambda = lambda_2km)
+
+# e) Esperança e variância (1 km)
+E3 <- lambda_fissuras
+Var3 <- lambda_fissuras
+
+data.frame(
+  Grandeza = c("P(0 fissuras, 1 km)", "P(≥ 3 fissuras, 1 km)", "P(1 a 4 fissuras, 1 km)",
+               "P(5 fissuras, 2 km)", "E[X] = Var(X), 1 km"),
+  Valor = c(percent(p3a, 0.01), percent(p3b, 0.01), percent(p3c, 0.01), percent(p3d, 0.01), round(E3, 2))
+)
+```
+
+A probabilidade de um quilômetro de túnel não apresentar nenhuma fissura é de `r percent(p3a, 0.01)`, enquanto a probabilidade de um trecho "crítico", com 3 ou mais fissuras por quilômetro, é de `r percent(p3b, 0.01)` — relevante para priorizar quais trechos devem receber inspeção estrutural mais detalhada. A faixa mais provável, de 1 a 4 fissuras por quilômetro, concentra `r percent(p3c, 0.01)` de probabilidade, caracterizando o comportamento "típico" esperado ao longo da obra. Um ponto notável é o item (d): ao dobrar a extensão analisada para 2 km, o parâmetro $\lambda$ também dobra (propriedade aditiva da distribuição de Poisson), de modo que a probabilidade de observar exatamente 5 fissuras nesse trecho mais longo passa a ser `r percent(p3d, 0.01)` — um lembrete importante de que a taxa de ocorrência de um fenômeno de Poisson deve sempre ser reescalada corretamente em função do comprimento (ou área, ou tempo) considerado, sob pena de subestimar o risco em trechos mais extensos. Por fim, o fato de a esperança e a variância coincidirem (`r round(E3,2)`) é uma propriedade característica da distribuição de Poisson, que pode inclusive ser usada como um teste informal de adequação do modelo aos dados reais de campo.
+
+### Confiabilidade de Equipamentos: Tempo até a Falha da Betoneira
+
+O tempo até a falha de uma betoneira, em horas, segue uma distribuição Exponencial com tempo médio de 200 horas, o que corresponde a uma taxa de falha $\beta = 1/200$ falhas por hora.
+
+```{r exponencial-betoneira}
+media_betoneira <- 200
+taxa_betoneira <- 1 / media_betoneira
+
+# a) P(X > 250)
+p4a <- 1 - pexp(250, rate = taxa_betoneira)
+
+# b) P(X < 100)
+p4b <- pexp(100, rate = taxa_betoneira)
+
+# c) Tempo mediano até a falha
+p4c <- qexp(0.5, rate = taxa_betoneira)
+
+# d) Falta de memória: P(X > 150+100 | X > 150) = P(X > 100)
+p4d <- 1 - pexp(100, rate = taxa_betoneira)
+
+data.frame(
+  Grandeza = c("P(X > 250 h)", "P(X < 100 h)", "Mediana", "P(mais 100h | já operou 150h)"),
+  Valor = c(percent(p4a, 0.01), percent(p4b, 0.01), paste0(round(p4c, 1), " h"), percent(p4d, 0.01))
+)
+```
+
+A probabilidade de a betoneira ultrapassar 250 horas de operação sem falhar é de `r percent(p4a, 0.01)`, enquanto a probabilidade de uma falha precoce, antes de 100 horas, é de `r percent(p4b, 0.01)` — informação direta para o dimensionamento de manutenção preventiva. O tempo mediano até a falha, de `r round(p4c,1)` horas, é menor que a média de 200 horas, como é característico de distribuições assimétricas à direita como a Exponencial. O item (d) explora a propriedade da **falta de memória**: a probabilidade de a betoneira durar pelo menos mais 100 horas, dado que já operou 150 horas sem falhar, é de `r percent(p4d, 0.01)` — exatamente igual à probabilidade de uma betoneira **nova** durar mais de 100 horas. Do ponto de vista prático, essa propriedade significa que o histórico de uso de um equipamento (desde que não haja desgaste acumulado, hipótese da Exponencial) não reduz nem aumenta seu risco de falha iminente, o que tem implicações diretas para a política de manutenção: sob esse modelo, não há ganho em substituir preventivamente um equipamento apenas por ele já ter operado por muito tempo, situação que mudaria caso o tempo até a falha seguisse uma distribuição com taxa de falha crescente, como a Weibull discutida a seguir.
+
+```{r exponencial-simulacao}
+#| fig-cap: "Histograma de 1.000 tempos de falha simulados e curva de densidade teórica Exponencial(β = 1/200)."
+set.seed(123)
+x_betoneira <- rexp(1000, rate = taxa_betoneira)
+
+hist(x_betoneira, breaks = 25, freq = FALSE, col = "navajowhite",
+     main = "Tempo até a Falha da Betoneira: Simulado x Teórico",
+     xlab = "Tempo até a falha (horas)", ylab = "Densidade")
+curve(dexp(x, rate = taxa_betoneira), add = TRUE, col = "firebrick", lwd = 2)
+```
+
+A forma fortemente assimétrica à direita do histograma simulado, com a maior concentração de observações em tempos curtos e uma cauda longa em direção a tempos de falha elevados, é a assinatura visual característica da distribuição Exponencial, confirmando a adequação do modelo adotado.
+
+### Capacidade de Suporte do Solo: Variabilidade Geotécnica da Fundação
+
+A capacidade de suporte do solo de fundação, em kPa, é modelada por uma distribuição Weibull com parâmetro de forma $k=2$ e parâmetro de escala $\lambda = 150$ kPa.
+
+```{r weibull-solo}
+forma_solo <- 2
+escala_solo <- 150
+
+# a) P(X < 100)
+p5a <- pweibull(100, shape = forma_solo, scale = escala_solo)
+
+# b) P(120 < X < 200)
+p5b <- pweibull(200, shape = forma_solo, scale = escala_solo) -
+  pweibull(120, shape = forma_solo, scale = escala_solo)
+
+# c) Percentil 90
+p5c <- qweibull(0.90, shape = forma_solo, scale = escala_solo)
+
+# d) Média e desvio padrão (via função gama)
+media_solo <- escala_solo * gamma(1 + 1/forma_solo)
+var_solo <- escala_solo^2 * (gamma(1 + 2/forma_solo) - gamma(1 + 1/forma_solo)^2)
+dp_solo <- sqrt(var_solo)
+
+data.frame(
+  Grandeza = c("P(X < 100 kPa)", "P(120 < X < 200 kPa)", "Percentil 90%", "Média", "Desvio padrão"),
+  Valor = c(percent(p5a, 0.01), percent(p5b, 0.01), paste0(round(p5c, 1), " kPa"),
+            paste0(round(media_solo, 1), " kPa"), paste0(round(dp_solo, 1), " kPa"))
+)
+```
+
+A probabilidade de um ponto de sondagem apresentar capacidade de suporte inferior a 100 kPa é de `r percent(p5a, 0.01)` — um valor que, dependendo da carga de projeto da fundação, pode indicar a necessidade de reforço ou de fundação profunda localizada. A faixa intermediária de 120 a 200 kPa concentra `r percent(p5b, 0.01)` de probabilidade, intervalo que provavelmente orientou a escolha da capacidade de suporte admissível adotada em projeto. O percentil 90% (`r round(p5c,1)` kPa) é particularmente útil para fins de projeto conservador: apenas 10% dos pontos do terreno devem apresentar capacidade de suporte acima desse valor, de modo que ele representa um limite superior pouco otimista para dimensionamento. A média de `r round(media_solo,1)` kPa e o desvio padrão de `r round(dp_solo,1)` kPa — obtidos pela função gama, e não por uma fórmula fechada simples como na Normal — evidenciam por que a Weibull, apesar de mais trabalhosa analiticamente, é preferida a modelos mais simples quando se deseja capturar o comportamento assimétrico e heterogêneo típico da capacidade de suporte de solos naturais.
+
+```{r weibull-risco}
+#| fig-cap: "Função de risco (hazard) da capacidade de suporte do solo, Weibull(k = 2, λ = 150)."
+x_seq <- seq(0.1, 300, by = 1)
+hazard <- (forma_solo / escala_solo) * (x_seq / escala_solo)^(forma_solo - 1)
+
+plot(x_seq, hazard, type = "l", col = "darkgreen", lwd = 2,
+     main = "Função de Risco (Hazard) da Capacidade de Suporte do Solo",
+     xlab = "Capacidade de suporte (kPa)", ylab = "Taxa de risco instantânea")
+```
+
+Como o parâmetro de forma é $k=2>1$, a função de risco é **crescente** com a capacidade de suporte analisada: fisicamente, isso não deve ser lido como "quanto maior a capacidade de suporte, maior o risco de falha", mas sim como uma propriedade matemática da cauda da distribuição Weibull usada aqui para representar a variabilidade espacial do solo — a leitura de engenharia mais relevante é que, por se tratar de uma Weibull com $k>1$, a distribuição se concentra de forma mais previsível em torno de sua média do que uma Exponencial equivalente ($k=1$), o que é compatível com um solo heterogêneo, mas não caótico, cuja caracterização geotécnica por sondagens pontuais é, ainda assim, representativa do maciço como um todo.
+
+### Precipitação Diária na Estação Chuvosa: Planejamento Hidrológico
+
+A precipitação diária, em mm, durante a estação chuvosa é modelada por uma distribuição Gama com parâmetro de forma $\alpha = 3$ e taxa $\beta = 0{,}5$.
+
+```{r gama-precipitacao}
+forma_chuva <- 3
+taxa_chuva <- 0.5
+
+# a) P(X > 10)
+p6a <- 1 - pgamma(10, shape = forma_chuva, rate = taxa_chuva)
+
+# b) P(5 < X < 15)
+p6b <- pgamma(15, shape = forma_chuva, rate = taxa_chuva) -
+  pgamma(5, shape = forma_chuva, rate = taxa_chuva)
+
+# c) Percentil 95 (evento extremo)
+p6c <- qgamma(0.95, shape = forma_chuva, rate = taxa_chuva)
+
+# d) Esperança e variância
+E6 <- forma_chuva / taxa_chuva
+Var6 <- forma_chuva / taxa_chuva^2
+
+data.frame(
+  Grandeza = c("P(chuva > 10 mm)", "P(5 < chuva < 15 mm)", "Percentil 95% (evento extremo)", "E[X]", "Var(X)"),
+  Valor = c(percent(p6a, 0.01), percent(p6b, 0.01), paste0(round(p6c, 1), " mm"), round(E6, 2), round(Var6, 2))
+)
+```
+
+Em `r percent(p6a, 0.01)` dos dias de estação chuvosa espera-se precipitação superior a 10 mm, e a faixa intermediária de 5 a 15 mm concentra `r percent(p6b, 0.01)` de probabilidade — ambos valores relevantes para o dimensionamento do sistema de drenagem provisória do canteiro de obras. O percentil 95%, de `r round(p6c,1)` mm, representa o patamar de evento extremo: projetos de drenagem e de desvio do rio durante a construção da PCH costumam ser dimensionados com base nesse tipo de quantil elevado, e não na precipitação média, justamente para absorver os eventos raros, porém intensos, que a cauda direita da distribuição Gama captura adequadamente. A esperança de `r round(E6,2)` mm e a variância de `r round(Var6,2)` resumem o comportamento central e a dispersão da série, mas é o percentil extremo — e não esses dois momentos — que efetivamente orienta decisões de segurança hidrológica.
+
+```{r gama-simulacao}
+#| fig-cap: "Histograma de 365 dias de precipitação diária simulada, Gama(α = 3, β = 0,5)."
+set.seed(123)
+x_chuva <- rgamma(365, shape = forma_chuva, rate = taxa_chuva)
+
+hist(x_chuva, breaks = 25, freq = FALSE, col = "lightblue",
+     main = "Precipitação Diária Simulada (1 ano de estação chuvosa)",
+     xlab = "Precipitação (mm)", ylab = "Densidade")
+curve(dgamma(x, shape = forma_chuva, rate = taxa_chuva), add = TRUE, col = "firebrick", lwd = 2)
+```
+
+A simulação de um ano hidrológico completo (365 dias) reproduz o perfil assimétrico esperado, com a maioria dos dias concentrando chuvas leves a moderadas e uma cauda à direita representando os eventos de precipitação mais intensa — exatamente o padrão que a escolha da distribuição Gama pretendia capturar.
+
+### Análise Integrada: Validação por Simulação de Monte Carlo
+
+Para encerrar a análise, retoma-se o cenário da resistência do concreto (Parte 1) e compara-se, com 10.000 simulações, a proporção empírica de valores abaixo de 30 MPa com a probabilidade teórica calculada anteriormente.
+
+```{r monte-carlo-integrado}
+set.seed(123)
+n_sim <- 10000
+x_mc <- rnorm(n_sim, mean = mu_concreto, sd = sd_concreto)
+
+prop_simulada <- mean(x_mc < 30)
+prop_teorica <- pnorm(30, mean = mu_concreto, sd = sd_concreto)
+
+data.frame(
+  Grandeza = c("Proporção simulada (n = 10.000)", "Probabilidade teórica (Parte 1a)"),
+  Valor = c(percent(prop_simulada, 0.01), percent(prop_teorica, 0.01))
+)
+```
+
+Com `r format(n_sim, big.mark = ".")` repetições, a proporção simulada de valores abaixo de 30 MPa — `r percent(prop_simulada, 0.01)` — converge para muito próximo do valor teórico de `r percent(prop_teorica, 0.01)` obtido pela função `pnorm()`, ilustrando na prática a Lei dos Grandes Números: à medida que o número de simulações cresce, a frequência relativa observada se aproxima da probabilidade teórica do modelo. Esse tipo de validação cruzada é especialmente valioso em engenharia quando o modelo teórico é mais complexo (como a Weibull ou a Gama utilizadas neste relatório) e uma simulação de Monte Carlo serve como verificação independente de que os cálculos analíticos — e as suposições sobre os parâmetros do modelo — estão corretos, antes de serem usados para apoiar decisões de projeto com implicações de segurança e custo.
+
+## 🧠 Considerações Finais
+
+Os seis fenômenos analisados neste relatório mostram que não existe uma distribuição de probabilidade "universal" para a engenharia civil: cada característica do fenômeno — se é contínua ou discreta, se tem um número fixo de tentativas ou uma taxa de ocorrência, se o risco de falha cresce ou se mantém constante com o tempo, se a cauda é mais ou menos pesada — aponta para uma família de distribuições diferente. A resistência do concreto, resultado da soma de muitas pequenas fontes de variação, ajustou-se bem ao modelo Normal; a contagem de estacas defeituosas em um número fixo de peças, ao modelo Binomial; as fissuras distribuídas ao longo da extensão do túnel, ao modelo de Poisson; o tempo até a falha de um equipamento sem desgaste acumulado, à Exponencial e sua propriedade de falta de memória; a capacidade de suporte do solo e a precipitação diária, por apresentarem assimetria e necessidade de capturar valores extremos, às distribuições Weibull e Gama, respectivamente.
+
+Em todos os casos, a simulação de Monte Carlo confirmou a adequação dos cálculos analíticos, reforçando que o par "teoria + simulação" é mais robusto do que qualquer um dos dois isoladamente: a teoria fornece precisão e interpretação fechada (como a propriedade da falta de memória da Exponencial, ou a igualdade entre média e variância da Poisson), enquanto a simulação oferece uma verificação independente, intuitiva e facilmente comunicável a um público não especialista. Do ponto de vista da gestão do projeto da PCH, a modelagem probabilística apresentada permite migrar de decisões baseadas em valores pontuais (uma única amostra de concreto, uma única sondagem de solo) para decisões baseadas em risco quantificado — seja ele a probabilidade de rejeição de um lote de estacas, o percentil de projeto da capacidade de suporte do solo, ou o quantil de precipitação extrema que dimensiona a drenagem da obra —, o que é, em última análise, o objetivo central de se aplicar estatística e probabilidade à engenharia civil.
 
 ## 📖 Referências

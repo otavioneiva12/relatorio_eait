@@ -152,11 +152,15 @@ window.Quarto = {
   <li><a href="#resultados-e-discussão" id="toc-resultados-e-discussão" class="nav-link" data-scroll-target="#resultados-e-discussão"><span class="header-section-number">5</span> 🔍 Resultados e Discussão</a>
   <ul class="collapse">
   <li><a href="#controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão" id="toc-controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão" class="nav-link" data-scroll-target="#controle-de-qualidade-do-concreto-a-variabilidade-da-resistência-à-compressão"><span class="header-section-number">5.1</span> Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</a></li>
-  <li><a href="#análise-de-dados" id="toc-análise-de-dados" class="nav-link" data-scroll-target="#análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</a></li>
+  <li><a href="#qualidade-de-estacas-pré-moldadas-controle-de-defeitos-de-fabricação" id="toc-qualidade-de-estacas-pré-moldadas-controle-de-defeitos-de-fabricação" class="nav-link" data-scroll-target="#qualidade-de-estacas-pré-moldadas-controle-de-defeitos-de-fabricação"><span class="header-section-number">5.2</span> Qualidade de Estacas Pré-Moldadas: Controle de Defeitos de Fabricação</a></li>
+  <li><a href="#fissuras-em-túnel-contagem-de-ocorrências-ao-longo-da-extensão" id="toc-fissuras-em-túnel-contagem-de-ocorrências-ao-longo-da-extensão" class="nav-link" data-scroll-target="#fissuras-em-túnel-contagem-de-ocorrências-ao-longo-da-extensão"><span class="header-section-number">5.3</span> Fissuras em Túnel: Contagem de Ocorrências ao Longo da Extensão</a></li>
+  <li><a href="#confiabilidade-de-equipamentos-tempo-até-a-falha-da-betoneira" id="toc-confiabilidade-de-equipamentos-tempo-até-a-falha-da-betoneira" class="nav-link" data-scroll-target="#confiabilidade-de-equipamentos-tempo-até-a-falha-da-betoneira"><span class="header-section-number">5.4</span> Confiabilidade de Equipamentos: Tempo até a Falha da Betoneira</a></li>
+  <li><a href="#capacidade-de-suporte-do-solo-variabilidade-geotécnica-da-fundação" id="toc-capacidade-de-suporte-do-solo-variabilidade-geotécnica-da-fundação" class="nav-link" data-scroll-target="#capacidade-de-suporte-do-solo-variabilidade-geotécnica-da-fundação"><span class="header-section-number">5.5</span> Capacidade de Suporte do Solo: Variabilidade Geotécnica da Fundação</a></li>
+  <li><a href="#precipitação-diária-na-estação-chuvosa-planejamento-hidrológico" id="toc-precipitação-diária-na-estação-chuvosa-planejamento-hidrológico" class="nav-link" data-scroll-target="#precipitação-diária-na-estação-chuvosa-planejamento-hidrológico"><span class="header-section-number">5.6</span> Precipitação Diária na Estação Chuvosa: Planejamento Hidrológico</a></li>
+  <li><a href="#análise-integrada-validação-por-simulação-de-monte-carlo" id="toc-análise-integrada-validação-por-simulação-de-monte-carlo" class="nav-link" data-scroll-target="#análise-integrada-validação-por-simulação-de-monte-carlo"><span class="header-section-number">5.7</span> Análise Integrada: Validação por Simulação de Monte Carlo</a></li>
   </ul></li>
-  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</a></li>
-  <li><a href="#aprenda-quarto" id="toc-aprenda-quarto" class="nav-link" data-scroll-target="#aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</a></li>
-  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">8</span> 📖 Referências</a></li>
+  <li><a href="#considerações-finais" id="toc-considerações-finais" class="nav-link" data-scroll-target="#considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações Finais</a></li>
+  <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências"><span class="header-section-number">7</span> 📖 Referências</a></li>
   </ul>
 </nav>
 </div>
@@ -352,43 +356,331 @@ f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k},
 </div>
 <p>O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.</p>
 </section>
-<section id="análise-de-dados" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="análise-de-dados"><span class="header-section-number">5.2</span> 📊 Análise de Dados</h3>
+<section id="qualidade-de-estacas-pré-moldadas-controle-de-defeitos-de-fabricação" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="qualidade-de-estacas-pré-moldadas-controle-de-defeitos-de-fabricação"><span class="header-section-number">5.2</span> Qualidade de Estacas Pré-Moldadas: Controle de Defeitos de Fabricação</h3>
+<p>Em um lote de 15 estacas pré-moldadas, com histórico de 8% de peças defeituosas, o número de estacas defeituosas por lote (<span class="math inline">\(X\)</span>) é modelado por uma Binomial(<span class="math inline">\(n=15\)</span>, <span class="math inline">\(p=0{,}08\)</span>).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>distancia</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n_estacas <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>p_defeito <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X = 0)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>p2a <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &lt;= 2)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>p2b <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">2</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># c) P(X &gt;= 4)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>p2c <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">3</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Esperança e variância</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>E2 <span class="ot">&lt;-</span> n_estacas <span class="sc">*</span> p_defeito</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>Var2 <span class="ot">&lt;-</span> n_estacas <span class="sc">*</span> p_defeito <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p_defeito)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X = 0)"</span>, <span class="st">"P(X ≤ 2)"</span>, <span class="st">"P(X ≥ 4)"</span>, <span class="st">"E[X]"</span>, <span class="st">"Var(X)"</span>),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p2a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p2b, <span class="fl">0.01</span>), <span class="fu">percent</span>(p2c, <span class="fl">0.01</span>), <span class="fu">round</span>(E2, <span class="dv">2</span>), <span class="fu">round</span>(Var2, <span class="dv">3</span>))</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.2  9.8 10.5 10.1  9.9 10.3</code></pre>
+<pre><code>  Grandeza  Valor
+1 P(X = 0) 28.63%
+2 P(X ≤ 2) 88.70%
+3 P(X ≥ 4)  2.73%
+4     E[X]    1.2
+5   Var(X)  1.104</code></pre>
 </div>
 </div>
+<p>A probabilidade de um lote de 15 estacas não apresentar nenhuma peça defeituosa é de 28.63%, e a de o lote ter no máximo 2 estacas defeituosas — critério plausível de aceitação em obra — sobe para 88.70%. Em contrapartida, a probabilidade de um lote “problemático”, com 4 ou mais estacas defeituosas, é de apenas 2.73%: eventos desse tipo são raros, mas não impossíveis, e justificam a existência de um plano de inspeção por amostragem em vez da inspeção de 100% das peças, que seria economicamente inviável. O número esperado de estacas defeituosas por lote, 1.2, confirma que, em média, pouco mais de uma estaca em cada lote apresentará defeito — informação que subsidia diretamente o dimensionamento do estoque de reposição.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sim_estacas <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">500</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>freq_sim <span class="ot">&lt;-</span> <span class="fu">table</span>(sim_estacas) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>freq_teorica <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="fu">as.numeric</span>(<span class="fu">names</span>(freq_sim)), <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Defeituosas =</span> <span class="fu">names</span>(freq_sim),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Freq. simulada</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">percent</span>(<span class="fu">as.numeric</span>(freq_sim), <span class="fl">0.1</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Prob. teórica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">percent</span>(freq_teorica, <span class="fl">0.1</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Defeituosas Freq. simulada Prob. teórica
+1           0          29.2%         28.6%
+2           1          37.4%         37.3%
+3           2          21.8%         22.7%
+4           3           8.4%          8.6%
+5           4           2.8%          2.2%
+6           5           0.2%          0.4%
+7           6           0.2%          0.1%</code></pre>
+</div>
+</div>
+<p>A simulação de 500 lotes reproduz de forma muito próxima as probabilidades teóricas calculadas analiticamente, especialmente nas classes de maior frequência (0, 1 e 2 estacas defeituosas) — o que era esperado, já que são justamente as classes com maior número de observações simuladas e, portanto, menor erro de estimação da frequência relativa.</p>
+</section>
+<section id="fissuras-em-túnel-contagem-de-ocorrências-ao-longo-da-extensão" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="fissuras-em-túnel-contagem-de-ocorrências-ao-longo-da-extensão"><span class="header-section-number">5.3</span> Fissuras em Túnel: Contagem de Ocorrências ao Longo da Extensão</h3>
+<p>O número de fissuras por quilômetro de túnel segue uma distribuição de Poisson com taxa <span class="math inline">\(\lambda = 2{,}5\)</span> fissuras/km.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lambda_fissuras <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X = 0) em 1 km</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>p3a <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="dv">0</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &gt;= 3) em 1 km</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>p3b <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">2</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># c) P(1 &lt;= X &lt;= 4) em 1 km</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>p3c <span class="ot">&lt;-</span> <span class="fu">ppois</span>(<span class="dv">4</span>, <span class="at">lambda =</span> lambda_fissuras) <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">0</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Em 2 km, lambda dobra (propriedade aditiva da Poisson)</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>lambda_2km <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> lambda_fissuras</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>p3d <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="dv">5</span>, <span class="at">lambda =</span> lambda_2km)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># e) Esperança e variância (1 km)</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>E3 <span class="ot">&lt;-</span> lambda_fissuras</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>Var3 <span class="ot">&lt;-</span> lambda_fissuras</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(0 fissuras, 1 km)"</span>, <span class="st">"P(≥ 3 fissuras, 1 km)"</span>, <span class="st">"P(1 a 4 fissuras, 1 km)"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>               <span class="st">"P(5 fissuras, 2 km)"</span>, <span class="st">"E[X] = Var(X), 1 km"</span>),</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p3a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3b, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3c, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3d, <span class="fl">0.01</span>), <span class="fu">round</span>(E3, <span class="dv">2</span>))</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Grandeza  Valor
+1     P(0 fissuras, 1 km)  8.21%
+2   P(≥ 3 fissuras, 1 km) 45.62%
+3 P(1 a 4 fissuras, 1 km) 80.91%
+4     P(5 fissuras, 2 km) 17.55%
+5     E[X] = Var(X), 1 km    2.5</code></pre>
+</div>
+</div>
+<p>A probabilidade de um quilômetro de túnel não apresentar nenhuma fissura é de 8.21%, enquanto a probabilidade de um trecho “crítico”, com 3 ou mais fissuras por quilômetro, é de 45.62% — relevante para priorizar quais trechos devem receber inspeção estrutural mais detalhada. A faixa mais provável, de 1 a 4 fissuras por quilômetro, concentra 80.91% de probabilidade, caracterizando o comportamento “típico” esperado ao longo da obra. Um ponto notável é o item (d): ao dobrar a extensão analisada para 2 km, o parâmetro <span class="math inline">\(\lambda\)</span> também dobra (propriedade aditiva da distribuição de Poisson), de modo que a probabilidade de observar exatamente 5 fissuras nesse trecho mais longo passa a ser 17.55% — um lembrete importante de que a taxa de ocorrência de um fenômeno de Poisson deve sempre ser reescalada corretamente em função do comprimento (ou área, ou tempo) considerado, sob pena de subestimar o risco em trechos mais extensos. Por fim, o fato de a esperança e a variância coincidirem (2.5) é uma propriedade característica da distribuição de Poisson, que pode inclusive ser usada como um teste informal de adequação do modelo aos dados reais de campo.</p>
+</section>
+<section id="confiabilidade-de-equipamentos-tempo-até-a-falha-da-betoneira" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="confiabilidade-de-equipamentos-tempo-até-a-falha-da-betoneira"><span class="header-section-number">5.4</span> Confiabilidade de Equipamentos: Tempo até a Falha da Betoneira</h3>
+<p>O tempo até a falha de uma betoneira, em horas, segue uma distribuição Exponencial com tempo médio de 200 horas, o que corresponde a uma taxa de falha <span class="math inline">\(\beta = 1/200\)</span> falhas por hora.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>media_betoneira <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>taxa_betoneira <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> media_betoneira</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &gt; 250)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>p4a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pexp</span>(<span class="dv">250</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &lt; 100)</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>p4b <span class="ot">&lt;-</span> <span class="fu">pexp</span>(<span class="dv">100</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Tempo mediano até a falha</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>p4c <span class="ot">&lt;-</span> <span class="fu">qexp</span>(<span class="fl">0.5</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Falta de memória: P(X &gt; 150+100 | X &gt; 150) = P(X &gt; 100)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>p4d <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pexp</span>(<span class="dv">100</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &gt; 250 h)"</span>, <span class="st">"P(X &lt; 100 h)"</span>, <span class="st">"Mediana"</span>, <span class="st">"P(mais 100h | já operou 150h)"</span>),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p4a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p4b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p4c, <span class="dv">1</span>), <span class="st">" h"</span>), <span class="fu">percent</span>(p4d, <span class="fl">0.01</span>))</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Grandeza   Valor
+1                  P(X &gt; 250 h)  28.65%
+2                  P(X &lt; 100 h)  39.35%
+3                       Mediana 138.6 h
+4 P(mais 100h | já operou 150h)  60.65%</code></pre>
+</div>
+</div>
+<p>A probabilidade de a betoneira ultrapassar 250 horas de operação sem falhar é de 28.65%, enquanto a probabilidade de uma falha precoce, antes de 100 horas, é de 39.35% — informação direta para o dimensionamento de manutenção preventiva. O tempo mediano até a falha, de 138.6 horas, é menor que a média de 200 horas, como é característico de distribuições assimétricas à direita como a Exponencial. O item (d) explora a propriedade da <strong>falta de memória</strong>: a probabilidade de a betoneira durar pelo menos mais 100 horas, dado que já operou 150 horas sem falhar, é de 60.65% — exatamente igual à probabilidade de uma betoneira <strong>nova</strong> durar mais de 100 horas. Do ponto de vista prático, essa propriedade significa que o histórico de uso de um equipamento (desde que não haja desgaste acumulado, hipótese da Exponencial) não reduz nem aumenta seu risco de falha iminente, o que tem implicações diretas para a política de manutenção: sob esse modelo, não há ganho em substituir preventivamente um equipamento apenas por ele já ter operado por muito tempo, situação que mudaria caso o tempo até a falha seguisse uma distribuição com taxa de falha crescente, como a Weibull discutida a seguir.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x_betoneira <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_betoneira, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"navajowhite"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Tempo até a Falha da Betoneira: Simulado x Teórico"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Tempo até a falha (horas)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> taxa_betoneira), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/exponencial-simulacao-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Histograma de 1.000 tempos de falha simulados e curva de densidade teórica Exponencial(β = 1/200).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A forma fortemente assimétrica à direita do histograma simulado, com a maior concentração de observações em tempos curtos e uma cauda longa em direção a tempos de falha elevados, é a assinatura visual característica da distribuição Exponencial, confirmando a adequação do modelo adotado.</p>
+</section>
+<section id="capacidade-de-suporte-do-solo-variabilidade-geotécnica-da-fundação" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="capacidade-de-suporte-do-solo-variabilidade-geotécnica-da-fundação"><span class="header-section-number">5.5</span> Capacidade de Suporte do Solo: Variabilidade Geotécnica da Fundação</h3>
+<p>A capacidade de suporte do solo de fundação, em kPa, é modelada por uma distribuição Weibull com parâmetro de forma <span class="math inline">\(k=2\)</span> e parâmetro de escala <span class="math inline">\(\lambda = 150\)</span> kPa.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>forma_solo <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>escala_solo <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 100)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>p5a <span class="ot">&lt;-</span> <span class="fu">pweibull</span>(<span class="dv">100</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(120 &lt; X &lt; 200)</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>p5b <span class="ot">&lt;-</span> <span class="fu">pweibull</span>(<span class="dv">200</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo) <span class="sc">-</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pweibull</span>(<span class="dv">120</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 90</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>p5c <span class="ot">&lt;-</span> <span class="fu">qweibull</span>(<span class="fl">0.90</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Média e desvio padrão (via função gama)</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>media_solo <span class="ot">&lt;-</span> escala_solo <span class="sc">*</span> <span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>forma_solo)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>var_solo <span class="ot">&lt;-</span> escala_solo<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (<span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">/</span>forma_solo) <span class="sc">-</span> <span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>forma_solo)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>dp_solo <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_solo)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 100 kPa)"</span>, <span class="st">"P(120 &lt; X &lt; 200 kPa)"</span>, <span class="st">"Percentil 90%"</span>, <span class="st">"Média"</span>, <span class="st">"Desvio padrão"</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p5a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p5b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p5c, <span class="dv">1</span>), <span class="st">" kPa"</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>            <span class="fu">paste0</span>(<span class="fu">round</span>(media_solo, <span class="dv">1</span>), <span class="st">" kPa"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(dp_solo, <span class="dv">1</span>), <span class="st">" kPa"</span>))</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Grandeza     Valor
+1       P(X &lt; 100 kPa)    35.88%
+2 P(120 &lt; X &lt; 200 kPa)    35.83%
+3        Percentil 90% 227.6 kPa
+4                Média 132.9 kPa
+5        Desvio padrão  69.5 kPa</code></pre>
+</div>
+</div>
+<p>A probabilidade de um ponto de sondagem apresentar capacidade de suporte inferior a 100 kPa é de 35.88% — um valor que, dependendo da carga de projeto da fundação, pode indicar a necessidade de reforço ou de fundação profunda localizada. A faixa intermediária de 120 a 200 kPa concentra 35.83% de probabilidade, intervalo que provavelmente orientou a escolha da capacidade de suporte admissível adotada em projeto. O percentil 90% (227.6 kPa) é particularmente útil para fins de projeto conservador: apenas 10% dos pontos do terreno devem apresentar capacidade de suporte acima desse valor, de modo que ele representa um limite superior pouco otimista para dimensionamento. A média de 132.9 kPa e o desvio padrão de 69.5 kPa — obtidos pela função gama, e não por uma fórmula fechada simples como na Normal — evidenciam por que a Weibull, apesar de mais trabalhosa analiticamente, é preferida a modelos mais simples quando se deseja capturar o comportamento assimétrico e heterogêneo típico da capacidade de suporte de solos naturais.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">300</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>hazard <span class="ot">&lt;-</span> (forma_solo <span class="sc">/</span> escala_solo) <span class="sc">*</span> (x_seq <span class="sc">/</span> escala_solo)<span class="sc">^</span>(forma_solo <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x_seq, hazard, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de Risco (Hazard) da Capacidade de Suporte do Solo"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Capacidade de suporte (kPa)"</span>, <span class="at">ylab =</span> <span class="st">"Taxa de risco instantânea"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/weibull-risco-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Função de risco (hazard) da capacidade de suporte do solo, Weibull(k = 2, λ = 150).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Como o parâmetro de forma é <span class="math inline">\(k=2&gt;1\)</span>, a função de risco é <strong>crescente</strong> com a capacidade de suporte analisada: fisicamente, isso não deve ser lido como “quanto maior a capacidade de suporte, maior o risco de falha”, mas sim como uma propriedade matemática da cauda da distribuição Weibull usada aqui para representar a variabilidade espacial do solo — a leitura de engenharia mais relevante é que, por se tratar de uma Weibull com <span class="math inline">\(k&gt;1\)</span>, a distribuição se concentra de forma mais previsível em torno de sua média do que uma Exponencial equivalente (<span class="math inline">\(k=1\)</span>), o que é compatível com um solo heterogêneo, mas não caótico, cuja caracterização geotécnica por sondagens pontuais é, ainda assim, representativa do maciço como um todo.</p>
+</section>
+<section id="precipitação-diária-na-estação-chuvosa-planejamento-hidrológico" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="precipitação-diária-na-estação-chuvosa-planejamento-hidrológico"><span class="header-section-number">5.6</span> Precipitação Diária na Estação Chuvosa: Planejamento Hidrológico</h3>
+<p>A precipitação diária, em mm, durante a estação chuvosa é modelada por uma distribuição Gama com parâmetro de forma <span class="math inline">\(\alpha = 3\)</span> e taxa <span class="math inline">\(\beta = 0{,}5\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>forma_chuva <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>taxa_chuva <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &gt; 10)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>p6a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pgamma</span>(<span class="dv">10</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(5 &lt; X &lt; 15)</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>p6b <span class="ot">&lt;-</span> <span class="fu">pgamma</span>(<span class="dv">15</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva) <span class="sc">-</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pgamma</span>(<span class="dv">5</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 95 (evento extremo)</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>p6c <span class="ot">&lt;-</span> <span class="fu">qgamma</span>(<span class="fl">0.95</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Esperança e variância</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>E6 <span class="ot">&lt;-</span> forma_chuva <span class="sc">/</span> taxa_chuva</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>Var6 <span class="ot">&lt;-</span> forma_chuva <span class="sc">/</span> taxa_chuva<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(chuva &gt; 10 mm)"</span>, <span class="st">"P(5 &lt; chuva &lt; 15 mm)"</span>, <span class="st">"Percentil 95% (evento extremo)"</span>, <span class="st">"E[X]"</span>, <span class="st">"Var(X)"</span>),</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p6a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p6b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p6c, <span class="dv">1</span>), <span class="st">" mm"</span>), <span class="fu">round</span>(E6, <span class="dv">2</span>), <span class="fu">round</span>(Var6, <span class="dv">2</span>))</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                        Grandeza   Valor
+1               P(chuva &gt; 10 mm)  12.47%
+2           P(5 &lt; chuva &lt; 15 mm)  52.36%
+3 Percentil 95% (evento extremo) 12.6 mm
+4                           E[X]       6
+5                         Var(X)      12</code></pre>
+</div>
+</div>
+<p>Em 12.47% dos dias de estação chuvosa espera-se precipitação superior a 10 mm, e a faixa intermediária de 5 a 15 mm concentra 52.36% de probabilidade — ambos valores relevantes para o dimensionamento do sistema de drenagem provisória do canteiro de obras. O percentil 95%, de 12.6 mm, representa o patamar de evento extremo: projetos de drenagem e de desvio do rio durante a construção da PCH costumam ser dimensionados com base nesse tipo de quantil elevado, e não na precipitação média, justamente para absorver os eventos raros, porém intensos, que a cauda direita da distribuição Gama captura adequadamente. A esperança de 6 mm e a variância de 12 resumem o comportamento central e a dispersão da série, mas é o percentil extremo — e não esses dois momentos — que efetivamente orienta decisões de segurança hidrológica.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x_chuva <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">365</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chuva, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Precipitação Diária Simulada (1 ano de estação chuvosa)"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Precipitação (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/gama-simulacao-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Histograma de 365 dias de precipitação diária simulada, Gama(α = 3, β = 0,5).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A simulação de um ano hidrológico completo (365 dias) reproduz o perfil assimétrico esperado, com a maioria dos dias concentrando chuvas leves a moderadas e uma cauda à direita representando os eventos de precipitação mais intensa — exatamente o padrão que a escolha da distribuição Gama pretendia capturar.</p>
+</section>
+<section id="análise-integrada-validação-por-simulação-de-monte-carlo" class="level3" data-number="5.7">
+<h3 data-number="5.7" class="anchored" data-anchor-id="análise-integrada-validação-por-simulação-de-monte-carlo"><span class="header-section-number">5.7</span> Análise Integrada: Validação por Simulação de Monte Carlo</h3>
+<p>Para encerrar a análise, retoma-se o cenário da resistência do concreto (Parte 1) e compara-se, com 10.000 simulações, a proporção empírica de valores abaixo de 30 MPa com a probabilidade teórica calculada anteriormente.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>x_mc <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>prop_simulada <span class="ot">&lt;-</span> <span class="fu">mean</span>(x_mc <span class="sc">&lt;</span> <span class="dv">30</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>prop_teorica <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"Proporção simulada (n = 10.000)"</span>, <span class="st">"Probabilidade teórica (Parte 1a)"</span>),</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(prop_simulada, <span class="fl">0.01</span>), <span class="fu">percent</span>(prop_teorica, <span class="fl">0.01</span>))</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          Grandeza  Valor
+1  Proporção simulada (n = 10.000) 10.60%
+2 Probabilidade teórica (Parte 1a) 10.56%</code></pre>
+</div>
+</div>
+<p>Com 10.000 repetições, a proporção simulada de valores abaixo de 30 MPa — 10.60% — converge para muito próximo do valor teórico de 10.56% obtido pela função <code>pnorm()</code>, ilustrando na prática a Lei dos Grandes Números: à medida que o número de simulações cresce, a frequência relativa observada se aproxima da probabilidade teórica do modelo. Esse tipo de validação cruzada é especialmente valioso em engenharia quando o modelo teórico é mais complexo (como a Weibull ou a Gama utilizadas neste relatório) e uma simulação de Monte Carlo serve como verificação independente de que os cálculos analíticos — e as suposições sobre os parâmetros do modelo — estão corretos, antes de serem usados para apoiar decisões de projeto com implicações de segurança e custo.</p>
 </section>
 </section>
 <section id="considerações-finais" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações finais</h2>
-<p>Apresente uma síntese dos principais pontos observados no experimento.</p>
-<ul>
-<li>Retome o objetivo da prática e indique se ele foi alcançado.</li>
-<li>Destaque os principais aprendizados obtidos.</li>
-<li>Comente brevemente sobre a qualidade dos dados coletados.</li>
-<li>Sugira possíveis melhorias no procedimento experimental.</li>
-</ul>
-<p>Evite repetir apenas os resultados; foque nas <strong>conclusões e reflexões</strong> sobre a prática realizada.</p>
+<h2 data-number="6" class="anchored" data-anchor-id="considerações-finais"><span class="header-section-number">6</span> 🧠 Considerações Finais</h2>
+<p>Os seis fenômenos analisados neste relatório mostram que não existe uma distribuição de probabilidade “universal” para a engenharia civil: cada característica do fenômeno — se é contínua ou discreta, se tem um número fixo de tentativas ou uma taxa de ocorrência, se o risco de falha cresce ou se mantém constante com o tempo, se a cauda é mais ou menos pesada — aponta para uma família de distribuições diferente. A resistência do concreto, resultado da soma de muitas pequenas fontes de variação, ajustou-se bem ao modelo Normal; a contagem de estacas defeituosas em um número fixo de peças, ao modelo Binomial; as fissuras distribuídas ao longo da extensão do túnel, ao modelo de Poisson; o tempo até a falha de um equipamento sem desgaste acumulado, à Exponencial e sua propriedade de falta de memória; a capacidade de suporte do solo e a precipitação diária, por apresentarem assimetria e necessidade de capturar valores extremos, às distribuições Weibull e Gama, respectivamente.</p>
+<p>Em todos os casos, a simulação de Monte Carlo confirmou a adequação dos cálculos analíticos, reforçando que o par “teoria + simulação” é mais robusto do que qualquer um dos dois isoladamente: a teoria fornece precisão e interpretação fechada (como a propriedade da falta de memória da Exponencial, ou a igualdade entre média e variância da Poisson), enquanto a simulação oferece uma verificação independente, intuitiva e facilmente comunicável a um público não especialista. Do ponto de vista da gestão do projeto da PCH, a modelagem probabilística apresentada permite migrar de decisões baseadas em valores pontuais (uma única amostra de concreto, uma única sondagem de solo) para decisões baseadas em risco quantificado — seja ele a probabilidade de rejeição de um lote de estacas, o percentil de projeto da capacidade de suporte do solo, ou o quantil de precipitação extrema que dimensiona a drenagem da obra —, o que é, em última análise, o objetivo central de se aplicar estatística e probabilidade à engenharia civil.</p>
 </section>
-<section id="aprenda-quarto" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="aprenda-quarto"><span class="header-section-number">7</span> Aprenda Quarto</h2>
-<p>Acesse <a href="https://quarto.org/">Quarto</a>.</p>
-</section>
-<section id="referências" class="level2" data-number="8">
+<section id="referências" class="level2" data-number="7">
 
 <!-- -->
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">8 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 📖 Referências</h2><div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-bussab2017estatistica" class="csl-entry" role="listitem">
 BUSSAB, W. DE O.; MORETTIN, P. A. <strong>Estat<span>ı́</span>stica B<span>á</span>sica</strong>. 9. ed. S<span>ã</span>o Paulo: Saraiva, 2017.
 </div>
@@ -851,194 +1143,403 @@ R CORE TEAM. <strong><a href="https://www.R-project.org/">R: A Language and Envi
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Código fonte</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil"</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="in">/* O Quarto aplica automaticamente a classe .quarto-appendix-heading ao título</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="in">   da seção de Referências geradas via citeproc, forçando font-size: 1em</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">   (tamanho de texto normal) — o que faz esse título ficar visivelmente menor</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="in">   que os demais títulos de seção (##). Este bloco restaura o mesmo estilo</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="in">   dos demais títulos h2 do relatório. */</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="in">.quarto-appendix-heading {</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">  font-size: 1.65rem !important;</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">  font-weight: 600 !important;</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="in">  opacity: 1 !important;</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="in">  border-bottom: 1px solid rgb(221.7, 222.3, 222.9) !important;</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="in">  padding-bottom: .5rem !important;</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-top: 2rem !important;</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-bottom: 1rem !important;</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="in">  line-height: 1.2 !important;</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>A construção de uma Pequena Central Hidrelétrica (PCH) reúne, desde a fase de projeto até a operação, uma série de fenômenos que só podem ser descritos de forma adequada por meio de variáveis aleatórias: a resistência do concreto varia de peça para peça, estacas pré-moldadas apresentam defeitos de fabricação em proporção incerta, fissuras surgem ao longo da extensão de um túnel de forma aparentemente imprevisível, equipamentos falham após um tempo de operação que não é possível prever com exatidão, o solo de fundação não tem capacidade de suporte uniforme, e a precipitação pluviométrica varia dia após dia. Em todos esses casos, a engenharia não dispõe de um valor único e determinístico para tomar decisões — dispõe, sim, de uma distribuição de probabilidades que descreve o comportamento esperado do fenômeno e permite quantificar riscos.</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>Neste relatório, assume-se o papel da equipe de engenharia e estatística responsável por apoiar tecnicamente o projeto de uma PCH, modelando seis fenômenos distintos por meio de distribuições especiais de probabilidade — Normal, Binomial, Poisson, Exponencial, Weibull e Gama — e validando os resultados teóricos por meio de simulação de Monte Carlo na linguagem R. O objetivo não é apenas calcular probabilidades, médias e quantis, mas interpretar cada resultado à luz das decisões técnicas, de qualidade, de segurança e de planejamento que uma obra desse porte exige.</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>Aplicar os conceitos teóricos das distribuições de variáveis aleatórias discretas e contínuas à resolução de problemas reais de engenharia civil, utilizando a linguagem R como ferramenta de cálculo, simulação e visualização.</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar a distribuição de probabilidade adequada para cada fenômeno estudado no contexto da construção de uma PCH;</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular probabilidades, valores esperados, variâncias e quantis teóricos a partir dos parâmetros de cada distribuição;</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar as funções do R associadas a cada família de distribuições (<span class="in">`dnorm`</span>, <span class="in">`pnorm`</span>, <span class="in">`qnorm`</span>, <span class="in">`rnorm`</span>, <span class="in">`dbinom`</span>, <span class="in">`pbinom`</span>, <span class="in">`rbinom`</span>, <span class="in">`dpois`</span>, <span class="in">`ppois`</span>, <span class="in">`rpois`</span>, <span class="in">`dexp`</span>, <span class="in">`pexp`</span>, <span class="in">`qexp`</span>, <span class="in">`rexp`</span>, <span class="in">`dweibull`</span>, <span class="in">`pweibull`</span>, <span class="in">`qweibull`</span>, <span class="in">`dgamma`</span>, <span class="in">`pgamma`</span>, <span class="in">`qgamma`</span>, <span class="in">`rgamma`</span>);</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realizar simulações de Monte Carlo para validar, por meio de frequências empíricas, os resultados obtidos analiticamente;</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar os resultados estatísticos no contexto de decisões técnicas de controle de qualidade, confiabilidade, segurança geotécnica e planejamento hidrológico.</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Fundamentação Teórica</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Contínuas: a Distribuição Normal</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>A distribuição Normal, com parâmetros média $\mu$ e desvio padrão $\sigma$, é o modelo probabilístico mais utilizado para descrever grandezas contínuas sujeitas a múltiplas fontes de variação independentes — como é o caso da resistência à compressão do concreto, resultado da interação entre traço, cura, compactação e condições de ensaio <span class="co">[</span><span class="ot">@bussab2017estatistica</span><span class="co">]</span>. Sua função de densidade é</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{(x-\mu)^2}{2\sigma^2}}.</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>Quando se trabalha com a média de $n$ amostras dessa população, o Teorema Central do Limite garante que $\bar{X} \sim N<span class="sc">\!</span>\left(\mu, \ \sigma/\sqrt{n}\right)$, propriedade que permite avaliar o risco de um lote inteiro — e não apenas de uma amostra isolada — apresentar desempenho abaixo do especificado.</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Discretas: Binomial e Poisson</span></span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>A distribuição Binomial modela o número de "sucessos" (neste relatório, itens defeituosos) em um número fixo $n$ de ensaios independentes, cada um com probabilidade $p$ de sucesso:</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np, \quad \text{Var}(X)=np(1-p).</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>Já a distribuição de Poisson descreve a contagem de ocorrências raras e independentes ao longo de um intervalo contínuo (tempo, comprimento, área) com taxa média $\lambda$ constante — como o número de fissuras por quilômetro de um túnel <span class="co">[</span><span class="ot">@montgomery2021estatistica</span><span class="co">]</span>:</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=\text{Var}(X)=\lambda.</span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confiabilidade: Exponencial e Weibull</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>A distribuição Exponencial, com taxa $\beta = 1/\text{média}$, é o modelo clássico de tempo até a falha de componentes que não acumulam desgaste — sua propriedade mais notável é a **falta de memória**: $P(X&gt;s+t \mid X&gt;s)=P(X&gt;t)$, ou seja, um equipamento que já funcionou por um tempo $s$ tem, a partir daquele instante, a mesma probabilidade de sobreviver mais $t$ horas que um equipamento novo. A distribuição Weibull generaliza esse modelo por meio de um parâmetro de forma $k$ e um parâmetro de escala $\lambda$, permitindo representar tanto taxas de falha crescentes ($k&gt;1$, desgaste) quanto decrescentes ($k&lt;1$), o que a torna adequada também para descrever grandezas geotécnicas como a capacidade de suporte do solo:</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}, \quad x \geq 0.</span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fenômenos Ambientais: a Distribuição Gama</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>A distribuição Gama, com parâmetros de forma $\alpha$ e taxa $\beta$, é amplamente utilizada para modelar grandezas contínuas positivas e assimétricas à direita, como volumes de precipitação diária — fenômeno em que a maioria dos dias apresenta chuva fraca ou moderada, mas eventos extremos de alta magnitude, embora raros, precisam ser corretamente dimensionados em projetos hidráulicos.</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Simulação de Monte Carlo</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>A simulação de Monte Carlo consiste em gerar um grande número de observações pseudoaleatórias a partir do modelo probabilístico assumido e comparar as frequências empíricas resultantes com as probabilidades teóricas. Quando as duas convergem, reforça-se a confiança tanto no modelo adotado quanto na correção dos cálculos analíticos <span class="co">[</span><span class="ot">@rcoreteam2024</span><span class="co">]</span>.</span>
-<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
-<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>Todas as análises deste relatório foram realizadas em ambiente R (versão 4.4+), via RStudio e Quarto (<span class="in">`.qmd`</span>). Para cada um dos seis fenômenos estudados, o fluxo de trabalho seguiu três etapas: (i) identificação da distribuição de probabilidade adequada e de seus parâmetros, a partir da descrição do fenômeno; (ii) cálculo analítico de probabilidades, valores esperados, variâncias e quantis, utilizando as famílias de funções <span class="in">`d-`</span>, <span class="in">`p-`</span> e <span class="in">`q-`</span> do R (densidade/massa, função de distribuição acumulada e quantil, respectivamente); e (iii) simulação de Monte Carlo, utilizando as funções <span class="in">`r-`</span> de geração pseudoaleatória, sempre fixando a semente com <span class="in">`set.seed(123)`</span> para garantir a reprodutibilidade dos resultados. As frequências relativas simuladas foram comparadas aos valores teóricos para validar os modelos adotados, e todos os resultados numéricos apresentados no texto foram obtidos diretamente dos objetos calculados nos blocos de código R, e não digitados manualmente, de modo a garantir consistência entre texto e cálculo.</span>
-<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
-<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</span></span>
-<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto ($X$) é modelada como $X \sim N(35, 4)$ MPa — média de 35 MPa, compatível com um concreto estrutural usual, e desvio padrão de 4 MPa, refletindo a variabilidade natural de traço, cura e execução em obra.</span>
-<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-concreto}</span></span>
-<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>mu_concreto <span class="ot">&lt;-</span> <span class="dv">35</span></span>
-<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>sd_concreto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 30)</span></span>
-<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>p1a <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
-<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(32 &lt; X &lt; 38)</span></span>
-<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>p1b <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">38</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto) <span class="sc">-</span></span>
-<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="dv">32</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
-<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 5 (valor abaixo do qual ficam apenas 5% das amostras)</span></span>
-<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>p1c <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
-<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Distribuição da média de 10 amostras: X_barra ~ N(mu, sd/sqrt(n))</span></span>
-<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>n_amostras <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>erro_padrao <span class="ot">&lt;-</span> sd_concreto <span class="sc">/</span> <span class="fu">sqrt</span>(n_amostras)</span>
-<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>p1d <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">33</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> erro_padrao)</span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 30 MPa)"</span>, <span class="st">"P(32 &lt; X &lt; 38 MPa)"</span>, <span class="st">"Percentil 5%"</span>, <span class="st">"P(média de 10 &lt; 33 MPa)"</span>),</span>
-<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p1a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p1b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p1c, <span class="dv">2</span>), <span class="st">" MPa"</span>), <span class="fu">percent</span>(p1d, <span class="fl">0.01</span>))</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>A probabilidade de uma amostra isolada apresentar resistência inferior a 30 MPa é de <span class="in">`r percent(p1a, 0.01)`</span>, um valor que, embora não seja desprezível, está longe de indicar um problema sistemático — é exatamente o tipo de ocorrência esperada em uma distribuição com desvio padrão de 4 MPa. Já a probabilidade de a resistência estar na faixa intermediária de 32 a 38 MPa, de <span class="in">`r percent(p1b, 0.01)`</span>, mostra que a maior parte da produção se concentra próxima da média especificada, como seria desejável em um processo de controle de qualidade sob controle estatístico. O percentil de 5% (<span class="in">`r round(p1c,2)`</span> MPa) fornece um limite inferior de referência prático: valores de resistência abaixo dele devem ser tratados como exceção e investigados, não como variação normal do processo.</span>
-<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>O resultado mais relevante do ponto de vista gerencial, no entanto, é o item (d): ao considerar a **média de um lote de 10 amostras**, em vez de uma amostra isolada, a probabilidade de essa média ficar abaixo de 33 MPa cai para apenas <span class="in">`r percent(p1d, 0.01)`</span> — bem inferior à probabilidade de uma única amostra ficar abaixo do mesmo valor. Essa diferença ilustra, na prática, por que critérios de aceitação de concreto costumam se basear na média de várias amostras e não em um único corpo de prova: a variabilidade da média de um lote é sempre menor do que a variabilidade de uma observação individual, reduzindo o risco de rejeitar (ou aceitar) um lote com base em um resultado atípico isolado.</span>
-<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-simulacao}</span></span>
-<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograma de 1.000 valores simulados de resistência à compressão e curva de densidade teórica N(35, 4)."</span></span>
-<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>x_concreto <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
-<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_concreto, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightsteelblue"</span>,</span>
-<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Resistência à Compressão do Concreto: Simulado x Teórico"</span>,</span>
-<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Resistência (MPa)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
-<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.</span>
-<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### 📊  Análise de Dados</span></span>
-<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>distancia <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.2</span>, <span class="fl">9.8</span>, <span class="fl">10.5</span>, <span class="fl">10.1</span>, <span class="fl">9.9</span>, <span class="fl">10.3</span>)</span>
-<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>distancia</span>
-<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações finais</span></span>
-<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>Apresente uma síntese dos principais pontos observados no experimento.</span>
-<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retome o objetivo da prática e indique se ele foi alcançado.</span>
-<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Destaque os principais aprendizados obtidos.</span>
-<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comente brevemente sobre a qualidade dos dados coletados.</span>
-<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Sugira possíveis melhorias no procedimento experimental.</span>
-<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>Evite repetir apenas os resultados; foque nas **conclusões e reflexões** sobre a prática realizada.</span>
-<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a><span class="fu">## Aprenda Quarto</span></span>
-<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>Acesse <span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org/)</span>.</span>
-<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span>
-</code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Só mude aqui!!!!</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Otávio Augusto dos Reis Neiva e Gregório Grazziotti de Carvalho"</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Relatório de Aula Prática 05 - Distribuições Especiais de Probabilidade Aplicadas à Engenharia Civil"</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> referencias.bib</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir daqui nao faca alteracoes!!!!!</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="an">link-citations:</span><span class="co"> true</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> associacao-brasileira-de-normas-tecnicas-ipea.csl</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "&lt;a href='https://bendeivide.github.io/courses/epaec/' target='_blank'&gt;Estatística e Probabilidade&lt;/a&gt; &lt;/br&gt; &lt;a href='https://bendeivide.github.io' target='_blank'&gt;Prof. Ben Dêivide (DEFIM/CAP/UFSJ)&lt;/a&gt;"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="an">include-before-body:</span><span class="co"> header.html</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> now</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> pt-BR</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: bootstrap</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co">    #css: styles.css</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co">  echo: true</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co">  warning: false</span></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="co">  message: false</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="in">```{r setup, include=FALSE}</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;style&gt;</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="in">/* O Quarto aplica automaticamente a classe .quarto-appendix-heading ao título</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a><span class="in">   da seção de Referências geradas via citeproc, forçando font-size: 1em</span></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="in">   (tamanho de texto normal) — o que faz esse título ficar visivelmente menor</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a><span class="in">   que os demais títulos de seção (##). Este bloco restaura o mesmo estilo</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a><span class="in">   dos demais títulos h2 do relatório. */</span></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="in">.quarto-appendix-heading {</span></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="in">  font-size: 1.65rem !important;</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a><span class="in">  font-weight: 600 !important;</span></span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a><span class="in">  opacity: 1 !important;</span></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a><span class="in">  border-bottom: 1px solid rgb(221.7, 222.3, 222.9) !important;</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a><span class="in">  padding-bottom: .5rem !important;</span></span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-top: 2rem !important;</span></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a><span class="in">  margin-bottom: 1rem !important;</span></span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a><span class="in">  line-height: 1.2 !important;</span></span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a><span class="in">}</span></span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;/style&gt;</span></span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📌 Introdução</span></span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>A construção de uma Pequena Central Hidrelétrica (PCH) reúne, desde a fase de projeto até a operação, uma série de fenômenos que só podem ser descritos de forma adequada por meio de variáveis aleatórias: a resistência do concreto varia de peça para peça, estacas pré-moldadas apresentam defeitos de fabricação em proporção incerta, fissuras surgem ao longo da extensão de um túnel de forma aparentemente imprevisível, equipamentos falham após um tempo de operação que não é possível prever com exatidão, o solo de fundação não tem capacidade de suporte uniforme, e a precipitação pluviométrica varia dia após dia. Em todos esses casos, a engenharia não dispõe de um valor único e determinístico para tomar decisões — dispõe, sim, de uma distribuição de probabilidades que descreve o comportamento esperado do fenômeno e permite quantificar riscos.</span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>Neste relatório, assume-se o papel da equipe de engenharia e estatística responsável por apoiar tecnicamente o projeto de uma PCH, modelando seis fenômenos distintos por meio de distribuições especiais de probabilidade — Normal, Binomial, Poisson, Exponencial, Weibull e Gama — e validando os resultados teóricos por meio de simulação de Monte Carlo na linguagem R. O objetivo não é apenas calcular probabilidades, médias e quantis, mas interpretar cada resultado à luz das decisões técnicas, de qualidade, de segurança e de planejamento que uma obra desse porte exige.</span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🎯 Objetivos</span></span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivo geral</span></span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>Aplicar os conceitos teóricos das distribuições de variáveis aleatórias discretas e contínuas à resolução de problemas reais de engenharia civil, utilizando a linguagem R como ferramenta de cálculo, simulação e visualização.</span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Objetivos específicos</span></span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Identificar a distribuição de probabilidade adequada para cada fenômeno estudado no contexto da construção de uma PCH;</span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Calcular probabilidades, valores esperados, variâncias e quantis teóricos a partir dos parâmetros de cada distribuição;</span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Utilizar as funções do R associadas a cada família de distribuições (<span class="in">`dnorm`</span>, <span class="in">`pnorm`</span>, <span class="in">`qnorm`</span>, <span class="in">`rnorm`</span>, <span class="in">`dbinom`</span>, <span class="in">`pbinom`</span>, <span class="in">`rbinom`</span>, <span class="in">`dpois`</span>, <span class="in">`ppois`</span>, <span class="in">`rpois`</span>, <span class="in">`dexp`</span>, <span class="in">`pexp`</span>, <span class="in">`qexp`</span>, <span class="in">`rexp`</span>, <span class="in">`dweibull`</span>, <span class="in">`pweibull`</span>, <span class="in">`qweibull`</span>, <span class="in">`dgamma`</span>, <span class="in">`pgamma`</span>, <span class="in">`qgamma`</span>, <span class="in">`rgamma`</span>);</span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Realizar simulações de Monte Carlo para validar, por meio de frequências empíricas, os resultados obtidos analiticamente;</span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Interpretar os resultados estatísticos no contexto de decisões técnicas de controle de qualidade, confiabilidade, segurança geotécnica e planejamento hidrológico.</span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📚 Fundamentação Teórica</span></span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Contínuas: a Distribuição Normal</span></span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>A distribuição Normal, com parâmetros média $\mu$ e desvio padrão $\sigma$, é o modelo probabilístico mais utilizado para descrever grandezas contínuas sujeitas a múltiplas fontes de variação independentes — como é o caso da resistência à compressão do concreto, resultado da interação entre traço, cura, compactação e condições de ensaio <span class="co">[</span><span class="ot">@bussab2017estatistica</span><span class="co">]</span>. Sua função de densidade é</span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{1}{\sigma\sqrt{2\pi}} \, e^{-\frac{(x-\mu)^2}{2\sigma^2}}.</span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>Quando se trabalha com a média de $n$ amostras dessa população, o Teorema Central do Limite garante que $\bar{X} \sim N<span class="sc">\!</span>\left(\mu, \ \sigma/\sqrt{n}\right)$, propriedade que permite avaliar o risco de um lote inteiro — e não apenas de uma amostra isolada — apresentar desempenho abaixo do especificado.</span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a><span class="fu">### Variáveis Aleatórias Discretas: Binomial e Poisson</span></span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>A distribuição Binomial modela o número de "sucessos" (neste relatório, itens defeituosos) em um número fixo $n$ de ensaios independentes, cada um com probabilidade $p$ de sucesso:</span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=np, \quad \text{Var}(X)=np(1-p).</span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>Já a distribuição de Poisson descreve a contagem de ocorrências raras e independentes ao longo de um intervalo contínuo (tempo, comprimento, área) com taxa média $\lambda$ constante — como o número de fissuras por quilômetro de um túnel <span class="co">[</span><span class="ot">@montgomery2021estatistica</span><span class="co">]</span>:</span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad E<span class="co">[</span><span class="ot">X</span><span class="co">]</span>=\text{Var}(X)=\lambda.</span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confiabilidade: Exponencial e Weibull</span></span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>A distribuição Exponencial, com taxa $\beta = 1/\text{média}$, é o modelo clássico de tempo até a falha de componentes que não acumulam desgaste — sua propriedade mais notável é a **falta de memória**: $P(X&gt;s+t \mid X&gt;s)=P(X&gt;t)$, ou seja, um equipamento que já funcionou por um tempo $s$ tem, a partir daquele instante, a mesma probabilidade de sobreviver mais $t$ horas que um equipamento novo. A distribuição Weibull generaliza esse modelo por meio de um parâmetro de forma $k$ e um parâmetro de escala $\lambda$, permitindo representar tanto taxas de falha crescentes ($k&gt;1$, desgaste) quanto decrescentes ($k&lt;1$), o que a torna adequada também para descrever grandezas geotécnicas como a capacidade de suporte do solo:</span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a>f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}, \quad x \geq 0.</span>
+<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fenômenos Ambientais: a Distribuição Gama</span></span>
+<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-107"><a href="#cb21-107" aria-hidden="true" tabindex="-1"></a>A distribuição Gama, com parâmetros de forma $\alpha$ e taxa $\beta$, é amplamente utilizada para modelar grandezas contínuas positivas e assimétricas à direita, como volumes de precipitação diária — fenômeno em que a maioria dos dias apresenta chuva fraca ou moderada, mas eventos extremos de alta magnitude, embora raros, precisam ser corretamente dimensionados em projetos hidráulicos.</span>
+<span id="cb21-108"><a href="#cb21-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-109"><a href="#cb21-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Simulação de Monte Carlo</span></span>
+<span id="cb21-110"><a href="#cb21-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-111"><a href="#cb21-111" aria-hidden="true" tabindex="-1"></a>A simulação de Monte Carlo consiste em gerar um grande número de observações pseudoaleatórias a partir do modelo probabilístico assumido e comparar as frequências empíricas resultantes com as probabilidades teóricas. Quando as duas convergem, reforça-se a confiança tanto no modelo adotado quanto na correção dos cálculos analíticos <span class="co">[</span><span class="ot">@rcoreteam2024</span><span class="co">]</span>.</span>
+<span id="cb21-112"><a href="#cb21-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-113"><a href="#cb21-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## ⚙️ Metodologia</span></span>
+<span id="cb21-114"><a href="#cb21-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-115"><a href="#cb21-115" aria-hidden="true" tabindex="-1"></a>Todas as análises deste relatório foram realizadas em ambiente R (versão 4.4+), via RStudio e Quarto (<span class="in">`.qmd`</span>). Para cada um dos seis fenômenos estudados, o fluxo de trabalho seguiu três etapas: (i) identificação da distribuição de probabilidade adequada e de seus parâmetros, a partir da descrição do fenômeno; (ii) cálculo analítico de probabilidades, valores esperados, variâncias e quantis, utilizando as famílias de funções <span class="in">`d-`</span>, <span class="in">`p-`</span> e <span class="in">`q-`</span> do R (densidade/massa, função de distribuição acumulada e quantil, respectivamente); e (iii) simulação de Monte Carlo, utilizando as funções <span class="in">`r-`</span> de geração pseudoaleatória, sempre fixando a semente com <span class="in">`set.seed(123)`</span> para garantir a reprodutibilidade dos resultados. As frequências relativas simuladas foram comparadas aos valores teóricos para validar os modelos adotados, e todos os resultados numéricos apresentados no texto foram obtidos diretamente dos objetos calculados nos blocos de código R, e não digitados manualmente, de modo a garantir consistência entre texto e cálculo.</span>
+<span id="cb21-116"><a href="#cb21-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-117"><a href="#cb21-117" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🔍 Resultados e Discussão</span></span>
+<span id="cb21-118"><a href="#cb21-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-119"><a href="#cb21-119" aria-hidden="true" tabindex="-1"></a><span class="fu">### Controle de Qualidade do Concreto: a Variabilidade da Resistência à Compressão</span></span>
+<span id="cb21-120"><a href="#cb21-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-121"><a href="#cb21-121" aria-hidden="true" tabindex="-1"></a>A resistência à compressão do concreto ($X$) é modelada como $X \sim N(35, 4)$ MPa — média de 35 MPa, compatível com um concreto estrutural usual, e desvio padrão de 4 MPa, refletindo a variabilidade natural de traço, cura e execução em obra.</span>
+<span id="cb21-122"><a href="#cb21-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-123"><a href="#cb21-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-concreto}</span></span>
+<span id="cb21-124"><a href="#cb21-124" aria-hidden="true" tabindex="-1"></a>mu_concreto <span class="ot">&lt;-</span> <span class="dv">35</span></span>
+<span id="cb21-125"><a href="#cb21-125" aria-hidden="true" tabindex="-1"></a>sd_concreto <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb21-126"><a href="#cb21-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-127"><a href="#cb21-127" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 30)</span></span>
+<span id="cb21-128"><a href="#cb21-128" aria-hidden="true" tabindex="-1"></a>p1a <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-129"><a href="#cb21-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-130"><a href="#cb21-130" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(32 &lt; X &lt; 38)</span></span>
+<span id="cb21-131"><a href="#cb21-131" aria-hidden="true" tabindex="-1"></a>p1b <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">38</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto) <span class="sc">-</span></span>
+<span id="cb21-132"><a href="#cb21-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="dv">32</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-133"><a href="#cb21-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-134"><a href="#cb21-134" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 5 (valor abaixo do qual ficam apenas 5% das amostras)</span></span>
+<span id="cb21-135"><a href="#cb21-135" aria-hidden="true" tabindex="-1"></a>p1c <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-136"><a href="#cb21-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-137"><a href="#cb21-137" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Distribuição da média de 10 amostras: X_barra ~ N(mu, sd/sqrt(n))</span></span>
+<span id="cb21-138"><a href="#cb21-138" aria-hidden="true" tabindex="-1"></a>n_amostras <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb21-139"><a href="#cb21-139" aria-hidden="true" tabindex="-1"></a>erro_padrao <span class="ot">&lt;-</span> sd_concreto <span class="sc">/</span> <span class="fu">sqrt</span>(n_amostras)</span>
+<span id="cb21-140"><a href="#cb21-140" aria-hidden="true" tabindex="-1"></a>p1d <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">33</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> erro_padrao)</span>
+<span id="cb21-141"><a href="#cb21-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-142"><a href="#cb21-142" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-143"><a href="#cb21-143" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 30 MPa)"</span>, <span class="st">"P(32 &lt; X &lt; 38 MPa)"</span>, <span class="st">"Percentil 5%"</span>, <span class="st">"P(média de 10 &lt; 33 MPa)"</span>),</span>
+<span id="cb21-144"><a href="#cb21-144" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p1a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p1b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p1c, <span class="dv">2</span>), <span class="st">" MPa"</span>), <span class="fu">percent</span>(p1d, <span class="fl">0.01</span>))</span>
+<span id="cb21-145"><a href="#cb21-145" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-146"><a href="#cb21-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-147"><a href="#cb21-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-148"><a href="#cb21-148" aria-hidden="true" tabindex="-1"></a>A probabilidade de uma amostra isolada apresentar resistência inferior a 30 MPa é de <span class="in">`r percent(p1a, 0.01)`</span>, um valor que, embora não seja desprezível, está longe de indicar um problema sistemático — é exatamente o tipo de ocorrência esperada em uma distribuição com desvio padrão de 4 MPa. Já a probabilidade de a resistência estar na faixa intermediária de 32 a 38 MPa, de <span class="in">`r percent(p1b, 0.01)`</span>, mostra que a maior parte da produção se concentra próxima da média especificada, como seria desejável em um processo de controle de qualidade sob controle estatístico. O percentil de 5% (<span class="in">`r round(p1c,2)`</span> MPa) fornece um limite inferior de referência prático: valores de resistência abaixo dele devem ser tratados como exceção e investigados, não como variação normal do processo.</span>
+<span id="cb21-149"><a href="#cb21-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-150"><a href="#cb21-150" aria-hidden="true" tabindex="-1"></a>O resultado mais relevante do ponto de vista gerencial, no entanto, é o item (d): ao considerar a **média de um lote de 10 amostras**, em vez de uma amostra isolada, a probabilidade de essa média ficar abaixo de 33 MPa cai para apenas <span class="in">`r percent(p1d, 0.01)`</span> — bem inferior à probabilidade de uma única amostra ficar abaixo do mesmo valor. Essa diferença ilustra, na prática, por que critérios de aceitação de concreto costumam se basear na média de várias amostras e não em um único corpo de prova: a variabilidade da média de um lote é sempre menor do que a variabilidade de uma observação individual, reduzindo o risco de rejeitar (ou aceitar) um lote com base em um resultado atípico isolado.</span>
+<span id="cb21-151"><a href="#cb21-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-152"><a href="#cb21-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r normal-simulacao}</span></span>
+<span id="cb21-153"><a href="#cb21-153" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograma de 1.000 valores simulados de resistência à compressão e curva de densidade teórica N(35, 4)."</span></span>
+<span id="cb21-154"><a href="#cb21-154" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-155"><a href="#cb21-155" aria-hidden="true" tabindex="-1"></a>x_concreto <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-156"><a href="#cb21-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-157"><a href="#cb21-157" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_concreto, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightsteelblue"</span>,</span>
+<span id="cb21-158"><a href="#cb21-158" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Resistência à Compressão do Concreto: Simulado x Teórico"</span>,</span>
+<span id="cb21-159"><a href="#cb21-159" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Resistência (MPa)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb21-160"><a href="#cb21-160" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb21-161"><a href="#cb21-161" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-162"><a href="#cb21-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-163"><a href="#cb21-163" aria-hidden="true" tabindex="-1"></a>O histograma de 1.000 valores simulados acompanha de perto a curva de densidade teórica sobreposta, confirmando visualmente que o modelo Normal com média 35 MPa e desvio padrão 4 MPa representa adequadamente a variabilidade da resistência do concreto nessa obra.</span>
+<span id="cb21-164"><a href="#cb21-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-165"><a href="#cb21-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Qualidade de Estacas Pré-Moldadas: Controle de Defeitos de Fabricação</span></span>
+<span id="cb21-166"><a href="#cb21-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-167"><a href="#cb21-167" aria-hidden="true" tabindex="-1"></a>Em um lote de 15 estacas pré-moldadas, com histórico de 8% de peças defeituosas, o número de estacas defeituosas por lote ($X$) é modelado por uma Binomial($n=15$, $p=0{,}08$).</span>
+<span id="cb21-168"><a href="#cb21-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-169"><a href="#cb21-169" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binomial-estacas}</span></span>
+<span id="cb21-170"><a href="#cb21-170" aria-hidden="true" tabindex="-1"></a>n_estacas <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb21-171"><a href="#cb21-171" aria-hidden="true" tabindex="-1"></a>p_defeito <span class="ot">&lt;-</span> <span class="fl">0.08</span></span>
+<span id="cb21-172"><a href="#cb21-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-173"><a href="#cb21-173" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X = 0)</span></span>
+<span id="cb21-174"><a href="#cb21-174" aria-hidden="true" tabindex="-1"></a>p2a <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb21-175"><a href="#cb21-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-176"><a href="#cb21-176" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &lt;= 2)</span></span>
+<span id="cb21-177"><a href="#cb21-177" aria-hidden="true" tabindex="-1"></a>p2b <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">2</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb21-178"><a href="#cb21-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-179"><a href="#cb21-179" aria-hidden="true" tabindex="-1"></a><span class="co"># c) P(X &gt;= 4)</span></span>
+<span id="cb21-180"><a href="#cb21-180" aria-hidden="true" tabindex="-1"></a>p2c <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="dv">3</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb21-181"><a href="#cb21-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-182"><a href="#cb21-182" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Esperança e variância</span></span>
+<span id="cb21-183"><a href="#cb21-183" aria-hidden="true" tabindex="-1"></a>E2 <span class="ot">&lt;-</span> n_estacas <span class="sc">*</span> p_defeito</span>
+<span id="cb21-184"><a href="#cb21-184" aria-hidden="true" tabindex="-1"></a>Var2 <span class="ot">&lt;-</span> n_estacas <span class="sc">*</span> p_defeito <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p_defeito)</span>
+<span id="cb21-185"><a href="#cb21-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-186"><a href="#cb21-186" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-187"><a href="#cb21-187" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X = 0)"</span>, <span class="st">"P(X ≤ 2)"</span>, <span class="st">"P(X ≥ 4)"</span>, <span class="st">"E[X]"</span>, <span class="st">"Var(X)"</span>),</span>
+<span id="cb21-188"><a href="#cb21-188" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p2a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p2b, <span class="fl">0.01</span>), <span class="fu">percent</span>(p2c, <span class="fl">0.01</span>), <span class="fu">round</span>(E2, <span class="dv">2</span>), <span class="fu">round</span>(Var2, <span class="dv">3</span>))</span>
+<span id="cb21-189"><a href="#cb21-189" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-190"><a href="#cb21-190" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-191"><a href="#cb21-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-192"><a href="#cb21-192" aria-hidden="true" tabindex="-1"></a>A probabilidade de um lote de 15 estacas não apresentar nenhuma peça defeituosa é de <span class="in">`r percent(p2a, 0.01)`</span>, e a de o lote ter no máximo 2 estacas defeituosas — critério plausível de aceitação em obra — sobe para <span class="in">`r percent(p2b, 0.01)`</span>. Em contrapartida, a probabilidade de um lote "problemático", com 4 ou mais estacas defeituosas, é de apenas <span class="in">`r percent(p2c, 0.01)`</span>: eventos desse tipo são raros, mas não impossíveis, e justificam a existência de um plano de inspeção por amostragem em vez da inspeção de 100% das peças, que seria economicamente inviável. O número esperado de estacas defeituosas por lote, <span class="in">`r round(E2,2)`</span>, confirma que, em média, pouco mais de uma estaca em cada lote apresentará defeito — informação que subsidia diretamente o dimensionamento do estoque de reposição.</span>
+<span id="cb21-193"><a href="#cb21-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-194"><a href="#cb21-194" aria-hidden="true" tabindex="-1"></a><span class="in">```{r binomial-simulacao}</span></span>
+<span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a>sim_estacas <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">500</span>, <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a>freq_sim <span class="ot">&lt;-</span> <span class="fu">table</span>(sim_estacas) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a>freq_teorica <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="fu">as.numeric</span>(<span class="fu">names</span>(freq_sim)), <span class="at">size =</span> n_estacas, <span class="at">prob =</span> p_defeito)</span>
+<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a>  <span class="at">Defeituosas =</span> <span class="fu">names</span>(freq_sim),</span>
+<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Freq. simulada</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">percent</span>(<span class="fu">as.numeric</span>(freq_sim), <span class="fl">0.1</span>),</span>
+<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Prob. teórica</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">percent</span>(freq_teorica, <span class="fl">0.1</span>),</span>
+<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a>  <span class="at">check.names =</span> <span class="cn">FALSE</span></span>
+<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a>A simulação de 500 lotes reproduz de forma muito próxima as probabilidades teóricas calculadas analiticamente, especialmente nas classes de maior frequência (0, 1 e 2 estacas defeituosas) — o que era esperado, já que são justamente as classes com maior número de observações simuladas e, portanto, menor erro de estimação da frequência relativa.</span>
+<span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fissuras em Túnel: Contagem de Ocorrências ao Longo da Extensão</span></span>
+<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a>O número de fissuras por quilômetro de túnel segue uma distribuição de Poisson com taxa $\lambda = 2{,}5$ fissuras/km.</span>
+<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a><span class="in">```{r poisson-fissuras}</span></span>
+<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a>lambda_fissuras <span class="ot">&lt;-</span> <span class="fl">2.5</span></span>
+<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X = 0) em 1 km</span></span>
+<span id="cb21-218"><a href="#cb21-218" aria-hidden="true" tabindex="-1"></a>p3a <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="dv">0</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-220"><a href="#cb21-220" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &gt;= 3) em 1 km</span></span>
+<span id="cb21-221"><a href="#cb21-221" aria-hidden="true" tabindex="-1"></a>p3b <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">2</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a><span class="co"># c) P(1 &lt;= X &lt;= 4) em 1 km</span></span>
+<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a>p3c <span class="ot">&lt;-</span> <span class="fu">ppois</span>(<span class="dv">4</span>, <span class="at">lambda =</span> lambda_fissuras) <span class="sc">-</span> <span class="fu">ppois</span>(<span class="dv">0</span>, <span class="at">lambda =</span> lambda_fissuras)</span>
+<span id="cb21-225"><a href="#cb21-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Em 2 km, lambda dobra (propriedade aditiva da Poisson)</span></span>
+<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a>lambda_2km <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> lambda_fissuras</span>
+<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a>p3d <span class="ot">&lt;-</span> <span class="fu">dpois</span>(<span class="dv">5</span>, <span class="at">lambda =</span> lambda_2km)</span>
+<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a><span class="co"># e) Esperança e variância (1 km)</span></span>
+<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a>E3 <span class="ot">&lt;-</span> lambda_fissuras</span>
+<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a>Var3 <span class="ot">&lt;-</span> lambda_fissuras</span>
+<span id="cb21-233"><a href="#cb21-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-234"><a href="#cb21-234" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(0 fissuras, 1 km)"</span>, <span class="st">"P(≥ 3 fissuras, 1 km)"</span>, <span class="st">"P(1 a 4 fissuras, 1 km)"</span>,</span>
+<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a>               <span class="st">"P(5 fissuras, 2 km)"</span>, <span class="st">"E[X] = Var(X), 1 km"</span>),</span>
+<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p3a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3b, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3c, <span class="fl">0.01</span>), <span class="fu">percent</span>(p3d, <span class="fl">0.01</span>), <span class="fu">round</span>(E3, <span class="dv">2</span>))</span>
+<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a>A probabilidade de um quilômetro de túnel não apresentar nenhuma fissura é de <span class="in">`r percent(p3a, 0.01)`</span>, enquanto a probabilidade de um trecho "crítico", com 3 ou mais fissuras por quilômetro, é de <span class="in">`r percent(p3b, 0.01)`</span> — relevante para priorizar quais trechos devem receber inspeção estrutural mais detalhada. A faixa mais provável, de 1 a 4 fissuras por quilômetro, concentra <span class="in">`r percent(p3c, 0.01)`</span> de probabilidade, caracterizando o comportamento "típico" esperado ao longo da obra. Um ponto notável é o item (d): ao dobrar a extensão analisada para 2 km, o parâmetro $\lambda$ também dobra (propriedade aditiva da distribuição de Poisson), de modo que a probabilidade de observar exatamente 5 fissuras nesse trecho mais longo passa a ser <span class="in">`r percent(p3d, 0.01)`</span> — um lembrete importante de que a taxa de ocorrência de um fenômeno de Poisson deve sempre ser reescalada corretamente em função do comprimento (ou área, ou tempo) considerado, sob pena de subestimar o risco em trechos mais extensos. Por fim, o fato de a esperança e a variância coincidirem (<span class="in">`r round(E3,2)`</span>) é uma propriedade característica da distribuição de Poisson, que pode inclusive ser usada como um teste informal de adequação do modelo aos dados reais de campo.</span>
+<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confiabilidade de Equipamentos: Tempo até a Falha da Betoneira</span></span>
+<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a>O tempo até a falha de uma betoneira, em horas, segue uma distribuição Exponencial com tempo médio de 200 horas, o que corresponde a uma taxa de falha $\beta = 1/200$ falhas por hora.</span>
+<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r exponencial-betoneira}</span></span>
+<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a>media_betoneira <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a>taxa_betoneira <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> media_betoneira</span>
+<span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &gt; 250)</span></span>
+<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>p4a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pexp</span>(<span class="dv">250</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(X &lt; 100)</span></span>
+<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a>p4b <span class="ot">&lt;-</span> <span class="fu">pexp</span>(<span class="dv">100</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Tempo mediano até a falha</span></span>
+<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a>p4c <span class="ot">&lt;-</span> <span class="fu">qexp</span>(<span class="fl">0.5</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Falta de memória: P(X &gt; 150+100 | X &gt; 150) = P(X &gt; 100)</span></span>
+<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a>p4d <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pexp</span>(<span class="dv">100</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &gt; 250 h)"</span>, <span class="st">"P(X &lt; 100 h)"</span>, <span class="st">"Mediana"</span>, <span class="st">"P(mais 100h | já operou 150h)"</span>),</span>
+<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p4a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p4b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p4c, <span class="dv">1</span>), <span class="st">" h"</span>), <span class="fu">percent</span>(p4d, <span class="fl">0.01</span>))</span>
+<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>A probabilidade de a betoneira ultrapassar 250 horas de operação sem falhar é de <span class="in">`r percent(p4a, 0.01)`</span>, enquanto a probabilidade de uma falha precoce, antes de 100 horas, é de <span class="in">`r percent(p4b, 0.01)`</span> — informação direta para o dimensionamento de manutenção preventiva. O tempo mediano até a falha, de <span class="in">`r round(p4c,1)`</span> horas, é menor que a média de 200 horas, como é característico de distribuições assimétricas à direita como a Exponencial. O item (d) explora a propriedade da **falta de memória**: a probabilidade de a betoneira durar pelo menos mais 100 horas, dado que já operou 150 horas sem falhar, é de `r percent(p4d, 0.01)` — exatamente igual à probabilidade de uma betoneira **nova** durar mais de 100 horas. Do ponto de vista prático, essa propriedade significa que o histórico de uso de um equipamento (desde que não haja desgaste acumulado, hipótese da Exponencial) não reduz nem aumenta seu risco de falha iminente, o que tem implicações diretas para a política de manutenção: sob esse modelo, não há ganho em substituir preventivamente um equipamento apenas por ele já ter operado por muito tempo, situação que mudaria caso o tempo até a falha seguisse uma distribuição com taxa de falha crescente, como a Weibull discutida a seguir.</span>
+<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r exponencial-simulacao}</span></span>
+<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograma de 1.000 tempos de falha simulados e curva de densidade teórica Exponencial(β = 1/200)."</span></span>
+<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>x_betoneira <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="dv">1000</span>, <span class="at">rate =</span> taxa_betoneira)</span>
+<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_betoneira, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"navajowhite"</span>,</span>
+<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Tempo até a Falha da Betoneira: Simulado x Teórico"</span>,</span>
+<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Tempo até a falha (horas)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> taxa_betoneira), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a>A forma fortemente assimétrica à direita do histograma simulado, com a maior concentração de observações em tempos curtos e uma cauda longa em direção a tempos de falha elevados, é a assinatura visual característica da distribuição Exponencial, confirmando a adequação do modelo adotado.</span>
+<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a><span class="fu">### Capacidade de Suporte do Solo: Variabilidade Geotécnica da Fundação</span></span>
+<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a>A capacidade de suporte do solo de fundação, em kPa, é modelada por uma distribuição Weibull com parâmetro de forma $k=2$ e parâmetro de escala $\lambda = 150$ kPa.</span>
+<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a><span class="in">```{r weibull-solo}</span></span>
+<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>forma_solo <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a>escala_solo <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &lt; 100)</span></span>
+<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a>p5a <span class="ot">&lt;-</span> <span class="fu">pweibull</span>(<span class="dv">100</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(120 &lt; X &lt; 200)</span></span>
+<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a>p5b <span class="ot">&lt;-</span> <span class="fu">pweibull</span>(<span class="dv">200</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo) <span class="sc">-</span></span>
+<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pweibull</span>(<span class="dv">120</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 90</span></span>
+<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a>p5c <span class="ot">&lt;-</span> <span class="fu">qweibull</span>(<span class="fl">0.90</span>, <span class="at">shape =</span> forma_solo, <span class="at">scale =</span> escala_solo)</span>
+<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Média e desvio padrão (via função gama)</span></span>
+<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a>media_solo <span class="ot">&lt;-</span> escala_solo <span class="sc">*</span> <span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>forma_solo)</span>
+<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a>var_solo <span class="ot">&lt;-</span> escala_solo<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (<span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">/</span>forma_solo) <span class="sc">-</span> <span class="fu">gamma</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>forma_solo)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a>dp_solo <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(var_solo)</span>
+<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(X &lt; 100 kPa)"</span>, <span class="st">"P(120 &lt; X &lt; 200 kPa)"</span>, <span class="st">"Percentil 90%"</span>, <span class="st">"Média"</span>, <span class="st">"Desvio padrão"</span>),</span>
+<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p5a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p5b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p5c, <span class="dv">1</span>), <span class="st">" kPa"</span>),</span>
+<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a>            <span class="fu">paste0</span>(<span class="fu">round</span>(media_solo, <span class="dv">1</span>), <span class="st">" kPa"</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(dp_solo, <span class="dv">1</span>), <span class="st">" kPa"</span>))</span>
+<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a>A probabilidade de um ponto de sondagem apresentar capacidade de suporte inferior a 100 kPa é de <span class="in">`r percent(p5a, 0.01)`</span> — um valor que, dependendo da carga de projeto da fundação, pode indicar a necessidade de reforço ou de fundação profunda localizada. A faixa intermediária de 120 a 200 kPa concentra <span class="in">`r percent(p5b, 0.01)`</span> de probabilidade, intervalo que provavelmente orientou a escolha da capacidade de suporte admissível adotada em projeto. O percentil 90% (<span class="in">`r round(p5c,1)`</span> kPa) é particularmente útil para fins de projeto conservador: apenas 10% dos pontos do terreno devem apresentar capacidade de suporte acima desse valor, de modo que ele representa um limite superior pouco otimista para dimensionamento. A média de <span class="in">`r round(media_solo,1)`</span> kPa e o desvio padrão de <span class="in">`r round(dp_solo,1)`</span> kPa — obtidos pela função gama, e não por uma fórmula fechada simples como na Normal — evidenciam por que a Weibull, apesar de mais trabalhosa analiticamente, é preferida a modelos mais simples quando se deseja capturar o comportamento assimétrico e heterogêneo típico da capacidade de suporte de solos naturais.</span>
+<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-316"><a href="#cb21-316" aria-hidden="true" tabindex="-1"></a><span class="in">```{r weibull-risco}</span></span>
+<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Função de risco (hazard) da capacidade de suporte do solo, Weibull(k = 2, λ = 150)."</span></span>
+<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.1</span>, <span class="dv">300</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a>hazard <span class="ot">&lt;-</span> (forma_solo <span class="sc">/</span> escala_solo) <span class="sc">*</span> (x_seq <span class="sc">/</span> escala_solo)<span class="sc">^</span>(forma_solo <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x_seq, hazard, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"darkgreen"</span>, <span class="at">lwd =</span> <span class="dv">2</span>,</span>
+<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de Risco (Hazard) da Capacidade de Suporte do Solo"</span>,</span>
+<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Capacidade de suporte (kPa)"</span>, <span class="at">ylab =</span> <span class="st">"Taxa de risco instantânea"</span>)</span>
+<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a>Como o parâmetro de forma é $k=2&gt;1$, a função de risco é **crescente** com a capacidade de suporte analisada: fisicamente, isso não deve ser lido como "quanto maior a capacidade de suporte, maior o risco de falha", mas sim como uma propriedade matemática da cauda da distribuição Weibull usada aqui para representar a variabilidade espacial do solo — a leitura de engenharia mais relevante é que, por se tratar de uma Weibull com $k&gt;1$, a distribuição se concentra de forma mais previsível em torno de sua média do que uma Exponencial equivalente ($k=1$), o que é compatível com um solo heterogêneo, mas não caótico, cuja caracterização geotécnica por sondagens pontuais é, ainda assim, representativa do maciço como um todo.</span>
+<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a><span class="fu">### Precipitação Diária na Estação Chuvosa: Planejamento Hidrológico</span></span>
+<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a>A precipitação diária, em mm, durante a estação chuvosa é modelada por uma distribuição Gama com parâmetro de forma $\alpha = 3$ e taxa $\beta = 0{,}5$.</span>
+<span id="cb21-331"><a href="#cb21-331" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-332"><a href="#cb21-332" aria-hidden="true" tabindex="-1"></a><span class="in">```{r gama-precipitacao}</span></span>
+<span id="cb21-333"><a href="#cb21-333" aria-hidden="true" tabindex="-1"></a>forma_chuva <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb21-334"><a href="#cb21-334" aria-hidden="true" tabindex="-1"></a>taxa_chuva <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb21-335"><a href="#cb21-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-336"><a href="#cb21-336" aria-hidden="true" tabindex="-1"></a><span class="co"># a) P(X &gt; 10)</span></span>
+<span id="cb21-337"><a href="#cb21-337" aria-hidden="true" tabindex="-1"></a>p6a <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pgamma</span>(<span class="dv">10</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb21-338"><a href="#cb21-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-339"><a href="#cb21-339" aria-hidden="true" tabindex="-1"></a><span class="co"># b) P(5 &lt; X &lt; 15)</span></span>
+<span id="cb21-340"><a href="#cb21-340" aria-hidden="true" tabindex="-1"></a>p6b <span class="ot">&lt;-</span> <span class="fu">pgamma</span>(<span class="dv">15</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva) <span class="sc">-</span></span>
+<span id="cb21-341"><a href="#cb21-341" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pgamma</span>(<span class="dv">5</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb21-342"><a href="#cb21-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-343"><a href="#cb21-343" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Percentil 95 (evento extremo)</span></span>
+<span id="cb21-344"><a href="#cb21-344" aria-hidden="true" tabindex="-1"></a>p6c <span class="ot">&lt;-</span> <span class="fu">qgamma</span>(<span class="fl">0.95</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb21-345"><a href="#cb21-345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-346"><a href="#cb21-346" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Esperança e variância</span></span>
+<span id="cb21-347"><a href="#cb21-347" aria-hidden="true" tabindex="-1"></a>E6 <span class="ot">&lt;-</span> forma_chuva <span class="sc">/</span> taxa_chuva</span>
+<span id="cb21-348"><a href="#cb21-348" aria-hidden="true" tabindex="-1"></a>Var6 <span class="ot">&lt;-</span> forma_chuva <span class="sc">/</span> taxa_chuva<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb21-349"><a href="#cb21-349" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-350"><a href="#cb21-350" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-351"><a href="#cb21-351" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"P(chuva &gt; 10 mm)"</span>, <span class="st">"P(5 &lt; chuva &lt; 15 mm)"</span>, <span class="st">"Percentil 95% (evento extremo)"</span>, <span class="st">"E[X]"</span>, <span class="st">"Var(X)"</span>),</span>
+<span id="cb21-352"><a href="#cb21-352" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(p6a, <span class="fl">0.01</span>), <span class="fu">percent</span>(p6b, <span class="fl">0.01</span>), <span class="fu">paste0</span>(<span class="fu">round</span>(p6c, <span class="dv">1</span>), <span class="st">" mm"</span>), <span class="fu">round</span>(E6, <span class="dv">2</span>), <span class="fu">round</span>(Var6, <span class="dv">2</span>))</span>
+<span id="cb21-353"><a href="#cb21-353" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-354"><a href="#cb21-354" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-355"><a href="#cb21-355" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-356"><a href="#cb21-356" aria-hidden="true" tabindex="-1"></a>Em <span class="in">`r percent(p6a, 0.01)`</span> dos dias de estação chuvosa espera-se precipitação superior a 10 mm, e a faixa intermediária de 5 a 15 mm concentra <span class="in">`r percent(p6b, 0.01)`</span> de probabilidade — ambos valores relevantes para o dimensionamento do sistema de drenagem provisória do canteiro de obras. O percentil 95%, de <span class="in">`r round(p6c,1)`</span> mm, representa o patamar de evento extremo: projetos de drenagem e de desvio do rio durante a construção da PCH costumam ser dimensionados com base nesse tipo de quantil elevado, e não na precipitação média, justamente para absorver os eventos raros, porém intensos, que a cauda direita da distribuição Gama captura adequadamente. A esperança de <span class="in">`r round(E6,2)`</span> mm e a variância de <span class="in">`r round(Var6,2)`</span> resumem o comportamento central e a dispersão da série, mas é o percentil extremo — e não esses dois momentos — que efetivamente orienta decisões de segurança hidrológica.</span>
+<span id="cb21-357"><a href="#cb21-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-358"><a href="#cb21-358" aria-hidden="true" tabindex="-1"></a><span class="in">```{r gama-simulacao}</span></span>
+<span id="cb21-359"><a href="#cb21-359" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Histograma de 365 dias de precipitação diária simulada, Gama(α = 3, β = 0,5)."</span></span>
+<span id="cb21-360"><a href="#cb21-360" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-361"><a href="#cb21-361" aria-hidden="true" tabindex="-1"></a>x_chuva <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">365</span>, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva)</span>
+<span id="cb21-362"><a href="#cb21-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-363"><a href="#cb21-363" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chuva, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">"lightblue"</span>,</span>
+<span id="cb21-364"><a href="#cb21-364" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Precipitação Diária Simulada (1 ano de estação chuvosa)"</span>,</span>
+<span id="cb21-365"><a href="#cb21-365" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Precipitação (mm)"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb21-366"><a href="#cb21-366" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> forma_chuva, <span class="at">rate =</span> taxa_chuva), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb21-367"><a href="#cb21-367" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-368"><a href="#cb21-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-369"><a href="#cb21-369" aria-hidden="true" tabindex="-1"></a>A simulação de um ano hidrológico completo (365 dias) reproduz o perfil assimétrico esperado, com a maioria dos dias concentrando chuvas leves a moderadas e uma cauda à direita representando os eventos de precipitação mais intensa — exatamente o padrão que a escolha da distribuição Gama pretendia capturar.</span>
+<span id="cb21-370"><a href="#cb21-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-371"><a href="#cb21-371" aria-hidden="true" tabindex="-1"></a><span class="fu">### Análise Integrada: Validação por Simulação de Monte Carlo</span></span>
+<span id="cb21-372"><a href="#cb21-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-373"><a href="#cb21-373" aria-hidden="true" tabindex="-1"></a>Para encerrar a análise, retoma-se o cenário da resistência do concreto (Parte 1) e compara-se, com 10.000 simulações, a proporção empírica de valores abaixo de 30 MPa com a probabilidade teórica calculada anteriormente.</span>
+<span id="cb21-374"><a href="#cb21-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-375"><a href="#cb21-375" aria-hidden="true" tabindex="-1"></a><span class="in">```{r monte-carlo-integrado}</span></span>
+<span id="cb21-376"><a href="#cb21-376" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb21-377"><a href="#cb21-377" aria-hidden="true" tabindex="-1"></a>n_sim <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb21-378"><a href="#cb21-378" aria-hidden="true" tabindex="-1"></a>x_mc <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-379"><a href="#cb21-379" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-380"><a href="#cb21-380" aria-hidden="true" tabindex="-1"></a>prop_simulada <span class="ot">&lt;-</span> <span class="fu">mean</span>(x_mc <span class="sc">&lt;</span> <span class="dv">30</span>)</span>
+<span id="cb21-381"><a href="#cb21-381" aria-hidden="true" tabindex="-1"></a>prop_teorica <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">30</span>, <span class="at">mean =</span> mu_concreto, <span class="at">sd =</span> sd_concreto)</span>
+<span id="cb21-382"><a href="#cb21-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-383"><a href="#cb21-383" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb21-384"><a href="#cb21-384" aria-hidden="true" tabindex="-1"></a>  <span class="at">Grandeza =</span> <span class="fu">c</span>(<span class="st">"Proporção simulada (n = 10.000)"</span>, <span class="st">"Probabilidade teórica (Parte 1a)"</span>),</span>
+<span id="cb21-385"><a href="#cb21-385" aria-hidden="true" tabindex="-1"></a>  <span class="at">Valor =</span> <span class="fu">c</span>(<span class="fu">percent</span>(prop_simulada, <span class="fl">0.01</span>), <span class="fu">percent</span>(prop_teorica, <span class="fl">0.01</span>))</span>
+<span id="cb21-386"><a href="#cb21-386" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-387"><a href="#cb21-387" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-388"><a href="#cb21-388" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-389"><a href="#cb21-389" aria-hidden="true" tabindex="-1"></a>Com <span class="in">`r format(n_sim, big.mark = ".")`</span> repetições, a proporção simulada de valores abaixo de 30 MPa — <span class="in">`r percent(prop_simulada, 0.01)`</span> — converge para muito próximo do valor teórico de <span class="in">`r percent(prop_teorica, 0.01)`</span> obtido pela função <span class="in">`pnorm()`</span>, ilustrando na prática a Lei dos Grandes Números: à medida que o número de simulações cresce, a frequência relativa observada se aproxima da probabilidade teórica do modelo. Esse tipo de validação cruzada é especialmente valioso em engenharia quando o modelo teórico é mais complexo (como a Weibull ou a Gama utilizadas neste relatório) e uma simulação de Monte Carlo serve como verificação independente de que os cálculos analíticos — e as suposições sobre os parâmetros do modelo — estão corretos, antes de serem usados para apoiar decisões de projeto com implicações de segurança e custo.</span>
+<span id="cb21-390"><a href="#cb21-390" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-391"><a href="#cb21-391" aria-hidden="true" tabindex="-1"></a><span class="fu">## 🧠 Considerações Finais</span></span>
+<span id="cb21-392"><a href="#cb21-392" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-393"><a href="#cb21-393" aria-hidden="true" tabindex="-1"></a>Os seis fenômenos analisados neste relatório mostram que não existe uma distribuição de probabilidade "universal" para a engenharia civil: cada característica do fenômeno — se é contínua ou discreta, se tem um número fixo de tentativas ou uma taxa de ocorrência, se o risco de falha cresce ou se mantém constante com o tempo, se a cauda é mais ou menos pesada — aponta para uma família de distribuições diferente. A resistência do concreto, resultado da soma de muitas pequenas fontes de variação, ajustou-se bem ao modelo Normal; a contagem de estacas defeituosas em um número fixo de peças, ao modelo Binomial; as fissuras distribuídas ao longo da extensão do túnel, ao modelo de Poisson; o tempo até a falha de um equipamento sem desgaste acumulado, à Exponencial e sua propriedade de falta de memória; a capacidade de suporte do solo e a precipitação diária, por apresentarem assimetria e necessidade de capturar valores extremos, às distribuições Weibull e Gama, respectivamente.</span>
+<span id="cb21-394"><a href="#cb21-394" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-395"><a href="#cb21-395" aria-hidden="true" tabindex="-1"></a>Em todos os casos, a simulação de Monte Carlo confirmou a adequação dos cálculos analíticos, reforçando que o par "teoria + simulação" é mais robusto do que qualquer um dos dois isoladamente: a teoria fornece precisão e interpretação fechada (como a propriedade da falta de memória da Exponencial, ou a igualdade entre média e variância da Poisson), enquanto a simulação oferece uma verificação independente, intuitiva e facilmente comunicável a um público não especialista. Do ponto de vista da gestão do projeto da PCH, a modelagem probabilística apresentada permite migrar de decisões baseadas em valores pontuais (uma única amostra de concreto, uma única sondagem de solo) para decisões baseadas em risco quantificado — seja ele a probabilidade de rejeição de um lote de estacas, o percentil de projeto da capacidade de suporte do solo, ou o quantil de precipitação extrema que dimensiona a drenagem da obra —, o que é, em última análise, o objetivo central de se aplicar estatística e probabilidade à engenharia civil.</span>
+<span id="cb21-396"><a href="#cb21-396" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-397"><a href="#cb21-397" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📖 Referências</span></span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
